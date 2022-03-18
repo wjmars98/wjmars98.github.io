@@ -4,7 +4,7 @@
 
 # Site
 title: Mars' Blog
-subtitle: 忠于技术，饥于知识。
+subtitle: "饥于学识，忠于技术。<br> Hungry For Knowledge,<br>Loyal To Technology."
 description: "This is a pure blog to record Mars' private projects, study summaries and career planning."
 keywords: DS/DE, Hadoop, Spark, Hive, Hbase, ML/DL, Java ,etc.
 author: Mars Wang
@@ -40,7 +40,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
