@@ -1,5 +1,5 @@
 ---
-title: Big-Data-Real-Time-Analysis-And-Visualization-System-For-News/
+title: Big-Data-Real-Time-Analysis-And-Visualization-System-For-News
 date: 2022-03-19 19:51:16
 tags:
 - Hadoop
