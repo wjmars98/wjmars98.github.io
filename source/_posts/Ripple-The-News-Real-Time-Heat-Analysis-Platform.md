@@ -32,7 +32,7 @@ Ripple 该平台实现对当前新闻网舆论热点事件的实时可视化分�
 <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/data_flow.png" width=600 >
 
 # 2. 环境配置
-## 1.4 集群资源规划
+## 2.1 集群资源规划
 该项目出于学习目的，比较腾讯云、阿里云、华为云等云服务，选择租用腾讯云的高性能云服务器,由于我们选择同一子网下的三台机器，所以我们只需使用节点的内网ip即可，并且保证了数据传输速度。  
 <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/cloud_machine.png" width=600 >
 三台服务器相关资源的部署规划如图所示:
