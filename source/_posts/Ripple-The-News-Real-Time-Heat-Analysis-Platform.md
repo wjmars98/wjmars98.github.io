@@ -10,7 +10,6 @@ tags:
 - Hbase
 - Spark
 - Hue
-- Mysql
 ---
 Ripple 该平台实现对当前新闻网舆论热点事件的实时可视化分析，主要在[B站:新闻网大数据实时分析可视化系统](https://www.bilibili.com/video/BV1mK411T7WY?p=1)这一项目基础进行进一步改造，使用框架组件包括：Hadoop、Zookeeper、Flume、Kafka、Hive、HBase、Cloudera HUE、Spark、Echart等。
 
@@ -69,9 +68,46 @@ vi /etc/hosts
 下载相关jdk也安装在/opt/modules中，配置/etc/profile环境变量。对于hadoop，有几个关键文件需要配置:
 
 ### 2.2.1 core-site.xml
-> 路径：/opt/modules/hadoop/etc/hadoop
+路径: /opt/modules/hadoop/etc/hadoop
 
-### 2.2.2 hdfs  
+功能:  配置集群全局参数属性，用于定义系统级别的参数，如HDFS URL 、Hadoop的临时目录等
+
+<img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/core-site.png" width=400 >
+
+
+### 2.2.2 hdfs-site.xml
+路径: /opt/modules/hadoop/etc/hadoop/hdfs-site.xml
+
+功能: 配置HDFS组件的属性，如名称节点和数据节点的存放位置、文件副本的个数、文件的读取权限等
+
+<img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/hdfs-site.png" width=400 >
+
+
+### 2.2.3 mapred-site.xml
+路径: /opt/modules/hadoop/etc/hadoop/mapred-site.xml
+
+功能：配置map-reduce组件的属性，包括JobHistory Server 和应用程序参数两部分，如reduce任务的默认个数、任务所能够使用内存的默认上下限等
+
+<img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/mapred-site.png" width=400 >
+
+
+### 2.2.4 yarn-site.xml
+路径: /opt/modules/hadoop/etc/hadoop/yarn-site.xml
+
+功能: 集群资源管理系统参数，配置ResourceManager ，nodeManager的通信端口，web监控端口等
+
+<img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn-site.png" width=400 >
+
+### 2.2.5 hadoop-env.xml
+路径: /opt/modules/hadoop/etc/hadoop/haddop-env.sh
+
+功能: hadoop运行环境,用来定义hadoop运行环境相关的配置信息
+
+<img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/hadoop-env.png" width=400 >
+
+## 2.3 启动集群
+
+
 
 # 附录A：Problem
 
