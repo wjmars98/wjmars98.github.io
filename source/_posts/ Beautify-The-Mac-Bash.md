@@ -3,7 +3,7 @@ title: Beautify The Mac Bash Base on iTerm2 And oh-my-zsh
 date: 2022-04-02 12:34:49
 tags:
 - mac
-- bash
+- zsh
 - iterm2
 ---
 在公司实习需要使用mac电脑来进行工作，其中bash是非常重要的工具，本文也是对bash进行了美化，提升使用的效率。
@@ -101,10 +101,10 @@ ZSH_THEME ="agnoster
 # 4.1 隐藏主机名
 根据3.1可知，zsh的配置信息主要在~/.zshrc这个文件，在该**文件底部增加**下添加
 ```shell
-# 方法一：隐藏主机和用户名
+# * 方法一：隐藏主机和用户名-是笔者选择的方案
 prompt_context() {}
 
-# * 方法二：隐藏主机名-是笔者选择的方案
+# 方法二：隐藏主机名
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
