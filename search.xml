@@ -427,13 +427,24 @@
       </tags>
   </entry>
   <entry>
-    <title>Pyenv</title>
-    <url>/2022/04/02/Pyenv/</url>
+    <title>Brew</title>
+    <url>/2022/03/28/Brew/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Brew</title>
-    <url>/2022/03/28/Brew/</url>
+    <title>iTerm2 + oh my zsh 美化mac的bash终端</title>
+    <url>/2022/04/02/Iterm2/</url>
+    <content><![CDATA[<p>在公司实习需要使用mac电脑来进行工作，其中bash是非常重要的工具，本文也是对bash进行了美化，提升使用的效率。<br>本文采用的方案是利用ITerm2 与 oh-my-zsh来进行美化。</p>
+]]></content>
+      <tags>
+        <tag>mac</tag>
+        <tag>bash</tag>
+        <tag>iterm2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pyenv</title>
+    <url>/2022/04/02/Pyenv/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
