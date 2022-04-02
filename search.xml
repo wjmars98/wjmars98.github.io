@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Beautify The Mac Bash Base on iTerm2 And oh my zsh</title>
+    <title>Beautify The Mac Bash Base on iTerm2 And oh-my-zsh</title>
     <url>/2022/04/02/%20Beautify-The-Mac-Bash/</url>
     <content><![CDATA[<p>在公司实习需要使用mac电脑来进行工作，其中bash是非常重要的工具，本文也是对bash进行了美化，提升使用的效率。<br>本文采用的方案是利用ITerm2 与 oh-my-zsh来进行美化,同时也要将其配置在vscode中。</p>
 <p>在配置的过程中，发现如果路径层级过长，主机名的信息较长，会导致代码容易换行，影响观看。所以选了隐藏路径以及主机名，仅保留当前文件名，效果如图所示：</p>
 <p><img src="/2022/04/02/%20Beautify-The-Mac-Bash/demo.jpg" alt="demo show1"></p>
 <span id="more"></span>
+
+<h1 id="1-Iterm2安装及其陪配置"><a href="#1-Iterm2安装及其陪配置" class="headerlink" title="1. Iterm2安装及其陪配置"></a>1. Iterm2安装及其陪配置</h1><p>手动安装: <a href="https://iterm2.com/">打开Iterm2 的官方网址</a>，下载相应的Iterm2 安装包，并安装。<br>Homebrew安装: 为了方便后期管理，采用homebrew进行安装。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">use brew to install iterm2</span></span><br><span class="line">brew install iTerm2</span><br></pre></td></tr></table></figure>
+
+<p>设置iTerm2为默认的终端</p>
+<center>
+    <img src="/2022/04/02/%20Beautify-The-Mac-Bash/default-iterm2.jpg" width="300">
+</center>
+
+<p>设置iTerm2的字体为 <em>Meslo LG L DZ for powerline</em>，之后vscode的terminal字体也设置为Meslo LG L DZ for powerline。</p>
+<h1 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h1><p><a href="https://iterm2.com/">1. Iterm2官方文档以及下载链接</a></p>
+<p><a href="https://segmentfault.com/a/1190000039834490">2. mac之 iTerm2 + Oh My Zsh 终端安装教程</a></p>
 ]]></content>
       <tags>
         <tag>mac</tag>
@@ -506,7 +518,8 @@
 <p>功能: hadoop运行环境,用来定义hadoop运行环境相关的配置信息</p>
 <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/hadoop-env.png" width="400">
 
-<h2 id="2-3-启动集群"><a href="#2-3-启动集群" class="headerlink" title="2.3 启动集群"></a>2.3 启动集群</h2><h1 id="附录A：Problem"><a href="#附录A：Problem" class="headerlink" title="附录A：Problem"></a>附录A：Problem</h1><h1 id="附录B：参考网站"><a href="#附录B：参考网站" class="headerlink" title="附录B：参考网站"></a>附录B：参考网站</h1><ol>
+<h2 id="2-3-启动集群"><a href="#2-3-启动集群" class="headerlink" title="2.3 启动集群"></a>2.3 启动集群</h2><p><strong>未完待续 | To be continued</strong></p>
+<h1 id="附录A：Problem"><a href="#附录A：Problem" class="headerlink" title="附录A：Problem"></a>附录A：Problem</h1><h1 id="附录B：参考网站"><a href="#附录B：参考网站" class="headerlink" title="附录B：参考网站"></a>附录B：参考网站</h1><ol>
 <li><a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a></li>
 <li><a href="https://hadoop.apache.org/docs/r2.6.5/">Hadoop官方文档</a></li>
 <li><a href="https://archive.apache.org/dist">A.hadoop资源下载</a></li>
