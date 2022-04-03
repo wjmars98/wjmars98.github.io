@@ -49,7 +49,7 @@ date: 2022-03-18 15:26:00
 
 ​		同时还需安装Node.js，Hexo。
 
-```shell
+```bash
 # node.js
 # download from https://nodejs.org/zh-cn/download/
 
@@ -60,13 +60,13 @@ npm install -g hexo-cli
 
 
 <center>
-    <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/build_repository.png" width=600 >
+    <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/build_repository.png" width=80%  >
 </center>
 
 
 
 <center>
-     <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/ssh-key.png" width=600 >
+     <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/ssh-key.png" width=80%  >
 </center>
 
 
@@ -77,7 +77,7 @@ npm install -g hexo-cli
 
 ​		首先, 需要创建项目，利用指令
 
-```shell
+```bash
 # hexo init {name}
 # 我的项目名为wjmars98
 hexo init wjmars98
@@ -88,19 +88,19 @@ hexo init wjmars98
 
 
 <center>
-     <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/file_structure.png" width=600 >
+     <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/file_structure.png" width=80%  >
 </center>
 
 ​		第二，需要将Hexo编译成HTML文件，调用指令
 
-```shell
+```bash
 # 编译形成HTML文件
 hexo generate
 ```
 
 输出结果里面包含了 js、css、font 等内容，处在了项目根目录下的 public 文件夹下面，随后利用Hexo提供的Server服务，将其在本地运行起来
 
-```html
+```bash
 # 启动hexo服务器
 hexo server
 ```
@@ -110,13 +110,13 @@ hexo server
 
 
 <center>
-     <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/hexo_server.png" width=600 >
+     <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/hexo_server.png" width=80%  >
 </center>
 
 
 
 <center>
-     <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/localhost.png" width=600 >
+     <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/localhost.png" width=80%  >
 </center>
 
 
@@ -125,7 +125,7 @@ hexo server
 
 ​		为了便利后面的操作，我们将部署的shell脚本写在 *deploy.sh* 的脚本文件上
 
-``` shell
+``` bash
 # deploy.sh 文件
 hexo clean
 hexo generate
@@ -138,7 +138,7 @@ hexo deploy
 
 ​		在部署之前，我们还需要修改部署文件细节。打开根目录下的 _config.yml 文件，找到 Deployment 这个地方，把刚才新建的 Repository 的地址贴过来，然后指定分支为 master 分支，最终修改为如下内容：
 
-``` shell
+``` bash
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
@@ -150,7 +150,7 @@ deploy:
 
 还需安装支持 Git 的部署插件，名字叫做 hexo-deployer-git，然后才能顺利部署到Github上
 
-``` shell
+``` bash
 # 插件安装
 npm install hexo-deployer-git --save
 
@@ -162,7 +162,7 @@ sh deploy.sh
 ```
 
 <center>
-     <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/deploy.png" width=600 >
+     <img src="./A-Private-Blog-Built-By-Github-Hexo-Next/deploy.png" width=80%  >
 </center>
 
 ​		此时打开https://wjmars98.github.io 便可以打开网站。
@@ -175,7 +175,7 @@ sh deploy.sh
 
 ​		首先是wjmars98文件夹的文件树:
 
-``` shell
+``` bash
     .
     ├── _config.yml # 网站的 配置 信息，您可以在此配置大部分的参数
     ├── package.json # 应用程序的信息。
@@ -302,7 +302,7 @@ date: 2013/7/13 20:46:25
 
 ​		我们选择框架在themes文件夹下，文件树如图所示:
 
-```shell
+```bash
 .
 ├── _config.yml # 主题的配置文件。
 ├── languages	# 语言文件夹

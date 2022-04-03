@@ -13,7 +13,7 @@ categories:
 > - Homebrew installs packages to their own directory and then symlinks their files into /usr/local (on macOS Intel).
 > - It’s all Git and Ruby underneath, so hack away with the knowledge that you can easily revert your modifications and merge upstream updates.
 <center>
-  <img src="./Homebrew/logo.png" >
+  <img src="./Homebrew/logo.png" width=80%  >
 </center>
 
 <!--more-->
@@ -30,19 +30,22 @@ Homebrew使用GitHub，通过用户的贡献扩大对软件包的支持。2012�
 ## homebrew的安装
 
 1. 调用安装指令
-```shell
-# 下载安装脚本
+```bash
+#下载安装脚本
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # 安装路径
 # curl 安装路径
 cd /usr/local/Homebrew
 ```
-<img src="./Homebrew/homebrew_path.jpg">
+<center>
+  <img src="./Homebrew/homebrew_path.jpg" width=80% >
+</center>
 
 如果在国内，使用brew会有一定的限制，可以选择换源,确保homebrew的使用。
 > *笔者国内的公司可以合法访问外网，所以并未进行相应的换源。*
-```shell
+
+```bash
 # 1. 替换为清华镜像源
 cd "$(brew --repo)"
 git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
@@ -89,7 +92,7 @@ brew 另一个好处可以管理软件的升级。
 
 # 软件安装
 1. 安装CLI软件以curl为例
-```shell
+```bash
 # homebrew 安装curl
 brew install curl
 ```
@@ -102,13 +105,17 @@ brew install curl
 > To clarify: The "Cellar" directory is a location that Homebrew made up for its own use. (The name fits with Homebrew's "beer" theme: the "cellar" is where you store your "kegs" of "homebrew".) No other software uses it. So if you don't need Homebrew and the programs you installed using Homebrew, you can delete Cellar.
 
  2. 安装GUI软件以有道词典为例:
-```shell
+```bash
 # homebrew 安装有道词典
 brew install --cask youdaodict
 ```
-<img src="./Homebrew/youdaodict.jpg">
+<center>
+  <img src="./Homebrew/youdaodict.jpg"  width=80% >
+</center>
 
-<img src="./Homebrew/youdaologo.jpg">
+<center>
+  <img src="./Homebrew/youdaologo.jpg" width=80% >
+  </center>
 
 # brew 常用方法
 - 安装软件: brew install git

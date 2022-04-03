@@ -19,7 +19,7 @@ categories:
 # 1. Iterm2安装及其陪配置
 手动安装: [打开Iterm2 的官方网址](https://iterm2.com/)，下载相应的Iterm2 安装包，并安装。
 Homebrew安装: 为了方便后期管理，采用homebrew进行安装。
-```shell
+```bash
 # use brew to install iterm2
 brew install iTerm2
 ```
@@ -27,7 +27,7 @@ brew install iTerm2
 设置iTerm2为默认的终端
 
 <center>
-    <img src="./%20Beautify-The-Mac-Bash/default-iterm2.jpg" width=300 >
+    <img src="./%20Beautify-The-Mac-Bash/default-iterm2.jpg" width=80% >
 </center>
 
 设置iTerm2的字体为 *Meslo LG L DZ for powerline*，之后vscode的terminal字体也设置为*Meslo LG L DZ for powerline*。
@@ -48,7 +48,7 @@ brew install iTerm2
 其中，用户社区网站"Oh My Zsh"收集Z shell的第三方插件及主题。
 
 本文也是利用oh-my-zsh来美化oh-my-zsh，利用如下指令进行安装，
-``` shell
+``` bash
 # curl 安装
 export REMOTE=https://gitee.com/imirror/ohmyzsh.git
 sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/ohmyzsh/ohmyzsh/tools/install.sh)"
@@ -63,7 +63,7 @@ sh -c "$(fetch -o - https://cdn.jsdelivr.net/gh/ohmyzsh/ohmyzsh/tools/install.sh
 ```
 安装界面如下：
 <center>
-<img src="./%20Beautify-The-Mac-Bash/oh-my-zsh安装.jpg">
+<img src="./%20Beautify-The-Mac-Bash/oh-my-zsh安装.jpg" width=80% >
 </center>
 
 # 3. 主题配置
@@ -76,7 +76,7 @@ oh-my-zsh主题很多，其中 *agnoster* 是比较常用的主题，本文也�
 ZSH_THEME ="agnoster
 ```
 <center>
-<img src="./%20Beautify-The-Mac-Bash/ZSH_THEME.jpg">
+<img src="./%20Beautify-The-Mac-Bash/ZSH_THEME.jpg" width=80% >
 </center>
 
 # 3.2  字体安装与配置
@@ -85,16 +85,16 @@ ZSH_THEME ="agnoster
 配置完字体之后，打开iTerm -> Preferences -> Profiles -> Text -> Change Font，选择Meslo LG S Regular for Powerline。
 
 <center>
-    <img src="./%20Beautify-The-Mac-Bash/iterm-pref.jpg", height = 300>
+    <img src="./%20Beautify-The-Mac-Bash/iterm-pref.jpg", width=80% >
 </center>
 
 
 <center>
-    <img src="./%20Beautify-The-Mac-Bash/zsh-font.jpg", height = 300>
+    <img src="./%20Beautify-The-Mac-Bash/zsh-font.jpg", width=80% >
 </center>
 
 <center>
-    <img src="./%20Beautify-The-Mac-Bash/zsh-demo.jpg", height = 300>
+    <img src="./%20Beautify-The-Mac-Bash/zsh-demo.jpg", width=80% >
 </center>
 
 # 4. 优化zsh
@@ -102,7 +102,7 @@ ZSH_THEME ="agnoster
 
 # 4.1 隐藏主机名
 根据3.1可知，zsh的配置信息主要在~/.zshrc这个文件，在该**文件底部增加**下添加
-```shell
+```bash
 # * 方法一：隐藏主机和用户名-是笔者选择的方案
 prompt_context() {}
 
@@ -126,15 +126,12 @@ source ~/.zshrc
 
 # 4.2 隐藏层级路径，保留当前路径
 
-在路径~/.oh-my-zsh/themes/agnoster.zsh-theme 下，
-打开后找到prompt_dir() {}这个函数，然后将prompt_segment blue black '%~'
-最后面的~改为c即可：prompt_segment blue black '%c', 
-最后调用指令 source ~/.zshrc, 完成刷新。
+在路径 /Users/username/.oh-my-zsh/themes/agnoster.zsh-theme 下，打开后找到prompt_dir() {}这个函数，然后将prompt_segment blue black '%~' , 最后面的波浪线改为c即可：prompt_segment blue black '%c',。
 
-实现了保留用户名以及当前层级用户。
+最后调用指令 source /User/username/.zshrc, 完成刷新，实现了保留用户名以及当前层级用户。
 
 <center>
-    <img src="./%20Beautify-The-Mac-Bash/hide-host-name.jpg",>
+    <img src="./%20Beautify-The-Mac-Bash/hide-host-name.jpg", width=80% >
 </center>
 
 # 5. 插件
@@ -155,7 +152,7 @@ source ~/.zshrc
 
 # 6. vscode 配置
 在vscode中有可能会出现乱码的情况，这是因为终端的字体没有设置好。在设置搜索中，打开setting.json文件，加入
-```shell
+```bash
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.fontFamily": "Meslo LG L DZ for Powerline",
 ```
