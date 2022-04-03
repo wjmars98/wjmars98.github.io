@@ -91,6 +91,9 @@
 <p><a href="https://www.jianshu.com/p/ee442cb4d6c2">5. Bash shell &#x2F; Zsh 里修改前缀 (隐藏用户@主机，添加Git分支名称)</a></p>
 <p><a href="https://www.ioiox.com/archives/34.html">6.macOS使用oh-my-zsh美化Terminal,iTerm2,VSCode命令行终端配置教程</a></p>
 ]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
       <tags>
         <tag>mac</tag>
         <tag>zsh</tag>
@@ -525,8 +528,27 @@
   </entry>
   <entry>
     <title>Brew</title>
-    <url>/2022/03/28/Brew/</url>
-    <content><![CDATA[]]></content>
+    <url>/2022/03/28/Homebrew/</url>
+    <content><![CDATA[<p>在使用mac系统的时候，和win 的一个区别在于sofeware的安装，要将从int下载下来的包，拽入app store中，安装在指定的位置。后来发现mac中存在一个工具——homebrew，能有效的帮助用户下载和管理相应的应用软件。本文也是记录下一些常用的homebrew的用法，提高homebrew的使用。</p>
+<blockquote>
+<p>What Does Homebrew Do?</p>
+<ul>
+<li>Homebrew installs the stuff you need that Apple (or your Linux system) didn’t.</li>
+<li>Homebrew installs packages to their own directory and then symlinks their files into &#x2F;usr&#x2F;local (on macOS Intel).</li>
+<li>It’s all Git and Ruby underneath, so hack away with the knowledge that you can easily revert your modifications and merge upstream updates.</li>
+</ul>
+</blockquote>
+<center>
+  <img src="/2022/03/28/Homebrew/logo.png">
+</center>
+
+<span id="more"></span>]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
+      </tags>
   </entry>
   <entry>
     <title>Pyenv</title>
@@ -597,6 +619,9 @@
 <li><a href="http://archive.cloudera.com/cdh5">B.hadoop资源下载</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>Private Projects</category>
+      </categories>
       <tags>
         <tag>Hadoop</tag>
         <tag>Zookepper</tag>
