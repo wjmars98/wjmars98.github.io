@@ -29,5 +29,6 @@ pyenv和virtualenv。前者用于管理不同的Python版本，后者用 于管�
 
 
 
+
 # 参考文档
 [pyenv-官方文档](https://github.com/pyenv/pyenv)
