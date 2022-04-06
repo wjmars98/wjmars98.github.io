@@ -30,8 +30,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/04/05/SSL/SSL%20encrypted.jpg">
 <meta property="og:image" content="http://example.com/2022/04/05/SSL/TLS.jpg">
+<meta property="og:image" content="http://example.com/2022/04/05/SSL/asymmetric.jpg">
 <meta property="article:published_time" content="2022-04-05T10:48:57.000Z">
-<meta property="article:modified_time" content="2022-04-05T15:19:13.445Z">
+<meta property="article:modified_time" content="2022-04-06T01:40:23.391Z">
 <meta property="article:author" content="Mars Wang">
 <meta property="article:tag" content="SSL">
 <meta name="twitter:card" content="summary">
@@ -219,10 +220,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-04-05 18:48:57 / 修改时间：23:19:13" itemprop="dateCreated datePublished" datetime="2022-04-05T18:48:57+08:00">2022-04-05</time>
+              <time title="创建时间：2022-04-05 18:48:57" itemprop="dateCreated datePublished" datetime="2022-04-05T18:48:57+08:00">2022-04-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-06 09:40:23" itemprop="dateModified" datetime="2022-04-06T09:40:23+08:00">2022-04-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -298,7 +305,21 @@
 <li>服务器就绪</li>
 <li>实现安全对称加密</li>
 </ol>
+<h2 id="密码套件"><a href="#密码套件" class="headerlink" title="密码套件"></a>密码套件</h2><p>密码套件是一组用于建立安全通信连接的加密算法。（加密算法是对数据执行的一组数学运算，以使数据显得随机。）广泛使用的密码套件有多种，而且 TLS 握手的一个重要组成部分就是对这个握手使用哪一密码套件达成一致意见。</p>
+<h2 id="使用会话密钥的对称加密"><a href="#使用会话密钥的对称加密" class="headerlink" title="使用会话密钥的对称加密"></a>使用会话密钥的对称加密</h2><p>与非对称加密不同，在对称加密中，会话中的两方使用相同的密钥。TLS 握手后，双方使用相同的会话密钥进行加密。一旦使用了会话密钥，就不再使用公钥和私钥。会话密钥是临时密钥，会话终止后便不再使用。下一会话需要创建一组新的随机会话密钥。</p>
+<center>
+        <img src="/2022/04/05/SSL/asymmetric.jpg" , width="80%">
+</center>
+
+
+<h1 id="验证源站服务器身份"><a href="#验证源站服务器身份" class="headerlink" title="验证源站服务器身份"></a>验证源站服务器身份</h1><p>来自服务器的 TLS 通信包括消息身份验证码或 MAC，它是用于确认通信源自实际网站的数字签名。这将对服务器进行身份验证，从而防止在途攻击和域欺骗。它还确保数据在传输过程中没有被篡改。</p>
+<h1 id="什么是-SSL-证书？"><a href="#什么是-SSL-证书？" class="headerlink" title="什么是 SSL 证书？"></a>什么是 SSL 证书？</h1><p>SSL 证书是网站的源服务器上安装的文件。它只是一个数据文件，包含公钥和网站所有者身份以及其他信息。如果没有 SSL 证书，就无法使用 TLS 来加密网站的流量。</p>
+<p>从技术上讲，任何网站所有者都可以创建自己的 SSL 证书，这些证书称为自签名证书。但是，浏览器不认为自签名证书像证书颁发机构颁发的 SSL 证书一样值得信赖。</p>
+<h1 id="网站如何获得-SSL-证书？"><a href="#网站如何获得-SSL-证书？" class="headerlink" title="网站如何获得 SSL 证书？"></a>网站如何获得 SSL 证书？</h1><p>网站所有者需要从证书颁发机构获取 SSL 证书，然后将其安装到自己的 Web 服务器上（通常 Web 主机可以处理此过程）。证书颁发机构是一个外部方，可以确认网站所有者是他们所称的身份。他们保留所颁发证书的副本。</p>
+<h1 id="HTTP-和-HTTPS-有什么区别？"><a href="#HTTP-和-HTTPS-有什么区别？" class="headerlink" title="HTTP 和 HTTPS 有什么区别？"></a>HTTP 和 HTTPS 有什么区别？</h1><p>“HTTPS”中的 S 代表“安全”。HTTPS 只是具有 SSL&#x2F;TLS 的 HTTP。拥有 HTTPS 地址的网站具有由证书颁发机构颁发的合法 SSL 证书，并且使用 SSL&#x2F;TLS 协议对往返于该网站的流量进行身份验证和加密。</p>
+<p>为了鼓励整个互联网转向更安全的 HTTPS，许多 Web 浏览器已开始将 HTTP 网站标记为“不安全”。因此，HTTPS 不仅对于确保用户和用户数据的安全至关重要，而且对于建立与用户的信任也至关重要。测试网站的 SSL&#x2F;HTTPS 问题。</p>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://www.cloudflare.com/zh-cn/learning/ssl/what-is-ssl/">1. Cloudflare 什么是ssl</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cloudflare.com/zh-cn/learning/ssl/what-happens-in-a-tls-handshake/">2. TLS握手</a></p>
 
     </div>
 
@@ -379,7 +400,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-SSL"><span class="nav-number">1.</span> <span class="nav-text">What is SSL?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TLS-%E6%8F%A1%E6%89%8B"><span class="nav-number">1.1.</span> <span class="nav-text">TLS 握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TLS%E6%8F%A1%E6%89%8B%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88"><span class="nav-number">1.2.</span> <span class="nav-text">TLS握手会发生什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TLS%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.3.</span> <span class="nav-text">TLS步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diffie-Hellman-%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B"><span class="nav-number">1.4.</span> <span class="nav-text">Diffie-Hellman 握手过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">2.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-SSL"><span class="nav-number">1.</span> <span class="nav-text">What is SSL?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TLS-%E6%8F%A1%E6%89%8B"><span class="nav-number">1.1.</span> <span class="nav-text">TLS 握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TLS%E6%8F%A1%E6%89%8B%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88"><span class="nav-number">1.2.</span> <span class="nav-text">TLS握手会发生什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TLS%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.3.</span> <span class="nav-text">TLS步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diffie-Hellman-%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B"><span class="nav-number">1.4.</span> <span class="nav-text">Diffie-Hellman 握手过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%A5%97%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">密码套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BC%9A%E8%AF%9D%E5%AF%86%E9%92%A5%E7%9A%84%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="nav-number">1.6.</span> <span class="nav-text">使用会话密钥的对称加密</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E6%BA%90%E7%AB%99%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BA%AB%E4%BB%BD"><span class="nav-number">2.</span> <span class="nav-text">验证源站服务器身份</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-SSL-%E8%AF%81%E4%B9%A6%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">什么是 SSL 证书？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97-SSL-%E8%AF%81%E4%B9%A6%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">网站如何获得 SSL 证书？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-%E5%92%8C-HTTPS-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">HTTP 和 HTTPS 有什么区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
