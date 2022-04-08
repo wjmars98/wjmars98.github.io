@@ -10,7 +10,7 @@ categories:
 
 在处理实习的业务需求的时候，涉及到ssl公钥私钥部分的相关知识。本文用以记录与ssl相关的基础知识及其应用。
 <center>
-        <img src="./SSL/SSL encrypted.jpg" width=80%>
+        <img src="./SSL/SSL encrypted.jpg" width=60%>
 </center>
 
 <!-- more -->
