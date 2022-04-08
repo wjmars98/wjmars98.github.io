@@ -626,26 +626,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux Fragments</title>
-    <url>/2022/04/08/Linux-Fragments/</url>
-    <content><![CDATA[<p>This article is used to record some knowledge fragments when using linux.</p>
-<span id="more"></span>
-
-<h1 id="bin-和-sbin-的区别"><a href="#bin-和-sbin-的区别" class="headerlink" title="bin 和 sbin 的区别"></a>bin 和 sbin 的区别</h1><p>&#x2F;bin目录（binary）是二进制执行文件目录，主要用于具体应用</p>
-<p>&#x2F;sbin目录（system binary）是系统管理员专用的二进制代码存放目录，主要用于系统管理</p>
-<p>bin是binary的缩写，是可执行的二进制文件。&#x2F;bin里面一般是基本的，大家都要用的工具；sbin里面的s是system的意思，是供system administrator使用的工具。</p>
-<blockquote>
-<p>在hadoop中，&#x2F;bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；&#x2F;sbin 目录存放启动或停止Hadoop相关服务的脚本</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Basic</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Pyenv</title>
     <url>/2022/04/02/Pyenv/</url>
     <content><![CDATA[<p>在python编程的过程中，经常需要在2.x 与  3.x 中进行切换，2和3两个版本间差异巨大，需要进行管理。</p>
@@ -696,6 +676,26 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux Fragments</title>
+    <url>/2022/04/08/Linux-Fragments/</url>
+    <content><![CDATA[<p>This article is used to record some knowledge fragments when using linux.</p>
+<span id="more"></span>
+
+<h1 id="bin-和-sbin-的区别"><a href="#bin-和-sbin-的区别" class="headerlink" title="bin 和 sbin 的区别"></a>bin 和 sbin 的区别</h1><p>&#x2F;bin目录（binary）是二进制执行文件目录，主要用于具体应用</p>
+<p>&#x2F;sbin目录（system binary）是系统管理员专用的二进制代码存放目录，主要用于系统管理</p>
+<p>bin是binary的缩写，是可执行的二进制文件。&#x2F;bin里面一般是基本的，大家都要用的工具；sbin里面的s是system的意思，是供system administrator使用的工具。</p>
+<blockquote>
+<p>在hadoop中，&#x2F;bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；&#x2F;sbin 目录存放启动或停止Hadoop相关服务的脚本</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Basic</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ripple--The News Real Time Heat Analysis Platform</title>
     <url>/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/</url>
     <content><![CDATA[<p>Ripple 该平台实现对当前新闻网舆论热点事件的实时可视化分析，主要在<a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a>这一项目基础进行进一步改造，使用框架组件包括：Hadoop、Zookeeper、Flume、Kafka、Hive、HBase、Cloudera HUE、Spark、Echart等。</p>
@@ -732,7 +732,7 @@
 <p>完成ssh免密登录之后，由于ip地址相对难以记忆，通过修改&#x2F;etc&#x2F;hosts中的映射关系，这样能够方便再服务期间传输文件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 利用如下指令,在hosts末尾中添加ip映射</span></span><br><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
 <center>
-  <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/ssh.png" width="80%">
+  <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/ssh.png">
 </center>
 <br>
 
@@ -767,13 +767,15 @@
 
 <h3 id="2-2-3-mapred-site-xml"><a href="#2-2-3-mapred-site-xml" class="headerlink" title="2.2.3 mapred-site.xml"></a>2.2.3 mapred-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;mapred-site.xml</p>
 <p>功能：配置map-reduce组件的属性，包括JobHistory Server 和应用程序参数两部分，如reduce任务的默认个数、任务所能够使用内存的默认上下限等</p>
-<img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/mapred-site.png" width="400">
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/mapred-site.png" width="80%">
+</center>
 
 
 <h3 id="2-2-4-yarn-site-xml"><a href="#2-2-4-yarn-site-xml" class="headerlink" title="2.2.4 yarn-site.xml"></a>2.2.4 yarn-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;yarn-site.xml</p>
 <p>功能: 集群资源管理系统参数，配置ResourceManager ，nodeManager的通信端口，web监控端口等</p>
 <center>
-  <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn-site.png" width="80%">
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn-site.png" width="80%">
 </center>
 
 <h3 id="2-2-5-hadoop-env-xml"><a href="#2-2-5-hadoop-env-xml" class="headerlink" title="2.2.5 hadoop-env.xml"></a>2.2.5 hadoop-env.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;haddop-env.sh</p>
@@ -782,12 +784,28 @@
     <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/hadoop-env.png" width="80%">
 </center>
 
-<h2 id="2-3-启动集群"><a href="#2-3-启动集群" class="headerlink" title="2.3 启动集群"></a>2.3 启动集群</h2><p><strong>未完待续 | To be continued</strong></p>
+<h2 id="2-3-启动集群"><a href="#2-3-启动集群" class="headerlink" title="2.3 启动集群"></a>2.3 启动集群</h2><p>在2.2节中对hadoop文件夹下的bin与sbin进行了说明</p>
+<blockquote>
+<ul>
+<li>&#x2F;bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；</li>
+<li>&#x2F;sbin 目录存放启动或停止Hadoop相关服务的脚本</li>
+</ul>
+</blockquote>
+<p>在启动集群的时候，主要调用&#x2F;sbin中的函数。</p>
+<p>首先,在<strong>第一次启动</strong>集群的时候，我们需要对Namenode进行格式化。</p>
+<h3 id="2-3-1-NameNode的格式化"><a href="#2-3-1-NameNode的格式化" class="headerlink" title="2.3.1 NameNode的格式化"></a>2.3.1 NameNode的格式化</h3><p><strong>为什么需要格式化</strong></p>
+<p>Hadoop NameNode是HDFS文件系统的集中位置，它保存文件系统中所有文件的目录树，并跟踪整个集群中文件数据的保存位置。简而言之，它将元数据与datanode保持相关。当我们格式化namenode时，它会<strong>格式化与数据节点相关的元数据</strong>。通过这样做，所有关于datanode的信息都将丢失，它们可以用于新数据。</p>
+<p><strong>如何格式化</strong><br>格式化NameNode前，先关闭掉NameNode节点和DataNode节点，然后一定要删除hadoop目录下的data文件夹和log日志文件夹。最后再进行格式化。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hadoop namenode -format</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>未完待续 | To be continued</strong></p>
 <h1 id="附录A：Problem"><a href="#附录A：Problem" class="headerlink" title="附录A：Problem"></a>附录A：Problem</h1><h1 id="附录B：参考网站"><a href="#附录B：参考网站" class="headerlink" title="附录B：参考网站"></a>附录B：参考网站</h1><ol>
 <li><a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a></li>
 <li><a href="https://hadoop.apache.org/docs/r2.6.5/">Hadoop官方文档</a></li>
 <li><a href="https://archive.apache.org/dist">A.hadoop资源下载</a></li>
 <li><a href="http://archive.cloudera.com/cdh5">B.hadoop资源下载</a></li>
+<li><a href="https://intellipaat.com/community/161/what-exactly-is-hadoop-namenode-formatting">What exactly is hadoop namenode formatting?</a></li>
 </ol>
 ]]></content>
       <categories>
