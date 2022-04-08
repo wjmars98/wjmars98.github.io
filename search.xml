@@ -852,7 +852,8 @@
 <p>YARN是Apache的一个开源项目，它的意思是“另一个资源协商者”。它是一个Hadoop集群管理器，负责分配资源(如cpu、内存、磁盘和网络)，用于跨Hadoop集群调度和监控作业。</p>
 <center>
         <img src="/2022/04/08/Yarn/yarn_logo.png" , width="80%">
-</center>]]></content>
+</center>
+<span id="more"></span>]]></content>
       <categories>
         <category>Big Data</category>
       </categories>
