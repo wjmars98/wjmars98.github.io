@@ -58,7 +58,7 @@ Ripple 该平台实现对当前新闻网舆论热点事件的实时可视化分�
 vi /etc/hosts
 ```
 <center>
-  <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/ssh.png" width=80% >
+  <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/ssh.png">
 </center>
 <br>
 
@@ -112,7 +112,9 @@ vi /etc/hosts
 
 功能：配置map-reduce组件的属性，包括JobHistory Server 和应用程序参数两部分，如reduce任务的默认个数、任务所能够使用内存的默认上下限等
 
-<img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/mapred-site.png" width=400 >
+<center>
+    <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/mapred-site.png" width=80% >
+</center>
 
 
 ### 2.2.4 yarn-site.xml
@@ -121,7 +123,7 @@ vi /etc/hosts
 功能: 集群资源管理系统参数，配置ResourceManager ，nodeManager的通信端口，web监控端口等
 
 <center>
-  <img src="./  Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn-site.png" width=80%  >
+    <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn-site.png" width=80% >
 </center>
 
 ### 2.2.5 hadoop-env.xml
@@ -134,6 +136,28 @@ vi /etc/hosts
 </center>
 
 ## 2.3 启动集群
+在2.2节中对hadoop文件夹下的bin与sbin进行了说明
+> - /bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；
+> -  /sbin 目录存放启动或停止Hadoop相关服务的脚本
+
+在启动集群的时候，主要调用/sbin中的函数。
+
+首先,在**第一次启动**集群的时候，我们需要对Namenode进行格式化。
+
+### 2.3.1 NameNode的格式化
+**为什么需要格式化**
+
+Hadoop NameNode是HDFS文件系统的集中位置，它保存文件系统中所有文件的目录树，并跟踪整个集群中文件数据的保存位置。简而言之，它将元数据与datanode保持相关。当我们格式化namenode时，它会**格式化与数据节点相关的元数据**。通过这样做，所有关于datanode的信息都将丢失，它们可以用于新数据。
+
+
+
+**如何格式化**
+格式化NameNode前，先关闭掉NameNode节点和DataNode节点，然后一定要删除hadoop目录下的data文件夹和log日志文件夹。最后再进行格式化。
+
+```bash
+hadoop namenode -format
+```
+
 
 **未完待续 | To be continued**
 
@@ -145,6 +169,7 @@ vi /etc/hosts
 2. [Hadoop官方文档](https://hadoop.apache.org/docs/r2.6.5/)
 3. [A.hadoop资源下载](https://archive.apache.org/dist)
 4. [B.hadoop资源下载](http://archive.cloudera.com/cdh5)
+5. [What exactly is hadoop namenode formatting?](https://intellipaat.com/community/161/what-exactly-is-hadoop-namenode-formatting)
 
 
 
