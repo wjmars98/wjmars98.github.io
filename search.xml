@@ -626,6 +626,56 @@
       </tags>
   </entry>
   <entry>
+    <title>Pyenv</title>
+    <url>/2022/04/02/Pyenv/</url>
+    <content><![CDATA[<p>在python编程的过程中，经常需要在2.x 与  3.x 中进行切换，2和3两个版本间差异巨大，需要进行管理。</p>
+<p>pyenv是一个forked自ruby社区的简单、低调、遵循UNIX哲学的Python环境管理工具, 它可以轻松切换全局解释器版本, 同时结合vitualenv插件可以方便的管理对应的包源.</p>
+<p>pyenv和virtualenv。前者用于管理不同的Python版本，后者用 于管理不同的工作环境，能够极好得解决我们工作学习中遇到的python版本环境控制问题。</p>
+<span id="more"></span>
+
+<h1 id="Pyenv简介"><a href="#Pyenv简介" class="headerlink" title="Pyenv简介"></a>Pyenv简介</h1><p>如前言所言，pyenv允许用户在不同版本的python中切换。pyenv基于rbenv进行开发，由ruby语言进行编程，为python而准备的。</p>
+<h2 id="Pyenv-用处"><a href="#Pyenv-用处" class="headerlink" title="Pyenv 用处"></a>Pyenv 用处</h2><ol>
+<li>允许用户更改全局python的版本</li>
+<li>为每个python版本都提供支持</li>
+<li>允许使用环境变量重写python版本</li>
+<li>有助于使用 tox 跨 Python 版本进行测试</li>
+</ol>
+<h2 id="Pyenv-不允许"><a href="#Pyenv-不允许" class="headerlink" title="Pyenv 不允许"></a>Pyenv 不允许</h2><ol>
+<li>pyenv是由shell 脚本编写的，不存在python的引导问题。</li>
+<li>需要将把pyenv安装目录载入到环境中。</li>
+<li>pyenv无法管理虚拟环境，但是可以利用 virtualenv或者 pyenv-virtualenv实现。</li>
+</ol>
+<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>pyenv 就是使用了中间层的原理来实现的的，即 shims&#x2F;垫片。</p>
+<h2 id="初始化-pyenv"><a href="#初始化-pyenv" class="headerlink" title="初始化 pyenv"></a>初始化 pyenv</h2><p>安装 pyenv 后，需要在当前 shell 的配置文件（bash 为 ~&#x2F;.bashrc，zsh 为 ~&#x2F;.zshrc 等等）中增加相应命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/data/sammyshen/.pyenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv init -)</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv virtualenv-init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这几个命令在每次登陆 shell 时，会更改 PATH 环境变量，将 pyenv 的路径加入到 PATH 环境变量前面。</p>
+<h2 id="shims-x2F-垫片的简化基本原理"><a href="#shims-x2F-垫片的简化基本原理" class="headerlink" title="shims&#x2F;垫片的简化基本原理"></a>shims&#x2F;垫片的简化基本原理</h2><p>Linux 执行命令时，是依次遍历 PATH 环境变量的每个路径，查找所执行的命令。当在某个目录下找到第一个匹配时即停止遍历，所以 PATH 环境变量中，前面的路径比后面的路径具有更高的优先级。</p>
+<p>pyenv 在 <del>&#x2F;.pyenv&#x2F;shims 目录下创建了各种 python 相关命令的垫片（</del>&#x2F;.bashrc 中加入的命令调用 pyenv-rehash 生成的，pyenv install 命令也会调用 pyenv-rehash 进行更新）</p>
+<center>
+        <img src="/2022/04/02/Pyenv/shim.jpg">
+</center>
+
+<p>从脚本内容可以看出，当我们执行某个命令 program “param1” “param2” ……时，实际执行的是 pyenv exec “program” “param1” “param2” ……。</p>
+<p>例如执行 python -V，实际执行的是 pyenv exec python -V。</p>
+<h2 id="确定版本号"><a href="#确定版本号" class="headerlink" title="确定版本号"></a>确定版本号</h2><p>在 pyenv-exec 命令中，首先会调用 pyenv-version-name 确定 python 版本或虚拟环境版本，具体查找规则为：</p>
+<center>
+        <img src="/2022/04/02/Pyenv/Pyenv 确定版本号.jpg" width="80%">
+</center>
+
+<h2 id="确定与版本号对应的可执行文件"><a href="#确定与版本号对应的可执行文件" class="headerlink" title="确定与版本号对应的可执行文件"></a>确定与版本号对应的可执行文件</h2><p>在 pyenv-exec 命令中，会再调用 pyenv-which 确定可执行文件 program 的路径。如果前面 pyenv-version-name 确定了 python 版本或虚拟环境版本，则使用 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;bin&#x2F;&lt;程序名&gt; 或 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;env&#x2F;&lt;虚拟环境名&gt;&#x2F;bin&#x2F;&lt;程序名&gt;，否则遍历所有版本号的安装路径，按顺序取第一个匹配到的可执行文件。</p>
+<h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><p>确定与版本号对应的可执行文件路径 path 之后，执行以下命令：<br>exec -a program “$path” “param1” “param2” ……</p>
+<p>（注：即执行 “$path” “param1” “param2”，并使用 program 作为程序名，程序名即 shell 中的 $0，python 中的 sys.argv0）<br>例如执行 python -V，确定 pyenv 版本为 2.7.17，对应可执行文件为 ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python，则执行命令为：<br>exec -a python ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python -V<br>以上就是 pyenv 执行命令的基本原理了。</p>
+<h1 id="pyenv常用指令"><a href="#pyenv常用指令" class="headerlink" title="pyenv常用指令"></a>pyenv常用指令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建新的环境,位于 ~/.pyenv/versions/</span></span><br><span class="line">$ pyenv virtualenv 2.7.1 env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到新的环境</span></span><br><span class="line">$ pyenv activate env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退回到系统环境</span></span><br><span class="line">$ pyenv deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除新创建的环境</span></span><br><span class="line">$ <span class="built_in">rm</span> -rf ~/.pyenv/versions/env271/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前 pyenv 可检测到的所有版本，处于激活状态的版本前以 * 标示。</span></span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">* 3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line">  3.5.1/envs/flask_py351</span><br><span class="line">  3.5.1/envs/pelican</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前处于激活状态的版本，括号中内容表示这个版本是由哪条途径激活的（global、local、shell）</span></span><br><span class="line">$ pyenv version</span><br><span class="line">3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python-build（一个插件） 安装一个 Python 版本，到 $PYENV_ROOT/versions 路径下。</span></span><br><span class="line">$ pyenv install -v 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">$ pyenv uninstall 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为所有已安装的可执行文件 （如：~/.pyenv/versions/*/bin/*） 创建 shims，</span></span><br><span class="line"><span class="comment"># 因此，每当你增删了 Python 版本或带有可执行文件的包（如 pip）以后，都应该执行一次本命令</span></span><br><span class="line">$ pyenv <span class="built_in">rehash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置全局的 Python 版本，通过将版本号写入 ~/.pyenv/version 文件的方式。</span></span><br><span class="line">$ pyenv global 3.4.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向程序的本地版本，通过将版本号写入当前目录下的 .python-version 文件的方式。</span></span><br><span class="line"><span class="comment"># 通过这种方式设置的 Python 版本优先级较 global 高。pyenv 会从当前目录开始向上逐级查找 .python-version 文件，直到根目录为止。</span></span><br><span class="line"><span class="comment">#若找不到，就用 global 版本。</span></span><br><span class="line">$ pyenv <span class="built_in">local</span> 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向 shell 的 Python 版本，通过设置当前 shell 的 PYENV_VERSION 环境变量的方式。</span></span><br><span class="line"><span class="comment"># 这个版本的优先级比 local 和 global 都要高。--unset 参数可以用于取消当前 shell 设定的版本。</span></span><br><span class="line">$ pyenv shell pypy-2.2.1</span><br><span class="line">$ pyenv shell --<span class="built_in">unset</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://github.com/pyenv/pyenv">1. pyenv-官方文档</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1593478">2. pyenv神器原理分析</a></p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ripple--The News Real Time Heat Analysis Platform</title>
     <url>/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/</url>
     <content><![CDATA[<p>Ripple 该平台实现对当前新闻网舆论热点事件的实时可视化分析，主要在<a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a>这一项目基础进行进一步改造，使用框架组件包括：Hadoop、Zookeeper、Flume、Kafka、Hive、HBase、Cloudera HUE、Spark、Echart等。</p>
@@ -723,61 +773,11 @@
       </tags>
   </entry>
   <entry>
-    <title>Pyenv</title>
-    <url>/2022/04/02/Pyenv/</url>
-    <content><![CDATA[<p>在python编程的过程中，经常需要在2.x 与  3.x 中进行切换，2和3两个版本间差异巨大，需要进行管理。</p>
-<p>pyenv是一个forked自ruby社区的简单、低调、遵循UNIX哲学的Python环境管理工具, 它可以轻松切换全局解释器版本, 同时结合vitualenv插件可以方便的管理对应的包源.</p>
-<p>pyenv和virtualenv。前者用于管理不同的Python版本，后者用 于管理不同的工作环境，能够极好得解决我们工作学习中遇到的python版本环境控制问题。</p>
-<span id="more"></span>
-
-<h1 id="Pyenv简介"><a href="#Pyenv简介" class="headerlink" title="Pyenv简介"></a>Pyenv简介</h1><p>如前言所言，pyenv允许用户在不同版本的python中切换。pyenv基于rbenv进行开发，由ruby语言进行编程，为python而准备的。</p>
-<h2 id="Pyenv-用处"><a href="#Pyenv-用处" class="headerlink" title="Pyenv 用处"></a>Pyenv 用处</h2><ol>
-<li>允许用户更改全局python的版本</li>
-<li>为每个python版本都提供支持</li>
-<li>允许使用环境变量重写python版本</li>
-<li>有助于使用 tox 跨 Python 版本进行测试</li>
-</ol>
-<h2 id="Pyenv-不允许"><a href="#Pyenv-不允许" class="headerlink" title="Pyenv 不允许"></a>Pyenv 不允许</h2><ol>
-<li>pyenv是由shell 脚本编写的，不存在python的引导问题。</li>
-<li>需要将把pyenv安装目录载入到环境中。</li>
-<li>pyenv无法管理虚拟环境，但是可以利用 virtualenv或者 pyenv-virtualenv实现。</li>
-</ol>
-<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>pyenv 就是使用了中间层的原理来实现的的，即 shims&#x2F;垫片。</p>
-<h2 id="初始化-pyenv"><a href="#初始化-pyenv" class="headerlink" title="初始化 pyenv"></a>初始化 pyenv</h2><p>安装 pyenv 后，需要在当前 shell 的配置文件（bash 为 ~&#x2F;.bashrc，zsh 为 ~&#x2F;.zshrc 等等）中增加相应命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/data/sammyshen/.pyenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv init -)</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv virtualenv-init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>这几个命令在每次登陆 shell 时，会更改 PATH 环境变量，将 pyenv 的路径加入到 PATH 环境变量前面。</p>
-<h2 id="shims-x2F-垫片的简化基本原理"><a href="#shims-x2F-垫片的简化基本原理" class="headerlink" title="shims&#x2F;垫片的简化基本原理"></a>shims&#x2F;垫片的简化基本原理</h2><p>Linux 执行命令时，是依次遍历 PATH 环境变量的每个路径，查找所执行的命令。当在某个目录下找到第一个匹配时即停止遍历，所以 PATH 环境变量中，前面的路径比后面的路径具有更高的优先级。</p>
-<p>pyenv 在 <del>&#x2F;.pyenv&#x2F;shims 目录下创建了各种 python 相关命令的垫片（</del>&#x2F;.bashrc 中加入的命令调用 pyenv-rehash 生成的，pyenv install 命令也会调用 pyenv-rehash 进行更新）</p>
-<center>
-        <img src="/2022/04/02/Pyenv/shim.jpg">
-</center>
-
-<p>从脚本内容可以看出，当我们执行某个命令 program “param1” “param2” ……时，实际执行的是 pyenv exec “program” “param1” “param2” ……。</p>
-<p>例如执行 python -V，实际执行的是 pyenv exec python -V。</p>
-<h2 id="确定版本号"><a href="#确定版本号" class="headerlink" title="确定版本号"></a>确定版本号</h2><p>在 pyenv-exec 命令中，首先会调用 pyenv-version-name 确定 python 版本或虚拟环境版本，具体查找规则为：</p>
-<center>
-        <img src="/2022/04/02/Pyenv/Pyenv 确定版本号.jpg" width="80%">
-</center>
-
-<h2 id="确定与版本号对应的可执行文件"><a href="#确定与版本号对应的可执行文件" class="headerlink" title="确定与版本号对应的可执行文件"></a>确定与版本号对应的可执行文件</h2><p>在 pyenv-exec 命令中，会再调用 pyenv-which 确定可执行文件 program 的路径。如果前面 pyenv-version-name 确定了 python 版本或虚拟环境版本，则使用 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;bin&#x2F;&lt;程序名&gt; 或 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;env&#x2F;&lt;虚拟环境名&gt;&#x2F;bin&#x2F;&lt;程序名&gt;，否则遍历所有版本号的安装路径，按顺序取第一个匹配到的可执行文件。</p>
-<h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><p>确定与版本号对应的可执行文件路径 path 之后，执行以下命令：<br>exec -a program “$path” “param1” “param2” ……</p>
-<p>（注：即执行 “$path” “param1” “param2”，并使用 program 作为程序名，程序名即 shell 中的 $0，python 中的 sys.argv0）<br>例如执行 python -V，确定 pyenv 版本为 2.7.17，对应可执行文件为 ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python，则执行命令为：<br>exec -a python ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python -V<br>以上就是 pyenv 执行命令的基本原理了。</p>
-<h1 id="pyenv常用指令"><a href="#pyenv常用指令" class="headerlink" title="pyenv常用指令"></a>pyenv常用指令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建新的环境,位于 ~/.pyenv/versions/</span></span><br><span class="line">$ pyenv virtualenv 2.7.1 env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到新的环境</span></span><br><span class="line">$ pyenv activate env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退回到系统环境</span></span><br><span class="line">$ pyenv deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除新创建的环境</span></span><br><span class="line">$ <span class="built_in">rm</span> -rf ~/.pyenv/versions/env271/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前 pyenv 可检测到的所有版本，处于激活状态的版本前以 * 标示。</span></span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">* 3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line">  3.5.1/envs/flask_py351</span><br><span class="line">  3.5.1/envs/pelican</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前处于激活状态的版本，括号中内容表示这个版本是由哪条途径激活的（global、local、shell）</span></span><br><span class="line">$ pyenv version</span><br><span class="line">3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python-build（一个插件） 安装一个 Python 版本，到 $PYENV_ROOT/versions 路径下。</span></span><br><span class="line">$ pyenv install -v 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">$ pyenv uninstall 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为所有已安装的可执行文件 （如：~/.pyenv/versions/*/bin/*） 创建 shims，</span></span><br><span class="line"><span class="comment"># 因此，每当你增删了 Python 版本或带有可执行文件的包（如 pip）以后，都应该执行一次本命令</span></span><br><span class="line">$ pyenv <span class="built_in">rehash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置全局的 Python 版本，通过将版本号写入 ~/.pyenv/version 文件的方式。</span></span><br><span class="line">$ pyenv global 3.4.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向程序的本地版本，通过将版本号写入当前目录下的 .python-version 文件的方式。</span></span><br><span class="line"><span class="comment"># 通过这种方式设置的 Python 版本优先级较 global 高。pyenv 会从当前目录开始向上逐级查找 .python-version 文件，直到根目录为止。</span></span><br><span class="line"><span class="comment">#若找不到，就用 global 版本。</span></span><br><span class="line">$ pyenv <span class="built_in">local</span> 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向 shell 的 Python 版本，通过设置当前 shell 的 PYENV_VERSION 环境变量的方式。</span></span><br><span class="line"><span class="comment"># 这个版本的优先级比 local 和 global 都要高。--unset 参数可以用于取消当前 shell 设定的版本。</span></span><br><span class="line">$ pyenv shell pypy-2.2.1</span><br><span class="line">$ pyenv shell --<span class="built_in">unset</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://github.com/pyenv/pyenv">1. pyenv-官方文档</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1593478">2. pyenv神器原理分析</a></p>
-]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SSL</title>
     <url>/2022/04/05/SSL/</url>
     <content><![CDATA[<p>在处理实习的业务需求的时候，涉及到ssl公钥私钥部分的相关知识。本文用以记录与ssl相关的基础知识及其应用。</p>
 <center>
-        <img src="/2022/04/05/SSL/SSL encrypted.jpg" width="80%">
+        <img src="/2022/04/05/SSL/SSL encrypted.jpg" width="60%">
 </center>
 
 <span id="more"></span>
@@ -843,6 +843,21 @@
       </categories>
       <tags>
         <tag>SSL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Yarn</title>
+    <url>/2022/04/08/Yarn/</url>
+    <content><![CDATA[<p>YARN is an open source Apache project that stands for “Yet Another Resource Negotiator”. It is a Hadoop cluster manager that is responsible for allocating resources (such as cpu, memory, disk and network), for scheduling &amp; monitoring jobs across the Hadoop cluster.</p>
+<p>YARN是Apache的一个开源项目，它的意思是“另一个资源协商者”。它是一个Hadoop集群管理器，负责分配资源(如cpu、内存、磁盘和网络)，用于跨Hadoop集群调度和监控作业。</p>
+<center>
+        <img src="/2022/04/08/Yarn/yarn_logo.png" , width="80%">
+</center>]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>yarn</tag>
       </tags>
   </entry>
 </search>
