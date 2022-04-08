@@ -76,6 +76,17 @@ vi /etc/hosts
 ```
 在[A.hadoop资源下载](https://archive.apache.org/dist)中，-> hadoop -> core ->   hadoop-2.6.5.tar.gz，下载相关资源，并下载在software，最终解压至/opt/modules/，重命名为hadoop。
 
+其中hadoop文件夹中的各文件及其功能如图所示:
+<center>
+    <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/Hadoop_安装目录.png", width=80%>
+</center>
+
+- /bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；
+- /etc 目录存放Hadoop的配置文件
+- /lib 目录存放Hadoop的本地库（对数据进行压缩解压缩功能）
+- /sbin 目录存放启动或停止Hadoop相关服务的脚本
+- /share 目录存放Hadoop的依赖jar包、文档、和官方案例
+
 下载相关jdk也安装在/opt/modules中，配置/etc/profile环境变量。对于hadoop，有几个关键文件需要配置:
 
 ### 2.2.1 core-site.xml
