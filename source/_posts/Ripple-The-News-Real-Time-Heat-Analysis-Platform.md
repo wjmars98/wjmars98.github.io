@@ -256,6 +256,8 @@ bin/yarn jar share/hadoop/mapreduce/hadoop-examples-2.6.5 wordcount 数据源目
 
 至此，hdfs与yarn的集群启动完毕。
 
+## 2.3 zookeeper
+
 
 
 
