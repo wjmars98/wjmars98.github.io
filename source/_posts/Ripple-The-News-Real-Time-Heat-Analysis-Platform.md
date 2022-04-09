@@ -232,7 +232,29 @@ java.io.IOException: All specified directories are failed to load.
     bin/hdfs namenode -format
     ```
  
-#### 启动情况
+#### 启动测试
+利用yarn集群运行mapreduce程序，来测试hdfs与yarn是否正常启动。
+主要代码为：
+```shell
+# 核心代码：利用yarn运行mapreduce程序
+bin/yarn jar share/hadoop/mapreduce/hadoop-examples-2.6.5 wordcount 数据源目录 数据输出目录
+
+# 事例代码
+# hdfs 构建文件夹 -mkdir -p 路径
+ bin/hdfs dfs -mkdir -p /user/ripple/data/input/
+ # 本地文件存入hdfs之中
+ bin/hdfs dfs -put /opt/data/wc.input /user/ripple/data/input/
+ # yarn调用mapreduce 进行wordcount计算
+ bin/yarn jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.5.jar wordcount /user/ripple/data/input/wc.input /user/ripple/data/output/wordcount
+ #  查看运行结果
+ bin/hdfs dfs -text /user/ripple/data/output/wordcount/part*
+```
+
+<center>
+    <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn启动mapreduce.png" width=80%>
+</center>
+
+至此，hdfs与yarn的集群启动完毕。
 
 
 
