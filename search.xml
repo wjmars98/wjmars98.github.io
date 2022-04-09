@@ -610,22 +610,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Internship Summary ASA</title>
-    <url>/2022/04/07/Internship%20Summary%20ASA/</url>
-    <content><![CDATA[<p>本文是为了记录与总结笔者在实习(前10天)中完成的第一个小项目——<strong>ASA(Apple Search Ads)投放数据拉取</strong>.<br>该项目大体由数据拉取、数据清洗、数据存储三个部分构成，笔者在这个项目中，目前实现了每天定时拉取应用数据，对其进行格式化处理，上传至Bigquery数据库中。</p>
-<center>
-    <img src="/2022/04/07/Internship%20Summary%20ASA/asa_logo.jpg" , width="80%">
-</center>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>Intership Summary</category>
-      </categories>
-      <tags>
-        <tag>intership</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux Fragments</title>
     <url>/2022/04/08/Linux-Fragments/</url>
     <content><![CDATA[<p>This article is used to record some knowledge fragments when using linux.</p>
@@ -643,6 +627,22 @@
       </categories>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Internship Summary ASA</title>
+    <url>/2022/04/07/Internship%20Summary%20ASA/</url>
+    <content><![CDATA[<p>本文是为了记录与总结笔者在实习(前10天)中完成的第一个小项目——<strong>ASA(Apple Search Ads)投放数据拉取</strong>.<br>该项目大体由数据拉取、数据清洗、数据存储三个部分构成，笔者在这个项目中，目前实现了每天定时拉取应用数据，对其进行格式化处理，上传至Bigquery数据库中。</p>
+<center>
+    <img src="/2022/04/07/Internship%20Summary%20ASA/asa_logo.jpg" , width="80%">
+</center>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>Intership Summary</category>
+      </categories>
+      <tags>
+        <tag>intership</tag>
       </tags>
   </entry>
   <entry>
@@ -993,6 +993,17 @@
       </categories>
       <tags>
         <tag>yarn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Zookeeper Basic</title>
+    <url>/2022/04/10/Zookeeper-Basic/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>Zookeeper</tag>
       </tags>
   </entry>
 </search>
