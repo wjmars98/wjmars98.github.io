@@ -101,6 +101,89 @@
       </tags>
   </entry>
   <entry>
+    <title>Brew</title>
+    <url>/2022/03/28/Homebrew/</url>
+    <content><![CDATA[<p>在使用mac系统的时候，和win 的一个区别在于sofeware的安装，要将从int下载下来的包，拽入app store中，安装在指定的位置。后来发现mac中存在一个工具——homebrew，能有效的帮助用户下载和管理相应的应用软件。本文也是记录下一些常用的homebrew的用法，提高homebrew的使用。</p>
+<blockquote>
+<p>What Does Homebrew Do?</p>
+<ul>
+<li>Homebrew installs the stuff you need that Apple (or your Linux system) didn’t.</li>
+<li>Homebrew installs packages to their own directory and then symlinks their files into &#x2F;usr&#x2F;local (on macOS Intel).</li>
+<li>It’s all Git and Ruby underneath, so hack away with the knowledge that you can easily revert your modifications and merge upstream updates.</li>
+</ul>
+</blockquote>
+<center>
+  <img src="/2022/03/28/Homebrew/logo.png" width="80%">
+</center>
+
+<span id="more"></span>
+
+<h1 id="What-Is-Homebrew"><a href="#What-Is-Homebrew" class="headerlink" title="What Is Homebrew?"></a>What Is Homebrew?</h1><p>Homebrew: 是一款自由及开放源代码的软件包管理系统，用以简化macOS系统上的软件安装过程，最初由马克斯·霍威尔（Max Howell）写成。因其可扩展性得到了一致好评，而在Ruby on Rails社区广为人知。</p>
+<p>Homebrew使用GitHub，通过用户的贡献扩大对软件包的支持。2012年，Homebrew是GitHub上拥有最多新贡献者的项目。2013年，Homebrew同时成为GitHub上最多贡献者及最多已关闭问题的项目。</p>
+<p>默认安装在&#x2F;usr&#x2F;local，由一个核心git版本库构成，以使用户能更新Homebrew。包管理器使用一种称为“公式”（formula）的DSL脚本来管理依赖、下载源代码及配置和编译软件，从源代码中构建软件。称为“瓶”（bottle）的二进制包是用默认选项预编译好的公式。</p>
+<h1 id="安装、配置与使用流程"><a href="#安装、配置与使用流程" class="headerlink" title="安装、配置与使用流程"></a>安装、配置与使用流程</h1><h2 id="homebrew的安装"><a href="#homebrew的安装" class="headerlink" title="homebrew的安装"></a>homebrew的安装</h2><ol>
+<li>调用安装指令<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#下载安装脚本</span></span><br><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装路径</span></span><br><span class="line"><span class="comment"># curl 安装路径</span></span><br><span class="line"><span class="built_in">cd</span> /usr/local/Homebrew</span><br></pre></td></tr></table></figure>
+<center>
+  <img src="/2022/03/28/Homebrew/homebrew_path.jpg" width="80%">
+</center></li>
+</ol>
+<p>如果在国内，使用brew会有一定的限制，可以选择换源,确保homebrew的使用。</p>
+<blockquote>
+<p><em>笔者国内的公司可以合法访问外网，所以并未进行相应的换源。</em></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. 替换为清华镜像源</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换homebrew-core.git</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新源</span></span><br><span class="line">brew update</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 替换为阿里云源</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换homebrew-core.git</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新源</span></span><br><span class="line">brew update</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 替换为腾讯云源</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.cloud.tencent.com/homebrew/brew.git</span><br><span class="line"></span><br><span class="line">替换homebrew-core.git:</span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.cloud.tencent.com/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新源</span></span><br><span class="line">brew update</span><br></pre></td></tr></table></figure>
+<h1 id="cask"><a href="#cask" class="headerlink" title="cask"></a>cask</h1><p>brew 是从下载源码解压然后 .&#x2F;configure &amp;&amp; make install ，同时会包含相关依存库。并自动配置好各种环境变量，而且易于卸载。 </p>
+<p>brew cask 是 已经编译好了的应用包 （.dmg&#x2F;.pkg），仅仅是下载解压，放在统一的目录中（&#x2F;opt&#x2F;homebrew-cask&#x2F;Caskroom），省掉了自己去下载、解压、拖拽（安装）等蛋疼步骤，同样，卸载相当容易与干净。这个对一般用户来说会比较方便，包含很多在 AppStore 里没有的常用软件。</p>
+<p>也可以理解为，<strong>brew针对CLI程序，brew cask解决GUI程序的安装</strong>。</p>
+<p>brew 另一个好处可以管理软件的升级。</p>
+<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><ol>
+<li>安装CLI软件以curl为例<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># homebrew 安装curl</span></span><br><span class="line">brew install curl</span><br></pre></td></tr></table></figure>
+<img src="/2022/03/28/Homebrew/homebrew_install.jpg"></li>
+</ol>
+<p>可以看到，curl的安装路径在</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/usr/local/Cellar/curl/</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>To clarify: The “Cellar” directory is a location that Homebrew made up for its own use. (The name fits with Homebrew’s “beer” theme: the “cellar” is where you store your “kegs” of “homebrew”.) No other software uses it. So if you don’t need Homebrew and the programs you installed using Homebrew, you can delete Cellar.</p>
+</blockquote>
+<ol start="2">
+<li>安装GUI软件以有道词典为例:<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># homebrew 安装有道词典</span></span><br><span class="line">brew install --cask youdaodict</span><br></pre></td></tr></table></figure>
+<center>
+  <img src="/2022/03/28/Homebrew/youdaodict.jpg" width="80%">
+</center></li>
+</ol>
+<center>
+  <img src="/2022/03/28/Homebrew/youdaologo.jpg" width="80%">
+  </center>
+
+<h1 id="brew-常用方法"><a href="#brew-常用方法" class="headerlink" title="brew 常用方法"></a>brew 常用方法</h1><ul>
+<li>安装软件: brew install git</li>
+<li>卸载软件: brew uninstall git</li>
+<li>搜索软件: brew search git</li>
+<li>显示已经安装软件列表: brew list</li>
+<li>删除旧版本安装包缓存: brew cleanup git、brew cleanup</li>
+<li>查看那些已安装的程序需要更新: brew outdated</li>
+<li>更新软件，把所有的Formula目录更新: brew update</li>
+<li>更新某具体软件: brew upgrade git</li>
+<li>锁定某个软件禁止更新: brew pin git</li>
+<li>解除禁更锁定: brew unpin git</li>
+<li>查看brew存放安装包的缓存地址: brew –cache</li>
+<li>显示安装的服务: brew services list</li>
+<li>启动: brew services start mysql</li>
+<li>停止: brew services stop mysql</li>
+<li>重启: brew services restart mysql</li>
+</ul>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://www.zhihu.com/question/22624898">1. 知乎：brew和brew cask有什么区别？</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/325795191">2. 知乎：homebrew与brew的常用命令</a></p>
+<p><a href="https://brew.sh/">3. homebrew 官方文档</a></p>
+]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>A Private Blog Built By Github + Hexo + NexT</title>
     <url>/2022/03/18/A-Private-Blog-Built-By-Github-Hexo-Next/</url>
     <content><![CDATA[<p>这个私人博客的搭建是基于Github Page创建最基础的个人静态网站，Hexo则是一个快速、简洁且高效的博客框架，利用Markdown进行文章的解析，NexT是其中的一种主题theme，其拓展性优秀，后期能基于该框架与主题进行个性化的修改。基于Github + Hexo + NexT模式的博客在管理方便，实现本地-远程简单部署的同时，也保证了博客网页的美观与整洁。</p>
@@ -613,89 +696,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Brew</title>
-    <url>/2022/03/28/Homebrew/</url>
-    <content><![CDATA[<p>在使用mac系统的时候，和win 的一个区别在于sofeware的安装，要将从int下载下来的包，拽入app store中，安装在指定的位置。后来发现mac中存在一个工具——homebrew，能有效的帮助用户下载和管理相应的应用软件。本文也是记录下一些常用的homebrew的用法，提高homebrew的使用。</p>
-<blockquote>
-<p>What Does Homebrew Do?</p>
-<ul>
-<li>Homebrew installs the stuff you need that Apple (or your Linux system) didn’t.</li>
-<li>Homebrew installs packages to their own directory and then symlinks their files into &#x2F;usr&#x2F;local (on macOS Intel).</li>
-<li>It’s all Git and Ruby underneath, so hack away with the knowledge that you can easily revert your modifications and merge upstream updates.</li>
-</ul>
-</blockquote>
-<center>
-  <img src="/2022/03/28/Homebrew/logo.png" width="80%">
-</center>
-
-<span id="more"></span>
-
-<h1 id="What-Is-Homebrew"><a href="#What-Is-Homebrew" class="headerlink" title="What Is Homebrew?"></a>What Is Homebrew?</h1><p>Homebrew: 是一款自由及开放源代码的软件包管理系统，用以简化macOS系统上的软件安装过程，最初由马克斯·霍威尔（Max Howell）写成。因其可扩展性得到了一致好评，而在Ruby on Rails社区广为人知。</p>
-<p>Homebrew使用GitHub，通过用户的贡献扩大对软件包的支持。2012年，Homebrew是GitHub上拥有最多新贡献者的项目。2013年，Homebrew同时成为GitHub上最多贡献者及最多已关闭问题的项目。</p>
-<p>默认安装在&#x2F;usr&#x2F;local，由一个核心git版本库构成，以使用户能更新Homebrew。包管理器使用一种称为“公式”（formula）的DSL脚本来管理依赖、下载源代码及配置和编译软件，从源代码中构建软件。称为“瓶”（bottle）的二进制包是用默认选项预编译好的公式。</p>
-<h1 id="安装、配置与使用流程"><a href="#安装、配置与使用流程" class="headerlink" title="安装、配置与使用流程"></a>安装、配置与使用流程</h1><h2 id="homebrew的安装"><a href="#homebrew的安装" class="headerlink" title="homebrew的安装"></a>homebrew的安装</h2><ol>
-<li>调用安装指令<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#下载安装脚本</span></span><br><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装路径</span></span><br><span class="line"><span class="comment"># curl 安装路径</span></span><br><span class="line"><span class="built_in">cd</span> /usr/local/Homebrew</span><br></pre></td></tr></table></figure>
-<center>
-  <img src="/2022/03/28/Homebrew/homebrew_path.jpg" width="80%">
-</center></li>
-</ol>
-<p>如果在国内，使用brew会有一定的限制，可以选择换源,确保homebrew的使用。</p>
-<blockquote>
-<p><em>笔者国内的公司可以合法访问外网，所以并未进行相应的换源。</em></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. 替换为清华镜像源</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换homebrew-core.git</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新源</span></span><br><span class="line">brew update</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 替换为阿里云源</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换homebrew-core.git</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新源</span></span><br><span class="line">brew update</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 替换为腾讯云源</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.cloud.tencent.com/homebrew/brew.git</span><br><span class="line"></span><br><span class="line">替换homebrew-core.git:</span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core&quot;</span></span><br><span class="line">git remote set-url origin https://mirrors.cloud.tencent.com/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新源</span></span><br><span class="line">brew update</span><br></pre></td></tr></table></figure>
-<h1 id="cask"><a href="#cask" class="headerlink" title="cask"></a>cask</h1><p>brew 是从下载源码解压然后 .&#x2F;configure &amp;&amp; make install ，同时会包含相关依存库。并自动配置好各种环境变量，而且易于卸载。 </p>
-<p>brew cask 是 已经编译好了的应用包 （.dmg&#x2F;.pkg），仅仅是下载解压，放在统一的目录中（&#x2F;opt&#x2F;homebrew-cask&#x2F;Caskroom），省掉了自己去下载、解压、拖拽（安装）等蛋疼步骤，同样，卸载相当容易与干净。这个对一般用户来说会比较方便，包含很多在 AppStore 里没有的常用软件。</p>
-<p>也可以理解为，<strong>brew针对CLI程序，brew cask解决GUI程序的安装</strong>。</p>
-<p>brew 另一个好处可以管理软件的升级。</p>
-<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><ol>
-<li>安装CLI软件以curl为例<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># homebrew 安装curl</span></span><br><span class="line">brew install curl</span><br></pre></td></tr></table></figure>
-<img src="/2022/03/28/Homebrew/homebrew_install.jpg"></li>
-</ol>
-<p>可以看到，curl的安装路径在</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/usr/local/Cellar/curl/</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>To clarify: The “Cellar” directory is a location that Homebrew made up for its own use. (The name fits with Homebrew’s “beer” theme: the “cellar” is where you store your “kegs” of “homebrew”.) No other software uses it. So if you don’t need Homebrew and the programs you installed using Homebrew, you can delete Cellar.</p>
-</blockquote>
-<ol start="2">
-<li>安装GUI软件以有道词典为例:<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># homebrew 安装有道词典</span></span><br><span class="line">brew install --cask youdaodict</span><br></pre></td></tr></table></figure>
-<center>
-  <img src="/2022/03/28/Homebrew/youdaodict.jpg" width="80%">
-</center></li>
-</ol>
-<center>
-  <img src="/2022/03/28/Homebrew/youdaologo.jpg" width="80%">
-  </center>
-
-<h1 id="brew-常用方法"><a href="#brew-常用方法" class="headerlink" title="brew 常用方法"></a>brew 常用方法</h1><ul>
-<li>安装软件: brew install git</li>
-<li>卸载软件: brew uninstall git</li>
-<li>搜索软件: brew search git</li>
-<li>显示已经安装软件列表: brew list</li>
-<li>删除旧版本安装包缓存: brew cleanup git、brew cleanup</li>
-<li>查看那些已安装的程序需要更新: brew outdated</li>
-<li>更新软件，把所有的Formula目录更新: brew update</li>
-<li>更新某具体软件: brew upgrade git</li>
-<li>锁定某个软件禁止更新: brew pin git</li>
-<li>解除禁更锁定: brew unpin git</li>
-<li>查看brew存放安装包的缓存地址: brew –cache</li>
-<li>显示安装的服务: brew services list</li>
-<li>启动: brew services start mysql</li>
-<li>停止: brew services stop mysql</li>
-<li>重启: brew services restart mysql</li>
-</ul>
-<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://www.zhihu.com/question/22624898">1. 知乎：brew和brew cask有什么区别？</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/325795191">2. 知乎：homebrew与brew的常用命令</a></p>
-<p><a href="https://brew.sh/">3. homebrew 官方文档</a></p>
-]]></content>
-      <categories>
-        <category>Mac</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ripple--The News Real Time Heat Analysis Platform</title>
     <url>/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/</url>
     <content><![CDATA[<p>Ripple 该平台实现对当前新闻网舆论热点事件的实时可视化分析，主要在<a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a>这一项目基础进行进一步改造，使用框架组件包括：Hadoop、Zookeeper、Flume、Kafka、Hive、HBase、Cloudera HUE、Spark、Echart等。</p>
@@ -838,7 +838,15 @@
 <li>方案一：如果hdfs中有数据且不想删除，复制namenode的version文件下的clusterID到各个datanode中的VERSION文件即可。</li>
 <li>方案二：删除所有namnode与datanode的&lt;dfs.datanode.data.dir&gt; 下的文件，然后再重新format  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/hdfs namenode -format</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="启动情况"><a href="#启动情况" class="headerlink" title="启动情况"></a>启动情况</h4><p><strong>未完待续 | To be continued</strong></p>
+<h4 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h4><p>利用yarn集群运行mapreduce程序，来测试hdfs与yarn是否正常启动。<br>主要代码为：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">核心代码：利用yarn运行mapreduce程序</span></span><br><span class="line">bin/yarn jar share/hadoop/mapreduce/hadoop-examples-2.6.5 wordcount 数据源目录 数据输出目录</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">事例代码</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hdfs 构建文件夹 -<span class="built_in">mkdir</span> -p 路径</span></span><br><span class="line"> bin/hdfs dfs -mkdir -p /user/ripple/data/input/</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">本地文件存入hdfs之中</span></span><br><span class="line"> bin/hdfs dfs -put /opt/data/wc.input /user/ripple/data/input/</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">yarn调用mapreduce 进行wordcount计算</span></span><br><span class="line"> bin/yarn jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.5.jar wordcount /user/ripple/data/input/wc.input /user/ripple/data/output/wordcount</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash"> 查看运行结果</span></span><br><span class="line"> bin/hdfs dfs -text /user/ripple/data/output/wordcount/part*</span><br></pre></td></tr></table></figure>
+
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn启动mapreduce.png" width="80%">
+</center>
+
+<p>至此，hdfs与yarn的集群启动完毕。</p>
+<p><strong>未完待续 | To be continued</strong></p>
 <h1 id="附录A：Problem"><a href="#附录A：Problem" class="headerlink" title="附录A：Problem"></a>附录A：Problem</h1><h1 id="附录B：参考网站"><a href="#附录B：参考网站" class="headerlink" title="附录B：参考网站"></a>附录B：参考网站</h1><ol>
 <li><a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a></li>
 <li><a href="https://hadoop.apache.org/docs/r2.6.5/">Hadoop官方文档</a></li>
