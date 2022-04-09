@@ -39,8 +39,12 @@
 <meta property="og:image" content="http://example.com/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/mapred-site.png">
 <meta property="og:image" content="http://example.com/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn-site.png">
 <meta property="og:image" content="http://example.com/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/hadoop-env.png">
+<meta property="og:image" content="http://example.com/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/sbin（存放启停hadoop服务的脚本文件）.png">
+<meta property="og:image" content="http://example.com/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/启动hdfs1.jpg">
+<meta property="og:image" content="http://example.com/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/启动yarn.jpg">
+<meta property="og:image" content="http://example.com/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/Q-datanode启动失败.png">
 <meta property="article:published_time" content="2022-03-19T18:38:36.000Z">
-<meta property="article:modified_time" content="2022-04-08T06:09:49.261Z">
+<meta property="article:modified_time" content="2022-04-09T11:05:21.397Z">
 <meta property="article:author" content="Mars Wang">
 <meta property="article:tag" content="Hadoop">
 <meta property="article:tag" content="Zookepper">
@@ -243,7 +247,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-08 14:09:49" itemprop="dateModified" datetime="2022-04-08T14:09:49+08:00">2022-04-08</time>
+                <time title="修改时间：2022-04-09 19:05:21" itemprop="dateModified" datetime="2022-04-09T19:05:21+08:00">2022-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -371,16 +375,56 @@
 <h3 id="2-3-1-NameNode的格式化"><a href="#2-3-1-NameNode的格式化" class="headerlink" title="2.3.1 NameNode的格式化"></a>2.3.1 NameNode的格式化</h3><p><strong>为什么需要格式化</strong></p>
 <p>Hadoop NameNode是HDFS文件系统的集中位置，它保存文件系统中所有文件的目录树，并跟踪整个集群中文件数据的保存位置。简而言之，它将元数据与datanode保持相关。当我们格式化namenode时，它会<strong>格式化与数据节点相关的元数据</strong>。通过这样做，所有关于datanode的信息都将丢失，它们可以用于新数据。</p>
 <p><strong>如何格式化</strong><br>格式化NameNode前，先关闭掉NameNode节点和DataNode节点，然后一定要删除hadoop目录下的data文件夹和log日志文件夹。最后再进行格式化。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop namenode -format</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hadoop namenode -format</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-2-hdfs-yarn启动"><a href="#2-3-2-hdfs-yarn启动" class="headerlink" title="2.3.2 hdfs, yarn启动"></a>2.3.2 hdfs, yarn启动</h3><h4 id="hdfs启动流程"><a href="#hdfs启动流程" class="headerlink" title="hdfs启动流程"></a>hdfs启动流程</h4><p>在完成NameNode的格式化之后，可以开始启动 hdfs(NameNode, DataNode, SecondaryNameNode) 与 yarn（ResourceManager，NodeManager）。<br>首先，启动hdfs。在2.3中了解，sbin文件夹是用来存储集群启动、关闭等时候调用的文件，其内部主要文件机器功能如下：</p>
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/sbin（存放启停hadoop服务的脚本文件）.png" width="80%">
+</center>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首先启动hdfs</span></span><br><span class="line">sbin/start-dfs.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动yarn</span></span><br><span class="line">sbin/start-yarn.sh</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在ripple1的启动hdfs，yarn情况如下，ripple1，ripple2，ripple3正常启动</p>
+</blockquote>
+<center>
+<img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/启动hdfs1.jpg" width="80%">
+</center>
+
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/启动yarn.jpg" width="80%">
+</center>
 
 
-<p><strong>未完待续 | To be continued</strong></p>
+<h4 id="hdfs启动出现问题"><a href="#hdfs启动出现问题" class="headerlink" title="hdfs启动出现问题"></a>hdfs启动出现问题</h4><p>Q1: sbin&#x2F;start-dfs.sh 后ripple2，ripple3机器datanode没有启动</p>
+<p>A1: datanode与namenode 的clusterid不一致导致。</p>
+<p>查看ripple2的日志。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认在hadoop的路径下</span></span><br><span class="line">tail  -25 log/hadoop-root-datanode*.log</span><br></pre></td></tr></table></figure>
+
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/Q-datanode启动失败.png" width="80%">
+</center>
+
+
+<p>可以看到错误</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">2022-04-09 17:29:29,989 WARN org.apache.hadoop.hdfs.server.common.Storage: java.io.IOException: Incompatible clusterIDs in /tmp/hadoop-root/dfs/data: namenode clusterID = CID-55814a25-a013-48af-ad24-f4689b57728b; datanode clusterID = CID-34619a23-71d3-4112-9ab8-1d39fdbca5ad</span><br><span class="line">2022-04-09 17:29:29,989 FATAL org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block pool &lt;registering&gt; (Datanode Uuid unassigned) service to ripple1/172.17.0.13:9000. Exiting.</span><br><span class="line">java.io.IOException: All specified directories are failed to load.</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:478)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1342)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1308)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:314)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:226)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:867)</span><br><span class="line">	at java.lang.Thread.run(Thread.java:823)</span><br><span class="line">2022-04-09 17:29:29,990 WARN org.apache.hadoop.hdfs.server.datanode.DataNode: Ending block pool service for: Block pool &lt;registering&gt; (Datanode Uuid unassigned) service to ripple1/172.17.0.13:9000</span><br><span class="line">2022-04-09 17:29:30,091 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Removed Block pool &lt;registering&gt; (Datanode Uuid unassigned)</span><br></pre></td></tr></table></figure>
+<p><strong>原因</strong><br>这是我们在format namnode的时候会重置，导致namenode 的clusterID与datanode的clusterID不一致。</p>
+<blockquote>
+<p>You will get this error when the cluster ID of name node and cluster ID of data node are different. We can see the cluster ID of name node in &lt;dfs.namenode.name.dir&gt;&#x2F;current&#x2F;VERSION file and cluster ID of data node in &lt;dfs.datanode.data.dir&gt;&#x2F;current&#x2F;VERSION file.</p>
+</blockquote>
+<p><strong>解决方案</strong>：</p>
+<p>预防措施：在format namenode之前，我们需要删除所有datanode上的 &lt;dfs.datanode.data.dir&gt; 路径下的所有目录。</p>
+<p>解决方案：</p>
+<ul>
+<li>方案一：如果hdfs中有数据且不想删除，复制namenode的version文件下的clusterID到各个datanode中的VERSION文件即可。</li>
+<li>方案二：删除所有namnode与datanode的&lt;dfs.datanode.data.dir&gt; 下的文件，然后再重新format  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs namenode -format</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="启动情况"><a href="#启动情况" class="headerlink" title="启动情况"></a>启动情况</h4><p><strong>未完待续 | To be continued</strong></p>
 <h1 id="附录A：Problem"><a href="#附录A：Problem" class="headerlink" title="附录A：Problem"></a>附录A：Problem</h1><h1 id="附录B：参考网站"><a href="#附录B：参考网站" class="headerlink" title="附录B：参考网站"></a>附录B：参考网站</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a></li>
 <li><a target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/r2.6.5/">Hadoop官方文档</a></li>
 <li><a target="_blank" rel="noopener" href="https://archive.apache.org/dist">A.hadoop资源下载</a></li>
 <li><a target="_blank" rel="noopener" href="http://archive.cloudera.com/cdh5">B.hadoop资源下载</a></li>
 <li><a target="_blank" rel="noopener" href="https://intellipaat.com/community/161/what-exactly-is-hadoop-namenode-formatting">What exactly is hadoop namenode formatting?</a></li>
+<li><a target="_blank" rel="noopener" href="https://sparkbyexamples.com/hadoop/incompatible-clusterids/">datanode无法启动</a></li>
 </ol>
 
     </div>
@@ -472,7 +516,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E9%A1%B9%E7%9B%AE%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E3%80%81%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E3%80%81%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.</span> <span class="nav-text">1. 项目需求分析、架构设计、数据流程设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 需求分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 架构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 数据流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">2. 环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E9%9B%86%E7%BE%A4%E8%B5%84%E6%BA%90%E8%A7%84%E5%88%92"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 集群资源规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Hadoop-%E6%90%AD%E5%BB%BA"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 Hadoop 搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-core-site-xml"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.1 core-site.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-hdfs-site-xml"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2.2 hdfs-site.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-mapred-site-xml"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.2.3 mapred-site.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-yarn-site-xml"><span class="nav-number">2.2.4.</span> <span class="nav-text">2.2.4 yarn-site.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-5-hadoop-env-xml"><span class="nav-number">2.2.5.</span> <span class="nav-text">2.2.5 hadoop-env.xml</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%90%AF%E5%8A%A8%E9%9B%86%E7%BE%A4"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 启动集群</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-NameNode%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1 NameNode的格式化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%84%E5%BD%95A%EF%BC%9AProblem"><span class="nav-number">3.</span> <span class="nav-text">附录A：Problem</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%84%E5%BD%95B%EF%BC%9A%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99"><span class="nav-number">4.</span> <span class="nav-text">附录B：参考网站</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E9%A1%B9%E7%9B%AE%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E3%80%81%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E3%80%81%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.</span> <span class="nav-text">1. 项目需求分析、架构设计、数据流程设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 需求分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 架构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 数据流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">2. 环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E9%9B%86%E7%BE%A4%E8%B5%84%E6%BA%90%E8%A7%84%E5%88%92"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 集群资源规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Hadoop-%E6%90%AD%E5%BB%BA"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 Hadoop 搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-core-site-xml"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.1 core-site.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-hdfs-site-xml"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2.2 hdfs-site.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-mapred-site-xml"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.2.3 mapred-site.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-yarn-site-xml"><span class="nav-number">2.2.4.</span> <span class="nav-text">2.2.4 yarn-site.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-5-hadoop-env-xml"><span class="nav-number">2.2.5.</span> <span class="nav-text">2.2.5 hadoop-env.xml</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%90%AF%E5%8A%A8%E9%9B%86%E7%BE%A4"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 启动集群</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-NameNode%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1 NameNode的格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-hdfs-yarn%E5%90%AF%E5%8A%A8"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2 hdfs, yarn启动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hdfs%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">hdfs启动流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hdfs%E5%90%AF%E5%8A%A8%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">hdfs启动出现问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%83%85%E5%86%B5"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">启动情况</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%84%E5%BD%95A%EF%BC%9AProblem"><span class="nav-number">3.</span> <span class="nav-text">附录A：Problem</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%84%E5%BD%95B%EF%BC%9A%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99"><span class="nav-number">4.</span> <span class="nav-text">附录B：参考网站</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
