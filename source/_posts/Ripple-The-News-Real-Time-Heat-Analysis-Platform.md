@@ -155,8 +155,86 @@ Hadoop NameNode是HDFS文件系统的集中位置，它保存文件系统中所�
 格式化NameNode前，先关闭掉NameNode节点和DataNode节点，然后一定要删除hadoop目录下的data文件夹和log日志文件夹。最后再进行格式化。
 
 ```bash
-hadoop namenode -format
+bin/hadoop namenode -format
 ```
+### 2.3.2 hdfs, yarn启动
+####  hdfs启动流程
+在完成NameNode的格式化之后，可以开始启动 hdfs(NameNode, DataNode, SecondaryNameNode) 与 yarn（ResourceManager，NodeManager）。
+首先，启动hdfs。在2.3中了解，sbin文件夹是用来存储集群启动、关闭等时候调用的文件，其内部主要文件机器功能如下：
+<center>
+    <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/sbin（存放启停hadoop服务的脚本文件）.png" width=80%>
+</center>
+
+```
+# 首先启动hdfs
+sbin/start-dfs.sh
+
+# 启动yarn
+sbin/start-yarn.sh
+```
+> 在ripple1的启动hdfs，yarn情况如下，ripple1，ripple2，ripple3正常启动
+<center>
+<img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/启动hdfs1.jpg" width=80%>
+</center>
+
+<center>
+    <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/启动yarn.jpg" width=80%>
+</center>
+
+
+#### hdfs启动出现问题
+Q1: sbin/start-dfs.sh 后ripple2，ripple3机器datanode没有启动
+
+A1: datanode与namenode 的clusterid不一致导致。
+
+查看ripple2的日志。
+
+``` shell
+# 默认在hadoop的路径下
+tail  -25 log/hadoop-root-datanode*.log
+```
+
+<center>
+    <img src="Ripple-The-News-Real-Time-Heat-Analysis-Platform/Q-datanode启动失败.png" width=80%>
+</center>
+
+
+可以看到错误
+
+```shell
+2022-04-09 17:29:29,989 WARN org.apache.hadoop.hdfs.server.common.Storage: java.io.IOException: Incompatible clusterIDs in /tmp/hadoop-root/dfs/data: namenode clusterID = CID-55814a25-a013-48af-ad24-f4689b57728b; datanode clusterID = CID-34619a23-71d3-4112-9ab8-1d39fdbca5ad
+2022-04-09 17:29:29,989 FATAL org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block pool <registering> (Datanode Uuid unassigned) service to ripple1/172.17.0.13:9000. Exiting.
+java.io.IOException: All specified directories are failed to load.
+	at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:478)
+	at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1342)
+	at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1308)
+	at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:314)
+	at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:226)
+	at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:867)
+	at java.lang.Thread.run(Thread.java:823)
+2022-04-09 17:29:29,990 WARN org.apache.hadoop.hdfs.server.datanode.DataNode: Ending block pool service for: Block pool <registering> (Datanode Uuid unassigned) service to ripple1/172.17.0.13:9000
+2022-04-09 17:29:30,091 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Removed Block pool <registering> (Datanode Uuid unassigned)
+```
+**原因**
+这是我们在format namnode的时候会重置，导致namenode 的clusterID与datanode的clusterID不一致。
+
+> You will get this error when the cluster ID of name node and cluster ID of data node are different. We can see the cluster ID of name node in <dfs.namenode.name.dir>/current/VERSION file and cluster ID of data node in <dfs.datanode.data.dir>/current/VERSION file.
+
+
+**解决方案**：
+
+预防措施：在format namenode之前，我们需要删除所有datanode上的 <dfs.datanode.data.dir> 路径下的所有目录。
+
+解决方案：
+- 方案一：如果hdfs中有数据且不想删除，复制namenode的version文件下的clusterID到各个datanode中的VERSION文件即可。
+- 方案二：删除所有namnode与datanode的<dfs.datanode.data.dir> 下的文件，然后再重新format
+    ```shell
+    bin/hdfs namenode -format
+    ```
+ 
+#### 启动情况
+
+
 
 
 **未完待续 | To be continued**
@@ -170,6 +248,7 @@ hadoop namenode -format
 3. [A.hadoop资源下载](https://archive.apache.org/dist)
 4. [B.hadoop资源下载](http://archive.cloudera.com/cdh5)
 5. [What exactly is hadoop namenode formatting?](https://intellipaat.com/community/161/what-exactly-is-hadoop-namenode-formatting)
+6. [datanode无法启动](https://sparkbyexamples.com/hadoop/incompatible-clusterids/)
 
 
 
