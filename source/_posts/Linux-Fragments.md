@@ -9,6 +9,10 @@ categories:
 ---
 This article is used to record some knowledge fragments when using linux.
 
+<center>
+        <img src="Linux-Fragments/linux-logo.png" width=80%>
+</center>
+
 <!-- more -->
 
 # bin 和 sbin 的区别
