@@ -18,26 +18,26 @@ Ripple 该平台实现对当前新闻网舆论热点事件的实时可视化分�
 本文主要Ripple项目的业务分析、技术造型、集群规划、安装部署、整合集成与开发和可视化设计等部分组成。项目目标为充分理解搭建过程中涉及的大数据组件，提升个人相关开发能力。
 
 <!-- more -->
-# 1. 项目需求分析、架构设计、数据流程设计
-## 1.1 需求分析
+# 项目需求分析、架构设计、数据流程设计
+## 需求分析
 1. 捕获用户浏览的日志信息(TB)
 2. 实时分析前20名流量最高的新闻话题
 3. 实时统计当前线上已曝光的新闻话题
 4. 统计哪些时段用户浏览量最高
 5. 报表
 
-## 1.2 架构设计
+## 架构设计
 <center>
 <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/project_structure.png" width=80% >
 </center>
 
-## 1.3 数据流程
+## 数据流程
 <center>
 <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/data_flow.png" width=80%  >
 </center>
 
-# 2. 环境配置
-## 2.1 集群资源规划
+# 环境配置
+## 集群资源规划
 该项目出于学习目的，比较腾讯云、阿里云、华为云等云服务，选择租用腾讯云的高性能云服务器,由于我们选择同一子网下的三台机器，所以我们只需使用节点的内网ip即可，并且保证了数据传输速度。  
 <center>
 <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/cloud_machine.png" width=80% >
@@ -63,7 +63,7 @@ vi /etc/hosts
 <br>
 
 
-## 2.2 Hadoop 搭建
+## Hadoop 搭建
 
 首先，根据教程，再/opt文件夹下文件树为：
 ```bash
@@ -89,7 +89,7 @@ vi /etc/hosts
 
 下载相关jdk也安装在/opt/modules中，配置/etc/profile环境变量。对于hadoop，有几个关键文件需要配置:
 
-### 2.2.1 core-site.xml
+### core-site.xml
 路径: /opt/modules/hadoop/etc/hadoop
 
 功能:  配置集群全局参数属性，用于定义系统级别的参数，如HDFS URL 、Hadoop的临时目录等
@@ -98,7 +98,7 @@ vi /etc/hosts
   <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/core-site.png" width=80%  >
 </center>
 
-### 2.2.2 hdfs-site.xml
+### hdfs-site.xml
 路径: /opt/modules/hadoop/etc/hadoop/hdfs-site.xml
 
 功能: 配置HDFS组件的属性，如名称节点和数据节点的存放位置、文件副本的个数、文件的读取权限等
@@ -107,7 +107,7 @@ vi /etc/hosts
   <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/hdfs-site.png" width=80%  >
 </center>
 
-### 2.2.3 mapred-site.xml
+### mapred-site.xml
 路径: /opt/modules/hadoop/etc/hadoop/mapred-site.xml
 
 功能：配置map-reduce组件的属性，包括JobHistory Server 和应用程序参数两部分，如reduce任务的默认个数、任务所能够使用内存的默认上下限等
@@ -117,7 +117,7 @@ vi /etc/hosts
 </center>
 
 
-### 2.2.4 yarn-site.xml
+### yarn-site.xml
 路径: /opt/modules/hadoop/etc/hadoop/yarn-site.xml
 
 功能: 集群资源管理系统参数，配置ResourceManager ，nodeManager的通信端口，web监控端口等
@@ -126,7 +126,7 @@ vi /etc/hosts
     <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn-site.png" width=80% >
 </center>
 
-### 2.2.5 hadoop-env.xml
+### hadoop-env.xml
 路径: /opt/modules/hadoop/etc/hadoop/haddop-env.sh
 
 功能: hadoop运行环境,用来定义hadoop运行环境相关的配置信息
@@ -135,7 +135,7 @@ vi /etc/hosts
     <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/hadoop-env.png" width=80%  >
 </center>
 
-## 2.3 启动集群
+## 启动集群
 在2.2节中对hadoop文件夹下的bin与sbin进行了说明
 > - /bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；
 > -  /sbin 目录存放启动或停止Hadoop相关服务的脚本
@@ -144,7 +144,7 @@ vi /etc/hosts
 
 首先,在**第一次启动**集群的时候，我们需要对Namenode进行格式化。
 
-### 2.3.1 NameNode的格式化
+### NameNode的格式化
 **为什么需要格式化**
 
 Hadoop NameNode是HDFS文件系统的集中位置，它保存文件系统中所有文件的目录树，并跟踪整个集群中文件数据的保存位置。简而言之，它将元数据与datanode保持相关。当我们格式化namenode时，它会**格式化与数据节点相关的元数据**。通过这样做，所有关于datanode的信息都将丢失，它们可以用于新数据。
@@ -157,7 +157,7 @@ Hadoop NameNode是HDFS文件系统的集中位置，它保存文件系统中所�
 ```bash
 bin/hadoop namenode -format
 ```
-### 2.3.2 hdfs, yarn启动
+### hdfs, yarn启动
 ####  hdfs启动流程
 在完成NameNode的格式化之后，可以开始启动 hdfs(NameNode, DataNode, SecondaryNameNode) 与 yarn（ResourceManager，NodeManager）。
 首先，启动hdfs。在2.3中了解，sbin文件夹是用来存储集群启动、关闭等时候调用的文件，其内部主要文件机器功能如下：
@@ -256,7 +256,8 @@ bin/yarn jar share/hadoop/mapreduce/hadoop-examples-2.6.5 wordcount 数据源目
 
 至此，hdfs与yarn的集群启动完毕。
 
-## 2.3 zookeeper
+## zookeeper
+zookeeper 的部分可以查看[zookeeper基础](https://wjmars98.github.io/2022/04/10/Zookeeper-Basic/).
 
 
 
