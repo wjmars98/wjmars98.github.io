@@ -527,22 +527,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Internship Summary ASA</title>
-    <url>/2022/04/07/Internship%20Summary%20ASA/</url>
-    <content><![CDATA[<p>本文是为了记录与总结笔者在实习(前10天)中完成的第一个小项目——<strong>ASA(Apple Search Ads)投放数据拉取</strong>.<br>该项目大体由数据拉取、数据清洗、数据存储三个部分构成，笔者在这个项目中，目前实现了每天定时拉取应用数据，对其进行格式化处理，上传至Bigquery数据库中。</p>
-<center>
-    <img src="/2022/04/07/Internship%20Summary%20ASA/asa_logo.jpg" , width="80%">
-</center>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>Intership Summary</category>
-      </categories>
-      <tags>
-        <tag>intership</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Brew</title>
     <url>/2022/03/28/Homebrew/</url>
     <content><![CDATA[<p>在使用mac系统的时候，和win 的一个区别在于sofeware的安装，要将从int下载下来的包，拽入app store中，安装在指定的位置。后来发现mac中存在一个工具——homebrew，能有效的帮助用户下载和管理相应的应用软件。本文也是记录下一些常用的homebrew的用法，提高homebrew的使用。</p>
@@ -626,6 +610,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Internship Summary ASA</title>
+    <url>/2022/04/07/Internship%20Summary%20ASA/</url>
+    <content><![CDATA[<p>本文是为了记录与总结笔者在实习(前10天)中完成的第一个小项目——<strong>ASA(Apple Search Ads)投放数据拉取</strong>.<br>该项目大体由数据拉取、数据清洗、数据存储三个部分构成，笔者在这个项目中，目前实现了每天定时拉取应用数据，对其进行格式化处理，上传至Bigquery数据库中。</p>
+<center>
+    <img src="/2022/04/07/Internship%20Summary%20ASA/asa_logo.jpg" , width="80%">
+</center>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>Intership Summary</category>
+      </categories>
+      <tags>
+        <tag>intership</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux Fragments</title>
     <url>/2022/04/08/Linux-Fragments/</url>
     <content><![CDATA[<p>This article is used to record some knowledge fragments when using linux.</p>
@@ -647,56 +647,6 @@
       </categories>
       <tags>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Pyenv</title>
-    <url>/2022/04/02/Pyenv/</url>
-    <content><![CDATA[<p>在python编程的过程中，经常需要在2.x 与  3.x 中进行切换，2和3两个版本间差异巨大，需要进行管理。</p>
-<p>pyenv是一个forked自ruby社区的简单、低调、遵循UNIX哲学的Python环境管理工具, 它可以轻松切换全局解释器版本, 同时结合vitualenv插件可以方便的管理对应的包源.</p>
-<p>pyenv和virtualenv。前者用于管理不同的Python版本，后者用 于管理不同的工作环境，能够极好得解决我们工作学习中遇到的python版本环境控制问题。</p>
-<span id="more"></span>
-
-<h1 id="Pyenv简介"><a href="#Pyenv简介" class="headerlink" title="Pyenv简介"></a>Pyenv简介</h1><p>如前言所言，pyenv允许用户在不同版本的python中切换。pyenv基于rbenv进行开发，由ruby语言进行编程，为python而准备的。</p>
-<h2 id="Pyenv-用处"><a href="#Pyenv-用处" class="headerlink" title="Pyenv 用处"></a>Pyenv 用处</h2><ol>
-<li>允许用户更改全局python的版本</li>
-<li>为每个python版本都提供支持</li>
-<li>允许使用环境变量重写python版本</li>
-<li>有助于使用 tox 跨 Python 版本进行测试</li>
-</ol>
-<h2 id="Pyenv-不允许"><a href="#Pyenv-不允许" class="headerlink" title="Pyenv 不允许"></a>Pyenv 不允许</h2><ol>
-<li>pyenv是由shell 脚本编写的，不存在python的引导问题。</li>
-<li>需要将把pyenv安装目录载入到环境中。</li>
-<li>pyenv无法管理虚拟环境，但是可以利用 virtualenv或者 pyenv-virtualenv实现。</li>
-</ol>
-<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>pyenv 就是使用了中间层的原理来实现的的，即 shims&#x2F;垫片。</p>
-<h2 id="初始化-pyenv"><a href="#初始化-pyenv" class="headerlink" title="初始化 pyenv"></a>初始化 pyenv</h2><p>安装 pyenv 后，需要在当前 shell 的配置文件（bash 为 ~&#x2F;.bashrc，zsh 为 ~&#x2F;.zshrc 等等）中增加相应命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/data/sammyshen/.pyenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv init -)</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv virtualenv-init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>这几个命令在每次登陆 shell 时，会更改 PATH 环境变量，将 pyenv 的路径加入到 PATH 环境变量前面。</p>
-<h2 id="shims-x2F-垫片的简化基本原理"><a href="#shims-x2F-垫片的简化基本原理" class="headerlink" title="shims&#x2F;垫片的简化基本原理"></a>shims&#x2F;垫片的简化基本原理</h2><p>Linux 执行命令时，是依次遍历 PATH 环境变量的每个路径，查找所执行的命令。当在某个目录下找到第一个匹配时即停止遍历，所以 PATH 环境变量中，前面的路径比后面的路径具有更高的优先级。</p>
-<p>pyenv 在 <del>&#x2F;.pyenv&#x2F;shims 目录下创建了各种 python 相关命令的垫片（</del>&#x2F;.bashrc 中加入的命令调用 pyenv-rehash 生成的，pyenv install 命令也会调用 pyenv-rehash 进行更新）</p>
-<center>
-        <img src="/2022/04/02/Pyenv/shim.jpg">
-</center>
-
-<p>从脚本内容可以看出，当我们执行某个命令 program “param1” “param2” ……时，实际执行的是 pyenv exec “program” “param1” “param2” ……。</p>
-<p>例如执行 python -V，实际执行的是 pyenv exec python -V。</p>
-<h2 id="确定版本号"><a href="#确定版本号" class="headerlink" title="确定版本号"></a>确定版本号</h2><p>在 pyenv-exec 命令中，首先会调用 pyenv-version-name 确定 python 版本或虚拟环境版本，具体查找规则为：</p>
-<center>
-        <img src="/2022/04/02/Pyenv/Pyenv 确定版本号.jpg" width="80%">
-</center>
-
-<h2 id="确定与版本号对应的可执行文件"><a href="#确定与版本号对应的可执行文件" class="headerlink" title="确定与版本号对应的可执行文件"></a>确定与版本号对应的可执行文件</h2><p>在 pyenv-exec 命令中，会再调用 pyenv-which 确定可执行文件 program 的路径。如果前面 pyenv-version-name 确定了 python 版本或虚拟环境版本，则使用 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;bin&#x2F;&lt;程序名&gt; 或 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;env&#x2F;&lt;虚拟环境名&gt;&#x2F;bin&#x2F;&lt;程序名&gt;，否则遍历所有版本号的安装路径，按顺序取第一个匹配到的可执行文件。</p>
-<h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><p>确定与版本号对应的可执行文件路径 path 之后，执行以下命令：<br>exec -a program “$path” “param1” “param2” ……</p>
-<p>（注：即执行 “$path” “param1” “param2”，并使用 program 作为程序名，程序名即 shell 中的 $0，python 中的 sys.argv0）<br>例如执行 python -V，确定 pyenv 版本为 2.7.17，对应可执行文件为 ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python，则执行命令为：<br>exec -a python ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python -V<br>以上就是 pyenv 执行命令的基本原理了。</p>
-<h1 id="pyenv常用指令"><a href="#pyenv常用指令" class="headerlink" title="pyenv常用指令"></a>pyenv常用指令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建新的环境,位于 ~/.pyenv/versions/</span></span><br><span class="line">$ pyenv virtualenv 2.7.1 env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到新的环境</span></span><br><span class="line">$ pyenv activate env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退回到系统环境</span></span><br><span class="line">$ pyenv deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除新创建的环境</span></span><br><span class="line">$ <span class="built_in">rm</span> -rf ~/.pyenv/versions/env271/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前 pyenv 可检测到的所有版本，处于激活状态的版本前以 * 标示。</span></span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">* 3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line">  3.5.1/envs/flask_py351</span><br><span class="line">  3.5.1/envs/pelican</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前处于激活状态的版本，括号中内容表示这个版本是由哪条途径激活的（global、local、shell）</span></span><br><span class="line">$ pyenv version</span><br><span class="line">3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python-build（一个插件） 安装一个 Python 版本，到 $PYENV_ROOT/versions 路径下。</span></span><br><span class="line">$ pyenv install -v 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">$ pyenv uninstall 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为所有已安装的可执行文件 （如：~/.pyenv/versions/*/bin/*） 创建 shims，</span></span><br><span class="line"><span class="comment"># 因此，每当你增删了 Python 版本或带有可执行文件的包（如 pip）以后，都应该执行一次本命令</span></span><br><span class="line">$ pyenv <span class="built_in">rehash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置全局的 Python 版本，通过将版本号写入 ~/.pyenv/version 文件的方式。</span></span><br><span class="line">$ pyenv global 3.4.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向程序的本地版本，通过将版本号写入当前目录下的 .python-version 文件的方式。</span></span><br><span class="line"><span class="comment"># 通过这种方式设置的 Python 版本优先级较 global 高。pyenv 会从当前目录开始向上逐级查找 .python-version 文件，直到根目录为止。</span></span><br><span class="line"><span class="comment">#若找不到，就用 global 版本。</span></span><br><span class="line">$ pyenv <span class="built_in">local</span> 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向 shell 的 Python 版本，通过设置当前 shell 的 PYENV_VERSION 环境变量的方式。</span></span><br><span class="line"><span class="comment"># 这个版本的优先级比 local 和 global 都要高。--unset 参数可以用于取消当前 shell 设定的版本。</span></span><br><span class="line">$ pyenv shell pypy-2.2.1</span><br><span class="line">$ pyenv shell --<span class="built_in">unset</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://github.com/pyenv/pyenv">1. pyenv-官方文档</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1593478">2. pyenv神器原理分析</a></p>
-]]></content>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -875,6 +825,56 @@
       </tags>
   </entry>
   <entry>
+    <title>Pyenv</title>
+    <url>/2022/04/02/Pyenv/</url>
+    <content><![CDATA[<p>在python编程的过程中，经常需要在2.x 与  3.x 中进行切换，2和3两个版本间差异巨大，需要进行管理。</p>
+<p>pyenv是一个forked自ruby社区的简单、低调、遵循UNIX哲学的Python环境管理工具, 它可以轻松切换全局解释器版本, 同时结合vitualenv插件可以方便的管理对应的包源.</p>
+<p>pyenv和virtualenv。前者用于管理不同的Python版本，后者用 于管理不同的工作环境，能够极好得解决我们工作学习中遇到的python版本环境控制问题。</p>
+<span id="more"></span>
+
+<h1 id="Pyenv简介"><a href="#Pyenv简介" class="headerlink" title="Pyenv简介"></a>Pyenv简介</h1><p>如前言所言，pyenv允许用户在不同版本的python中切换。pyenv基于rbenv进行开发，由ruby语言进行编程，为python而准备的。</p>
+<h2 id="Pyenv-用处"><a href="#Pyenv-用处" class="headerlink" title="Pyenv 用处"></a>Pyenv 用处</h2><ol>
+<li>允许用户更改全局python的版本</li>
+<li>为每个python版本都提供支持</li>
+<li>允许使用环境变量重写python版本</li>
+<li>有助于使用 tox 跨 Python 版本进行测试</li>
+</ol>
+<h2 id="Pyenv-不允许"><a href="#Pyenv-不允许" class="headerlink" title="Pyenv 不允许"></a>Pyenv 不允许</h2><ol>
+<li>pyenv是由shell 脚本编写的，不存在python的引导问题。</li>
+<li>需要将把pyenv安装目录载入到环境中。</li>
+<li>pyenv无法管理虚拟环境，但是可以利用 virtualenv或者 pyenv-virtualenv实现。</li>
+</ol>
+<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>pyenv 就是使用了中间层的原理来实现的的，即 shims&#x2F;垫片。</p>
+<h2 id="初始化-pyenv"><a href="#初始化-pyenv" class="headerlink" title="初始化 pyenv"></a>初始化 pyenv</h2><p>安装 pyenv 后，需要在当前 shell 的配置文件（bash 为 ~&#x2F;.bashrc，zsh 为 ~&#x2F;.zshrc 等等）中增加相应命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/data/sammyshen/.pyenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv init -)</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv virtualenv-init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这几个命令在每次登陆 shell 时，会更改 PATH 环境变量，将 pyenv 的路径加入到 PATH 环境变量前面。</p>
+<h2 id="shims-x2F-垫片的简化基本原理"><a href="#shims-x2F-垫片的简化基本原理" class="headerlink" title="shims&#x2F;垫片的简化基本原理"></a>shims&#x2F;垫片的简化基本原理</h2><p>Linux 执行命令时，是依次遍历 PATH 环境变量的每个路径，查找所执行的命令。当在某个目录下找到第一个匹配时即停止遍历，所以 PATH 环境变量中，前面的路径比后面的路径具有更高的优先级。</p>
+<p>pyenv 在 <del>&#x2F;.pyenv&#x2F;shims 目录下创建了各种 python 相关命令的垫片（</del>&#x2F;.bashrc 中加入的命令调用 pyenv-rehash 生成的，pyenv install 命令也会调用 pyenv-rehash 进行更新）</p>
+<center>
+        <img src="/2022/04/02/Pyenv/shim.jpg">
+</center>
+
+<p>从脚本内容可以看出，当我们执行某个命令 program “param1” “param2” ……时，实际执行的是 pyenv exec “program” “param1” “param2” ……。</p>
+<p>例如执行 python -V，实际执行的是 pyenv exec python -V。</p>
+<h2 id="确定版本号"><a href="#确定版本号" class="headerlink" title="确定版本号"></a>确定版本号</h2><p>在 pyenv-exec 命令中，首先会调用 pyenv-version-name 确定 python 版本或虚拟环境版本，具体查找规则为：</p>
+<center>
+        <img src="/2022/04/02/Pyenv/Pyenv 确定版本号.jpg" width="80%">
+</center>
+
+<h2 id="确定与版本号对应的可执行文件"><a href="#确定与版本号对应的可执行文件" class="headerlink" title="确定与版本号对应的可执行文件"></a>确定与版本号对应的可执行文件</h2><p>在 pyenv-exec 命令中，会再调用 pyenv-which 确定可执行文件 program 的路径。如果前面 pyenv-version-name 确定了 python 版本或虚拟环境版本，则使用 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;bin&#x2F;&lt;程序名&gt; 或 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;env&#x2F;&lt;虚拟环境名&gt;&#x2F;bin&#x2F;&lt;程序名&gt;，否则遍历所有版本号的安装路径，按顺序取第一个匹配到的可执行文件。</p>
+<h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><p>确定与版本号对应的可执行文件路径 path 之后，执行以下命令：<br>exec -a program “$path” “param1” “param2” ……</p>
+<p>（注：即执行 “$path” “param1” “param2”，并使用 program 作为程序名，程序名即 shell 中的 $0，python 中的 sys.argv0）<br>例如执行 python -V，确定 pyenv 版本为 2.7.17，对应可执行文件为 ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python，则执行命令为：<br>exec -a python ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python -V<br>以上就是 pyenv 执行命令的基本原理了。</p>
+<h1 id="pyenv常用指令"><a href="#pyenv常用指令" class="headerlink" title="pyenv常用指令"></a>pyenv常用指令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建新的环境,位于 ~/.pyenv/versions/</span></span><br><span class="line">$ pyenv virtualenv 2.7.1 env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到新的环境</span></span><br><span class="line">$ pyenv activate env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退回到系统环境</span></span><br><span class="line">$ pyenv deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除新创建的环境</span></span><br><span class="line">$ <span class="built_in">rm</span> -rf ~/.pyenv/versions/env271/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前 pyenv 可检测到的所有版本，处于激活状态的版本前以 * 标示。</span></span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">* 3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line">  3.5.1/envs/flask_py351</span><br><span class="line">  3.5.1/envs/pelican</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前处于激活状态的版本，括号中内容表示这个版本是由哪条途径激活的（global、local、shell）</span></span><br><span class="line">$ pyenv version</span><br><span class="line">3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python-build（一个插件） 安装一个 Python 版本，到 $PYENV_ROOT/versions 路径下。</span></span><br><span class="line">$ pyenv install -v 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">$ pyenv uninstall 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为所有已安装的可执行文件 （如：~/.pyenv/versions/*/bin/*） 创建 shims，</span></span><br><span class="line"><span class="comment"># 因此，每当你增删了 Python 版本或带有可执行文件的包（如 pip）以后，都应该执行一次本命令</span></span><br><span class="line">$ pyenv <span class="built_in">rehash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置全局的 Python 版本，通过将版本号写入 ~/.pyenv/version 文件的方式。</span></span><br><span class="line">$ pyenv global 3.4.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向程序的本地版本，通过将版本号写入当前目录下的 .python-version 文件的方式。</span></span><br><span class="line"><span class="comment"># 通过这种方式设置的 Python 版本优先级较 global 高。pyenv 会从当前目录开始向上逐级查找 .python-version 文件，直到根目录为止。</span></span><br><span class="line"><span class="comment">#若找不到，就用 global 版本。</span></span><br><span class="line">$ pyenv <span class="built_in">local</span> 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向 shell 的 Python 版本，通过设置当前 shell 的 PYENV_VERSION 环境变量的方式。</span></span><br><span class="line"><span class="comment"># 这个版本的优先级比 local 和 global 都要高。--unset 参数可以用于取消当前 shell 设定的版本。</span></span><br><span class="line">$ pyenv shell pypy-2.2.1</span><br><span class="line">$ pyenv shell --<span class="built_in">unset</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://github.com/pyenv/pyenv">1. pyenv-官方文档</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1593478">2. pyenv神器原理分析</a></p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SSL</title>
     <url>/2022/04/05/SSL/</url>
     <content><![CDATA[<p>在处理实习的业务需求的时候，涉及到ssl公钥私钥部分的相关知识。本文用以记录与ssl相关的基础知识及其应用。</p>
@@ -1008,7 +1008,81 @@
         <img src="/2022/04/10/Zookeeper-Basic/Apache_ZooKeeper_logo.svg.png" width="80%">
 </center>
 
-<span id="more"></span>]]></content>
+<span id="more"></span>
+
+<h1 id="What-is-zookeeper"><a href="#What-is-zookeeper" class="headerlink" title="What is zookeeper"></a>What is zookeeper</h1><p>ZooKeeper是一个分布式、开源的分布式<strong>应用协调服务</strong>。它公开了<strong>一组简单的原语</strong>，分布式应用程序可以在此基础上构建，以实现同步、配置维护、组和命名等更高级别的服务。它的设计是易于编程的，并使用了一个数据模型，其样式类似于熟悉的文件系统的目录树结构。它在Java中运行，并且有Java和C的绑定。</p>
+<p>众所周知，协调服务很难做好。它们特别容易出现竞争条件和死锁等错误。ZooKeeper背后的动机是为了<strong>减轻分布式应用从头开始实现协调服务的责任</strong>。</p>
+<h1 id="What-is-zookeeper’s-goals"><a href="#What-is-zookeeper’s-goals" class="headerlink" title="What is zookeeper’s goals?"></a>What is zookeeper’s goals?</h1><h2 id="zookeeper-结构简单"><a href="#zookeeper-结构简单" class="headerlink" title="zookeeper 结构简单"></a>zookeeper 结构简单</h2><p>ZooKeeper允许分布式进程通过一个<strong>共享的层次命名空间相互协调</strong>，这个命名空间的组织方式<strong>类似于标准的文件系统</strong>。命名空间由数据寄存器组成——用ZooKeeper的话说叫做znode——它们类似于文件和目录。与典型的存储文件系统不同，<strong>ZooKeeper的数据保存在内存中</strong>，这意味着ZooKeeper可以实现<strong>高吞吐量和低时延</strong>。</p>
+<h2 id="zookeeper-是被复制的"><a href="#zookeeper-是被复制的" class="headerlink" title="zookeeper 是被复制的"></a>zookeeper 是被复制的</h2><center>
+                <img src="/2022/04/10/Zookeeper-Basic/zookeeper_structure.jpg" width="80%">
+</center>
+
+<p>组成zookeeper的服务器都认识彼此，它们在内存中维护状态图像，以及持久存储中的事务日志和快照。只要大多数服务器可用，ZooKeeper 服务就可用。</p>
+<p>**”2n+1原则”**：集群中运行的机器需要超过一半</p>
+<ul>
+<li>“2n+1”的原因是zookeeper应用需要可靠性&#x2F;可用性，与性能无关</li>
+<li>ZooKeeper集合(服务集群)是由一个或多个服务器组成的，这些服务器对每个更改进行“投票”。大多数原始服务器在接受任何更改之前都需要“批准”。</li>
+<li>集成中有 3 台服务器（n&#x3D;1），如果其中一台出现故障，服务仍然正常（2 台占多数）。但是，如果第二台服务器发生故障，则服务将关闭。</li>
+</ul>
+<h2 id="zookeeper是有序的"><a href="#zookeeper是有序的" class="headerlink" title="zookeeper是有序的"></a>zookeeper是有序的</h2><p>ZooKeeper 使用反映所有 ZooKeeper 事务顺序的数字标记每个更新。后续操作可以使用顺序来实现更高级别的抽象，例如同步原语。</p>
+<h2 id="zookeeper很迅速"><a href="#zookeeper很迅速" class="headerlink" title="zookeeper很迅速"></a>zookeeper很迅速</h2><p>它在“以读取为主”的工作负载中尤其快。 ZooKeeper 应用程序在数千台机器上运行，它在读取比写入更常见的情况下表现最佳，比率约为 10:1。</p>
+<h1 id="数据模型与命名空间"><a href="#数据模型与命名空间" class="headerlink" title="数据模型与命名空间"></a>数据模型与命名空间</h1><p>ZooKeeper 提供的命名空间很像标准文件系统。名称是由斜杠 (&#x2F;) 分隔的一系列路径元素。 ZooKeeper 命名空间中的每个节点都由路径标识。</p>
+<center>
+                <img src="/2022/04/10/Zookeeper-Basic/zookeeper_hn.jpg" width="80%">
+</center>
+
+<h2 id="节点与临时节点"><a href="#节点与临时节点" class="headerlink" title="节点与临时节点"></a>节点与临时节点</h2><p>与标准的文件系统不同，ZooKeeper名称空间中的每个节点都可以有与其关联的数据以及子节点。这就像拥有一个允许文件同时也是目录的文件系统。(ZooKeeper是用来<strong>存储协调数据</strong>的:<strong>状态信息、配置信息、位置信息</strong>等，所以每个节点存储的数据通常很小，在字节到千字节之间。)我们使用术语znode来说明我们谈论的是ZooKeeper数据节点。</p>
+<p>znode维护一个统计结构，其中包括数据更改的版本号、ACL更改和时间戳，以允许缓存验证和协调更新。znode的数据每次更改，版本号就会增加。例如，每当客户端检索数据时，它也会接收到数据的版本。</p>
+<p>存储在名称空间中的每个znode上的数据是原子式读写的。读获取与znode关联的所有数据字节，写则替换所有数据。每个节点都有一个访问控制列表(Access Control List, ACL)来限制谁可以做什么。</p>
+<p>ZooKeeper也有临时节点的概念。只要创建znode的会话处于活动状态，这些znode就会存在。当会话结束时，删除znode。</p>
+<h1 id="zookeeper特点"><a href="#zookeeper特点" class="headerlink" title="zookeeper特点"></a>zookeeper特点</h1><ul>
+<li>顺序一致性</li>
+<li>原子性</li>
+<li>单一系统映像：无论客户端连接到哪个服务器，客户端都将看到相同的服务视图。即，即使客户端故障转移到具有相同会话的不同服务器，客户端也永远不会看到系统的旧视图。</li>
+<li>可靠性</li>
+<li>实效性</li>
+</ul>
+<h1 id="调用接口api"><a href="#调用接口api" class="headerlink" title="调用接口api"></a>调用接口api</h1><ul>
+<li>create : creates a node at a location in the tree</li>
+<li>delete : deletes a node</li>
+<li>exists : tests if a node exists at a location</li>
+<li>get data : reads the data from a node</li>
+<li>set data : writes data to a node</li>
+<li>get children : retrieves a list of children of a node</li>
+<li>sync : waits for data to be propagated</li>
+</ul>
+<h1 id="zookeeper组成"><a href="#zookeeper组成" class="headerlink" title="zookeeper组成"></a>zookeeper组成</h1><p>除了请求处理器(request processor)之外，组成 ZooKeeper 服务的每个服务器都复制自己的每个组件的副本。</p>
+<center>
+<img src="/2022/04/10/Zookeeper-Basic/zk_component.jpg" width="80%">
+</center>
+
+<p>复制数据库是包含整个数据树的内存数据库。更新被记录到磁盘以便恢复，写入在应用到内存数据库之前被序列化到磁盘。</p>
+<p>每个 ZooKeeper 服务器都服务于客户端。客户端仅连接到一台服务器以提交请求。<strong>从每个服务器数据库的本地副本为读取请求提供服务</strong>。请求会改变服务状态，其中写请求，由协议协议处理。</p>
+<p>作为协议协议的一部分，来自客户端的所有写入请求都被转发到单个服务器，称为领导者（leader）。余下服务器称为跟随者（follower），并接收来自领导者的消息提议并同意消息传递。</p>
+<h1 id="表现"><a href="#表现" class="headerlink" title="表现"></a>表现</h1><p>zookeeper在读超过写的时候，性能较高，因为写涉及到同步所有服务器的状态。</p>
+<center>
+                <img src="/2022/04/10/Zookeeper-Basic/zk_performance.jpg" width="80%">
+</center>
+
+<h1 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h1><blockquote>
+<p>为了显示系统在注入故障时的行为，我们运行了一个由 7 台机器组成的 ZooKeeper 服务。我们运行与之前相同的饱和度基准测试，但这次我们将写入百分比保持在恒定的 30%，这是我们预期工作负载的保守比率。</p>
+</blockquote>
+<center>
+                <img src="/2022/04/10/Zookeeper-Basic/zk_reliability.jpg" width="80%">
+</center>
+
+<p>图像中存在几个重要的观察特点：</p>
+<ol>
+<li><p>如果追随者失败并迅速恢复，那么即使失败，ZooKeeper 也能够维持高吞吐量。</p>
+</li>
+<li><p>领导者选举算法允许系统以足够快的速度恢复，以防止吞吐量大幅下降。ZooKeeper 用不到 200 毫秒的时间来选举一个新的领导者。</p>
+</li>
+<li><p>随着追随者的恢复，ZooKeeper 能够在他们开始处理请求后再次提高吞吐量。</p>
+</li>
+</ol>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://zookeeper.apache.org/doc/r3.4.14/zookeeperOver.html">1. zookeeper 概述</a></p>
+<p><a href="https://stackoverflow.com/questions/4228227/what-does-2n-1-quorum-mean">2. zookeeper 2n+1 原理</a></p>
+]]></content>
       <categories>
         <category>Big Data</category>
       </categories>
