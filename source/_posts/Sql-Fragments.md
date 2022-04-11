@@ -97,3 +97,29 @@ DATE_SUB() 函数从日期减去指定的时间间隔。
 # date 参数是合法的日期表达式。expr 参数是您希望添加的时间间隔。
 DATE_SUB(date,INTERVAL expr type)
 ```
+
+# IFNULL()
+IFNULL() 函数用于判断第一个表达式是否为 NULL，如果为 NULL 则返回第二个参数的值，如果不为 NULL 则返回第一个参数的值。
+``` sql
+# 如果第一个参数的表达式 expression 为 NULL，则返回第二个参数的备用值。
+IFNULL(expression, alt_value)
+```
+
+# union all
+UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。多个 SELECT 语句会删除重复的数据。
+``` sql
+# expression1, expression2, ... expression_n: 要检索的列。
+# tables: 要检索的数据表
+# WHERE conditions: 可选， 检索条件。
+# DISTINCT: 可选，删除结果集中重复的数据。默认情况下 UNION 操作符已经删除了重复数据，所以 DISTINCT 修饰符对结果没啥影响。
+# ALL: 可选，返回所有结果集，包含重复数据。
+
+SELECT expression1, expression2, ... expression_n
+FROM tables
+[WHERE conditions]
+UNION [ALL | DISTINCT]
+SELECT expression1, expression2, ... expression_n
+FROM tables
+[WHERE conditions];
+```
+ [union all样例](https://www.runoob.com/mysql/mysql-union-operation.html)
