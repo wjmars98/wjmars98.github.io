@@ -527,6 +527,11 @@
       </tags>
   </entry>
   <entry>
+    <title>Big Query</title>
+    <url>/2022/04/11/Big-Query/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Brew</title>
     <url>/2022/03/28/Homebrew/</url>
     <content><![CDATA[<p>在使用mac系统的时候，和win 的一个区别在于sofeware的安装，要将从int下载下来的包，拽入app store中，安装在指定的位置。后来发现mac中存在一个工具——homebrew，能有效的帮助用户下载和管理相应的应用软件。本文也是记录下一些常用的homebrew的用法，提高homebrew的使用。</p>
@@ -985,61 +990,17 @@
 <h1 id="interval"><a href="#interval" class="headerlink" title="interval"></a>interval</h1><p>MySQL 间隔值(interval)主要用于日期和时间计算,创建间隔值。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># <span class="type">INTERVAL</span> keyword <span class="keyword">is</span> the expr that determines the <span class="type">interval</span> <span class="keyword">value</span>, <span class="keyword">and</span> unit that specifies the <span class="type">interval</span> unit</span><br><span class="line"># <span class="type">INTERVAL</span> expr unit</span><br><span class="line"><span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span></span><br><span class="line"></span><br><span class="line"># We mainly use <span class="type">interval</span> <span class="keyword">values</span> <span class="keyword">for</span> <span class="type">date</span> <span class="keyword">and</span> <span class="type">time</span> arithmetic <span class="keyword">as</span> shown below</span><br><span class="line"><span class="type">date</span> <span class="operator">+</span> <span class="type">INTERVAL</span> expr unit</span><br><span class="line"><span class="type">date</span> <span class="operator">-</span> <span class="type">INTERVAL</span> expr unit</span><br></pre></td></tr></table></figure>
 <h1 id="DATE-SUB"><a href="#DATE-SUB" class="headerlink" title="DATE_SUB()"></a>DATE_SUB()</h1><p>DATE_SUB() 函数从日期减去指定的时间间隔。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># <span class="type">date</span> 参数是合法的日期表达式。expr 参数是您希望添加的时间间隔。</span><br><span class="line">DATE_SUB(<span class="type">date</span>,<span class="type">INTERVAL</span> expr type)</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># <span class="type">date</span> 参数是合法的日期表达式。expr 参数是您希望添加的时间间隔。</span><br><span class="line">DATE_SUB(<span class="type">date</span>,<span class="type">INTERVAL</span> expr type)</span><br></pre></td></tr></table></figure>
+
+<h1 id="IFNULL"><a href="#IFNULL" class="headerlink" title="IFNULL()"></a>IFNULL()</h1><p>IFNULL() 函数用于判断第一个表达式是否为 NULL，如果为 NULL 则返回第二个参数的值，如果不为 NULL 则返回第一个参数的值。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 如果第一个参数的表达式 expression 为 <span class="keyword">NULL</span>，则返回第二个参数的备用值。</span><br><span class="line">IFNULL(expression, alt_value)</span><br></pre></td></tr></table></figure>
+
+<h1 id="union-all"><a href="#union-all" class="headerlink" title="union all"></a>union all</h1><p>UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。多个 SELECT 语句会删除重复的数据。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># expression1, expression2, ... expression_n: 要检索的列。</span><br><span class="line"># tables: 要检索的数据表</span><br><span class="line"># <span class="keyword">WHERE</span> conditions: 可选， 检索条件。</span><br><span class="line"># <span class="keyword">DISTINCT</span>: 可选，删除结果集中重复的数据。默认情况下 <span class="keyword">UNION</span> 操作符已经删除了重复数据，所以 <span class="keyword">DISTINCT</span> 修饰符对结果没啥影响。</span><br><span class="line"># <span class="keyword">ALL</span>: 可选，返回所有结果集，包含重复数据。</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> expression1, expression2, ... expression_n</span><br><span class="line"><span class="keyword">FROM</span> tables</span><br><span class="line">[<span class="keyword">WHERE</span> conditions]</span><br><span class="line"><span class="keyword">UNION</span> [<span class="keyword">ALL</span> <span class="operator">|</span> <span class="keyword">DISTINCT</span>]</span><br><span class="line"><span class="keyword">SELECT</span> expression1, expression2, ... expression_n</span><br><span class="line"><span class="keyword">FROM</span> tables</span><br><span class="line">[<span class="keyword">WHERE</span> conditions];</span><br></pre></td></tr></table></figure>
+<p> <a href="https://www.runoob.com/mysql/mysql-union-operation.html">union all样例</a></p>
+]]></content>
       <tags>
         <tag>Sql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Yarn</title>
-    <url>/2022/04/08/Yarn/</url>
-    <content><![CDATA[<p>YARN is an open source Apache project that stands for “Yet Another Resource Negotiator”. It is a Hadoop cluster manager that is responsible for allocating resources (such as cpu, memory, disk and network), for scheduling &amp; monitoring jobs across the Hadoop cluster.</p>
-<p>YARN是Apache的一个开源项目，它的意思是“另一个资源协商者”。它是一个Hadoop集群管理器，负责分配资源(如cpu、内存、磁盘和网络)，用于跨Hadoop集群调度和监控作业。</p>
-<center>
-        <img src="/2022/04/08/Yarn/yarn_logo.png" , width="80%">
-</center>
-<span id="more"></span>
-
-<h1 id="What-is-yarn"><a href="#What-is-yarn" class="headerlink" title="What is yarn"></a>What is yarn</h1><p>YARN是Apache的一个开源项目，它的意思是“另一个资源协商者”。它是一个Hadoop集群管理器，负责分配资源(如cpu、内存、磁盘和网络)，用于跨Hadoop集群调度和监控作业。</p>
-<p>早期版本的Hadoop只支持在Hadoop集群上运行MapReduce任务;然而，YARN的出现也使得在Hadoop集群上运行其他大数据解决方案框架成为可能，比如Spark、Flink、Samza等。</p>
-<p>YARN支持不同类型的工作负载，如流处理、批处理、图形处理和迭代处理。</p>
-<h1 id="Yarn’s-Architecture"><a href="#Yarn’s-Architecture" class="headerlink" title="Yarn’s Architecture"></a>Yarn’s Architecture</h1><p>Apache YARN由两个主要组件组成:资源管理器和节点管理器。资源管理器每个集群一个，而节点管理器守护进程运行在所有工作节点上。</p>
-<center>
-        <img src="/2022/04/08/Yarn/yarn_architecture.jpg" , width="80%,">
-</center>
-
-<ol>
-<li><p>资源管理器(Resource Manager)是一个守护进程，负责在集群中分配资源。它有两个主要组件，即<strong>调度程序和应用程序管理器</strong>。调度器负责根据内存和cpu需求跨集群调度应用程序。每个集群只有一个资源管理器。</p>
-</li>
-<li><p>应用程序管理器(APP Manager)接受作业并创建特定的应用程序主程序，并在出现故障时重新启动它们。<strong>Application Master负责处理Application的整个生命周期</strong>，从资源协商、跟踪和监控作业状态开始。</p>
-</li>
-<li><p>节点管理器(Node Manager)是运行在所有工作节点上的守护进程，在<strong>机器级别管理资源</strong>。节点管理器定义节点上可用的资源，并跟踪其使用情况。它还跟踪节点的运行状况，如果<strong>发现不正常，则将其通信给资源管理器</strong>。Node Manager与资源管理器通信，发送关于报告使用情况的定期报告，并与应用程序主机协调生成用于任务执行的JVM。</p>
-</li>
-</ol>
-<h1 id="Yarn-Scheduler"><a href="#Yarn-Scheduler" class="headerlink" title="Yarn Scheduler"></a>Yarn Scheduler</h1><p>YARN 支持三种调度策略，即 FIFO、Capacity 和 Fair Scheduling，它们决定了传入作业的调度或优先级。</p>
-<h2 id="FIFO-Scheduler"><a href="#FIFO-Scheduler" class="headerlink" title="FIFO Scheduler"></a>FIFO Scheduler</h2><p>在 FIFO 调度器策略中，应用程序以“先进先出”的方式提供服务，但如果集群在多个用户之间共享，此策略可能会导致作业匮乏。所以，这个策略在共享集群中并不是最优的。默认情况下，YARN 始终设置为 FIFO 策略。</p>
-<h2 id="Capacity-Scheduler"><a href="#Capacity-Scheduler" class="headerlink" title="Capacity Scheduler:"></a>Capacity Scheduler:</h2><p>在容量调度程序中，不同的组织共享他们的 Hadoop 集群以最大限度地利用集群。尽管组织正在共享他们的集群，但容量调度程序可确保每个组织都获得所需的容量。</p>
-<p>容量调度器(Capacity Scheduler)提供容量保证、弹性、基于资源的调度、优先级调度、多租户等等。我们必须在 conf&#x2F;yarn-site.xml 文件中设置以下属性以在 YARN 中启用容量调度程序。</p>
-<h2 id="Fair-Scheduler"><a href="#Fair-Scheduler" class="headerlink" title="Fair Scheduler:"></a>Fair Scheduler:</h2><p>公平调度策略(Fair Scheduler)确保所有正在运行的作业获得大致相等的资源份额（内存或 CPU）。</p>
-<p>作业被划分为队列，资源在这些队列之间平均共享。它始终保证队列的最小份额，如果队列为空，则将多余的资源分配给在其他队列中运行的作业。我们还可以定义一组应用于提交的应用程序的规则，以便应用程序进入适当的队列以进行进一步处理.</p>
-<h1 id="High-Availability"><a href="#High-Availability" class="headerlink" title="High Availability"></a>High Availability</h1><p>在 Hadoop 2.4 之后，资源管理器以 Active&#x2F;StandBy 模式工作，以提供容错和高可用性。</p>
-<p>Standby Resource Manager始终跟踪活动资源管理器中发生的所有更改，并可以在出现故障时替换其位置。资源管理器与zookeeper密切合作，记录其状态，并决定在出现故障时哪个资源管理器应该处于活动状态。</p>
-<center>
-        <img src="/2022/04/08/Yarn/active_standby.png" , width="80%">
-</center>
-
-<p>故障转移从active mode 到 standby mode 可以手动进行，也可以自动进行。</p>
-<h2 id="手动转换与failover"><a href="#手动转换与failover" class="headerlink" title="手动转换与failover"></a>手动转换与failover</h2><p>当自动 <em>failover</em> 没有开启时，管理员需要手动将RM的状态转为Active。为了完成failover，首先需要将Active-RM 转换为Standby，然后将Standby-RM 转换为Active。这些均可以通过 <em>yarn rmadmin</em> 命令完成。</p>
-<h2 id="自动failover"><a href="#自动failover" class="headerlink" title="自动failover"></a>自动failover</h2><p>RMs可以配置一个内置的，基于 Zookeeper 的ActiveStandbyElector，用于决定哪个RM应该是Active的。当Active RM 出现故障下线，或者无法响应了，另一个RM会被自动推选为Active，并接管之后的工作。需要注意的是，这里没有必要像 HDFS HA 那样运行一个额外的ZKFC守护进程，因为ActiveStandbyElector 内置于RM，担任failure detector以及leader elector的角色，可以替代ZKFC守护进程</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="aegissofttech.com/articles/what-is-yarn-in-big-data.html">1. What is YARN? How Does it Work and Support Big Data Framework?</a></p>
-<p><a href="https://www.cnblogs.com/zackstang/p/10812523.html">2. YARN High Availablity</a></p>
-<p><a href="https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html">3. Apache Hadoop YARN</a></p>
-]]></content>
-      <categories>
-        <category>Big Data</category>
-      </categories>
-      <tags>
-        <tag>yarn</tag>
       </tags>
   </entry>
   <entry>
@@ -1131,6 +1092,58 @@
       </categories>
       <tags>
         <tag>Zookeeper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Yarn</title>
+    <url>/2022/04/08/Yarn/</url>
+    <content><![CDATA[<p>YARN is an open source Apache project that stands for “Yet Another Resource Negotiator”. It is a Hadoop cluster manager that is responsible for allocating resources (such as cpu, memory, disk and network), for scheduling &amp; monitoring jobs across the Hadoop cluster.</p>
+<p>YARN是Apache的一个开源项目，它的意思是“另一个资源协商者”。它是一个Hadoop集群管理器，负责分配资源(如cpu、内存、磁盘和网络)，用于跨Hadoop集群调度和监控作业。</p>
+<center>
+        <img src="/2022/04/08/Yarn/yarn_logo.png" , width="80%">
+</center>
+<span id="more"></span>
+
+<h1 id="What-is-yarn"><a href="#What-is-yarn" class="headerlink" title="What is yarn"></a>What is yarn</h1><p>YARN是Apache的一个开源项目，它的意思是“另一个资源协商者”。它是一个Hadoop集群管理器，负责分配资源(如cpu、内存、磁盘和网络)，用于跨Hadoop集群调度和监控作业。</p>
+<p>早期版本的Hadoop只支持在Hadoop集群上运行MapReduce任务;然而，YARN的出现也使得在Hadoop集群上运行其他大数据解决方案框架成为可能，比如Spark、Flink、Samza等。</p>
+<p>YARN支持不同类型的工作负载，如流处理、批处理、图形处理和迭代处理。</p>
+<h1 id="Yarn’s-Architecture"><a href="#Yarn’s-Architecture" class="headerlink" title="Yarn’s Architecture"></a>Yarn’s Architecture</h1><p>Apache YARN由两个主要组件组成:资源管理器和节点管理器。资源管理器每个集群一个，而节点管理器守护进程运行在所有工作节点上。</p>
+<center>
+        <img src="/2022/04/08/Yarn/yarn_architecture.jpg" , width="80%,">
+</center>
+
+<ol>
+<li><p>资源管理器(Resource Manager)是一个守护进程，负责在集群中分配资源。它有两个主要组件，即<strong>调度程序和应用程序管理器</strong>。调度器负责根据内存和cpu需求跨集群调度应用程序。每个集群只有一个资源管理器。</p>
+</li>
+<li><p>应用程序管理器(APP Manager)接受作业并创建特定的应用程序主程序，并在出现故障时重新启动它们。<strong>Application Master负责处理Application的整个生命周期</strong>，从资源协商、跟踪和监控作业状态开始。</p>
+</li>
+<li><p>节点管理器(Node Manager)是运行在所有工作节点上的守护进程，在<strong>机器级别管理资源</strong>。节点管理器定义节点上可用的资源，并跟踪其使用情况。它还跟踪节点的运行状况，如果<strong>发现不正常，则将其通信给资源管理器</strong>。Node Manager与资源管理器通信，发送关于报告使用情况的定期报告，并与应用程序主机协调生成用于任务执行的JVM。</p>
+</li>
+</ol>
+<h1 id="Yarn-Scheduler"><a href="#Yarn-Scheduler" class="headerlink" title="Yarn Scheduler"></a>Yarn Scheduler</h1><p>YARN 支持三种调度策略，即 FIFO、Capacity 和 Fair Scheduling，它们决定了传入作业的调度或优先级。</p>
+<h2 id="FIFO-Scheduler"><a href="#FIFO-Scheduler" class="headerlink" title="FIFO Scheduler"></a>FIFO Scheduler</h2><p>在 FIFO 调度器策略中，应用程序以“先进先出”的方式提供服务，但如果集群在多个用户之间共享，此策略可能会导致作业匮乏。所以，这个策略在共享集群中并不是最优的。默认情况下，YARN 始终设置为 FIFO 策略。</p>
+<h2 id="Capacity-Scheduler"><a href="#Capacity-Scheduler" class="headerlink" title="Capacity Scheduler:"></a>Capacity Scheduler:</h2><p>在容量调度程序中，不同的组织共享他们的 Hadoop 集群以最大限度地利用集群。尽管组织正在共享他们的集群，但容量调度程序可确保每个组织都获得所需的容量。</p>
+<p>容量调度器(Capacity Scheduler)提供容量保证、弹性、基于资源的调度、优先级调度、多租户等等。我们必须在 conf&#x2F;yarn-site.xml 文件中设置以下属性以在 YARN 中启用容量调度程序。</p>
+<h2 id="Fair-Scheduler"><a href="#Fair-Scheduler" class="headerlink" title="Fair Scheduler:"></a>Fair Scheduler:</h2><p>公平调度策略(Fair Scheduler)确保所有正在运行的作业获得大致相等的资源份额（内存或 CPU）。</p>
+<p>作业被划分为队列，资源在这些队列之间平均共享。它始终保证队列的最小份额，如果队列为空，则将多余的资源分配给在其他队列中运行的作业。我们还可以定义一组应用于提交的应用程序的规则，以便应用程序进入适当的队列以进行进一步处理.</p>
+<h1 id="High-Availability"><a href="#High-Availability" class="headerlink" title="High Availability"></a>High Availability</h1><p>在 Hadoop 2.4 之后，资源管理器以 Active&#x2F;StandBy 模式工作，以提供容错和高可用性。</p>
+<p>Standby Resource Manager始终跟踪活动资源管理器中发生的所有更改，并可以在出现故障时替换其位置。资源管理器与zookeeper密切合作，记录其状态，并决定在出现故障时哪个资源管理器应该处于活动状态。</p>
+<center>
+        <img src="/2022/04/08/Yarn/active_standby.png" , width="80%">
+</center>
+
+<p>故障转移从active mode 到 standby mode 可以手动进行，也可以自动进行。</p>
+<h2 id="手动转换与failover"><a href="#手动转换与failover" class="headerlink" title="手动转换与failover"></a>手动转换与failover</h2><p>当自动 <em>failover</em> 没有开启时，管理员需要手动将RM的状态转为Active。为了完成failover，首先需要将Active-RM 转换为Standby，然后将Standby-RM 转换为Active。这些均可以通过 <em>yarn rmadmin</em> 命令完成。</p>
+<h2 id="自动failover"><a href="#自动failover" class="headerlink" title="自动failover"></a>自动failover</h2><p>RMs可以配置一个内置的，基于 Zookeeper 的ActiveStandbyElector，用于决定哪个RM应该是Active的。当Active RM 出现故障下线，或者无法响应了，另一个RM会被自动推选为Active，并接管之后的工作。需要注意的是，这里没有必要像 HDFS HA 那样运行一个额外的ZKFC守护进程，因为ActiveStandbyElector 内置于RM，担任failure detector以及leader elector的角色，可以替代ZKFC守护进程</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="aegissofttech.com/articles/what-is-yarn-in-big-data.html">1. What is YARN? How Does it Work and Support Big Data Framework?</a></p>
+<p><a href="https://www.cnblogs.com/zackstang/p/10812523.html">2. YARN High Availablity</a></p>
+<p><a href="https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html">3. Apache Hadoop YARN</a></p>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>yarn</tag>
       </tags>
   </entry>
 </search>
