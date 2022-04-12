@@ -28,6 +28,14 @@ This article is used for recording some study fragments in mysql.
 
 > “在我们编程这个圈子，也有很多书，专讲这方面的。我给你推荐几本吧，《编程珠玑》，《CLR Via C#》, 尤其是 SQL 数据库方面，《数据库索引设计与优化》，《Oracle 优化日记》，《T-SQL Querying》,《T-SQL 性能调优秘籍-基于SQL Server 2012 窗口函数》”
 
+# 阅读长sql时的整体感
+经常会遇到一些比较长，且层级结果比较多的sql语句，在阅读的过程中，时常会发生读到一半忘掉前面的代码逻辑的情况。在阅读sql语句的时候，需要保持整体感。整体感的保持。
+- 首先需要了解sql的输入与输出，明白这个sql的主要目的是什么。
+- 其次，需要逐层拆分，理解层级表。要理解同一层的各个select -from-where检索出来的表，因为是同一层吗，在逻辑上是并列的，比较好理解。
+- 最后，在对sql基本脉络了解之后，再根据需要去阅读代码，而非阅读所有代码。
+
+如果以学习为目的，则能适当阅读所有代码。
+
 # coalesce()
 
 The COALESCE() function returns the first non-null value in a list.
