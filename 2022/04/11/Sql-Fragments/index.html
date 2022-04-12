@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/04/11/Sql-Fragments/sf-logo.png">
 <meta property="article:published_time" content="2022-04-11T03:35:01.000Z">
-<meta property="article:modified_time" content="2022-04-11T10:24:55.485Z">
+<meta property="article:modified_time" content="2022-04-12T04:52:55.136Z">
 <meta property="article:author" content="Mars Wang">
 <meta property="article:tag" content="Sql">
 <meta name="twitter:card" content="summary">
@@ -218,10 +218,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-04-11 11:35:01 / 修改时间：18:24:55" itemprop="dateCreated datePublished" datetime="2022-04-11T11:35:01+08:00">2022-04-11</time>
+              <time title="创建时间：2022-04-11 11:35:01" itemprop="dateCreated datePublished" datetime="2022-04-11T11:35:01+08:00">2022-04-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-12 12:52:55" itemprop="dateModified" datetime="2022-04-12T12:52:55+08:00">2022-04-12</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -262,6 +268,13 @@
 <blockquote>
 <p>“在我们编程这个圈子，也有很多书，专讲这方面的。我给你推荐几本吧，《编程珠玑》，《CLR Via C#》, 尤其是 SQL 数据库方面，《数据库索引设计与优化》，《Oracle 优化日记》，《T-SQL Querying》,《T-SQL 性能调优秘籍-基于SQL Server 2012 窗口函数》”</p>
 </blockquote>
+<h1 id="阅读长sql时的整体感"><a href="#阅读长sql时的整体感" class="headerlink" title="阅读长sql时的整体感"></a>阅读长sql时的整体感</h1><p>经常会遇到一些比较长，且层级结果比较多的sql语句，在阅读的过程中，时常会发生读到一半忘掉前面的代码逻辑的情况。在阅读sql语句的时候，需要保持整体感。整体感的保持。</p>
+<ul>
+<li>首先需要了解sql的输入与输出，明白这个sql的主要目的是什么。</li>
+<li>其次，需要逐层拆分，理解层级表。要理解同一层的各个select -from-where检索出来的表，因为是同一层吗，在逻辑上是并列的，比较好理解。</li>
+<li>最后，在对sql基本脉络了解之后，再根据需要去阅读代码，而非阅读所有代码。</li>
+</ul>
+<p>如果以学习为目的，则能适当阅读所有代码。</p>
 <h1 id="coalesce"><a href="#coalesce" class="headerlink" title="coalesce()"></a>coalesce()</h1><p>The COALESCE() function returns the first non-null value in a list.<br>返回列表中第一个非空元素</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># The <span class="built_in">COALESCE</span>() <span class="keyword">function</span> <span class="keyword">returns</span> the <span class="keyword">first</span> non<span class="operator">-</span><span class="keyword">null</span> <span class="keyword">value</span> <span class="keyword">in</span> a list.</span><br><span class="line"><span class="built_in">COALESCE</span>(val1, val2, ...., val_n)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -305,8 +318,8 @@
       <i class="fa fa-chevron-left"></i> Zookeeper Basic
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/04/11/Big-Query/" rel="next" title="Big Query">
-      Big Query <i class="fa fa-chevron-right"></i>
+    <a href="/2022/04/11/Big-Query/" rel="next" title="Big Query-Basic">
+      Big Query-Basic <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -366,7 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E9%95%BFsql"><span class="nav-number">1.</span> <span class="nav-text">如何阅读长sql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#coalesce"><span class="nav-number">2.</span> <span class="nav-text">coalesce()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unnest"><span class="nav-number">3.</span> <span class="nav-text">unnest</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cast"><span class="nav-number">4.</span> <span class="nav-text">cast</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#interval"><span class="nav-number">5.</span> <span class="nav-text">interval</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DATE-SUB"><span class="nav-number">6.</span> <span class="nav-text">DATE_SUB()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IFNULL"><span class="nav-number">7.</span> <span class="nav-text">IFNULL()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#union-all"><span class="nav-number">8.</span> <span class="nav-text">union all</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E9%95%BFsql"><span class="nav-number">1.</span> <span class="nav-text">如何阅读长sql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%85%E8%AF%BB%E9%95%BFsql%E6%97%B6%E7%9A%84%E6%95%B4%E4%BD%93%E6%84%9F"><span class="nav-number">2.</span> <span class="nav-text">阅读长sql时的整体感</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#coalesce"><span class="nav-number">3.</span> <span class="nav-text">coalesce()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unnest"><span class="nav-number">4.</span> <span class="nav-text">unnest</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cast"><span class="nav-number">5.</span> <span class="nav-text">cast</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#interval"><span class="nav-number">6.</span> <span class="nav-text">interval</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DATE-SUB"><span class="nav-number">7.</span> <span class="nav-text">DATE_SUB()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IFNULL"><span class="nav-number">8.</span> <span class="nav-text">IFNULL()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#union-all"><span class="nav-number">9.</span> <span class="nav-text">union all</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -389,13 +402,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
