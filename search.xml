@@ -538,6 +538,12 @@
 
 <span id="more"></span>
 
+<h1 id="Quick-Begin"><a href="#Quick-Begin" class="headerlink" title="Quick Begin"></a>Quick Begin</h1><p>笔者感觉bq的配置、指令、命令行类的操作细节不该是本篇的关注的重点，否则文章会显得冗杂、无味，故对于此部分只会摘录google官网上的相关的文档链接，读者自行通读，在工作中边实践边学习。</p>
+<p>本篇将主要集中于bq的存储、分析、管理等工作原理，以及工作中遇到的有价值的问题与知识。</p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p><a href="https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console?hl=zh-cn">1. Cloud Console</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-console?hl=zh-cn">2. 加载与查询数据</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-bq?hl=zh-cn">3. 命令行工具</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries?hl=zh-cn#bigquery_simple_app_client-java">4.  客户端库</a><br><a href="https://github.com/googleapis/java-bigquery/tree/f9f7abdede91e8f780d5a60b6ee9a26e9316d04d">5. BQ java指令 github仓库</a></p>
+<h2 id="付费情况"><a href="#付费情况" class="headerlink" title="付费情况"></a>付费情况</h2><h2 id="流媒体"><a href="#流媒体" class="headerlink" title="流媒体"></a>流媒体</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a href="https://cloud.google.com/bigquery/docs/introduction?hl=zh-cn">BQ官方文档</a></li>
+</ol>
 ]]></content>
       <categories>
         <category>Big  Data</category>
@@ -779,35 +785,15 @@
 <p>下载相关jdk也安装在&#x2F;opt&#x2F;modules中，配置&#x2F;etc&#x2F;profile环境变量。对于hadoop，有几个关键文件需要配置:</p>
 <h3 id="core-site-xml"><a href="#core-site-xml" class="headerlink" title="core-site.xml"></a>core-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop</p>
 <p>功能:  配置集群全局参数属性，用于定义系统级别的参数，如HDFS URL 、Hadoop的临时目录等</p>
-<center>
-  <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/core-site.png" width="80%">
-</center>
-
 <h3 id="hdfs-site-xml"><a href="#hdfs-site-xml" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;hdfs-site.xml</p>
 <p>功能: 配置HDFS组件的属性，如名称节点和数据节点的存放位置、文件副本的个数、文件的读取权限等</p>
-<center>
-  <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/hdfs-site.png" width="80%">
-</center>
-
 <h3 id="mapred-site-xml"><a href="#mapred-site-xml" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;mapred-site.xml</p>
 <p>功能：配置map-reduce组件的属性，包括JobHistory Server 和应用程序参数两部分，如reduce任务的默认个数、任务所能够使用内存的默认上下限等</p>
-<center>
-    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/mapred-site.png" width="80%">
-</center>
-
-
 <h3 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="yarn-site.xml"></a>yarn-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;yarn-site.xml</p>
 <p>功能: 集群资源管理系统参数，配置ResourceManager ，nodeManager的通信端口，web监控端口等</p>
-<center>
-    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn-site.png" width="80%">
-</center>
-
+<p>yran日志聚集：日志聚集是YARN提供的日志中央化管理功能，它能将运行完成的Container任务日志上传到HDFS上，从而减轻NodeManager负载，且提供一个中央化存储和分析机制。</p>
 <h3 id="hadoop-env-xml"><a href="#hadoop-env-xml" class="headerlink" title="hadoop-env.xml"></a>hadoop-env.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;haddop-env.sh</p>
 <p>功能: hadoop运行环境,用来定义hadoop运行环境相关的配置信息</p>
-<center>
-    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/hadoop-env.png" width="80%">
-</center>
-
 <h2 id="启动集群"><a href="#启动集群" class="headerlink" title="启动集群"></a>启动集群</h2><p>在2.2节中对hadoop文件夹下的bin与sbin进行了说明</p>
 <blockquote>
 <ul>
@@ -871,6 +857,12 @@
 
 <p>至此，hdfs与yarn的集群启动完毕。</p>
 <h2 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h2><p>zookeeper 的部分可以查看<a href="https://wjmars98.github.io/2022/04/10/Zookeeper-Basic/">zookeeper基础</a>.</p>
+<h2 id="hdfs-ha-高可用性"><a href="#hdfs-ha-高可用性" class="headerlink" title="hdfs-ha 高可用性"></a>hdfs-ha 高可用性</h2><p>对于hdfs-ha高可用性的必要性，是因为目前只有一台namenode，如果所在的机器down了，那么hdfs将无法提供服务，所以提出了hdfs-ha的架构模式。</p>
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/hdfs_ha.jpg" width="80%">
+</center>
+
+<p>HDFS通常由两个NameNode组成，一个处于active状态，另一个处于standby状态。Active NameNode对外提供服务，比如处理来自客户端的RPC请求，而Standby NameNode则不对外提供服务，仅同步Active NameNode的状态，以便能够在它失败时快速进行切换，为了让Standby Node与Active Node保持同步，这两个Node都与一组称为JNS的互相独立的进程保持通信(Journal Nodes)。</p>
 <p><strong>未完待续 | To be continued</strong></p>
 <h1 id="附录A：Problem"><a href="#附录A：Problem" class="headerlink" title="附录A：Problem"></a>附录A：Problem</h1><h1 id="附录B：参考网站"><a href="#附录B：参考网站" class="headerlink" title="附录B：参考网站"></a>附录B：参考网站</h1><ol>
 <li><a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a></li>
@@ -1020,7 +1012,7 @@
 <h1 id="union-all"><a href="#union-all" class="headerlink" title="union all"></a>union all</h1><p>UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。多个 SELECT 语句会删除重复的数据。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># expression1, expression2, ... expression_n: 要检索的列。</span><br><span class="line"># tables: 要检索的数据表</span><br><span class="line"># <span class="keyword">WHERE</span> conditions: 可选， 检索条件。</span><br><span class="line"># <span class="keyword">DISTINCT</span>: 可选，删除结果集中重复的数据。默认情况下 <span class="keyword">UNION</span> 操作符已经删除了重复数据，所以 <span class="keyword">DISTINCT</span> 修饰符对结果没啥影响。</span><br><span class="line"># <span class="keyword">ALL</span>: 可选，返回所有结果集，包含重复数据。</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> expression1, expression2, ... expression_n</span><br><span class="line"><span class="keyword">FROM</span> tables</span><br><span class="line">[<span class="keyword">WHERE</span> conditions]</span><br><span class="line"><span class="keyword">UNION</span> [<span class="keyword">ALL</span> <span class="operator">|</span> <span class="keyword">DISTINCT</span>]</span><br><span class="line"><span class="keyword">SELECT</span> expression1, expression2, ... expression_n</span><br><span class="line"><span class="keyword">FROM</span> tables</span><br><span class="line">[<span class="keyword">WHERE</span> conditions];</span><br></pre></td></tr></table></figure>
 <p> <a href="https://www.runoob.com/mysql/mysql-union-operation.html">union all样例</a></p>
-]]></content>
+<h1 id="acid"><a href="#acid" class="headerlink" title="acid"></a>acid</h1>]]></content>
       <tags>
         <tag>Sql</tag>
       </tags>
@@ -1167,5 +1159,10 @@
       <tags>
         <tag>Zookeeper</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>log4j</title>
+    <url>/2022/04/13/log4j/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
