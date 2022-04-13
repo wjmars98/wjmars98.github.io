@@ -13,6 +13,8 @@ BigQuery 实现分析数据的计算引擎与存储选项分离，可最大限�
 
 BigQuery 界面包括 Google Cloud Console 界面和 BigQuery 命令行工具。
 
+**TO BE CONTINUED ...**
+
 <center>
         <img src="Big-Query/bq_logo.jpg" width=80%>
 </center>
