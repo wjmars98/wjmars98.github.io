@@ -94,27 +94,18 @@ vi /etc/hosts
 
 功能:  配置集群全局参数属性，用于定义系统级别的参数，如HDFS URL 、Hadoop的临时目录等
 
-<center>
-  <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/core-site.png" width=80%  >
-</center>
 
 ### hdfs-site.xml
 路径: /opt/modules/hadoop/etc/hadoop/hdfs-site.xml
 
 功能: 配置HDFS组件的属性，如名称节点和数据节点的存放位置、文件副本的个数、文件的读取权限等
 
-<center>
-  <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/hdfs-site.png" width=80%  >
-</center>
 
 ### mapred-site.xml
 路径: /opt/modules/hadoop/etc/hadoop/mapred-site.xml
 
 功能：配置map-reduce组件的属性，包括JobHistory Server 和应用程序参数两部分，如reduce任务的默认个数、任务所能够使用内存的默认上下限等
 
-<center>
-    <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/mapred-site.png" width=80% >
-</center>
 
 
 ### yarn-site.xml
@@ -122,18 +113,15 @@ vi /etc/hosts
 
 功能: 集群资源管理系统参数，配置ResourceManager ，nodeManager的通信端口，web监控端口等
 
-<center>
-    <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn-site.png" width=80% >
-</center>
+yran日志聚集：日志聚集是YARN提供的日志中央化管理功能，它能将运行完成的Container任务日志上传到HDFS上，从而减轻NodeManager负载，且提供一个中央化存储和分析机制。
+
 
 ### hadoop-env.xml
 路径: /opt/modules/hadoop/etc/hadoop/haddop-env.sh
 
 功能: hadoop运行环境,用来定义hadoop运行环境相关的配置信息
 
-<center>
-    <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/hadoop-env.png" width=80%  >
-</center>
+
 
 ## 启动集群
 在2.2节中对hadoop文件夹下的bin与sbin进行了说明
@@ -258,6 +246,16 @@ bin/yarn jar share/hadoop/mapreduce/hadoop-examples-2.6.5 wordcount 数据源目
 
 ## zookeeper
 zookeeper 的部分可以查看[zookeeper基础](https://wjmars98.github.io/2022/04/10/Zookeeper-Basic/).
+
+
+## hdfs-ha 高可用性
+对于hdfs-ha高可用性的必要性，是因为目前只有一台namenode，如果所在的机器down了，那么hdfs将无法提供服务，所以提出了hdfs-ha的架构模式。
+
+<center>
+    <img src="./Ripple-The-News-Real-Time-Heat-Analysis-Platform/hdfs_ha.jpg" width=80%>
+</center>
+
+HDFS通常由两个NameNode组成，一个处于active状态，另一个处于standby状态。Active NameNode对外提供服务，比如处理来自客户端的RPC请求，而Standby NameNode则不对外提供服务，仅同步Active NameNode的状态，以便能够在它失败时快速进行切换，为了让Standby Node与Active Node保持同步，这两个Node都与一组称为JNS的互相独立的进程保持通信(Journal Nodes)。
 
 
 

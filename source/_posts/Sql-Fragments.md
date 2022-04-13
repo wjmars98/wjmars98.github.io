@@ -131,3 +131,6 @@ FROM tables
 [WHERE conditions];
 ```
  [union all样例](https://www.runoob.com/mysql/mysql-union-operation.html)
+
+ # acid
+ 
