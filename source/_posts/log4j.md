@@ -9,8 +9,6 @@ categories:
 
 Apache Log4j是一个基于Java的日志记录工具
 
-**TO BE CONTINUED ...**
-
 <center>
         <img src="./log4j/log4j_logo.jpg" src=80%>
 </center>
