@@ -1,8 +1,8 @@
 ---
-title: log4j
+title: Log4j
 date: 2022-04-13 17:31:40
 tags:
-- log4j
+- Log4j
 categories:
 - Basic
 ---
