@@ -16,7 +16,10 @@ categories:
 <!--more-->
 
 
-在向服务器发送拉取数据请求（比如asa，bigo等等），大多都是通过https request的请求实现。其中最常使用的method为GET 与POST,但是当需要我去解释http request原理以及两个方法区别的时候，竟会一时语塞，所以相信此时的记录对后期的工作会有极大的帮助。
+在向服务器发送拉取数据请求（比如asa，bigo等等），大多都是通过https request的请求实现。其中最常使用的method为GET 与POST,但是当需要我去解释http 报文结构， http request原理以及两个方法区别的时候，竟会一时语塞。这也是写此篇文章的目的，相信此时的记录有助我我对这类知识的理解，对后期的工作会有极大的帮助。
+<center>
+        <img src="Internship-Summary-Fetch-Data/报文结构.jpg", width=80%>
+</center>
 
 # 请求报文
 一条请求信息主要四个部分组成：
@@ -38,7 +41,7 @@ User-agent: Mozilla/5.0.                  // 以上是请求头
 （此处必须有一空行 |                         // 空行分割header和请求内容 
 name=world                                // 请求体(可选，如get请求时可选)
 ```
-## request line
+## Request line
 请求行由方法token开头，伴随着请求url，协议版本，以换行符，这几个部分由空格隔开。
 
 ## Request Method
@@ -46,16 +49,78 @@ name=world                                // 请求体(可选，如get请求时�
 
 请求方法比较多：GET、POST、HEAD、PUT、DELETE、OPTIONS、TRACE、CONNECT，其中最常用的是GET和POST。
 
-- GET： 使用 GET 的请求应该只检索数据，并且对数据没有其他影响。传递参数长度受限制，因为传递的参数是直接表示在地址栏中，而特定浏览器和服务器对url的长度是有限制的。GET**不适合用来传递私密数据**，也不适合拿来传递大量数据。
+- GET
+    使用 GET 的请求应该只检索数据，并且对数据没有其他影响。传递参数长度受限制，因为传递的参数是直接表示在地址栏中，而特定浏览器和服务器对url的长度是有限制的。GET**不适合用来传递私密数据**，也不适合拿来传递大量数据。
 
-- POST：POST把传递的数据封装在HTTP请求数据中，以名称/值的形式出现，可以传输大量数据，对数据量没有限制，也不会显示在URL中。
+- POST
+    POST把传递的数据封装在HTTP请求数据中，以名称/值的形式出现，可以传输大量数据，对数据量没有限制，也不会显示在URL中。
 
 [more request methods](https://www.tutorialspoint.com/http/http_requests.htm
 )
 
-## Request-URI
-最常用的指定 URI 的形式：
-```html
-Request-URI = "*" | absoluteURI | abs_path | authority
-```
+## Request Header
 请求头部由关键字/值对组成，每行一对。
+例如：  
+-  User-Agent：产生请求的浏览器类型;
+
+- Accept：客户端可识别的响应内容类型列表;星号 “ * ” 用于按范围将类型分组，用 “ / ” 指示可接受全部类型，用“ type/* ”指示可接受 type 类型的所有子类型;
+比如 Accept：text/xml（application/json）表示希望接受到的是xml（json）类型。
+
+- Accept-Language：客户端可接受的自然语言;
+
+- Accept-Encoding：客户端可接受的编码压缩格式;
+
+- Accept-Charset：可接受的应答的字符集;
+
+- Host：请求的主机名，允许多个域名同处一个IP 地址，即虚拟主机;
+
+- connection：连接方式(close 或 keepalive);
+
+- Cookie：存储于客户端扩展字段，向同一域名的服务端发送属于该域的cookie;
+
+- Content-Type：发送端发送的实体数据的数据类型。
+比如，Content-Type：text/html（application/json）表示发送的是html类型
+
+<center>
+        <img src="Internship-Summary-Fetch-Data/rh.jpg", width=80%>
+</center>
+
+## Content-Type
+常见的Content-Type：
+|            Content-Type           |                                             解释                                            |
+|:---------------------------------:|:-------------------------------------------------------------------------------------------:|
+| text/html                         | html格式                                                                                    |
+| text/plain                        | 纯文本格式                                                                                  |
+| text/css                          | CSS格式                                                                                     |
+| text/javascript                   | js格式                                                                                      |
+| image/gif                         | gif图片格式                                                                                 |
+| image/jpeg                        | jpg图片格式                                                                                 |
+| image/png                         | png图片格式                                                                                 |
+| application/x-www-form-urlencoded | POST专用：普通的表单提交默认是通过这种方式。form表单数据被编码为key/value格式发送到服务器。 |
+| **application/json**                  | **POST专用：用来告诉服务端消息主体是序列化后的 JSON 字符串**                                   |
+| text/xml                          | POST专用：发送xml数据                                                                       |
+| multipart/form-data               | POST专用                                                                          |
+## 空行
+请求头之后是一个空行，通知服务器以下不再有请求头
+
+## 请求体
+GET没有请求数据，POST有。与请求数据相关的最常使用的请求头是 Content-Type 和 Content-Length 。
+
+# 响应报文
+HTTP响应由三个部分组成，分别是：状态行、消息报头、响应正文。
+
+## Status line/状态行
+由三个部分组成：
+- **The protocol version（版本协议）**, usually HTTP/1.1.
+- **A status code（状态码）**，indicating success or failure of the request. Common status codes are 200, 404, or 302
+- **A status text（状态信息）**. A brief, purely informational, textual description of the status code to help a human understand the HTTP message.
+
+## Headers/消息报头
+
+
+# Python requests模块
+在实习工作期间，经常会面对拉取服务器数据的需求，这个时候会频繁调用requests的模块来发送http 请求，有必要对此类的知识点进行一个总结整理。
+
+Request官网上对该模块进行描述：
+
+Requests is an elegant and simple HTTP library for Python, built for human beings.
