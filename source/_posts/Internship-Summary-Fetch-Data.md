@@ -9,7 +9,6 @@ categories:
 ---
 在实习的前两个星期，感觉最常接触的一类任务就是**数据的拉取**以及api的调用，本文也是对这个part的内容、方法以及遇到的问题进行一个记录。
 
- **To be continued ...**
 <center>
         <img src="Internship-Summary-Fetch-Data/fd_logo.jpg", width=80%>
 </center>
@@ -108,7 +107,9 @@ GET没有请求数据，POST有。与请求数据相关的最常使用的请求�
 
 # 响应报文
 HTTP响应由三个部分组成，分别是：状态行、消息报头、响应正文。
-
+<center>
+        <img src="Internship-Summary-Fetch-Data/响应报文.jpg" width=80%>
+</center>
 ## Status line/状态行
 由三个部分组成：
 - **The protocol version（版本协议）**, usually HTTP/1.1.
@@ -116,7 +117,15 @@ HTTP响应由三个部分组成，分别是：状态行、消息报头、响应�
 - **A status text（状态信息）**. A brief, purely informational, textual description of the status code to help a human understand the HTTP message.
 
 ## Headers/消息报头
+[Response fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
+<center>
+                <img src="Internship-Summary-Fetch-Data/response_header.jpg" width=80%>
+</center>
 
+# 小结
+> 通过上述分析，我们可以发现 HTTP 请求其实像发送邮件一样，请求头是我们附加的一些信息，可以告诉收件人，谁发的邮件，谁可以看，这是一封加密的邮件，你要根据什么规则把这封邮件翻译过来等等，请求内容当然就是我们要发送的具体内容。
+
+> HTTP 响应就是收件人给我的回信，响应头会告诉我们一些附加信息，比如告诉我们，你发送的那个收件人没有（404）或者我正确收到了你的来信（200），我给你的响应是什么加密方式，你要怎么解码，响应内容就是他要告诉我们的具体内容。
 
 # Python requests模块
 在实习工作期间，经常会面对拉取服务器数据的需求，这个时候会频繁调用requests的模块来发送http 请求，有必要对此类的知识点进行一个总结整理。
@@ -124,3 +133,75 @@ HTTP响应由三个部分组成，分别是：状态行、消息报头、响应�
 Request官网上对该模块进行描述：
 
 Requests is an elegant and simple HTTP library for Python, built for human beings.
+
+## get
+用于获取资源，当采用 GET 方式请求指定资源时， 被访问的资源经服务器解析后立即返回响应内容。通常以 GET 方式请求特定资源时， 请求中不应该包含请求体，所有需要向被请求资源传递的数据都应该通过 URL 向服务器传递。
+``` python
+# post 语法
+response = requests.request("get", "http://www.baidu.com/")
+
+# 添加headers，可以传入headers参数来增加请求头中的headers信息。
+# 如果要将参数放在url中传递，可以利用 params 参数。
+import requests
+ 
+kw = {'wd': '北极熊'}
+ 
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/54.0.2840.99 Safari/537.36"}
+ 
+# params 接收一个字典或者字符串的查询参数，字典类型自动转换为url编码，不需要urlencode()
+response = requests.get("http://www.baidu.com/s?", params=kw, headers=headers)
+ 
+# 查看响应内容，response.text 返回的是Unicode格式的数据
+print(response.text)
+ 
+# 查看响应内容，response.content返回的字节流数据
+print(response.content)
+ 
+# 查看完整url地址
+print(response.url)
+ 
+# 查看响应头部字符编码
+print(response.encoding)
+ 
+# 查看响应码
+print(response.status_code)
+```
+
+
+## post
+POST 动作：用于提交数据， 当采用 POST 方式向指定位置提交数据时，数据被包含在请求体中，服务器接收到这些数据后可能会建立新的资源、也可能会更新已有的资源。同时 POST 方式的请求体可以包含非常多的数据，而且格式不限。因此 POST 方式用途较为广泛，几乎所有的提交操作都可以使用 POST 方式来完成。
+``` python
+import requests
+ 
+formdata = {
+    "type": "AUTO",
+    "i": "i love python",
+    "doctype": "json",
+    "xmlVersion": "1.8",
+    "keyfrom": "fanyi.web",
+    "ue": "UTF-8",
+    "action": "FY_BY_ENTER",
+    "typoResult": "true"
+}
+ 
+url = "http://fanyi.youdao.com/translate?smartresult=dict&smartresult=rule&smartresult=ugc&sessionFrom=null"
+ 
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) "
+                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/51.0.2704.103 Safari/537.36"}
+ 
+response = requests.post(url, data=formdata, headers=headers)
+ 
+print(response.text)
+ 
+# 如果是json文件可以直接显示
+print(response.json())
+```
+
+# 参考文档
+
+1. [Requests: 让 HTTP 服务人类](https://docs.python-requests.org/zh_CN/latest/)
