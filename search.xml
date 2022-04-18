@@ -101,6 +101,33 @@
       </tags>
   </entry>
   <entry>
+    <title>Big Query-Basic</title>
+    <url>/2022/04/11/Big-Query/</url>
+    <content><![CDATA[<p>BigQuery 是一种全代管式企业数据仓库，可帮助您使用机器学习、地理空间分析和商业智能等内置功能管理和分析数据。</p>
+<p>BigQuery 实现分析数据的计算引擎与存储选项分离，可最大限度地提高灵活性。</p>
+<p>BigQuery 界面包括 Google Cloud Console 界面和 BigQuery 命令行工具。</p>
+<p><strong>TO BE CONTINUED …</strong></p>
+<center>
+        <img src="/2022/04/11/Big-Query/bq_logo.jpg" width="80%">
+</center>
+
+<span id="more"></span>
+
+<h1 id="Quick-Begin"><a href="#Quick-Begin" class="headerlink" title="Quick Begin"></a>Quick Begin</h1><p>笔者感觉bq的配置、指令、命令行类的操作细节不该是本篇的关注的重点，否则文章会显得冗杂、无味，故对于此部分只会摘录google官网上的相关的文档链接，读者自行通读，在工作中边实践边学习。</p>
+<p>本篇将主要集中于bq的存储、分析、管理等工作原理，以及工作中遇到的有价值的问题与知识。</p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p><a href="https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console?hl=zh-cn">1. Cloud Console</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-console?hl=zh-cn">2. 加载与查询数据</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-bq?hl=zh-cn">3. 命令行工具</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries?hl=zh-cn#bigquery_simple_app_client-java">4.  客户端库</a><br><a href="https://github.com/googleapis/java-bigquery/tree/f9f7abdede91e8f780d5a60b6ee9a26e9316d04d">5. BQ java指令 github仓库</a></p>
+<h2 id="付费情况"><a href="#付费情况" class="headerlink" title="付费情况"></a>付费情况</h2><h2 id="流媒体"><a href="#流媒体" class="headerlink" title="流媒体"></a>流媒体</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a href="https://cloud.google.com/bigquery/docs/introduction?hl=zh-cn">BQ官方文档</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Big  Data</category>
+      </categories>
+      <tags>
+        <tag>big query</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>A Private Blog Built By Github + Hexo + NexT</title>
     <url>/2022/03/18/A-Private-Blog-Built-By-Github-Hexo-Next/</url>
     <content><![CDATA[<p>这个私人博客的搭建是基于Github Page创建最基础的个人静态网站，Hexo则是一个快速、简洁且高效的博客框架，利用Markdown进行文章的解析，NexT是其中的一种主题theme，其拓展性优秀，后期能基于该框架与主题进行个性化的修改。基于Github + Hexo + NexT模式的博客在管理方便，实现本地-远程简单部署的同时，也保证了博客网页的美观与整洁。</p>
@@ -527,33 +554,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Big Query-Basic</title>
-    <url>/2022/04/11/Big-Query/</url>
-    <content><![CDATA[<p>BigQuery 是一种全代管式企业数据仓库，可帮助您使用机器学习、地理空间分析和商业智能等内置功能管理和分析数据。</p>
-<p>BigQuery 实现分析数据的计算引擎与存储选项分离，可最大限度地提高灵活性。</p>
-<p>BigQuery 界面包括 Google Cloud Console 界面和 BigQuery 命令行工具。</p>
-<p><strong>TO BE CONTINUED …</strong></p>
-<center>
-        <img src="/2022/04/11/Big-Query/bq_logo.jpg" width="80%">
-</center>
-
-<span id="more"></span>
-
-<h1 id="Quick-Begin"><a href="#Quick-Begin" class="headerlink" title="Quick Begin"></a>Quick Begin</h1><p>笔者感觉bq的配置、指令、命令行类的操作细节不该是本篇的关注的重点，否则文章会显得冗杂、无味，故对于此部分只会摘录google官网上的相关的文档链接，读者自行通读，在工作中边实践边学习。</p>
-<p>本篇将主要集中于bq的存储、分析、管理等工作原理，以及工作中遇到的有价值的问题与知识。</p>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p><a href="https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console?hl=zh-cn">1. Cloud Console</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-console?hl=zh-cn">2. 加载与查询数据</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-bq?hl=zh-cn">3. 命令行工具</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries?hl=zh-cn#bigquery_simple_app_client-java">4.  客户端库</a><br><a href="https://github.com/googleapis/java-bigquery/tree/f9f7abdede91e8f780d5a60b6ee9a26e9316d04d">5. BQ java指令 github仓库</a></p>
-<h2 id="付费情况"><a href="#付费情况" class="headerlink" title="付费情况"></a>付费情况</h2><h2 id="流媒体"><a href="#流媒体" class="headerlink" title="流媒体"></a>流媒体</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
-<li><a href="https://cloud.google.com/bigquery/docs/introduction?hl=zh-cn">BQ官方文档</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Big  Data</category>
-      </categories>
-      <tags>
-        <tag>big query</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Brew</title>
     <url>/2022/03/28/Homebrew/</url>
     <content><![CDATA[<p>在使用mac系统的时候，和win 的一个区别在于sofeware的安装，要将从int下载下来的包，拽入app store中，安装在指定的位置。后来发现mac中存在一个工具——homebrew，能有效的帮助用户下载和管理相应的应用软件。本文也是记录下一些常用的homebrew的用法，提高homebrew的使用。</p>
@@ -657,7 +657,6 @@
     <title>Internship Summary Fetch Data</title>
     <url>/2022/04/14/Internship-Summary-Fetch-Data/</url>
     <content><![CDATA[<p>在实习的前两个星期，感觉最常接触的一类任务就是<strong>数据的拉取</strong>以及api的调用，本文也是对这个part的内容、方法以及遇到的问题进行一个记录。</p>
-<p> <strong>To be continued …</strong></p>
 <center>
         <img src="/2022/04/14/Internship-Summary-Fetch-Data/fd_logo.jpg" , width="80%">
 </center>
@@ -772,15 +771,39 @@
 <h2 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h2><p>请求头之后是一个空行，通知服务器以下不再有请求头</p>
 <h2 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h2><p>GET没有请求数据，POST有。与请求数据相关的最常使用的请求头是 Content-Type 和 Content-Length 。</p>
 <h1 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h1><p>HTTP响应由三个部分组成，分别是：状态行、消息报头、响应正文。</p>
-<h2 id="Status-line-x2F-状态行"><a href="#Status-line-x2F-状态行" class="headerlink" title="Status line&#x2F;状态行"></a>Status line&#x2F;状态行</h2><p>由三个部分组成：</p>
-<ul>
-<li><strong>The protocol version（版本协议）</strong>, usually HTTP&#x2F;1.1.</li>
-<li><strong>A status code（状态码）</strong>，indicating success or failure of the request. Common status codes are 200, 404, or 302</li>
-<li><strong>A status text（状态信息）</strong>. A brief, purely informational, textual description of the status code to help a human understand the HTTP message.</li>
-</ul>
-<h2 id="Headers-x2F-消息报头"><a href="#Headers-x2F-消息报头" class="headerlink" title="Headers&#x2F;消息报头"></a>Headers&#x2F;消息报头</h2><h1 id="Python-requests模块"><a href="#Python-requests模块" class="headerlink" title="Python requests模块"></a>Python requests模块</h1><p>在实习工作期间，经常会面对拉取服务器数据的需求，这个时候会频繁调用requests的模块来发送http 请求，有必要对此类的知识点进行一个总结整理。</p>
+<center>
+        <img src="/2022/04/14/Internship-Summary-Fetch-Data/响应报文.jpg" width="80%">
+</center>
+## Status line/状态行
+由三个部分组成：
+- **The protocol version（版本协议）**, usually HTTP/1.1.
+- **A status code（状态码）**，indicating success or failure of the request. Common status codes are 200, 404, or 302
+- **A status text（状态信息）**. A brief, purely informational, textual description of the status code to help a human understand the HTTP message.
+
+<h2 id="Headers-x2F-消息报头"><a href="#Headers-x2F-消息报头" class="headerlink" title="Headers&#x2F;消息报头"></a>Headers&#x2F;消息报头</h2><p><a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">Response fields</a></p>
+<center>
+                <img src="/2022/04/14/Internship-Summary-Fetch-Data/response_header.jpg" width="80%">
+</center>
+
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><blockquote>
+<p>通过上述分析，我们可以发现 HTTP 请求其实像发送邮件一样，请求头是我们附加的一些信息，可以告诉收件人，谁发的邮件，谁可以看，这是一封加密的邮件，你要根据什么规则把这封邮件翻译过来等等，请求内容当然就是我们要发送的具体内容。</p>
+</blockquote>
+<blockquote>
+<p>HTTP 响应就是收件人给我的回信，响应头会告诉我们一些附加信息，比如告诉我们，你发送的那个收件人没有（404）或者我正确收到了你的来信（200），我给你的响应是什么加密方式，你要怎么解码，响应内容就是他要告诉我们的具体内容。</p>
+</blockquote>
+<h1 id="Python-requests模块"><a href="#Python-requests模块" class="headerlink" title="Python requests模块"></a>Python requests模块</h1><p>在实习工作期间，经常会面对拉取服务器数据的需求，这个时候会频繁调用requests的模块来发送http 请求，有必要对此类的知识点进行一个总结整理。</p>
 <p>Request官网上对该模块进行描述：</p>
 <p>Requests is an elegant and simple HTTP library for Python, built for human beings.</p>
+<h2 id="get"><a href="#get" class="headerlink" title="get"></a>get</h2><p>用于获取资源，当采用 GET 方式请求指定资源时， 被访问的资源经服务器解析后立即返回响应内容。通常以 GET 方式请求特定资源时， 请求中不应该包含请求体，所有需要向被请求资源传递的数据都应该通过 URL 向服务器传递。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># post 语法</span></span><br><span class="line">response = requests.request(<span class="string">&quot;get&quot;</span>, <span class="string">&quot;http://www.baidu.com/&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加headers，可以传入headers参数来增加请求头中的headers信息。</span></span><br><span class="line"><span class="comment"># 如果要将参数放在url中传递，可以利用 params 参数。</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"> </span><br><span class="line">kw = &#123;<span class="string">&#x27;wd&#x27;</span>: <span class="string">&#x27;北极熊&#x27;</span>&#125;</span><br><span class="line"> </span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) &quot;</span></span><br><span class="line">                  <span class="string">&quot;AppleWebKit/537.36 (KHTML, like Gecko) &quot;</span></span><br><span class="line">                  <span class="string">&quot;Chrome/54.0.2840.99 Safari/537.36&quot;</span>&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment"># params 接收一个字典或者字符串的查询参数，字典类型自动转换为url编码，不需要urlencode()</span></span><br><span class="line">response = requests.get(<span class="string">&quot;http://www.baidu.com/s?&quot;</span>, params=kw, headers=headers)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看响应内容，response.text 返回的是Unicode格式的数据</span></span><br><span class="line"><span class="built_in">print</span>(response.text)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看响应内容，response.content返回的字节流数据</span></span><br><span class="line"><span class="built_in">print</span>(response.content)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看完整url地址</span></span><br><span class="line"><span class="built_in">print</span>(response.url)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看响应头部字符编码</span></span><br><span class="line"><span class="built_in">print</span>(response.encoding)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看响应码</span></span><br><span class="line"><span class="built_in">print</span>(response.status_code)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="post"><a href="#post" class="headerlink" title="post"></a>post</h2><p>POST 动作：用于提交数据， 当采用 POST 方式向指定位置提交数据时，数据被包含在请求体中，服务器接收到这些数据后可能会建立新的资源、也可能会更新已有的资源。同时 POST 方式的请求体可以包含非常多的数据，而且格式不限。因此 POST 方式用途较为广泛，几乎所有的提交操作都可以使用 POST 方式来完成。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"> </span><br><span class="line">formdata = &#123;</span><br><span class="line">    <span class="string">&quot;type&quot;</span>: <span class="string">&quot;AUTO&quot;</span>,</span><br><span class="line">    <span class="string">&quot;i&quot;</span>: <span class="string">&quot;i love python&quot;</span>,</span><br><span class="line">    <span class="string">&quot;doctype&quot;</span>: <span class="string">&quot;json&quot;</span>,</span><br><span class="line">    <span class="string">&quot;xmlVersion&quot;</span>: <span class="string">&quot;1.8&quot;</span>,</span><br><span class="line">    <span class="string">&quot;keyfrom&quot;</span>: <span class="string">&quot;fanyi.web&quot;</span>,</span><br><span class="line">    <span class="string">&quot;ue&quot;</span>: <span class="string">&quot;UTF-8&quot;</span>,</span><br><span class="line">    <span class="string">&quot;action&quot;</span>: <span class="string">&quot;FY_BY_ENTER&quot;</span>,</span><br><span class="line">    <span class="string">&quot;typoResult&quot;</span>: <span class="string">&quot;true&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">url = <span class="string">&quot;http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&amp;smartresult=ugc&amp;sessionFrom=null&quot;</span></span><br><span class="line"> </span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) &quot;</span></span><br><span class="line">                  <span class="string">&quot;AppleWebKit/537.36 (KHTML, like Gecko) &quot;</span></span><br><span class="line">                  <span class="string">&quot;Chrome/51.0.2704.103 Safari/537.36&quot;</span>&#125;</span><br><span class="line"> </span><br><span class="line">response = requests.post(url, data=formdata, headers=headers)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(response.text)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 如果是json文件可以直接显示</span></span><br><span class="line"><span class="built_in">print</span>(response.json())</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ol>
+<li><a href="https://docs.python-requests.org/zh_CN/latest/">Requests: 让 HTTP 服务人类</a></li>
+</ol>
 ]]></content>
       <categories>
         <category>Intership Summary</category>
@@ -850,59 +873,77 @@
       </tags>
   </entry>
   <entry>
-    <title>Pyenv</title>
-    <url>/2022/04/02/Pyenv/</url>
-    <content><![CDATA[<p>在python编程的过程中，经常需要在2.x 与  3.x 中进行切换，2和3两个版本间差异巨大，需要进行管理。</p>
-<p>pyenv是一个forked自ruby社区的简单、低调、遵循UNIX哲学的Python环境管理工具, 它可以轻松切换全局解释器版本, 同时结合vitualenv插件可以方便的管理对应的包源.</p>
-<p>pyenv和virtualenv。前者用于管理不同的Python版本，后者用 于管理不同的工作环境，能够极好得解决我们工作学习中遇到的python版本环境控制问题。</p>
+    <title>SSL</title>
+    <url>/2022/04/05/SSL/</url>
+    <content><![CDATA[<p>在处理实习的业务需求的时候，涉及到ssl公钥私钥部分的相关知识。本文用以记录与ssl相关的基础知识及其应用。</p>
+<center>
+        <img src="/2022/04/05/SSL/SSL encrypted.jpg" width="60%">
+</center>
+
 <span id="more"></span>
 
-<h1 id="Pyenv简介"><a href="#Pyenv简介" class="headerlink" title="Pyenv简介"></a>Pyenv简介</h1><p>如前言所言，pyenv允许用户在不同版本的python中切换。pyenv基于rbenv进行开发，由ruby语言进行编程，为python而准备的。</p>
-<h2 id="Pyenv-用处"><a href="#Pyenv-用处" class="headerlink" title="Pyenv 用处"></a>Pyenv 用处</h2><ol>
-<li>允许用户更改全局python的版本</li>
-<li>为每个python版本都提供支持</li>
-<li>允许使用环境变量重写python版本</li>
-<li>有助于使用 tox 跨 Python 版本进行测试</li>
-</ol>
-<h2 id="Pyenv-不允许"><a href="#Pyenv-不允许" class="headerlink" title="Pyenv 不允许"></a>Pyenv 不允许</h2><ol>
-<li>pyenv是由shell 脚本编写的，不存在python的引导问题。</li>
-<li>需要将把pyenv安装目录载入到环境中。</li>
-<li>pyenv无法管理虚拟环境，但是可以利用 virtualenv或者 pyenv-virtualenv实现。</li>
-</ol>
-<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>pyenv 就是使用了中间层的原理来实现的的，即 shims&#x2F;垫片。</p>
-<h2 id="初始化-pyenv"><a href="#初始化-pyenv" class="headerlink" title="初始化 pyenv"></a>初始化 pyenv</h2><p>安装 pyenv 后，需要在当前 shell 的配置文件（bash 为 ~&#x2F;.bashrc，zsh 为 ~&#x2F;.zshrc 等等）中增加相应命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/data/sammyshen/.pyenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv init -)</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv virtualenv-init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>这几个命令在每次登陆 shell 时，会更改 PATH 环境变量，将 pyenv 的路径加入到 PATH 环境变量前面。</p>
-<h2 id="shims-x2F-垫片的简化基本原理"><a href="#shims-x2F-垫片的简化基本原理" class="headerlink" title="shims&#x2F;垫片的简化基本原理"></a>shims&#x2F;垫片的简化基本原理</h2><p>Linux 执行命令时，是依次遍历 PATH 环境变量的每个路径，查找所执行的命令。当在某个目录下找到第一个匹配时即停止遍历，所以 PATH 环境变量中，前面的路径比后面的路径具有更高的优先级。</p>
-<p>pyenv 在 <del>&#x2F;.pyenv&#x2F;shims 目录下创建了各种 python 相关命令的垫片（</del>&#x2F;.bashrc 中加入的命令调用 pyenv-rehash 生成的，pyenv install 命令也会调用 pyenv-rehash 进行更新）</p>
+<h1 id="What-is-SSL"><a href="#What-is-SSL" class="headerlink" title="What is SSL?"></a>What is SSL?</h1><p>安全套接字层 (SSL) 是一种加密安全协议。它最初由 Netscape 于 1995 年开发，旨在确保 Internet 通信中的隐私、身份验证和数据完整性。SSL 是如今使用的现代 TLS 加密的前身。</p>
+<p>实施 SSL&#x2F;TLS 的网站的 URL 中带有“HTTPS”，而不是“HTTP”。</p>
+<h2 id="TLS-握手"><a href="#TLS-握手" class="headerlink" title="TLS 握手"></a>TLS 握手</h2><blockquote>
+<p>TLS 是一种旨在保护互联网通信安全的加密协议。TLS 握手是启动 TLS 加密通信会话的过程。在 TLS 握手过程中，通信双方交换消息以相互确认，彼此验证，确立它们将使用的加密算法，并生成一致的会话密钥。TLS 握手是 HTTPS 工作原理的基础部分。</p>
+</blockquote>
 <center>
-        <img src="/2022/04/02/Pyenv/shim.jpg">
+        <img src="/2022/04/05/SSL/TLS.jpg" width="80%">
 </center>
 
-<p>从脚本内容可以看出，当我们执行某个命令 program “param1” “param2” ……时，实际执行的是 pyenv exec “program” “param1” “param2” ……。</p>
-<p>例如执行 python -V，实际执行的是 pyenv exec python -V。</p>
-<h2 id="确定版本号"><a href="#确定版本号" class="headerlink" title="确定版本号"></a>确定版本号</h2><p>在 pyenv-exec 命令中，首先会调用 pyenv-version-name 确定 python 版本或虚拟环境版本，具体查找规则为：</p>
+<p>通过 TCP 握手打开 TCP 连接后，将发生 TLS 握手。</p>
+<h2 id="TLS握手会发生什么"><a href="#TLS握手会发生什么" class="headerlink" title="TLS握手会发生什么"></a>TLS握手会发生什么</h2><ul>
+<li>指定将要使用的 TLS 版本（TLS 1.0、1.2、1.3 等）</li>
+<li>决定将要使用哪些密码套件（见下文）</li>
+<li>通过服务器的公钥和 SSL 证书颁发机构的数字签名来验证服务器的身份</li>
+<li>生成会话密钥，以在握手完成后使用对称加密</li>
+</ul>
+<h2 id="TLS步骤"><a href="#TLS步骤" class="headerlink" title="TLS步骤"></a>TLS步骤</h2><p>TLS 握手的确切步骤将根据所使用的密钥交换算法的类型以及双方支持的密码套件而有所不同。RSA 密钥交换算法最为常用。</p>
+<ol>
+<li>“客户端问候（client hello）” 消息： 客户端通过向服务器发送“问候”消息来开始握手。该消息将包含<strong>客户端支持的 TLS 版本</strong>，<strong>支持的密码套件</strong>，以及称为一串称为“<strong>客户端随机数（client random）</strong>”的随机字。</li>
+<li>“服务器问候（server hello）”消息： 作为对 client hello 消息的回复，服务器发送一条消息，内含<strong>服务器的 SSL 证书</strong>、服务器选择的<strong>密码套件</strong>，以及“<strong>服务器随机数</strong>（server random）”，即由服务器生成的另一串随机字节。</li>
+<li>身份验证： 客户端使用颁发该证书的证书颁发机构验证服务器的 SSL 证书。此举确认服务器是其声称的身份，且客户端正在与该域的实际所有者进行交互。</li>
+<li>预主密钥： 客户端再发送一串随机字节，即“<strong>预主密钥（premaster secret）</strong>”。预主密钥是<strong>使用公钥加密的，只能使用服务器的私钥解密</strong>。（客户端从服务器的 SSL 证书中获得公钥。）</li>
+<li>私钥被使用：服务器对预主密钥进行解密</li>
+<li>生成会话密钥：<strong>客户端和服务器均使用客户端随机数、服务器随机数和预主密钥生成会话密钥</strong>。双方应得到相同的结果。</li>
+<li>客户端就绪：客户端发送一条“已完成”消息，该消息用会话密钥加密。</li>
+<li>服务器就绪：服务器发送一条“已完成”消息，该消息用会话密钥加密。</li>
+<li>实现安全对称加密：已完成握手，并使用会话密钥继续进行通信。</li>
+</ol>
+<h2 id="Diffie-Hellman-握手过程"><a href="#Diffie-Hellman-握手过程" class="headerlink" title="Diffie-Hellman 握手过程"></a>Diffie-Hellman 握手过程</h2><p>所有 TLS 握手均使用非对称加密（公钥和私钥），但并非全都会在生成会话密钥的过程中使用私钥。例如，短暂的 Diffie-Hellman 握手过程如下：</p>
+<ol>
+<li>客户端问候：客户端发送客户端问候消息，内含协议版本、客户端随机数和密码套件列表。</li>
+<li>服务器问候：服务器以其 SSL 证书、其选定的密码套件和服务器随机数回复。与上述 RSA 握手相比，服务器在此消息中还包括以下内容（步骤 3）：</li>
+<li>服务器的数字签名：<strong>服务器使用其私钥对客户端随机数、服务器随机数及其 DH 参数</strong> 进行加密。加密后的数据用作服务器的数字签名，从而确定<strong>服务器具有与 SSL 证书中的公钥相匹配的私钥</strong>。</li>
+<li>确认数字签名：客户端使用公钥解密服务器的数字签名，验证服务器控制私钥并且是其声称的身份。客户端 DH 参数：客户端将其 DH 参数发送到服务器。</li>
+<li>客户端和服务器计算预主密钥：客户端和服务器使用交换的 DH 参数分别计算匹配的预主密钥，而不像 RSA 握手那样由客户端生成预主密钥并将其发送到服务器。</li>
+<li>创建会话密钥：与 RSA 握手中一样，客户端和服务器现在从预主密钥、客户端随机数和服务器随机数计算会话密钥。</li>
+<li>客户端就绪：与 RSA 握手相同。</li>
+<li>服务器就绪</li>
+<li>实现安全对称加密</li>
+</ol>
+<h2 id="密码套件"><a href="#密码套件" class="headerlink" title="密码套件"></a>密码套件</h2><p>密码套件是一组用于建立安全通信连接的加密算法。（加密算法是对数据执行的一组数学运算，以使数据显得随机。）广泛使用的密码套件有多种，而且 TLS 握手的一个重要组成部分就是对这个握手使用哪一密码套件达成一致意见。</p>
+<h2 id="使用会话密钥的对称加密"><a href="#使用会话密钥的对称加密" class="headerlink" title="使用会话密钥的对称加密"></a>使用会话密钥的对称加密</h2><p>与非对称加密不同，在对称加密中，会话中的两方使用相同的密钥。TLS 握手后，双方使用相同的会话密钥进行加密。一旦使用了会话密钥，就不再使用公钥和私钥。会话密钥是临时密钥，会话终止后便不再使用。下一会话需要创建一组新的随机会话密钥。</p>
 <center>
-        <img src="/2022/04/02/Pyenv/Pyenv 确定版本号.jpg" width="80%">
+        <img src="/2022/04/05/SSL/asymmetric.jpg" , width="80%">
 </center>
 
-<h2 id="确定与版本号对应的可执行文件"><a href="#确定与版本号对应的可执行文件" class="headerlink" title="确定与版本号对应的可执行文件"></a>确定与版本号对应的可执行文件</h2><p>在 pyenv-exec 命令中，会再调用 pyenv-which 确定可执行文件 program 的路径。如果前面 pyenv-version-name 确定了 python 版本或虚拟环境版本，则使用 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;bin&#x2F;&lt;程序名&gt; 或 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;env&#x2F;&lt;虚拟环境名&gt;&#x2F;bin&#x2F;&lt;程序名&gt;，否则遍历所有版本号的安装路径，按顺序取第一个匹配到的可执行文件。</p>
-<h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><p>确定与版本号对应的可执行文件路径 path 之后，执行以下命令：<br>exec -a program “$path” “param1” “param2” ……</p>
-<p>（注：即执行 “$path” “param1” “param2”，并使用 program 作为程序名，程序名即 shell 中的 $0，python 中的 sys.argv0）<br>例如执行 python -V，确定 pyenv 版本为 2.7.17，对应可执行文件为 ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python，则执行命令为：<br>exec -a python ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python -V<br>以上就是 pyenv 执行命令的基本原理了。</p>
-<h1 id="pyenv常用指令"><a href="#pyenv常用指令" class="headerlink" title="pyenv常用指令"></a>pyenv常用指令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建新的环境,位于 ~/.pyenv/versions/</span></span><br><span class="line">$ pyenv virtualenv 2.7.1 env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到新的环境</span></span><br><span class="line">$ pyenv activate env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退回到系统环境</span></span><br><span class="line">$ pyenv deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除新创建的环境</span></span><br><span class="line">$ <span class="built_in">rm</span> -rf ~/.pyenv/versions/env271/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前 pyenv 可检测到的所有版本，处于激活状态的版本前以 * 标示。</span></span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">* 3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line">  3.5.1/envs/flask_py351</span><br><span class="line">  3.5.1/envs/pelican</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前处于激活状态的版本，括号中内容表示这个版本是由哪条途径激活的（global、local、shell）</span></span><br><span class="line">$ pyenv version</span><br><span class="line">3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python-build（一个插件） 安装一个 Python 版本，到 $PYENV_ROOT/versions 路径下。</span></span><br><span class="line">$ pyenv install -v 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">$ pyenv uninstall 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为所有已安装的可执行文件 （如：~/.pyenv/versions/*/bin/*） 创建 shims，</span></span><br><span class="line"><span class="comment"># 因此，每当你增删了 Python 版本或带有可执行文件的包（如 pip）以后，都应该执行一次本命令</span></span><br><span class="line">$ pyenv <span class="built_in">rehash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置全局的 Python 版本，通过将版本号写入 ~/.pyenv/version 文件的方式。</span></span><br><span class="line">$ pyenv global 3.4.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向程序的本地版本，通过将版本号写入当前目录下的 .python-version 文件的方式。</span></span><br><span class="line"><span class="comment"># 通过这种方式设置的 Python 版本优先级较 global 高。pyenv 会从当前目录开始向上逐级查找 .python-version 文件，直到根目录为止。</span></span><br><span class="line"><span class="comment">#若找不到，就用 global 版本。</span></span><br><span class="line">$ pyenv <span class="built_in">local</span> 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向 shell 的 Python 版本，通过设置当前 shell 的 PYENV_VERSION 环境变量的方式。</span></span><br><span class="line"><span class="comment"># 这个版本的优先级比 local 和 global 都要高。--unset 参数可以用于取消当前 shell 设定的版本。</span></span><br><span class="line">$ pyenv shell pypy-2.2.1</span><br><span class="line">$ pyenv shell --<span class="built_in">unset</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://github.com/pyenv/pyenv">1. pyenv-官方文档</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1593478">2. pyenv神器原理分析</a></p>
+<h1 id="验证源站服务器身份"><a href="#验证源站服务器身份" class="headerlink" title="验证源站服务器身份"></a>验证源站服务器身份</h1><p>来自服务器的 TLS 通信包括消息身份验证码或 MAC，它是用于确认通信源自实际网站的数字签名。这将对服务器进行身份验证，从而防止在途攻击和域欺骗。它还确保数据在传输过程中没有被篡改。</p>
+<h1 id="什么是-SSL-证书？"><a href="#什么是-SSL-证书？" class="headerlink" title="什么是 SSL 证书？"></a>什么是 SSL 证书？</h1><p>SSL 证书是网站的源服务器上安装的文件。它只是一个数据文件，包含公钥和网站所有者身份以及其他信息。如果没有 SSL 证书，就无法使用 TLS 来加密网站的流量。</p>
+<p>从技术上讲，任何网站所有者都可以创建自己的 SSL 证书，这些证书称为自签名证书。但是，浏览器不认为自签名证书像证书颁发机构颁发的 SSL 证书一样值得信赖。</p>
+<h1 id="网站如何获得-SSL-证书？"><a href="#网站如何获得-SSL-证书？" class="headerlink" title="网站如何获得 SSL 证书？"></a>网站如何获得 SSL 证书？</h1><p>网站所有者需要从证书颁发机构获取 SSL 证书，然后将其安装到自己的 Web 服务器上（通常 Web 主机可以处理此过程）。证书颁发机构是一个外部方，可以确认网站所有者是他们所称的身份。他们保留所颁发证书的副本。</p>
+<h1 id="HTTP-和-HTTPS-有什么区别？"><a href="#HTTP-和-HTTPS-有什么区别？" class="headerlink" title="HTTP 和 HTTPS 有什么区别？"></a>HTTP 和 HTTPS 有什么区别？</h1><p>“HTTPS”中的 S 代表“安全”。HTTPS 只是具有 SSL&#x2F;TLS 的 HTTP。拥有 HTTPS 地址的网站具有由证书颁发机构颁发的合法 SSL 证书，并且使用 SSL&#x2F;TLS 协议对往返于该网站的流量进行身份验证和加密。</p>
+<p>为了鼓励整个互联网转向更安全的 HTTPS，许多 Web 浏览器已开始将 HTTP 网站标记为“不安全”。因此，HTTPS 不仅对于确保用户和用户数据的安全至关重要，而且对于建立与用户的信任也至关重要。测试网站的 SSL&#x2F;HTTPS 问题。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://www.cloudflare.com/zh-cn/learning/ssl/what-is-ssl/">1. Cloudflare 什么是ssl</a></p>
+<p><a href="https://www.cloudflare.com/zh-cn/learning/ssl/what-happens-in-a-tls-handshake/">2. TLS握手</a></p>
 ]]></content>
+      <categories>
+        <category>Basic</category>
+      </categories>
       <tags>
-        <tag>python</tag>
+        <tag>SSL</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Requests</title>
-    <url>/2022/04/17/Requests/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Ripple--The News Real Time Heat Analysis Platform</title>
@@ -1067,79 +1108,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SSL</title>
-    <url>/2022/04/05/SSL/</url>
-    <content><![CDATA[<p>在处理实习的业务需求的时候，涉及到ssl公钥私钥部分的相关知识。本文用以记录与ssl相关的基础知识及其应用。</p>
-<center>
-        <img src="/2022/04/05/SSL/SSL encrypted.jpg" width="60%">
-</center>
-
-<span id="more"></span>
-
-<h1 id="What-is-SSL"><a href="#What-is-SSL" class="headerlink" title="What is SSL?"></a>What is SSL?</h1><p>安全套接字层 (SSL) 是一种加密安全协议。它最初由 Netscape 于 1995 年开发，旨在确保 Internet 通信中的隐私、身份验证和数据完整性。SSL 是如今使用的现代 TLS 加密的前身。</p>
-<p>实施 SSL&#x2F;TLS 的网站的 URL 中带有“HTTPS”，而不是“HTTP”。</p>
-<h2 id="TLS-握手"><a href="#TLS-握手" class="headerlink" title="TLS 握手"></a>TLS 握手</h2><blockquote>
-<p>TLS 是一种旨在保护互联网通信安全的加密协议。TLS 握手是启动 TLS 加密通信会话的过程。在 TLS 握手过程中，通信双方交换消息以相互确认，彼此验证，确立它们将使用的加密算法，并生成一致的会话密钥。TLS 握手是 HTTPS 工作原理的基础部分。</p>
-</blockquote>
-<center>
-        <img src="/2022/04/05/SSL/TLS.jpg" width="80%">
-</center>
-
-<p>通过 TCP 握手打开 TCP 连接后，将发生 TLS 握手。</p>
-<h2 id="TLS握手会发生什么"><a href="#TLS握手会发生什么" class="headerlink" title="TLS握手会发生什么"></a>TLS握手会发生什么</h2><ul>
-<li>指定将要使用的 TLS 版本（TLS 1.0、1.2、1.3 等）</li>
-<li>决定将要使用哪些密码套件（见下文）</li>
-<li>通过服务器的公钥和 SSL 证书颁发机构的数字签名来验证服务器的身份</li>
-<li>生成会话密钥，以在握手完成后使用对称加密</li>
-</ul>
-<h2 id="TLS步骤"><a href="#TLS步骤" class="headerlink" title="TLS步骤"></a>TLS步骤</h2><p>TLS 握手的确切步骤将根据所使用的密钥交换算法的类型以及双方支持的密码套件而有所不同。RSA 密钥交换算法最为常用。</p>
-<ol>
-<li>“客户端问候（client hello）” 消息： 客户端通过向服务器发送“问候”消息来开始握手。该消息将包含<strong>客户端支持的 TLS 版本</strong>，<strong>支持的密码套件</strong>，以及称为一串称为“<strong>客户端随机数（client random）</strong>”的随机字。</li>
-<li>“服务器问候（server hello）”消息： 作为对 client hello 消息的回复，服务器发送一条消息，内含<strong>服务器的 SSL 证书</strong>、服务器选择的<strong>密码套件</strong>，以及“<strong>服务器随机数</strong>（server random）”，即由服务器生成的另一串随机字节。</li>
-<li>身份验证： 客户端使用颁发该证书的证书颁发机构验证服务器的 SSL 证书。此举确认服务器是其声称的身份，且客户端正在与该域的实际所有者进行交互。</li>
-<li>预主密钥： 客户端再发送一串随机字节，即“<strong>预主密钥（premaster secret）</strong>”。预主密钥是<strong>使用公钥加密的，只能使用服务器的私钥解密</strong>。（客户端从服务器的 SSL 证书中获得公钥。）</li>
-<li>私钥被使用：服务器对预主密钥进行解密</li>
-<li>生成会话密钥：<strong>客户端和服务器均使用客户端随机数、服务器随机数和预主密钥生成会话密钥</strong>。双方应得到相同的结果。</li>
-<li>客户端就绪：客户端发送一条“已完成”消息，该消息用会话密钥加密。</li>
-<li>服务器就绪：服务器发送一条“已完成”消息，该消息用会话密钥加密。</li>
-<li>实现安全对称加密：已完成握手，并使用会话密钥继续进行通信。</li>
-</ol>
-<h2 id="Diffie-Hellman-握手过程"><a href="#Diffie-Hellman-握手过程" class="headerlink" title="Diffie-Hellman 握手过程"></a>Diffie-Hellman 握手过程</h2><p>所有 TLS 握手均使用非对称加密（公钥和私钥），但并非全都会在生成会话密钥的过程中使用私钥。例如，短暂的 Diffie-Hellman 握手过程如下：</p>
-<ol>
-<li>客户端问候：客户端发送客户端问候消息，内含协议版本、客户端随机数和密码套件列表。</li>
-<li>服务器问候：服务器以其 SSL 证书、其选定的密码套件和服务器随机数回复。与上述 RSA 握手相比，服务器在此消息中还包括以下内容（步骤 3）：</li>
-<li>服务器的数字签名：<strong>服务器使用其私钥对客户端随机数、服务器随机数及其 DH 参数</strong> 进行加密。加密后的数据用作服务器的数字签名，从而确定<strong>服务器具有与 SSL 证书中的公钥相匹配的私钥</strong>。</li>
-<li>确认数字签名：客户端使用公钥解密服务器的数字签名，验证服务器控制私钥并且是其声称的身份。客户端 DH 参数：客户端将其 DH 参数发送到服务器。</li>
-<li>客户端和服务器计算预主密钥：客户端和服务器使用交换的 DH 参数分别计算匹配的预主密钥，而不像 RSA 握手那样由客户端生成预主密钥并将其发送到服务器。</li>
-<li>创建会话密钥：与 RSA 握手中一样，客户端和服务器现在从预主密钥、客户端随机数和服务器随机数计算会话密钥。</li>
-<li>客户端就绪：与 RSA 握手相同。</li>
-<li>服务器就绪</li>
-<li>实现安全对称加密</li>
-</ol>
-<h2 id="密码套件"><a href="#密码套件" class="headerlink" title="密码套件"></a>密码套件</h2><p>密码套件是一组用于建立安全通信连接的加密算法。（加密算法是对数据执行的一组数学运算，以使数据显得随机。）广泛使用的密码套件有多种，而且 TLS 握手的一个重要组成部分就是对这个握手使用哪一密码套件达成一致意见。</p>
-<h2 id="使用会话密钥的对称加密"><a href="#使用会话密钥的对称加密" class="headerlink" title="使用会话密钥的对称加密"></a>使用会话密钥的对称加密</h2><p>与非对称加密不同，在对称加密中，会话中的两方使用相同的密钥。TLS 握手后，双方使用相同的会话密钥进行加密。一旦使用了会话密钥，就不再使用公钥和私钥。会话密钥是临时密钥，会话终止后便不再使用。下一会话需要创建一组新的随机会话密钥。</p>
-<center>
-        <img src="/2022/04/05/SSL/asymmetric.jpg" , width="80%">
-</center>
-
-
-<h1 id="验证源站服务器身份"><a href="#验证源站服务器身份" class="headerlink" title="验证源站服务器身份"></a>验证源站服务器身份</h1><p>来自服务器的 TLS 通信包括消息身份验证码或 MAC，它是用于确认通信源自实际网站的数字签名。这将对服务器进行身份验证，从而防止在途攻击和域欺骗。它还确保数据在传输过程中没有被篡改。</p>
-<h1 id="什么是-SSL-证书？"><a href="#什么是-SSL-证书？" class="headerlink" title="什么是 SSL 证书？"></a>什么是 SSL 证书？</h1><p>SSL 证书是网站的源服务器上安装的文件。它只是一个数据文件，包含公钥和网站所有者身份以及其他信息。如果没有 SSL 证书，就无法使用 TLS 来加密网站的流量。</p>
-<p>从技术上讲，任何网站所有者都可以创建自己的 SSL 证书，这些证书称为自签名证书。但是，浏览器不认为自签名证书像证书颁发机构颁发的 SSL 证书一样值得信赖。</p>
-<h1 id="网站如何获得-SSL-证书？"><a href="#网站如何获得-SSL-证书？" class="headerlink" title="网站如何获得 SSL 证书？"></a>网站如何获得 SSL 证书？</h1><p>网站所有者需要从证书颁发机构获取 SSL 证书，然后将其安装到自己的 Web 服务器上（通常 Web 主机可以处理此过程）。证书颁发机构是一个外部方，可以确认网站所有者是他们所称的身份。他们保留所颁发证书的副本。</p>
-<h1 id="HTTP-和-HTTPS-有什么区别？"><a href="#HTTP-和-HTTPS-有什么区别？" class="headerlink" title="HTTP 和 HTTPS 有什么区别？"></a>HTTP 和 HTTPS 有什么区别？</h1><p>“HTTPS”中的 S 代表“安全”。HTTPS 只是具有 SSL&#x2F;TLS 的 HTTP。拥有 HTTPS 地址的网站具有由证书颁发机构颁发的合法 SSL 证书，并且使用 SSL&#x2F;TLS 协议对往返于该网站的流量进行身份验证和加密。</p>
-<p>为了鼓励整个互联网转向更安全的 HTTPS，许多 Web 浏览器已开始将 HTTP 网站标记为“不安全”。因此，HTTPS 不仅对于确保用户和用户数据的安全至关重要，而且对于建立与用户的信任也至关重要。测试网站的 SSL&#x2F;HTTPS 问题。</p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://www.cloudflare.com/zh-cn/learning/ssl/what-is-ssl/">1. Cloudflare 什么是ssl</a></p>
-<p><a href="https://www.cloudflare.com/zh-cn/learning/ssl/what-happens-in-a-tls-handshake/">2. TLS握手</a></p>
-]]></content>
-      <categories>
-        <category>Basic</category>
-      </categories>
-      <tags>
-        <tag>SSL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Sql-Fragments</title>
     <url>/2022/04/11/Sql-Fragments/</url>
     <content><![CDATA[<p>This article is used for recording some study fragments in mysql.</p>
@@ -1195,6 +1163,11 @@
       <tags>
         <tag>Sql</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>postman</title>
+    <url>/2022/04/18/postman/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Yarn</title>
@@ -1337,6 +1310,56 @@
       </categories>
       <tags>
         <tag>Zookeeper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pyenv</title>
+    <url>/2022/04/02/Pyenv/</url>
+    <content><![CDATA[<p>在python编程的过程中，经常需要在2.x 与  3.x 中进行切换，2和3两个版本间差异巨大，需要进行管理。</p>
+<p>pyenv是一个forked自ruby社区的简单、低调、遵循UNIX哲学的Python环境管理工具, 它可以轻松切换全局解释器版本, 同时结合vitualenv插件可以方便的管理对应的包源.</p>
+<p>pyenv和virtualenv。前者用于管理不同的Python版本，后者用 于管理不同的工作环境，能够极好得解决我们工作学习中遇到的python版本环境控制问题。</p>
+<span id="more"></span>
+
+<h1 id="Pyenv简介"><a href="#Pyenv简介" class="headerlink" title="Pyenv简介"></a>Pyenv简介</h1><p>如前言所言，pyenv允许用户在不同版本的python中切换。pyenv基于rbenv进行开发，由ruby语言进行编程，为python而准备的。</p>
+<h2 id="Pyenv-用处"><a href="#Pyenv-用处" class="headerlink" title="Pyenv 用处"></a>Pyenv 用处</h2><ol>
+<li>允许用户更改全局python的版本</li>
+<li>为每个python版本都提供支持</li>
+<li>允许使用环境变量重写python版本</li>
+<li>有助于使用 tox 跨 Python 版本进行测试</li>
+</ol>
+<h2 id="Pyenv-不允许"><a href="#Pyenv-不允许" class="headerlink" title="Pyenv 不允许"></a>Pyenv 不允许</h2><ol>
+<li>pyenv是由shell 脚本编写的，不存在python的引导问题。</li>
+<li>需要将把pyenv安装目录载入到环境中。</li>
+<li>pyenv无法管理虚拟环境，但是可以利用 virtualenv或者 pyenv-virtualenv实现。</li>
+</ol>
+<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>pyenv 就是使用了中间层的原理来实现的的，即 shims&#x2F;垫片。</p>
+<h2 id="初始化-pyenv"><a href="#初始化-pyenv" class="headerlink" title="初始化 pyenv"></a>初始化 pyenv</h2><p>安装 pyenv 后，需要在当前 shell 的配置文件（bash 为 ~&#x2F;.bashrc，zsh 为 ~&#x2F;.zshrc 等等）中增加相应命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/data/sammyshen/.pyenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv init -)</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv virtualenv-init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这几个命令在每次登陆 shell 时，会更改 PATH 环境变量，将 pyenv 的路径加入到 PATH 环境变量前面。</p>
+<h2 id="shims-x2F-垫片的简化基本原理"><a href="#shims-x2F-垫片的简化基本原理" class="headerlink" title="shims&#x2F;垫片的简化基本原理"></a>shims&#x2F;垫片的简化基本原理</h2><p>Linux 执行命令时，是依次遍历 PATH 环境变量的每个路径，查找所执行的命令。当在某个目录下找到第一个匹配时即停止遍历，所以 PATH 环境变量中，前面的路径比后面的路径具有更高的优先级。</p>
+<p>pyenv 在 <del>&#x2F;.pyenv&#x2F;shims 目录下创建了各种 python 相关命令的垫片（</del>&#x2F;.bashrc 中加入的命令调用 pyenv-rehash 生成的，pyenv install 命令也会调用 pyenv-rehash 进行更新）</p>
+<center>
+        <img src="/2022/04/02/Pyenv/shim.jpg">
+</center>
+
+<p>从脚本内容可以看出，当我们执行某个命令 program “param1” “param2” ……时，实际执行的是 pyenv exec “program” “param1” “param2” ……。</p>
+<p>例如执行 python -V，实际执行的是 pyenv exec python -V。</p>
+<h2 id="确定版本号"><a href="#确定版本号" class="headerlink" title="确定版本号"></a>确定版本号</h2><p>在 pyenv-exec 命令中，首先会调用 pyenv-version-name 确定 python 版本或虚拟环境版本，具体查找规则为：</p>
+<center>
+        <img src="/2022/04/02/Pyenv/Pyenv 确定版本号.jpg" width="80%">
+</center>
+
+<h2 id="确定与版本号对应的可执行文件"><a href="#确定与版本号对应的可执行文件" class="headerlink" title="确定与版本号对应的可执行文件"></a>确定与版本号对应的可执行文件</h2><p>在 pyenv-exec 命令中，会再调用 pyenv-which 确定可执行文件 program 的路径。如果前面 pyenv-version-name 确定了 python 版本或虚拟环境版本，则使用 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;bin&#x2F;&lt;程序名&gt; 或 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;env&#x2F;&lt;虚拟环境名&gt;&#x2F;bin&#x2F;&lt;程序名&gt;，否则遍历所有版本号的安装路径，按顺序取第一个匹配到的可执行文件。</p>
+<h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><p>确定与版本号对应的可执行文件路径 path 之后，执行以下命令：<br>exec -a program “$path” “param1” “param2” ……</p>
+<p>（注：即执行 “$path” “param1” “param2”，并使用 program 作为程序名，程序名即 shell 中的 $0，python 中的 sys.argv0）<br>例如执行 python -V，确定 pyenv 版本为 2.7.17，对应可执行文件为 ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python，则执行命令为：<br>exec -a python ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python -V<br>以上就是 pyenv 执行命令的基本原理了。</p>
+<h1 id="pyenv常用指令"><a href="#pyenv常用指令" class="headerlink" title="pyenv常用指令"></a>pyenv常用指令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建新的环境,位于 ~/.pyenv/versions/</span></span><br><span class="line">$ pyenv virtualenv 2.7.1 env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到新的环境</span></span><br><span class="line">$ pyenv activate env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退回到系统环境</span></span><br><span class="line">$ pyenv deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除新创建的环境</span></span><br><span class="line">$ <span class="built_in">rm</span> -rf ~/.pyenv/versions/env271/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前 pyenv 可检测到的所有版本，处于激活状态的版本前以 * 标示。</span></span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">* 3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line">  3.5.1/envs/flask_py351</span><br><span class="line">  3.5.1/envs/pelican</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前处于激活状态的版本，括号中内容表示这个版本是由哪条途径激活的（global、local、shell）</span></span><br><span class="line">$ pyenv version</span><br><span class="line">3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python-build（一个插件） 安装一个 Python 版本，到 $PYENV_ROOT/versions 路径下。</span></span><br><span class="line">$ pyenv install -v 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">$ pyenv uninstall 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为所有已安装的可执行文件 （如：~/.pyenv/versions/*/bin/*） 创建 shims，</span></span><br><span class="line"><span class="comment"># 因此，每当你增删了 Python 版本或带有可执行文件的包（如 pip）以后，都应该执行一次本命令</span></span><br><span class="line">$ pyenv <span class="built_in">rehash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置全局的 Python 版本，通过将版本号写入 ~/.pyenv/version 文件的方式。</span></span><br><span class="line">$ pyenv global 3.4.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向程序的本地版本，通过将版本号写入当前目录下的 .python-version 文件的方式。</span></span><br><span class="line"><span class="comment"># 通过这种方式设置的 Python 版本优先级较 global 高。pyenv 会从当前目录开始向上逐级查找 .python-version 文件，直到根目录为止。</span></span><br><span class="line"><span class="comment">#若找不到，就用 global 版本。</span></span><br><span class="line">$ pyenv <span class="built_in">local</span> 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向 shell 的 Python 版本，通过设置当前 shell 的 PYENV_VERSION 环境变量的方式。</span></span><br><span class="line"><span class="comment"># 这个版本的优先级比 local 和 global 都要高。--unset 参数可以用于取消当前 shell 设定的版本。</span></span><br><span class="line">$ pyenv shell pypy-2.2.1</span><br><span class="line">$ pyenv shell --<span class="built_in">unset</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://github.com/pyenv/pyenv">1. pyenv-官方文档</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1593478">2. pyenv神器原理分析</a></p>
+]]></content>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
 </search>

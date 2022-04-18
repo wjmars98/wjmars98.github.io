@@ -21,19 +21,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在实习的前两个星期，感觉最常接触的一类任务就是数据的拉取以及api的调用，本文也是对这个part的内容、方法以及遇到的问题进行一个记录。  To be continued …">
+  <meta name="description" content="在实习的前两个星期，感觉最常接触的一类任务就是数据的拉取以及api的调用，本文也是对这个part的内容、方法以及遇到的问题进行一个记录。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Internship Summary Fetch Data">
 <meta property="og:url" content="http://example.com/2022/04/14/Internship-Summary-Fetch-Data/index.html">
 <meta property="og:site_name" content="Mars&#39; Blog">
-<meta property="og:description" content="在实习的前两个星期，感觉最常接触的一类任务就是数据的拉取以及api的调用，本文也是对这个part的内容、方法以及遇到的问题进行一个记录。  To be continued …">
+<meta property="og:description" content="在实习的前两个星期，感觉最常接触的一类任务就是数据的拉取以及api的调用，本文也是对这个part的内容、方法以及遇到的问题进行一个记录。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/04/14/Internship-Summary-Fetch-Data/fd_logo.jpg">
 <meta property="og:image" content="http://example.com/2022/04/14/Internship-Summary-Fetch-Data/报文结构.jpg">
 <meta property="og:image" content="http://example.com/2022/04/14/Internship-Summary-Fetch-Data/Internship-Summary-Fetch-Data/http报文.png">
 <meta property="og:image" content="http://example.com/2022/04/14/Internship-Summary-Fetch-Data/rh.jpg">
+<meta property="og:image" content="http://example.com/2022/04/14/Internship-Summary-Fetch-Data/响应报文.jpg">
+<meta property="og:image" content="http://example.com/2022/04/14/Internship-Summary-Fetch-Data/response_header.jpg">
 <meta property="article:published_time" content="2022-04-14T14:53:34.000Z">
-<meta property="article:modified_time" content="2022-04-15T02:15:31.911Z">
+<meta property="article:modified_time" content="2022-04-18T15:46:43.368Z">
 <meta property="article:author" content="Mars Wang">
 <meta property="article:tag" content="intership">
 <meta property="article:tag" content="http">
@@ -230,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-15 10:15:31" itemprop="dateModified" datetime="2022-04-15T10:15:31+08:00">2022-04-15</time>
+                <time title="修改时间：2022-04-18 23:46:43" itemprop="dateModified" datetime="2022-04-18T23:46:43+08:00">2022-04-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,7 +263,6 @@
 
       
         <p>在实习的前两个星期，感觉最常接触的一类任务就是<strong>数据的拉取</strong>以及api的调用，本文也是对这个part的内容、方法以及遇到的问题进行一个记录。</p>
-<p> <strong>To be continued …</strong></p>
 <center>
         <img src="/2022/04/14/Internship-Summary-Fetch-Data/fd_logo.jpg" , width="80%">
 </center>
@@ -376,15 +377,39 @@
 <h2 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h2><p>请求头之后是一个空行，通知服务器以下不再有请求头</p>
 <h2 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h2><p>GET没有请求数据，POST有。与请求数据相关的最常使用的请求头是 Content-Type 和 Content-Length 。</p>
 <h1 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h1><p>HTTP响应由三个部分组成，分别是：状态行、消息报头、响应正文。</p>
-<h2 id="Status-line-x2F-状态行"><a href="#Status-line-x2F-状态行" class="headerlink" title="Status line&#x2F;状态行"></a>Status line&#x2F;状态行</h2><p>由三个部分组成：</p>
-<ul>
-<li><strong>The protocol version（版本协议）</strong>, usually HTTP&#x2F;1.1.</li>
-<li><strong>A status code（状态码）</strong>，indicating success or failure of the request. Common status codes are 200, 404, or 302</li>
-<li><strong>A status text（状态信息）</strong>. A brief, purely informational, textual description of the status code to help a human understand the HTTP message.</li>
-</ul>
-<h2 id="Headers-x2F-消息报头"><a href="#Headers-x2F-消息报头" class="headerlink" title="Headers&#x2F;消息报头"></a>Headers&#x2F;消息报头</h2><h1 id="Python-requests模块"><a href="#Python-requests模块" class="headerlink" title="Python requests模块"></a>Python requests模块</h1><p>在实习工作期间，经常会面对拉取服务器数据的需求，这个时候会频繁调用requests的模块来发送http 请求，有必要对此类的知识点进行一个总结整理。</p>
+<center>
+        <img src="/2022/04/14/Internship-Summary-Fetch-Data/响应报文.jpg" width="80%">
+</center>
+## Status line/状态行
+由三个部分组成：
+- **The protocol version（版本协议）**, usually HTTP/1.1.
+- **A status code（状态码）**，indicating success or failure of the request. Common status codes are 200, 404, or 302
+- **A status text（状态信息）**. A brief, purely informational, textual description of the status code to help a human understand the HTTP message.
+
+<h2 id="Headers-x2F-消息报头"><a href="#Headers-x2F-消息报头" class="headerlink" title="Headers&#x2F;消息报头"></a>Headers&#x2F;消息报头</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">Response fields</a></p>
+<center>
+                <img src="/2022/04/14/Internship-Summary-Fetch-Data/response_header.jpg" width="80%">
+</center>
+
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><blockquote>
+<p>通过上述分析，我们可以发现 HTTP 请求其实像发送邮件一样，请求头是我们附加的一些信息，可以告诉收件人，谁发的邮件，谁可以看，这是一封加密的邮件，你要根据什么规则把这封邮件翻译过来等等，请求内容当然就是我们要发送的具体内容。</p>
+</blockquote>
+<blockquote>
+<p>HTTP 响应就是收件人给我的回信，响应头会告诉我们一些附加信息，比如告诉我们，你发送的那个收件人没有（404）或者我正确收到了你的来信（200），我给你的响应是什么加密方式，你要怎么解码，响应内容就是他要告诉我们的具体内容。</p>
+</blockquote>
+<h1 id="Python-requests模块"><a href="#Python-requests模块" class="headerlink" title="Python requests模块"></a>Python requests模块</h1><p>在实习工作期间，经常会面对拉取服务器数据的需求，这个时候会频繁调用requests的模块来发送http 请求，有必要对此类的知识点进行一个总结整理。</p>
 <p>Request官网上对该模块进行描述：</p>
 <p>Requests is an elegant and simple HTTP library for Python, built for human beings.</p>
+<h2 id="get"><a href="#get" class="headerlink" title="get"></a>get</h2><p>用于获取资源，当采用 GET 方式请求指定资源时， 被访问的资源经服务器解析后立即返回响应内容。通常以 GET 方式请求特定资源时， 请求中不应该包含请求体，所有需要向被请求资源传递的数据都应该通过 URL 向服务器传递。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># post 语法</span></span><br><span class="line">response = requests.request(<span class="string">&quot;get&quot;</span>, <span class="string">&quot;http://www.baidu.com/&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加headers，可以传入headers参数来增加请求头中的headers信息。</span></span><br><span class="line"><span class="comment"># 如果要将参数放在url中传递，可以利用 params 参数。</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"> </span><br><span class="line">kw = &#123;<span class="string">&#x27;wd&#x27;</span>: <span class="string">&#x27;北极熊&#x27;</span>&#125;</span><br><span class="line"> </span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) &quot;</span></span><br><span class="line">                  <span class="string">&quot;AppleWebKit/537.36 (KHTML, like Gecko) &quot;</span></span><br><span class="line">                  <span class="string">&quot;Chrome/54.0.2840.99 Safari/537.36&quot;</span>&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment"># params 接收一个字典或者字符串的查询参数，字典类型自动转换为url编码，不需要urlencode()</span></span><br><span class="line">response = requests.get(<span class="string">&quot;http://www.baidu.com/s?&quot;</span>, params=kw, headers=headers)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看响应内容，response.text 返回的是Unicode格式的数据</span></span><br><span class="line"><span class="built_in">print</span>(response.text)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看响应内容，response.content返回的字节流数据</span></span><br><span class="line"><span class="built_in">print</span>(response.content)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看完整url地址</span></span><br><span class="line"><span class="built_in">print</span>(response.url)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看响应头部字符编码</span></span><br><span class="line"><span class="built_in">print</span>(response.encoding)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看响应码</span></span><br><span class="line"><span class="built_in">print</span>(response.status_code)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="post"><a href="#post" class="headerlink" title="post"></a>post</h2><p>POST 动作：用于提交数据， 当采用 POST 方式向指定位置提交数据时，数据被包含在请求体中，服务器接收到这些数据后可能会建立新的资源、也可能会更新已有的资源。同时 POST 方式的请求体可以包含非常多的数据，而且格式不限。因此 POST 方式用途较为广泛，几乎所有的提交操作都可以使用 POST 方式来完成。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"> </span><br><span class="line">formdata = &#123;</span><br><span class="line">    <span class="string">&quot;type&quot;</span>: <span class="string">&quot;AUTO&quot;</span>,</span><br><span class="line">    <span class="string">&quot;i&quot;</span>: <span class="string">&quot;i love python&quot;</span>,</span><br><span class="line">    <span class="string">&quot;doctype&quot;</span>: <span class="string">&quot;json&quot;</span>,</span><br><span class="line">    <span class="string">&quot;xmlVersion&quot;</span>: <span class="string">&quot;1.8&quot;</span>,</span><br><span class="line">    <span class="string">&quot;keyfrom&quot;</span>: <span class="string">&quot;fanyi.web&quot;</span>,</span><br><span class="line">    <span class="string">&quot;ue&quot;</span>: <span class="string">&quot;UTF-8&quot;</span>,</span><br><span class="line">    <span class="string">&quot;action&quot;</span>: <span class="string">&quot;FY_BY_ENTER&quot;</span>,</span><br><span class="line">    <span class="string">&quot;typoResult&quot;</span>: <span class="string">&quot;true&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">url = <span class="string">&quot;http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&amp;smartresult=ugc&amp;sessionFrom=null&quot;</span></span><br><span class="line"> </span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) &quot;</span></span><br><span class="line">                  <span class="string">&quot;AppleWebKit/537.36 (KHTML, like Gecko) &quot;</span></span><br><span class="line">                  <span class="string">&quot;Chrome/51.0.2704.103 Safari/537.36&quot;</span>&#125;</span><br><span class="line"> </span><br><span class="line">response = requests.post(url, data=formdata, headers=headers)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(response.text)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 如果是json文件可以直接显示</span></span><br><span class="line"><span class="built_in">print</span>(response.json())</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://docs.python-requests.org/zh_CN/latest/">Requests: 让 HTTP 服务人类</a></li>
+</ol>
 
     </div>
 
@@ -408,8 +433,8 @@
       <i class="fa fa-chevron-left"></i> Log4j
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/04/17/Requests/" rel="next" title="Requests">
-      Requests <i class="fa fa-chevron-right"></i>
+    <a href="/2022/04/18/postman/" rel="next" title="postman">
+      postman <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -469,7 +494,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87"><span class="nav-number">1.</span> <span class="nav-text">请求报文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Request-line"><span class="nav-number">1.1.</span> <span class="nav-text">Request line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request-Method"><span class="nav-number">1.2.</span> <span class="nav-text">Request Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request-Header"><span class="nav-number">1.3.</span> <span class="nav-text">Request Header</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Content-Type"><span class="nav-number">1.4.</span> <span class="nav-text">Content-Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E8%A1%8C"><span class="nav-number">1.5.</span> <span class="nav-text">空行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E4%BD%93"><span class="nav-number">1.6.</span> <span class="nav-text">请求体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">响应报文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Status-line-x2F-%E7%8A%B6%E6%80%81%E8%A1%8C"><span class="nav-number">2.1.</span> <span class="nav-text">Status line&#x2F;状态行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Headers-x2F-%E6%B6%88%E6%81%AF%E6%8A%A5%E5%A4%B4"><span class="nav-number">2.2.</span> <span class="nav-text">Headers&#x2F;消息报头</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-requests%E6%A8%A1%E5%9D%97"><span class="nav-number">3.</span> <span class="nav-text">Python requests模块</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87"><span class="nav-number">1.</span> <span class="nav-text">请求报文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Request-line"><span class="nav-number">1.1.</span> <span class="nav-text">Request line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request-Method"><span class="nav-number">1.2.</span> <span class="nav-text">Request Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request-Header"><span class="nav-number">1.3.</span> <span class="nav-text">Request Header</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Content-Type"><span class="nav-number">1.4.</span> <span class="nav-text">Content-Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E8%A1%8C"><span class="nav-number">1.5.</span> <span class="nav-text">空行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E4%BD%93"><span class="nav-number">1.6.</span> <span class="nav-text">请求体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">响应报文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Headers-x2F-%E6%B6%88%E6%81%AF%E6%8A%A5%E5%A4%B4"><span class="nav-number">2.1.</span> <span class="nav-text">Headers&#x2F;消息报头</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-requests%E6%A8%A1%E5%9D%97"><span class="nav-number">4.</span> <span class="nav-text">Python requests模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#get"><span class="nav-number">4.1.</span> <span class="nav-text">get</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#post"><span class="nav-number">4.2.</span> <span class="nav-text">post</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">5.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
