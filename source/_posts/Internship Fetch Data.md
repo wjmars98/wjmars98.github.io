@@ -1,11 +1,11 @@
 ---
-title: Internship Summary Fetch Data
+title: Internship Fetch Data
 date: 2022-04-14 22:53:34
 tags:
 - intership
 - http
 categories:
-- Intership Summary
+- Intership
 ---
 在实习的前两个星期，感觉最常接触的一类任务就是**数据的拉取**以及api的调用，本文也是对这个part的内容、方法以及遇到的问题进行一个记录。
 

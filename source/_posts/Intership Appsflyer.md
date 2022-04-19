@@ -1,10 +1,11 @@
 ---
-title: Appsflyer
+title: Intership Appsflyer
 date: 2022-04-18 23:06:31
 tags:
-- Ads
+- intership
+- ads
 categories: 
-  - Intership Summary
+  - Intership
 ---
 
 AppsFlyer是以色列公司APPSFLYER LTD旗下移动归因与营销分析平台品牌。目标是帮助应用营销人员做出决策。
