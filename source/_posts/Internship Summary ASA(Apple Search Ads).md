@@ -67,7 +67,15 @@ Ad Group
 Keywords
 关键词，竞价广告中最低的投放单元。开发者可针对每一个Campaign设定出价、匹配模式等等。
 
+<center>
+    <img src="./Internship Summary ASA(Apple Search Ads)/asa_structure.png" width=80%>
+</center>
 
+<center>
+    <img src="./Internship Summary ASA(Apple Search Ads)/ASA账户结构说明.jpg", width=80%>
+</center>
+
+[*ps: ASA 账户结构说明*](https://zhuanlan.zhihu.com/p/150152235)
 ### 创建广告计划
 App Name：应用名称
 
@@ -135,3 +143,4 @@ Monthly Budget：每月预算。 搜索广告基础版每个App每月最高预�
 # 参考
 [1. 官方网站](https://searchads.apple.com/advanced)
 [2. 值得收藏!Apple Search Ads专有名词解释](https://zhuanlan.zhihu.com/p/42119163)
+[3. ASA 账户结构说明](https://zhuanlan.zhihu.com/p/150152235)
