@@ -3,6 +3,7 @@ title: Internship Summary ASA(Apple Search Ads)
 date: 2022-04-07 18:42:11
 tags:
 - intership
+- ads
 categories: 
   - Intership Summary
 ---
