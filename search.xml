@@ -656,6 +656,52 @@
 <center>
     <img src="/2022/04/07/Internship%20Summary%20ASA(Apple%20Search%20Ads)/two_kinds.jpg" , width="80%">
 </center>
+
+<h1 id="实习部分"><a href="#实习部分" class="headerlink" title="实习部分"></a>实习部分</h1><h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><h2 id="苹果搜索广告的竞价模式"><a href="#苹果搜索广告的竞价模式" class="headerlink" title="苹果搜索广告的竞价模式"></a>苹果搜索广告的竞价模式</h2><p>搜索广告能否在特定关键词下展示以及展示量级受到竞价系数的影响，影响竞价系数的因素有两个——<strong>相关性</strong>和<strong>出价</strong>。</p>
+<p>竞价系数&#x3D;相关性*CPT出价</p>
+<p>影响App与投放关键词相关性的因素有以下两个方面：<br><strong>App元数据</strong>。 App的名称、副标题、关键词、描述等文本信息会对App与关键词的相关性产生影响。</p>
+<p><strong>用户反馈</strong>。App在特定关键词下的广告从展示到点击、下载的转化率过低时，搜索广告系统会判断该关键与App的相关性较差，从而降低两者的相关性，减少广告展示量甚至不再展示。</p>
+<p>苹果搜索广告采用竞价系统，最终按照点击（cost-per-taps）计费，也就是说只有用户点击广告时开发者才需要付出费用。点击的实际成本采用<strong>次价密封竞价模式</strong>，<em>是根据开发者出价和仅次于该出价的竞争对手出价计算得出</em>。</p>
+<blockquote>
+<p>例如：关键词“games”某开发者出价为5美元&#x2F;CPT,仅次于该出价的为3美元&#x2F;CPT,最后成交价格高于3美元而低于5美元。也就是说开发者可以投标竞价而不用担心过度支付。</p>
+</blockquote>
+<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><h3 id="账户体系"><a href="#账户体系" class="headerlink" title="账户体系"></a>账户体系</h3><p>Account<br>账户，任何一个AppleID都可以注册成为搜索广告账户。账户下对投放应用没有限制，可以投放任意一款在线应用，也可以同时投放一款或多款应用。</p>
+<p>Campaign Group<br>广告组，广告计划（Campaign）的集合。广告组能够开放查看或修改权限给其他苹果搜索广告账户，便于数据分享。每一个Campaign Group可以创建2000个Campaign。</p>
+<p>Campaign<br>广告计划，一个计划对应一款App在一个国家的广告活动，一个广告计划内可以创建2000个Ad Group。</p>
+<p>Ad Group<br>关键词组，是关键词的集合。一个关键词组中可以添加1000个关键词、2000个屏蔽词。开发者可以根据关键词的类型设置不同的词组，比如可以将竞品品牌词、行业词设置不同的词组，对比投放效果。</p>
+<p>Keywords<br>关键词，竞价广告中最低的投放单元。开发者可针对每一个Campaign设定出价、匹配模式等等。</p>
+<h3 id="创建广告计划"><a href="#创建广告计划" class="headerlink" title="创建广告计划"></a>创建广告计划</h3><p>App Name：应用名称</p>
+<p>Storefront：广告投放地区</p>
+<p>Budget：总预算，创建搜索广告时为一个App，也就是Campaign（广告计划）设置的预算金额。Budget在广告开启后，只能提高不能降低。</p>
+<p>Daily Cap：每日预算，当花费达到每日预算上限时，广告就会在当天停止展示，如果Campaign仍有剩余预算，则会在第二天重新开始投放。每日预算是选填项，苹果搜索广告系统并不会严格执行每日预算，因此实际花费会高于或低于每日预算。</p>
+<p>Devices：设备，可选择iphone、ipad或iphone and ipad</p>
+<p>Default Max CPT Bid ：默认点击出价，这个价格将默认为广告组中任何关键词以及Search Match的出价。</p>
+<p>CPA Goal：目标CPA，是开发者期望的每个获取量（cost-per-acquisition）的价格。目标CPA是选填项，这个数值苹果系统同样不会严格执行，甚至有时候实际CPA会大大高于目标CPA。</p>
+<p>Search Match：搜索匹配，是指苹果系统自动为广告匹配搜索词的行为。搜索匹配是一项默认功能，它使用多种资源将广告与App Store上的相关搜索进行匹配，其中包括应用在App Store列表中的元数据，相同分类中类似应用的相关信息以及其他搜索数据。搜索匹配的CPT出价依据为默认最高CPT单价。</p>
+<p>Recommended Keywords：推荐关键词，在创建Ad Group时，苹果搜索广告系统为应用推荐的关键词。推荐关键词数量不会超过50个。</p>
+<p>Customer Types：受众类型，包括三个选项，All User、Have not downloaded the app、Have downloaded my other apps</p>
+<p>Gender：性别，可选择male、famale或all。</p>
+<p>Age range：年龄，搜索广告不会向13岁及以下的人群展示广告，年龄最低可选18岁，最高为65+。</p>
+<p>Locations：位置，搜索广告支持位置细分，可以针对特定的州或城市投放广告。</p>
+<p>Negative Keywords：屏蔽词，屏蔽词可以确保广告不会针对特定关键词展示。在搜索广告中，有两个层级可以添加屏蔽词——Campaign和Ad Group。 屏蔽词可以帮助开发者控制成本并提高广告系列的效率。</p>
+<p>Exact Match&#x2F;Broad Match：精确匹配&#x2F;广泛匹配。</p>
+<p>精确匹配包含四种匹配方式，即原型、单复数、各种形态、拼写错误，开发者无需单独添加这几种形态的关键词，广告也能够匹配到这些关键词，这种方式能够最大限度的控制可能展示广告的搜索内容，造成广告展示量降低，但点击率（TTR）和转化率（CR）可能会提高。在关键词中，添加有双括号的[keyword]的关键词采用的是精确匹配。</p>
+<h3 id="报表"><a href="#报表" class="headerlink" title="报表"></a>报表</h3><p>CPT：Cost-Per-Tap，是搜索广告的计费模式，即广告定价是按照点击数量收取费用。</p>
+<p>Impressions：展示量</p>
+<p>Taps：点击量</p>
+<p>Conversions：获取（安装）量，也可理解为下载量。New Downloads是指首次下载该款App的新用户。Redownloads是指当用户下载某款App后，删除该App并在App Store上点击苹果搜索广告后再次下载同一App，或将该App下载到其他设备时所产生的下载量。LAT是指 Limit Ad Tracking限制广告追踪，开启LAT的设备将不会接收到广告或对其活动进行跟踪。LAT On Conversions来自已启用LAT的用户。LAT Off Conversions来自未在其设备上启用LAT的用户的安装。</p>
+<p>CR（Conversion Rate）：下载转化率，下载量&#x2F;点击量</p>
+<p>TTR（Tap-Through Rate）：点击转化率，点击量&#x2F;下载量</p>
+<p>Avg CPT：平均CPT单价</p>
+<p>Avg CPA：平均CPA单价</p>
+<p>Search Term：搜索项目，是广告展示、点击或下载量的详细来源，会统计到下载量来自哪个关键词，这里的关键词不是指投放设置的关键词，而是指用户看到并点击广告之前，搜索的关键词。</p>
+<p>Match Source：匹配来源，是指搜索项目的来源。匹配来源主要有两种——Keywords、Search Match：Keywords是指搜索项目来源于添加关键词的广泛或精确匹配形式；Search Match是指搜索项目来源于系统自动匹配出的关键词。</p>
+<p>Low volume terms：低量，这意味着这些数据低于Apple的隐私权阈值，例如搜索词必须至少达到10词展示，否则搜索词报表中会显示“低量”值。</p>
+<p>User withheld：用户保留，如果广告用户在其设备上启用了“显示广告跟踪”或停用了位置服务时，可能会在性别、年龄和位置的报表中看到用户保留。</p>
+<p>CPI（cost-per-install）：每个下载（安装）的费用，即按安装付费。</p>
+<p>Maximum Cost-Per-Install (CPI)：愿意为每个安装的应用支付的最高金额。 实际CPI永远不会超过这个金额。</p>
+<p>Monthly Budget：每月预算。 搜索广告基础版每个App每月最高预算为5000美元。月预算可以随时更改，直至最高金额。需要注意的是，预算增加会立即生效，减少将在下个自然月生效。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://searchads.apple.com/advanced">1. 官方网站</a><br><a href="https://zhuanlan.zhihu.com/p/42119163">2. 值得收藏!Apple Search Ads专有名词解释</a></p>
 ]]></content>
       <categories>
         <category>Intership Summary</category>
@@ -822,30 +868,6 @@
       <tags>
         <tag>intership</tag>
         <tag>http</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux Fragments</title>
-    <url>/2022/04/08/Linux-Fragments/</url>
-    <content><![CDATA[<p>This article is used to record some knowledge fragments when using linux.</p>
-<center>
-        <img src="/2022/04/08/Linux-Fragments/linux-logo.png" width="80%">
-</center>
-
-<span id="more"></span>
-
-<h1 id="bin-和-sbin-的区别"><a href="#bin-和-sbin-的区别" class="headerlink" title="bin 和 sbin 的区别"></a>bin 和 sbin 的区别</h1><p>&#x2F;bin目录（binary）是二进制执行文件目录，主要用于具体应用</p>
-<p>&#x2F;sbin目录（system binary）是系统管理员专用的二进制代码存放目录，主要用于系统管理</p>
-<p>bin是binary的缩写，是可执行的二进制文件。&#x2F;bin里面一般是基本的，大家都要用的工具；sbin里面的s是system的意思，是供system administrator使用的工具。</p>
-<blockquote>
-<p>在hadoop中，&#x2F;bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；&#x2F;sbin 目录存放启动或停止Hadoop相关服务的脚本</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Basic</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1061,6 +1083,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux Fragments</title>
+    <url>/2022/04/08/Linux-Fragments/</url>
+    <content><![CDATA[<p>This article is used to record some knowledge fragments when using linux.</p>
+<center>
+        <img src="/2022/04/08/Linux-Fragments/linux-logo.png" width="80%">
+</center>
+
+<span id="more"></span>
+
+<h1 id="bin-和-sbin-的区别"><a href="#bin-和-sbin-的区别" class="headerlink" title="bin 和 sbin 的区别"></a>bin 和 sbin 的区别</h1><p>&#x2F;bin目录（binary）是二进制执行文件目录，主要用于具体应用</p>
+<p>&#x2F;sbin目录（system binary）是系统管理员专用的二进制代码存放目录，主要用于系统管理</p>
+<p>bin是binary的缩写，是可执行的二进制文件。&#x2F;bin里面一般是基本的，大家都要用的工具；sbin里面的s是system的意思，是供system administrator使用的工具。</p>
+<blockquote>
+<p>在hadoop中，&#x2F;bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；&#x2F;sbin 目录存放启动或停止Hadoop相关服务的脚本</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Basic</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SSL</title>
     <url>/2022/04/05/SSL/</url>
     <content><![CDATA[<p>在处理实习的业务需求的时候，涉及到ssl公钥私钥部分的相关知识。本文用以记录与ssl相关的基础知识及其应用。</p>
@@ -1131,115 +1177,6 @@
       </categories>
       <tags>
         <tag>SSL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Sql-Fragments</title>
-    <url>/2022/04/11/Sql-Fragments/</url>
-    <content><![CDATA[<p>This article is used for recording some study fragments in mysql.</p>
-<center>
-        <img src="/2022/04/11/Sql-Fragments/sf-logo.png" width="60%">
-</center>
-
-<span id="more"></span>
-
-<h1 id="如何阅读长sql"><a href="#如何阅读长sql" class="headerlink" title="如何阅读长sql"></a>如何阅读长sql</h1><p><a href="https://cloud.tencent.com/developer/article/1559983">提升阅读sql的快感</a></p>
-<ul>
-<li>通读，非技术性的通读</li>
-<li>需要联想，也就是想象力</li>
-<li>批评</li>
-</ul>
-<ol>
-<li>目前我用的是vscode来阅读sql代码。首先我会尝试用beautify sql这个vscode插件来美化sql代码，分出层级。</li>
-<li>select – from – where 基本的sql逻辑，由外向内拆分，理解各层逻辑。给自己找问题，千万别一遍看完代码，什么都没留下来。</li>
-<li>理解sql的业务逻辑，你也可以在手边，画画流程图，帮助记忆。</li>
-</ol>
-<blockquote>
-<p>“在我们编程这个圈子，也有很多书，专讲这方面的。我给你推荐几本吧，《编程珠玑》，《CLR Via C#》, 尤其是 SQL 数据库方面，《数据库索引设计与优化》，《Oracle 优化日记》，《T-SQL Querying》,《T-SQL 性能调优秘籍-基于SQL Server 2012 窗口函数》”</p>
-</blockquote>
-<h1 id="阅读长sql时的整体感"><a href="#阅读长sql时的整体感" class="headerlink" title="阅读长sql时的整体感"></a>阅读长sql时的整体感</h1><p>经常会遇到一些比较长，且层级结果比较多的sql语句，在阅读的过程中，时常会发生读到一半忘掉前面的代码逻辑的情况。在阅读sql语句的时候，需要保持整体感。整体感的保持。</p>
-<ul>
-<li>首先需要了解sql的输入与输出，明白这个sql的主要目的是什么。</li>
-<li>其次，需要逐层拆分，理解层级表。要理解同一层的各个select -from-where检索出来的表，因为是同一层吗，在逻辑上是并列的，比较好理解。</li>
-<li>最后，在对sql基本脉络了解之后，再根据需要去阅读代码，而非阅读所有代码。</li>
-</ul>
-<p>如果以学习为目的，则能适当阅读所有代码。</p>
-<h1 id="coalesce"><a href="#coalesce" class="headerlink" title="coalesce()"></a>coalesce()</h1><p>The COALESCE() function returns the first non-null value in a list.<br>返回列表中第一个非空元素</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># The <span class="built_in">COALESCE</span>() <span class="keyword">function</span> <span class="keyword">returns</span> the <span class="keyword">first</span> non<span class="operator">-</span><span class="keyword">null</span> <span class="keyword">value</span> <span class="keyword">in</span> a list.</span><br><span class="line"><span class="built_in">COALESCE</span>(val1, val2, ...., val_n)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="unnest"><a href="#unnest" class="headerlink" title="unnest"></a>unnest</h1><p>The UNNEST function takes an ARRAY and returns a table with a row for each element in the ARRAY.</p>
-<p>unnest函数输入一个array数组，返回array数组中每一个元素作为行的表。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># Syntax: <span class="built_in">UNNEST</span>(<span class="keyword">ARRAY</span>) [<span class="keyword">WITH</span> <span class="keyword">OFFSET</span>]</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">  <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">  <span class="built_in">UNNEST</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="keyword">NULL</span>]) <span class="keyword">AS</span> unnest_column</span><br><span class="line"></span><br><span class="line"># <span class="keyword">Result</span></span><br><span class="line"># <span class="number">1</span></span><br><span class="line"># <span class="number">2</span></span><br><span class="line"># <span class="number">2</span></span><br><span class="line"># <span class="number">5</span></span><br><span class="line"># <span class="keyword">null</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 其中还有一个<span class="keyword">offset</span>选项，为每一行提供了一个附加列，其中包含数组中每个元素的位置（从零开始）</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">  <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">  <span class="built_in">UNNEST</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="keyword">NULL</span>]) <span class="keyword">AS</span> unnest_column <span class="keyword">WITH</span> <span class="keyword">OFFSET</span> <span class="keyword">AS</span> `<span class="keyword">offset</span>`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="cast"><a href="#cast" class="headerlink" title="cast"></a>cast</h1><p>CAST函数用于将某种数据类型的表达式显式转换为另一种数据类型。CAST()函数的参数是一个表达式，它包括用AS关键字分隔的源值和目标数据类型。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># Syntax: <span class="built_in">CAST</span> (expression <span class="keyword">AS</span> data_type)</span><br><span class="line"># expression：任何有效的SQServer表达式。</span><br><span class="line"># <span class="keyword">AS</span>：用于分隔两个参数，在<span class="keyword">AS</span>之前的是要处理的数据，在<span class="keyword">AS</span>之后是要转换的数据类型。</span><br><span class="line"># data_type：目标系统所提供的数据类型，包括<span class="type">bigint</span>和sql_variant，不能使用用户定义的数据类型。</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">CAST</span>(<span class="string">&#x27;9.0&#x27;</span> <span class="keyword">AS</span> <span class="type">decimal</span>)  # 结果：<span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="interval"><a href="#interval" class="headerlink" title="interval"></a>interval</h1><p>MySQL 间隔值(interval)主要用于日期和时间计算,创建间隔值。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># <span class="type">INTERVAL</span> keyword <span class="keyword">is</span> the expr that determines the <span class="type">interval</span> <span class="keyword">value</span>, <span class="keyword">and</span> unit that specifies the <span class="type">interval</span> unit</span><br><span class="line"># <span class="type">INTERVAL</span> expr unit</span><br><span class="line"><span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span></span><br><span class="line"></span><br><span class="line"># We mainly use <span class="type">interval</span> <span class="keyword">values</span> <span class="keyword">for</span> <span class="type">date</span> <span class="keyword">and</span> <span class="type">time</span> arithmetic <span class="keyword">as</span> shown below</span><br><span class="line"><span class="type">date</span> <span class="operator">+</span> <span class="type">INTERVAL</span> expr unit</span><br><span class="line"><span class="type">date</span> <span class="operator">-</span> <span class="type">INTERVAL</span> expr unit</span><br></pre></td></tr></table></figure>
-<h1 id="DATE-SUB"><a href="#DATE-SUB" class="headerlink" title="DATE_SUB()"></a>DATE_SUB()</h1><p>DATE_SUB() 函数从日期减去指定的时间间隔。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># <span class="type">date</span> 参数是合法的日期表达式。expr 参数是您希望添加的时间间隔。</span><br><span class="line">DATE_SUB(<span class="type">date</span>,<span class="type">INTERVAL</span> expr type)</span><br></pre></td></tr></table></figure>
-
-<h1 id="IFNULL"><a href="#IFNULL" class="headerlink" title="IFNULL()"></a>IFNULL()</h1><p>IFNULL() 函数用于判断第一个表达式是否为 NULL，如果为 NULL 则返回第二个参数的值，如果不为 NULL 则返回第一个参数的值。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 如果第一个参数的表达式 expression 为 <span class="keyword">NULL</span>，则返回第二个参数的备用值。</span><br><span class="line">IFNULL(expression, alt_value)</span><br></pre></td></tr></table></figure>
-
-<h1 id="union-all"><a href="#union-all" class="headerlink" title="union all"></a>union all</h1><p>UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。多个 SELECT 语句会删除重复的数据。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># expression1, expression2, ... expression_n: 要检索的列。</span><br><span class="line"># tables: 要检索的数据表</span><br><span class="line"># <span class="keyword">WHERE</span> conditions: 可选， 检索条件。</span><br><span class="line"># <span class="keyword">DISTINCT</span>: 可选，删除结果集中重复的数据。默认情况下 <span class="keyword">UNION</span> 操作符已经删除了重复数据，所以 <span class="keyword">DISTINCT</span> 修饰符对结果没啥影响。</span><br><span class="line"># <span class="keyword">ALL</span>: 可选，返回所有结果集，包含重复数据。</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> expression1, expression2, ... expression_n</span><br><span class="line"><span class="keyword">FROM</span> tables</span><br><span class="line">[<span class="keyword">WHERE</span> conditions]</span><br><span class="line"><span class="keyword">UNION</span> [<span class="keyword">ALL</span> <span class="operator">|</span> <span class="keyword">DISTINCT</span>]</span><br><span class="line"><span class="keyword">SELECT</span> expression1, expression2, ... expression_n</span><br><span class="line"><span class="keyword">FROM</span> tables</span><br><span class="line">[<span class="keyword">WHERE</span> conditions];</span><br></pre></td></tr></table></figure>
-<p> <a href="https://www.runoob.com/mysql/mysql-union-operation.html">union all样例</a></p>
-<h1 id="acid"><a href="#acid" class="headerlink" title="acid"></a>acid</h1>]]></content>
-      <tags>
-        <tag>Sql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Yarn</title>
-    <url>/2022/04/08/Yarn/</url>
-    <content><![CDATA[<p>YARN is an open source Apache project that stands for “Yet Another Resource Negotiator”. It is a Hadoop cluster manager that is responsible for allocating resources (such as cpu, memory, disk and network), for scheduling &amp; monitoring jobs across the Hadoop cluster.</p>
-<p>YARN是Apache的一个开源项目，它的意思是“另一个资源协商者”。它是一个Hadoop集群管理器，负责分配资源(如cpu、内存、磁盘和网络)，用于跨Hadoop集群调度和监控作业。</p>
-<center>
-        <img src="/2022/04/08/Yarn/yarn_logo.png" , width="80%">
-</center>
-<span id="more"></span>
-
-<h1 id="What-is-yarn"><a href="#What-is-yarn" class="headerlink" title="What is yarn"></a>What is yarn</h1><p>YARN是Apache的一个开源项目，它的意思是“另一个资源协商者”。它是一个Hadoop集群管理器，负责分配资源(如cpu、内存、磁盘和网络)，用于跨Hadoop集群调度和监控作业。</p>
-<p>早期版本的Hadoop只支持在Hadoop集群上运行MapReduce任务;然而，YARN的出现也使得在Hadoop集群上运行其他大数据解决方案框架成为可能，比如Spark、Flink、Samza等。</p>
-<p>YARN支持不同类型的工作负载，如流处理、批处理、图形处理和迭代处理。</p>
-<h1 id="Yarn’s-Architecture"><a href="#Yarn’s-Architecture" class="headerlink" title="Yarn’s Architecture"></a>Yarn’s Architecture</h1><p>Apache YARN由两个主要组件组成:资源管理器和节点管理器。资源管理器每个集群一个，而节点管理器守护进程运行在所有工作节点上。</p>
-<center>
-        <img src="/2022/04/08/Yarn/yarn_architecture.jpg" , width="80%,">
-</center>
-
-<ol>
-<li><p>资源管理器(Resource Manager)是一个守护进程，负责在集群中分配资源。它有两个主要组件，即<strong>调度程序和应用程序管理器</strong>。调度器负责根据内存和cpu需求跨集群调度应用程序。每个集群只有一个资源管理器。</p>
-</li>
-<li><p>应用程序管理器(APP Manager)接受作业并创建特定的应用程序主程序，并在出现故障时重新启动它们。<strong>Application Master负责处理Application的整个生命周期</strong>，从资源协商、跟踪和监控作业状态开始。</p>
-</li>
-<li><p>节点管理器(Node Manager)是运行在所有工作节点上的守护进程，在<strong>机器级别管理资源</strong>。节点管理器定义节点上可用的资源，并跟踪其使用情况。它还跟踪节点的运行状况，如果<strong>发现不正常，则将其通信给资源管理器</strong>。Node Manager与资源管理器通信，发送关于报告使用情况的定期报告，并与应用程序主机协调生成用于任务执行的JVM。</p>
-</li>
-</ol>
-<h1 id="Yarn-Scheduler"><a href="#Yarn-Scheduler" class="headerlink" title="Yarn Scheduler"></a>Yarn Scheduler</h1><p>YARN 支持三种调度策略，即 FIFO、Capacity 和 Fair Scheduling，它们决定了传入作业的调度或优先级。</p>
-<h2 id="FIFO-Scheduler"><a href="#FIFO-Scheduler" class="headerlink" title="FIFO Scheduler"></a>FIFO Scheduler</h2><p>在 FIFO 调度器策略中，应用程序以“先进先出”的方式提供服务，但如果集群在多个用户之间共享，此策略可能会导致作业匮乏。所以，这个策略在共享集群中并不是最优的。默认情况下，YARN 始终设置为 FIFO 策略。</p>
-<h2 id="Capacity-Scheduler"><a href="#Capacity-Scheduler" class="headerlink" title="Capacity Scheduler:"></a>Capacity Scheduler:</h2><p>在容量调度程序中，不同的组织共享他们的 Hadoop 集群以最大限度地利用集群。尽管组织正在共享他们的集群，但容量调度程序可确保每个组织都获得所需的容量。</p>
-<p>容量调度器(Capacity Scheduler)提供容量保证、弹性、基于资源的调度、优先级调度、多租户等等。我们必须在 conf&#x2F;yarn-site.xml 文件中设置以下属性以在 YARN 中启用容量调度程序。</p>
-<h2 id="Fair-Scheduler"><a href="#Fair-Scheduler" class="headerlink" title="Fair Scheduler:"></a>Fair Scheduler:</h2><p>公平调度策略(Fair Scheduler)确保所有正在运行的作业获得大致相等的资源份额（内存或 CPU）。</p>
-<p>作业被划分为队列，资源在这些队列之间平均共享。它始终保证队列的最小份额，如果队列为空，则将多余的资源分配给在其他队列中运行的作业。我们还可以定义一组应用于提交的应用程序的规则，以便应用程序进入适当的队列以进行进一步处理.</p>
-<h1 id="High-Availability"><a href="#High-Availability" class="headerlink" title="High Availability"></a>High Availability</h1><p>在 Hadoop 2.4 之后，资源管理器以 Active&#x2F;StandBy 模式工作，以提供容错和高可用性。</p>
-<p>Standby Resource Manager始终跟踪活动资源管理器中发生的所有更改，并可以在出现故障时替换其位置。资源管理器与zookeeper密切合作，记录其状态，并决定在出现故障时哪个资源管理器应该处于活动状态。</p>
-<center>
-        <img src="/2022/04/08/Yarn/active_standby.png" , width="80%">
-</center>
-
-<p>故障转移从active mode 到 standby mode 可以手动进行，也可以自动进行。</p>
-<h2 id="手动转换与failover"><a href="#手动转换与failover" class="headerlink" title="手动转换与failover"></a>手动转换与failover</h2><p>当自动 <em>failover</em> 没有开启时，管理员需要手动将RM的状态转为Active。为了完成failover，首先需要将Active-RM 转换为Standby，然后将Standby-RM 转换为Active。这些均可以通过 <em>yarn rmadmin</em> 命令完成。</p>
-<h2 id="自动failover"><a href="#自动failover" class="headerlink" title="自动failover"></a>自动failover</h2><p>RMs可以配置一个内置的，基于 Zookeeper 的ActiveStandbyElector，用于决定哪个RM应该是Active的。当Active RM 出现故障下线，或者无法响应了，另一个RM会被自动推选为Active，并接管之后的工作。需要注意的是，这里没有必要像 HDFS HA 那样运行一个额外的ZKFC守护进程，因为ActiveStandbyElector 内置于RM，担任failure detector以及leader elector的角色，可以替代ZKFC守护进程</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="aegissofttech.com/articles/what-is-yarn-in-big-data.html">1. What is YARN? How Does it Work and Support Big Data Framework?</a></p>
-<p><a href="https://www.cnblogs.com/zackstang/p/10812523.html">2. YARN High Availablity</a></p>
-<p><a href="https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html">3. Apache Hadoop YARN</a></p>
-]]></content>
-      <categories>
-        <category>Big Data</category>
-      </categories>
-      <tags>
-        <tag>yarn</tag>
       </tags>
   </entry>
   <entry>
@@ -1372,5 +1309,114 @@
     <title>postman</title>
     <url>/2022/04/18/postman/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Yarn</title>
+    <url>/2022/04/08/Yarn/</url>
+    <content><![CDATA[<p>YARN is an open source Apache project that stands for “Yet Another Resource Negotiator”. It is a Hadoop cluster manager that is responsible for allocating resources (such as cpu, memory, disk and network), for scheduling &amp; monitoring jobs across the Hadoop cluster.</p>
+<p>YARN是Apache的一个开源项目，它的意思是“另一个资源协商者”。它是一个Hadoop集群管理器，负责分配资源(如cpu、内存、磁盘和网络)，用于跨Hadoop集群调度和监控作业。</p>
+<center>
+        <img src="/2022/04/08/Yarn/yarn_logo.png" , width="80%">
+</center>
+<span id="more"></span>
+
+<h1 id="What-is-yarn"><a href="#What-is-yarn" class="headerlink" title="What is yarn"></a>What is yarn</h1><p>YARN是Apache的一个开源项目，它的意思是“另一个资源协商者”。它是一个Hadoop集群管理器，负责分配资源(如cpu、内存、磁盘和网络)，用于跨Hadoop集群调度和监控作业。</p>
+<p>早期版本的Hadoop只支持在Hadoop集群上运行MapReduce任务;然而，YARN的出现也使得在Hadoop集群上运行其他大数据解决方案框架成为可能，比如Spark、Flink、Samza等。</p>
+<p>YARN支持不同类型的工作负载，如流处理、批处理、图形处理和迭代处理。</p>
+<h1 id="Yarn’s-Architecture"><a href="#Yarn’s-Architecture" class="headerlink" title="Yarn’s Architecture"></a>Yarn’s Architecture</h1><p>Apache YARN由两个主要组件组成:资源管理器和节点管理器。资源管理器每个集群一个，而节点管理器守护进程运行在所有工作节点上。</p>
+<center>
+        <img src="/2022/04/08/Yarn/yarn_architecture.jpg" , width="80%,">
+</center>
+
+<ol>
+<li><p>资源管理器(Resource Manager)是一个守护进程，负责在集群中分配资源。它有两个主要组件，即<strong>调度程序和应用程序管理器</strong>。调度器负责根据内存和cpu需求跨集群调度应用程序。每个集群只有一个资源管理器。</p>
+</li>
+<li><p>应用程序管理器(APP Manager)接受作业并创建特定的应用程序主程序，并在出现故障时重新启动它们。<strong>Application Master负责处理Application的整个生命周期</strong>，从资源协商、跟踪和监控作业状态开始。</p>
+</li>
+<li><p>节点管理器(Node Manager)是运行在所有工作节点上的守护进程，在<strong>机器级别管理资源</strong>。节点管理器定义节点上可用的资源，并跟踪其使用情况。它还跟踪节点的运行状况，如果<strong>发现不正常，则将其通信给资源管理器</strong>。Node Manager与资源管理器通信，发送关于报告使用情况的定期报告，并与应用程序主机协调生成用于任务执行的JVM。</p>
+</li>
+</ol>
+<h1 id="Yarn-Scheduler"><a href="#Yarn-Scheduler" class="headerlink" title="Yarn Scheduler"></a>Yarn Scheduler</h1><p>YARN 支持三种调度策略，即 FIFO、Capacity 和 Fair Scheduling，它们决定了传入作业的调度或优先级。</p>
+<h2 id="FIFO-Scheduler"><a href="#FIFO-Scheduler" class="headerlink" title="FIFO Scheduler"></a>FIFO Scheduler</h2><p>在 FIFO 调度器策略中，应用程序以“先进先出”的方式提供服务，但如果集群在多个用户之间共享，此策略可能会导致作业匮乏。所以，这个策略在共享集群中并不是最优的。默认情况下，YARN 始终设置为 FIFO 策略。</p>
+<h2 id="Capacity-Scheduler"><a href="#Capacity-Scheduler" class="headerlink" title="Capacity Scheduler:"></a>Capacity Scheduler:</h2><p>在容量调度程序中，不同的组织共享他们的 Hadoop 集群以最大限度地利用集群。尽管组织正在共享他们的集群，但容量调度程序可确保每个组织都获得所需的容量。</p>
+<p>容量调度器(Capacity Scheduler)提供容量保证、弹性、基于资源的调度、优先级调度、多租户等等。我们必须在 conf&#x2F;yarn-site.xml 文件中设置以下属性以在 YARN 中启用容量调度程序。</p>
+<h2 id="Fair-Scheduler"><a href="#Fair-Scheduler" class="headerlink" title="Fair Scheduler:"></a>Fair Scheduler:</h2><p>公平调度策略(Fair Scheduler)确保所有正在运行的作业获得大致相等的资源份额（内存或 CPU）。</p>
+<p>作业被划分为队列，资源在这些队列之间平均共享。它始终保证队列的最小份额，如果队列为空，则将多余的资源分配给在其他队列中运行的作业。我们还可以定义一组应用于提交的应用程序的规则，以便应用程序进入适当的队列以进行进一步处理.</p>
+<h1 id="High-Availability"><a href="#High-Availability" class="headerlink" title="High Availability"></a>High Availability</h1><p>在 Hadoop 2.4 之后，资源管理器以 Active&#x2F;StandBy 模式工作，以提供容错和高可用性。</p>
+<p>Standby Resource Manager始终跟踪活动资源管理器中发生的所有更改，并可以在出现故障时替换其位置。资源管理器与zookeeper密切合作，记录其状态，并决定在出现故障时哪个资源管理器应该处于活动状态。</p>
+<center>
+        <img src="/2022/04/08/Yarn/active_standby.png" , width="80%">
+</center>
+
+<p>故障转移从active mode 到 standby mode 可以手动进行，也可以自动进行。</p>
+<h2 id="手动转换与failover"><a href="#手动转换与failover" class="headerlink" title="手动转换与failover"></a>手动转换与failover</h2><p>当自动 <em>failover</em> 没有开启时，管理员需要手动将RM的状态转为Active。为了完成failover，首先需要将Active-RM 转换为Standby，然后将Standby-RM 转换为Active。这些均可以通过 <em>yarn rmadmin</em> 命令完成。</p>
+<h2 id="自动failover"><a href="#自动failover" class="headerlink" title="自动failover"></a>自动failover</h2><p>RMs可以配置一个内置的，基于 Zookeeper 的ActiveStandbyElector，用于决定哪个RM应该是Active的。当Active RM 出现故障下线，或者无法响应了，另一个RM会被自动推选为Active，并接管之后的工作。需要注意的是，这里没有必要像 HDFS HA 那样运行一个额外的ZKFC守护进程，因为ActiveStandbyElector 内置于RM，担任failure detector以及leader elector的角色，可以替代ZKFC守护进程</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="aegissofttech.com/articles/what-is-yarn-in-big-data.html">1. What is YARN? How Does it Work and Support Big Data Framework?</a></p>
+<p><a href="https://www.cnblogs.com/zackstang/p/10812523.html">2. YARN High Availablity</a></p>
+<p><a href="https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html">3. Apache Hadoop YARN</a></p>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>yarn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Sql-Fragments</title>
+    <url>/2022/04/11/Sql-Fragments/</url>
+    <content><![CDATA[<p>This article is used for recording some study fragments in mysql.</p>
+<center>
+        <img src="/2022/04/11/Sql-Fragments/sf-logo.png" width="60%">
+</center>
+
+<span id="more"></span>
+
+<h1 id="如何阅读长sql"><a href="#如何阅读长sql" class="headerlink" title="如何阅读长sql"></a>如何阅读长sql</h1><p><a href="https://cloud.tencent.com/developer/article/1559983">提升阅读sql的快感</a></p>
+<ul>
+<li>通读，非技术性的通读</li>
+<li>需要联想，也就是想象力</li>
+<li>批评</li>
+</ul>
+<ol>
+<li>目前我用的是vscode来阅读sql代码。首先我会尝试用beautify sql这个vscode插件来美化sql代码，分出层级。</li>
+<li>select – from – where 基本的sql逻辑，由外向内拆分，理解各层逻辑。给自己找问题，千万别一遍看完代码，什么都没留下来。</li>
+<li>理解sql的业务逻辑，你也可以在手边，画画流程图，帮助记忆。</li>
+</ol>
+<blockquote>
+<p>“在我们编程这个圈子，也有很多书，专讲这方面的。我给你推荐几本吧，《编程珠玑》，《CLR Via C#》, 尤其是 SQL 数据库方面，《数据库索引设计与优化》，《Oracle 优化日记》，《T-SQL Querying》,《T-SQL 性能调优秘籍-基于SQL Server 2012 窗口函数》”</p>
+</blockquote>
+<h1 id="阅读长sql时的整体感"><a href="#阅读长sql时的整体感" class="headerlink" title="阅读长sql时的整体感"></a>阅读长sql时的整体感</h1><p>经常会遇到一些比较长，且层级结果比较多的sql语句，在阅读的过程中，时常会发生读到一半忘掉前面的代码逻辑的情况。在阅读sql语句的时候，需要保持整体感。整体感的保持。</p>
+<ul>
+<li>首先需要了解sql的输入与输出，明白这个sql的主要目的是什么。</li>
+<li>其次，需要逐层拆分，理解层级表。要理解同一层的各个select -from-where检索出来的表，因为是同一层吗，在逻辑上是并列的，比较好理解。</li>
+<li>最后，在对sql基本脉络了解之后，再根据需要去阅读代码，而非阅读所有代码。</li>
+</ul>
+<p>如果以学习为目的，则能适当阅读所有代码。</p>
+<h1 id="coalesce"><a href="#coalesce" class="headerlink" title="coalesce()"></a>coalesce()</h1><p>The COALESCE() function returns the first non-null value in a list.<br>返回列表中第一个非空元素</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># The <span class="built_in">COALESCE</span>() <span class="keyword">function</span> <span class="keyword">returns</span> the <span class="keyword">first</span> non<span class="operator">-</span><span class="keyword">null</span> <span class="keyword">value</span> <span class="keyword">in</span> a list.</span><br><span class="line"><span class="built_in">COALESCE</span>(val1, val2, ...., val_n)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="unnest"><a href="#unnest" class="headerlink" title="unnest"></a>unnest</h1><p>The UNNEST function takes an ARRAY and returns a table with a row for each element in the ARRAY.</p>
+<p>unnest函数输入一个array数组，返回array数组中每一个元素作为行的表。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># Syntax: <span class="built_in">UNNEST</span>(<span class="keyword">ARRAY</span>) [<span class="keyword">WITH</span> <span class="keyword">OFFSET</span>]</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">  <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">  <span class="built_in">UNNEST</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="keyword">NULL</span>]) <span class="keyword">AS</span> unnest_column</span><br><span class="line"></span><br><span class="line"># <span class="keyword">Result</span></span><br><span class="line"># <span class="number">1</span></span><br><span class="line"># <span class="number">2</span></span><br><span class="line"># <span class="number">2</span></span><br><span class="line"># <span class="number">5</span></span><br><span class="line"># <span class="keyword">null</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 其中还有一个<span class="keyword">offset</span>选项，为每一行提供了一个附加列，其中包含数组中每个元素的位置（从零开始）</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">  <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">  <span class="built_in">UNNEST</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="keyword">NULL</span>]) <span class="keyword">AS</span> unnest_column <span class="keyword">WITH</span> <span class="keyword">OFFSET</span> <span class="keyword">AS</span> `<span class="keyword">offset</span>`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="cast"><a href="#cast" class="headerlink" title="cast"></a>cast</h1><p>CAST函数用于将某种数据类型的表达式显式转换为另一种数据类型。CAST()函数的参数是一个表达式，它包括用AS关键字分隔的源值和目标数据类型。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># Syntax: <span class="built_in">CAST</span> (expression <span class="keyword">AS</span> data_type)</span><br><span class="line"># expression：任何有效的SQServer表达式。</span><br><span class="line"># <span class="keyword">AS</span>：用于分隔两个参数，在<span class="keyword">AS</span>之前的是要处理的数据，在<span class="keyword">AS</span>之后是要转换的数据类型。</span><br><span class="line"># data_type：目标系统所提供的数据类型，包括<span class="type">bigint</span>和sql_variant，不能使用用户定义的数据类型。</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">CAST</span>(<span class="string">&#x27;9.0&#x27;</span> <span class="keyword">AS</span> <span class="type">decimal</span>)  # 结果：<span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="interval"><a href="#interval" class="headerlink" title="interval"></a>interval</h1><p>MySQL 间隔值(interval)主要用于日期和时间计算,创建间隔值。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># <span class="type">INTERVAL</span> keyword <span class="keyword">is</span> the expr that determines the <span class="type">interval</span> <span class="keyword">value</span>, <span class="keyword">and</span> unit that specifies the <span class="type">interval</span> unit</span><br><span class="line"># <span class="type">INTERVAL</span> expr unit</span><br><span class="line"><span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span></span><br><span class="line"></span><br><span class="line"># We mainly use <span class="type">interval</span> <span class="keyword">values</span> <span class="keyword">for</span> <span class="type">date</span> <span class="keyword">and</span> <span class="type">time</span> arithmetic <span class="keyword">as</span> shown below</span><br><span class="line"><span class="type">date</span> <span class="operator">+</span> <span class="type">INTERVAL</span> expr unit</span><br><span class="line"><span class="type">date</span> <span class="operator">-</span> <span class="type">INTERVAL</span> expr unit</span><br></pre></td></tr></table></figure>
+<h1 id="DATE-SUB"><a href="#DATE-SUB" class="headerlink" title="DATE_SUB()"></a>DATE_SUB()</h1><p>DATE_SUB() 函数从日期减去指定的时间间隔。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># <span class="type">date</span> 参数是合法的日期表达式。expr 参数是您希望添加的时间间隔。</span><br><span class="line">DATE_SUB(<span class="type">date</span>,<span class="type">INTERVAL</span> expr type)</span><br></pre></td></tr></table></figure>
+
+<h1 id="IFNULL"><a href="#IFNULL" class="headerlink" title="IFNULL()"></a>IFNULL()</h1><p>IFNULL() 函数用于判断第一个表达式是否为 NULL，如果为 NULL 则返回第二个参数的值，如果不为 NULL 则返回第一个参数的值。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 如果第一个参数的表达式 expression 为 <span class="keyword">NULL</span>，则返回第二个参数的备用值。</span><br><span class="line">IFNULL(expression, alt_value)</span><br></pre></td></tr></table></figure>
+
+<h1 id="union-all"><a href="#union-all" class="headerlink" title="union all"></a>union all</h1><p>UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。多个 SELECT 语句会删除重复的数据。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># expression1, expression2, ... expression_n: 要检索的列。</span><br><span class="line"># tables: 要检索的数据表</span><br><span class="line"># <span class="keyword">WHERE</span> conditions: 可选， 检索条件。</span><br><span class="line"># <span class="keyword">DISTINCT</span>: 可选，删除结果集中重复的数据。默认情况下 <span class="keyword">UNION</span> 操作符已经删除了重复数据，所以 <span class="keyword">DISTINCT</span> 修饰符对结果没啥影响。</span><br><span class="line"># <span class="keyword">ALL</span>: 可选，返回所有结果集，包含重复数据。</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> expression1, expression2, ... expression_n</span><br><span class="line"><span class="keyword">FROM</span> tables</span><br><span class="line">[<span class="keyword">WHERE</span> conditions]</span><br><span class="line"><span class="keyword">UNION</span> [<span class="keyword">ALL</span> <span class="operator">|</span> <span class="keyword">DISTINCT</span>]</span><br><span class="line"><span class="keyword">SELECT</span> expression1, expression2, ... expression_n</span><br><span class="line"><span class="keyword">FROM</span> tables</span><br><span class="line">[<span class="keyword">WHERE</span> conditions];</span><br></pre></td></tr></table></figure>
+<p> <a href="https://www.runoob.com/mysql/mysql-union-operation.html">union all样例</a></p>
+<h1 id="acid"><a href="#acid" class="headerlink" title="acid"></a>acid</h1>]]></content>
+      <tags>
+        <tag>Sql</tag>
+      </tags>
   </entry>
 </search>
