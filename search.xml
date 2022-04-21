@@ -547,7 +547,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>Big  Data</category>
+        <category>Big Data</category>
       </categories>
       <tags>
         <tag>big query</tag>
@@ -1154,11 +1154,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Scrapy</title>
-    <url>/2022/04/21/Scrapy/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>SSL</title>
     <url>/2022/04/05/SSL/</url>
     <content><![CDATA[<p>在处理实习的业务需求的时候，涉及到ssl公钥私钥部分的相关知识。本文用以记录与ssl相关的基础知识及其应用。</p>
@@ -1229,6 +1224,33 @@
       </categories>
       <tags>
         <tag>SSL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Scrapy</title>
+    <url>/2022/04/21/Scrapy/</url>
+    <content><![CDATA[<p>Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。</p>
+<p>其最初是为了 页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。</p>
+<p>本文主要从两个部分展开： </p>
+<ul>
+<li><ol>
+<li>scrapy的定义、原理、框架等方面</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>实习中scrapy实战记录<center>
+   <img src="/2022/04/21/Scrapy/scrapy_logo.png" width="80%">
+</center></li>
+</ol>
+</li>
+</ul>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>scrapy</tag>
       </tags>
   </entry>
   <entry>
