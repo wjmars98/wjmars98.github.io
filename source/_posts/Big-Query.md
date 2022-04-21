@@ -5,7 +5,7 @@ tags:
 - big query
 
 categories:
-- Big  Data
+- Big Data
 ---
 BigQuery 是一种全代管式企业数据仓库，可帮助您使用机器学习、地理空间分析和商业智能等内置功能管理和分析数据。
 
