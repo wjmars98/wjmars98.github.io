@@ -721,43 +721,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Intership Appsflyer</title>
-    <url>/2022/04/18/Intership%20Appsflyer/</url>
-    <content><![CDATA[<p>AppsFlyer是以色列公司APPSFLYER LTD旗下移动归因与营销分析平台品牌。目标是帮助应用营销人员做出决策。</p>
-<center>
-        <img src="/2022/04/18/Intership%20Appsflyer/appsflyer.png" width="80%">
-</center>
-
-<span id="more"></span>
-
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>AppsFlyer（以下简称AF）是SaaS移动营销分析和归因平台（类似国内的友盟），总部位于加利福尼亚州的旧金山。出海的应用或多或少都会用到。</p>
-<p>所谓归因就是找到事件发生的原因。通常的说法就是，用户安装了你的App，是因为哪个广告带来的效果。</p>
-<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><p><strong>Organic Install 自然量安装</strong><br>指的是不需要你的推广，用户自发的下载并安装了你的应用。</p>
-<p><strong>Non-Organic Install 非自然量安装</strong><br>指的是你通过某些广告点击跳转到App下载的界面下载并安装的。非自然量安装主要是广告商给你带来的，是你早期流量的来源，应该重点关注的。</p>
-<p><strong>Impression 广告的曝光或展示</strong></p>
-<p><strong>Conversion Rate(CVR) 转化率</strong><br>non-organic installs 除以广告点击数。</p>
-<p><strong>Attribution</strong> 归因<br>追溯应用安装和其他事件的源头，确定是哪个渠道最终导致某一激活或者应用内事件的发生。</p>
-<p><strong>Multi-touch Attribution 多源归因</strong><br>传统的归因把事件发生的全部功劳都归于产生最后一次点击的渠道，多源归因会考虑在这之前也产生了点击的其他渠道，因为他们对事件的发生也起到了推动作用。</p>
-<p><strong>Assisted Installs 辅助性安装</strong><br>在一个 non-organic install 转化的过程中，假设用户分别点击了渠道A，渠道B 和渠道C 的广告，然后进行下载并激活应用; 那么渠道A 和B 就各自贡献一个辅助性安装(assisted install)。</p>
-<p><strong>Re-engagement</strong><br>广告类型的主要目标是为了增加已有用户的活跃性，提醒用户更加频繁的体验应用。</p>
-<p><strong>Re-targeting 重定向或再营销</strong><br>针对那些已经安装但又卸载了应用的用户的广告类型，为的是调动这部分用户重新安装应用。</p>
-<p><strong>Revenue 应用收入</strong><br>统计时间区间内新增用户至今为止产生的收益，而收益的统计依赖于应用内事件(in-app event)埋点设置。例如您如果对事件A 和事件B 设置了收益，那么Revenue 最终呈现的就是对应选中的那部分用户至今为止在事件A 和事件B 的收益总和。</p>
-<p><strong>Life-Time Value(LTV) 生命周期价值</strong><br>用户在整个生命周期中给广告主带来的总价值。</p>
-<p><strong>Session 应用开启</strong><br>定义忠实用户和计算留存等的依据。</p>
-<p><strong>ARPU (AverageRevenue per User) 每个用户平均产生的收益</strong><br>Revenue 除以激活用户数。</p>
-<p><strong>DeepLink 深度链接</strong><br>可以直达网站或者应用中某个特定页面的链接，比如可以直接打开手机上的淘宝应用，并跳转到某个商品的详情页。</p>
-<p><strong>Media Source 媒体源</strong><br> 进行服务器对服务器对接的渠道统称为媒体源(Media Source)，这些媒体源可以是publisher,移动广告平台和移动广告网盟等。</p>
-<p> <strong>In-app Event 应用内事件</strong><br> 在AppsFlyer 平台上分析用户行为的基础。通过在接入AppsFlyer SDK 时对关注的事件(e.g. 购买，充值和注册等)添加对应代码，便可实现对用户从激活到整个生命周期的追踪和分析。</p>
-]]></content>
-      <categories>
-        <category>Intership</category>
-      </categories>
-      <tags>
-        <tag>intership</tag>
-        <tag>ads</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Internship Fetch Data</title>
     <url>/2022/04/14/Internship%20Fetch%20Data/</url>
     <content><![CDATA[<p>在实习的前两个星期，感觉最常接触的一类任务就是<strong>数据的拉取</strong>以及api的调用，本文也是对这个part的内容、方法以及遇到的问题进行一个记录。</p>
@@ -918,6 +881,43 @@
       </tags>
   </entry>
   <entry>
+    <title>Intership Appsflyer</title>
+    <url>/2022/04/18/Intership%20Appsflyer/</url>
+    <content><![CDATA[<p>AppsFlyer是以色列公司APPSFLYER LTD旗下移动归因与营销分析平台品牌。目标是帮助应用营销人员做出决策。</p>
+<center>
+        <img src="/2022/04/18/Intership%20Appsflyer/appsflyer.png" width="80%">
+</center>
+
+<span id="more"></span>
+
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>AppsFlyer（以下简称AF）是SaaS移动营销分析和归因平台（类似国内的友盟），总部位于加利福尼亚州的旧金山。出海的应用或多或少都会用到。</p>
+<p>所谓归因就是找到事件发生的原因。通常的说法就是，用户安装了你的App，是因为哪个广告带来的效果。</p>
+<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><p><strong>Organic Install 自然量安装</strong><br>指的是不需要你的推广，用户自发的下载并安装了你的应用。</p>
+<p><strong>Non-Organic Install 非自然量安装</strong><br>指的是你通过某些广告点击跳转到App下载的界面下载并安装的。非自然量安装主要是广告商给你带来的，是你早期流量的来源，应该重点关注的。</p>
+<p><strong>Impression 广告的曝光或展示</strong></p>
+<p><strong>Conversion Rate(CVR) 转化率</strong><br>non-organic installs 除以广告点击数。</p>
+<p><strong>Attribution</strong> 归因<br>追溯应用安装和其他事件的源头，确定是哪个渠道最终导致某一激活或者应用内事件的发生。</p>
+<p><strong>Multi-touch Attribution 多源归因</strong><br>传统的归因把事件发生的全部功劳都归于产生最后一次点击的渠道，多源归因会考虑在这之前也产生了点击的其他渠道，因为他们对事件的发生也起到了推动作用。</p>
+<p><strong>Assisted Installs 辅助性安装</strong><br>在一个 non-organic install 转化的过程中，假设用户分别点击了渠道A，渠道B 和渠道C 的广告，然后进行下载并激活应用; 那么渠道A 和B 就各自贡献一个辅助性安装(assisted install)。</p>
+<p><strong>Re-engagement</strong><br>广告类型的主要目标是为了增加已有用户的活跃性，提醒用户更加频繁的体验应用。</p>
+<p><strong>Re-targeting 重定向或再营销</strong><br>针对那些已经安装但又卸载了应用的用户的广告类型，为的是调动这部分用户重新安装应用。</p>
+<p><strong>Revenue 应用收入</strong><br>统计时间区间内新增用户至今为止产生的收益，而收益的统计依赖于应用内事件(in-app event)埋点设置。例如您如果对事件A 和事件B 设置了收益，那么Revenue 最终呈现的就是对应选中的那部分用户至今为止在事件A 和事件B 的收益总和。</p>
+<p><strong>Life-Time Value(LTV) 生命周期价值</strong><br>用户在整个生命周期中给广告主带来的总价值。</p>
+<p><strong>Session 应用开启</strong><br>定义忠实用户和计算留存等的依据。</p>
+<p><strong>ARPU (AverageRevenue per User) 每个用户平均产生的收益</strong><br>Revenue 除以激活用户数。</p>
+<p><strong>DeepLink 深度链接</strong><br>可以直达网站或者应用中某个特定页面的链接，比如可以直接打开手机上的淘宝应用，并跳转到某个商品的详情页。</p>
+<p><strong>Media Source 媒体源</strong><br> 进行服务器对服务器对接的渠道统称为媒体源(Media Source)，这些媒体源可以是publisher,移动广告平台和移动广告网盟等。</p>
+<p> <strong>In-app Event 应用内事件</strong><br> 在AppsFlyer 平台上分析用户行为的基础。通过在接入AppsFlyer SDK 时对关注的事件(e.g. 购买，充值和注册等)添加对应代码，便可实现对用户从激活到整个生命周期的追踪和分析。</p>
+]]></content>
+      <categories>
+        <category>Intership</category>
+      </categories>
+      <tags>
+        <tag>intership</tag>
+        <tag>ads</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux Fragments</title>
     <url>/2022/04/08/Linux-Fragments/</url>
     <content><![CDATA[<p>This article is used to record some knowledge fragments when using linux.</p>
@@ -1000,6 +1000,168 @@
 ]]></content>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ripple--The News Real Time Heat Analysis Platform</title>
+    <url>/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/</url>
+    <content><![CDATA[<p>Ripple 该平台实现对当前新闻网舆论热点事件的实时可视化分析，主要在<a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a>这一项目基础进行进一步改造，使用框架组件包括：Hadoop、Zookeeper、Flume、Kafka、Hive、HBase、Cloudera HUE、Spark、Echart等。</p>
+<p>本文主要Ripple项目的业务分析、技术造型、集群规划、安装部署、整合集成与开发和可视化设计等部分组成。项目目标为充分理解搭建过程中涉及的大数据组件，提升个人相关开发能力。</p>
+<span id="more"></span>
+<h1 id="项目需求分析、架构设计、数据流程设计"><a href="#项目需求分析、架构设计、数据流程设计" class="headerlink" title="项目需求分析、架构设计、数据流程设计"></a>项目需求分析、架构设计、数据流程设计</h1><h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><ol>
+<li>捕获用户浏览的日志信息(TB)</li>
+<li>实时分析前20名流量最高的新闻话题</li>
+<li>实时统计当前线上已曝光的新闻话题</li>
+<li>统计哪些时段用户浏览量最高</li>
+<li>报表</li>
+</ol>
+<h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><center>
+<img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/project_structure.png" width="80%">
+</center>
+
+<h2 id="数据流程"><a href="#数据流程" class="headerlink" title="数据流程"></a>数据流程</h2><center>
+<img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/data_flow.png" width="80%">
+</center>
+
+<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><h2 id="集群资源规划"><a href="#集群资源规划" class="headerlink" title="集群资源规划"></a>集群资源规划</h2><p>该项目出于学习目的，比较腾讯云、阿里云、华为云等云服务，选择租用腾讯云的高性能云服务器,由于我们选择同一子网下的三台机器，所以我们只需使用节点的内网ip即可，并且保证了数据传输速度。  </p>
+<center>
+<img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/cloud_machine.png" width="80%">
+</center>
+
+<p>三台服务器相关资源的部署规划如图所示:</p>
+<center>
+  <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/cluster_resources.png" width="80%">
+</center>
+
+<br>
+
+<p>为了方便三台云服务器间的数据传输与登录，需要设计三台云服务器间的ssh免密登录，其原理为将每台主机authorized_keys文件里面包含的主机（ssh密钥），该主机都能无密码登录，所以只要每台主机的authorized_keys文件里面都放入其他主机（需要无密码登录的主机）的ssh密钥即可,参考<a href="https://www.cnblogs.com/shireenlee4testing/p/10366061.html">Hadoop集群配置免密SSH登录方法</a>。</p>
+<p>完成ssh免密登录之后，由于ip地址相对难以记忆，通过修改&#x2F;etc&#x2F;hosts中的映射关系，这样能够方便再服务期间传输文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 利用如下指令,在hosts末尾中添加ip映射</span></span><br><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
+<center>
+  <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/ssh.png">
+</center>
+<br>
+
+
+<h2 id="Hadoop-搭建"><a href="#Hadoop-搭建" class="headerlink" title="Hadoop 搭建"></a>Hadoop 搭建</h2><p>首先，根据教程，再&#x2F;opt文件夹下文件树为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">|-- opt <span class="comment"># 主要文件夹</span></span><br><span class="line">|   |-- data <span class="comment"># 存放数据</span></span><br><span class="line">|   |-- modules <span class="comment"># haddop</span></span><br><span class="line">|   |-- softwares <span class="comment"># 相关软件下载包</span></span><br><span class="line">|   |-- tool <span class="comment"># 工具插件</span></span><br><span class="line">|</span><br></pre></td></tr></table></figure>
+<p>在<a href="https://archive.apache.org/dist">A.hadoop资源下载</a>中，-&gt; hadoop -&gt; core -&gt;   hadoop-2.6.5.tar.gz，下载相关资源，并下载在software，最终解压至&#x2F;opt&#x2F;modules&#x2F;，重命名为hadoop。</p>
+<p>其中hadoop文件夹中的各文件及其功能如图所示:</p>
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/Hadoop_安装目录.png" , width="80%">
+</center>
+
+<ul>
+<li>&#x2F;bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；</li>
+<li>&#x2F;etc 目录存放Hadoop的配置文件</li>
+<li>&#x2F;lib 目录存放Hadoop的本地库（对数据进行压缩解压缩功能）</li>
+<li>&#x2F;sbin 目录存放启动或停止Hadoop相关服务的脚本</li>
+<li>&#x2F;share 目录存放Hadoop的依赖jar包、文档、和官方案例</li>
+</ul>
+<p>下载相关jdk也安装在&#x2F;opt&#x2F;modules中，配置&#x2F;etc&#x2F;profile环境变量。对于hadoop，有几个关键文件需要配置:</p>
+<h3 id="core-site-xml"><a href="#core-site-xml" class="headerlink" title="core-site.xml"></a>core-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop</p>
+<p>功能:  配置集群全局参数属性，用于定义系统级别的参数，如HDFS URL 、Hadoop的临时目录等</p>
+<h3 id="hdfs-site-xml"><a href="#hdfs-site-xml" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;hdfs-site.xml</p>
+<p>功能: 配置HDFS组件的属性，如名称节点和数据节点的存放位置、文件副本的个数、文件的读取权限等</p>
+<h3 id="mapred-site-xml"><a href="#mapred-site-xml" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;mapred-site.xml</p>
+<p>功能：配置map-reduce组件的属性，包括JobHistory Server 和应用程序参数两部分，如reduce任务的默认个数、任务所能够使用内存的默认上下限等</p>
+<h3 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="yarn-site.xml"></a>yarn-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;yarn-site.xml</p>
+<p>功能: 集群资源管理系统参数，配置ResourceManager ，nodeManager的通信端口，web监控端口等</p>
+<p>yran日志聚集：日志聚集是YARN提供的日志中央化管理功能，它能将运行完成的Container任务日志上传到HDFS上，从而减轻NodeManager负载，且提供一个中央化存储和分析机制。</p>
+<h3 id="hadoop-env-xml"><a href="#hadoop-env-xml" class="headerlink" title="hadoop-env.xml"></a>hadoop-env.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;haddop-env.sh</p>
+<p>功能: hadoop运行环境,用来定义hadoop运行环境相关的配置信息</p>
+<h2 id="启动集群"><a href="#启动集群" class="headerlink" title="启动集群"></a>启动集群</h2><p>在2.2节中对hadoop文件夹下的bin与sbin进行了说明</p>
+<blockquote>
+<ul>
+<li>&#x2F;bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；</li>
+<li>&#x2F;sbin 目录存放启动或停止Hadoop相关服务的脚本</li>
+</ul>
+</blockquote>
+<p>在启动集群的时候，主要调用&#x2F;sbin中的函数。</p>
+<p>首先,在<strong>第一次启动</strong>集群的时候，我们需要对Namenode进行格式化。</p>
+<h3 id="NameNode的格式化"><a href="#NameNode的格式化" class="headerlink" title="NameNode的格式化"></a>NameNode的格式化</h3><p><strong>为什么需要格式化</strong></p>
+<p>Hadoop NameNode是HDFS文件系统的集中位置，它保存文件系统中所有文件的目录树，并跟踪整个集群中文件数据的保存位置。简而言之，它将元数据与datanode保持相关。当我们格式化namenode时，它会<strong>格式化与数据节点相关的元数据</strong>。通过这样做，所有关于datanode的信息都将丢失，它们可以用于新数据。</p>
+<p><strong>如何格式化</strong><br>格式化NameNode前，先关闭掉NameNode节点和DataNode节点，然后一定要删除hadoop目录下的data文件夹和log日志文件夹。最后再进行格式化。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bin/hadoop namenode -format</span><br></pre></td></tr></table></figure>
+<h3 id="hdfs-yarn启动"><a href="#hdfs-yarn启动" class="headerlink" title="hdfs, yarn启动"></a>hdfs, yarn启动</h3><h4 id="hdfs启动流程"><a href="#hdfs启动流程" class="headerlink" title="hdfs启动流程"></a>hdfs启动流程</h4><p>在完成NameNode的格式化之后，可以开始启动 hdfs(NameNode, DataNode, SecondaryNameNode) 与 yarn（ResourceManager，NodeManager）。<br>首先，启动hdfs。在2.3中了解，sbin文件夹是用来存储集群启动、关闭等时候调用的文件，其内部主要文件机器功能如下：</p>
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/sbin（存放启停hadoop服务的脚本文件）.png" width="80%">
+</center>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 首先启动hdfs</span></span><br><span class="line">sbin/start-dfs.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动yarn</span></span><br><span class="line">sbin/start-yarn.sh</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在ripple1的启动hdfs，yarn情况如下，ripple1，ripple2，ripple3正常启动</p>
+</blockquote>
+<center>
+<img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/启动hdfs1.jpg" width="80%">
+</center>
+
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/启动yarn.jpg" width="80%">
+</center>
+
+
+<h4 id="hdfs启动出现问题"><a href="#hdfs启动出现问题" class="headerlink" title="hdfs启动出现问题"></a>hdfs启动出现问题</h4><p>Q1: sbin&#x2F;start-dfs.sh 后ripple2，ripple3机器datanode没有启动</p>
+<p>A1: datanode与namenode 的clusterid不一致导致。</p>
+<p>查看ripple2的日志。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认在hadoop的路径下</span></span><br><span class="line">tail  -25 log/hadoop-root-datanode*.log</span><br></pre></td></tr></table></figure>
+
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/Q-datanode启动失败.png" width="80%">
+</center>
+
+
+<p>可以看到错误</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2022-04-09 17:29:29,989 WARN org.apache.hadoop.hdfs.server.common.Storage: java.io.IOException: Incompatible clusterIDs in /tmp/hadoop-root/dfs/data: namenode clusterID = CID-55814a25-a013-48af-ad24-f4689b57728b; datanode clusterID = CID-34619a23-71d3-4112-9ab8-1d39fdbca5ad</span><br><span class="line">2022-04-09 17:29:29,989 FATAL org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block pool &lt;registering&gt; (Datanode Uuid unassigned) service to ripple1/172.17.0.13:9000. Exiting.</span><br><span class="line">java.io.IOException: All specified directories are failed to load.</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:478)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1342)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1308)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:314)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:226)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:867)</span><br><span class="line">	at java.lang.Thread.run(Thread.java:823)</span><br><span class="line">2022-04-09 17:29:29,990 WARN org.apache.hadoop.hdfs.server.datanode.DataNode: Ending block pool service for: Block pool &lt;registering&gt; (Datanode Uuid unassigned) service to ripple1/172.17.0.13:9000</span><br><span class="line">2022-04-09 17:29:30,091 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Removed Block pool &lt;registering&gt; (Datanode Uuid unassigned)</span><br></pre></td></tr></table></figure>
+<p><strong>原因</strong><br>这是我们在format namnode的时候会重置，导致namenode 的clusterID与datanode的clusterID不一致。</p>
+<blockquote>
+<p>You will get this error when the cluster ID of name node and cluster ID of data node are different. We can see the cluster ID of name node in &lt;dfs.namenode.name.dir&gt;&#x2F;current&#x2F;VERSION file and cluster ID of data node in &lt;dfs.datanode.data.dir&gt;&#x2F;current&#x2F;VERSION file.</p>
+</blockquote>
+<p><strong>解决方案</strong>：</p>
+<p>预防措施：在format namenode之前，我们需要删除所有datanode上的 &lt;dfs.datanode.data.dir&gt; 路径下的所有目录。</p>
+<p>解决方案：</p>
+<ul>
+<li>方案一：如果hdfs中有数据且不想删除，复制namenode的version文件下的clusterID到各个datanode中的VERSION文件即可。</li>
+<li>方案二：删除所有namnode与datanode的&lt;dfs.datanode.data.dir&gt; 下的文件，然后再重新format  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/hdfs namenode -format</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h4><p>利用yarn集群运行mapreduce程序，来测试hdfs与yarn是否正常启动。<br>主要代码为：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">核心代码：利用yarn运行mapreduce程序</span></span><br><span class="line">bin/yarn jar share/hadoop/mapreduce/hadoop-examples-2.6.5 wordcount 数据源目录 数据输出目录</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">事例代码</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hdfs 构建文件夹 -<span class="built_in">mkdir</span> -p 路径</span></span><br><span class="line"> bin/hdfs dfs -mkdir -p /user/ripple/data/input/</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">本地文件存入hdfs之中</span></span><br><span class="line"> bin/hdfs dfs -put /opt/data/wc.input /user/ripple/data/input/</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">yarn调用mapreduce 进行wordcount计算</span></span><br><span class="line"> bin/yarn jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.5.jar wordcount /user/ripple/data/input/wc.input /user/ripple/data/output/wordcount</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash"> 查看运行结果</span></span><br><span class="line"> bin/hdfs dfs -text /user/ripple/data/output/wordcount/part*</span><br></pre></td></tr></table></figure>
+
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn启动mapreduce.png" width="80%">
+</center>
+
+<p>至此，hdfs与yarn的集群启动完毕。</p>
+<h2 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h2><p>zookeeper 的部分可以查看<a href="https://wjmars98.github.io/2022/04/10/Zookeeper-Basic/">zookeeper基础</a>.</p>
+<h2 id="hdfs-ha-高可用性"><a href="#hdfs-ha-高可用性" class="headerlink" title="hdfs-ha 高可用性"></a>hdfs-ha 高可用性</h2><p>对于hdfs-ha高可用性的必要性，是因为目前只有一台namenode，如果所在的机器down了，那么hdfs将无法提供服务，所以提出了hdfs-ha的架构模式。</p>
+<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/hdfs_ha.jpg" width="80%">
+</center>
+
+<p>HDFS通常由两个NameNode组成，一个处于active状态，另一个处于standby状态。Active NameNode对外提供服务，比如处理来自客户端的RPC请求，而Standby NameNode则不对外提供服务，仅同步Active NameNode的状态，以便能够在它失败时快速进行切换，为了让Standby Node与Active Node保持同步，这两个Node都与一组称为JNS的互相独立的进程保持通信(Journal Nodes)。</p>
+<p><strong>未完待续 | To be continued</strong></p>
+<h1 id="附录A：Problem"><a href="#附录A：Problem" class="headerlink" title="附录A：Problem"></a>附录A：Problem</h1><h1 id="附录B：参考网站"><a href="#附录B：参考网站" class="headerlink" title="附录B：参考网站"></a>附录B：参考网站</h1><ol>
+<li><a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a></li>
+<li><a href="https://hadoop.apache.org/docs/r2.6.5/">Hadoop官方文档</a></li>
+<li><a href="https://archive.apache.org/dist">A.hadoop资源下载</a></li>
+<li><a href="http://archive.cloudera.com/cdh5">B.hadoop资源下载</a></li>
+<li><a href="https://intellipaat.com/community/161/what-exactly-is-hadoop-namenode-formatting">What exactly is hadoop namenode formatting?</a></li>
+<li><a href="https://sparkbyexamples.com/hadoop/incompatible-clusterids/">datanode无法启动</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Projects</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
+        <tag>Zookepper</tag>
+        <tag>Flume</tag>
+        <tag>Kafka</tag>
+        <tag>Hive</tag>
+        <tag>Hbase</tag>
+        <tag>Spark</tag>
+        <tag>Hue</tag>
       </tags>
   </entry>
   <entry>
@@ -1234,168 +1396,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ripple--The News Real Time Heat Analysis Platform</title>
-    <url>/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/</url>
-    <content><![CDATA[<p>Ripple 该平台实现对当前新闻网舆论热点事件的实时可视化分析，主要在<a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a>这一项目基础进行进一步改造，使用框架组件包括：Hadoop、Zookeeper、Flume、Kafka、Hive、HBase、Cloudera HUE、Spark、Echart等。</p>
-<p>本文主要Ripple项目的业务分析、技术造型、集群规划、安装部署、整合集成与开发和可视化设计等部分组成。项目目标为充分理解搭建过程中涉及的大数据组件，提升个人相关开发能力。</p>
-<span id="more"></span>
-<h1 id="项目需求分析、架构设计、数据流程设计"><a href="#项目需求分析、架构设计、数据流程设计" class="headerlink" title="项目需求分析、架构设计、数据流程设计"></a>项目需求分析、架构设计、数据流程设计</h1><h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><ol>
-<li>捕获用户浏览的日志信息(TB)</li>
-<li>实时分析前20名流量最高的新闻话题</li>
-<li>实时统计当前线上已曝光的新闻话题</li>
-<li>统计哪些时段用户浏览量最高</li>
-<li>报表</li>
-</ol>
-<h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><center>
-<img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/project_structure.png" width="80%">
-</center>
-
-<h2 id="数据流程"><a href="#数据流程" class="headerlink" title="数据流程"></a>数据流程</h2><center>
-<img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/data_flow.png" width="80%">
-</center>
-
-<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><h2 id="集群资源规划"><a href="#集群资源规划" class="headerlink" title="集群资源规划"></a>集群资源规划</h2><p>该项目出于学习目的，比较腾讯云、阿里云、华为云等云服务，选择租用腾讯云的高性能云服务器,由于我们选择同一子网下的三台机器，所以我们只需使用节点的内网ip即可，并且保证了数据传输速度。  </p>
-<center>
-<img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/cloud_machine.png" width="80%">
-</center>
-
-<p>三台服务器相关资源的部署规划如图所示:</p>
-<center>
-  <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/cluster_resources.png" width="80%">
-</center>
-
-<br>
-
-<p>为了方便三台云服务器间的数据传输与登录，需要设计三台云服务器间的ssh免密登录，其原理为将每台主机authorized_keys文件里面包含的主机（ssh密钥），该主机都能无密码登录，所以只要每台主机的authorized_keys文件里面都放入其他主机（需要无密码登录的主机）的ssh密钥即可,参考<a href="https://www.cnblogs.com/shireenlee4testing/p/10366061.html">Hadoop集群配置免密SSH登录方法</a>。</p>
-<p>完成ssh免密登录之后，由于ip地址相对难以记忆，通过修改&#x2F;etc&#x2F;hosts中的映射关系，这样能够方便再服务期间传输文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 利用如下指令,在hosts末尾中添加ip映射</span></span><br><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
-<center>
-  <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/ssh.png">
-</center>
-<br>
-
-
-<h2 id="Hadoop-搭建"><a href="#Hadoop-搭建" class="headerlink" title="Hadoop 搭建"></a>Hadoop 搭建</h2><p>首先，根据教程，再&#x2F;opt文件夹下文件树为：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">|-- opt <span class="comment"># 主要文件夹</span></span><br><span class="line">|   |-- data <span class="comment"># 存放数据</span></span><br><span class="line">|   |-- modules <span class="comment"># haddop</span></span><br><span class="line">|   |-- softwares <span class="comment"># 相关软件下载包</span></span><br><span class="line">|   |-- tool <span class="comment"># 工具插件</span></span><br><span class="line">|</span><br></pre></td></tr></table></figure>
-<p>在<a href="https://archive.apache.org/dist">A.hadoop资源下载</a>中，-&gt; hadoop -&gt; core -&gt;   hadoop-2.6.5.tar.gz，下载相关资源，并下载在software，最终解压至&#x2F;opt&#x2F;modules&#x2F;，重命名为hadoop。</p>
-<p>其中hadoop文件夹中的各文件及其功能如图所示:</p>
-<center>
-    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/Hadoop_安装目录.png" , width="80%">
-</center>
-
-<ul>
-<li>&#x2F;bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；</li>
-<li>&#x2F;etc 目录存放Hadoop的配置文件</li>
-<li>&#x2F;lib 目录存放Hadoop的本地库（对数据进行压缩解压缩功能）</li>
-<li>&#x2F;sbin 目录存放启动或停止Hadoop相关服务的脚本</li>
-<li>&#x2F;share 目录存放Hadoop的依赖jar包、文档、和官方案例</li>
-</ul>
-<p>下载相关jdk也安装在&#x2F;opt&#x2F;modules中，配置&#x2F;etc&#x2F;profile环境变量。对于hadoop，有几个关键文件需要配置:</p>
-<h3 id="core-site-xml"><a href="#core-site-xml" class="headerlink" title="core-site.xml"></a>core-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop</p>
-<p>功能:  配置集群全局参数属性，用于定义系统级别的参数，如HDFS URL 、Hadoop的临时目录等</p>
-<h3 id="hdfs-site-xml"><a href="#hdfs-site-xml" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;hdfs-site.xml</p>
-<p>功能: 配置HDFS组件的属性，如名称节点和数据节点的存放位置、文件副本的个数、文件的读取权限等</p>
-<h3 id="mapred-site-xml"><a href="#mapred-site-xml" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;mapred-site.xml</p>
-<p>功能：配置map-reduce组件的属性，包括JobHistory Server 和应用程序参数两部分，如reduce任务的默认个数、任务所能够使用内存的默认上下限等</p>
-<h3 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="yarn-site.xml"></a>yarn-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;yarn-site.xml</p>
-<p>功能: 集群资源管理系统参数，配置ResourceManager ，nodeManager的通信端口，web监控端口等</p>
-<p>yran日志聚集：日志聚集是YARN提供的日志中央化管理功能，它能将运行完成的Container任务日志上传到HDFS上，从而减轻NodeManager负载，且提供一个中央化存储和分析机制。</p>
-<h3 id="hadoop-env-xml"><a href="#hadoop-env-xml" class="headerlink" title="hadoop-env.xml"></a>hadoop-env.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;haddop-env.sh</p>
-<p>功能: hadoop运行环境,用来定义hadoop运行环境相关的配置信息</p>
-<h2 id="启动集群"><a href="#启动集群" class="headerlink" title="启动集群"></a>启动集群</h2><p>在2.2节中对hadoop文件夹下的bin与sbin进行了说明</p>
-<blockquote>
-<ul>
-<li>&#x2F;bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；</li>
-<li>&#x2F;sbin 目录存放启动或停止Hadoop相关服务的脚本</li>
-</ul>
-</blockquote>
-<p>在启动集群的时候，主要调用&#x2F;sbin中的函数。</p>
-<p>首先,在<strong>第一次启动</strong>集群的时候，我们需要对Namenode进行格式化。</p>
-<h3 id="NameNode的格式化"><a href="#NameNode的格式化" class="headerlink" title="NameNode的格式化"></a>NameNode的格式化</h3><p><strong>为什么需要格式化</strong></p>
-<p>Hadoop NameNode是HDFS文件系统的集中位置，它保存文件系统中所有文件的目录树，并跟踪整个集群中文件数据的保存位置。简而言之，它将元数据与datanode保持相关。当我们格式化namenode时，它会<strong>格式化与数据节点相关的元数据</strong>。通过这样做，所有关于datanode的信息都将丢失，它们可以用于新数据。</p>
-<p><strong>如何格式化</strong><br>格式化NameNode前，先关闭掉NameNode节点和DataNode节点，然后一定要删除hadoop目录下的data文件夹和log日志文件夹。最后再进行格式化。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bin/hadoop namenode -format</span><br></pre></td></tr></table></figure>
-<h3 id="hdfs-yarn启动"><a href="#hdfs-yarn启动" class="headerlink" title="hdfs, yarn启动"></a>hdfs, yarn启动</h3><h4 id="hdfs启动流程"><a href="#hdfs启动流程" class="headerlink" title="hdfs启动流程"></a>hdfs启动流程</h4><p>在完成NameNode的格式化之后，可以开始启动 hdfs(NameNode, DataNode, SecondaryNameNode) 与 yarn（ResourceManager，NodeManager）。<br>首先，启动hdfs。在2.3中了解，sbin文件夹是用来存储集群启动、关闭等时候调用的文件，其内部主要文件机器功能如下：</p>
-<center>
-    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/sbin（存放启停hadoop服务的脚本文件）.png" width="80%">
-</center>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 首先启动hdfs</span></span><br><span class="line">sbin/start-dfs.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动yarn</span></span><br><span class="line">sbin/start-yarn.sh</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在ripple1的启动hdfs，yarn情况如下，ripple1，ripple2，ripple3正常启动</p>
-</blockquote>
-<center>
-<img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/启动hdfs1.jpg" width="80%">
-</center>
-
-<center>
-    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/启动yarn.jpg" width="80%">
-</center>
-
-
-<h4 id="hdfs启动出现问题"><a href="#hdfs启动出现问题" class="headerlink" title="hdfs启动出现问题"></a>hdfs启动出现问题</h4><p>Q1: sbin&#x2F;start-dfs.sh 后ripple2，ripple3机器datanode没有启动</p>
-<p>A1: datanode与namenode 的clusterid不一致导致。</p>
-<p>查看ripple2的日志。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认在hadoop的路径下</span></span><br><span class="line">tail  -25 log/hadoop-root-datanode*.log</span><br></pre></td></tr></table></figure>
-
-<center>
-    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/Q-datanode启动失败.png" width="80%">
-</center>
-
-
-<p>可以看到错误</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2022-04-09 17:29:29,989 WARN org.apache.hadoop.hdfs.server.common.Storage: java.io.IOException: Incompatible clusterIDs in /tmp/hadoop-root/dfs/data: namenode clusterID = CID-55814a25-a013-48af-ad24-f4689b57728b; datanode clusterID = CID-34619a23-71d3-4112-9ab8-1d39fdbca5ad</span><br><span class="line">2022-04-09 17:29:29,989 FATAL org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block pool &lt;registering&gt; (Datanode Uuid unassigned) service to ripple1/172.17.0.13:9000. Exiting.</span><br><span class="line">java.io.IOException: All specified directories are failed to load.</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:478)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1342)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1308)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:314)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:226)</span><br><span class="line">	at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:867)</span><br><span class="line">	at java.lang.Thread.run(Thread.java:823)</span><br><span class="line">2022-04-09 17:29:29,990 WARN org.apache.hadoop.hdfs.server.datanode.DataNode: Ending block pool service for: Block pool &lt;registering&gt; (Datanode Uuid unassigned) service to ripple1/172.17.0.13:9000</span><br><span class="line">2022-04-09 17:29:30,091 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Removed Block pool &lt;registering&gt; (Datanode Uuid unassigned)</span><br></pre></td></tr></table></figure>
-<p><strong>原因</strong><br>这是我们在format namnode的时候会重置，导致namenode 的clusterID与datanode的clusterID不一致。</p>
-<blockquote>
-<p>You will get this error when the cluster ID of name node and cluster ID of data node are different. We can see the cluster ID of name node in &lt;dfs.namenode.name.dir&gt;&#x2F;current&#x2F;VERSION file and cluster ID of data node in &lt;dfs.datanode.data.dir&gt;&#x2F;current&#x2F;VERSION file.</p>
-</blockquote>
-<p><strong>解决方案</strong>：</p>
-<p>预防措施：在format namenode之前，我们需要删除所有datanode上的 &lt;dfs.datanode.data.dir&gt; 路径下的所有目录。</p>
-<p>解决方案：</p>
-<ul>
-<li>方案一：如果hdfs中有数据且不想删除，复制namenode的version文件下的clusterID到各个datanode中的VERSION文件即可。</li>
-<li>方案二：删除所有namnode与datanode的&lt;dfs.datanode.data.dir&gt; 下的文件，然后再重新format  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/hdfs namenode -format</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h4><p>利用yarn集群运行mapreduce程序，来测试hdfs与yarn是否正常启动。<br>主要代码为：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">核心代码：利用yarn运行mapreduce程序</span></span><br><span class="line">bin/yarn jar share/hadoop/mapreduce/hadoop-examples-2.6.5 wordcount 数据源目录 数据输出目录</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">事例代码</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hdfs 构建文件夹 -<span class="built_in">mkdir</span> -p 路径</span></span><br><span class="line"> bin/hdfs dfs -mkdir -p /user/ripple/data/input/</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">本地文件存入hdfs之中</span></span><br><span class="line"> bin/hdfs dfs -put /opt/data/wc.input /user/ripple/data/input/</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">yarn调用mapreduce 进行wordcount计算</span></span><br><span class="line"> bin/yarn jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.5.jar wordcount /user/ripple/data/input/wc.input /user/ripple/data/output/wordcount</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash"> 查看运行结果</span></span><br><span class="line"> bin/hdfs dfs -text /user/ripple/data/output/wordcount/part*</span><br></pre></td></tr></table></figure>
-
-<center>
-    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/yarn启动mapreduce.png" width="80%">
-</center>
-
-<p>至此，hdfs与yarn的集群启动完毕。</p>
-<h2 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h2><p>zookeeper 的部分可以查看<a href="https://wjmars98.github.io/2022/04/10/Zookeeper-Basic/">zookeeper基础</a>.</p>
-<h2 id="hdfs-ha-高可用性"><a href="#hdfs-ha-高可用性" class="headerlink" title="hdfs-ha 高可用性"></a>hdfs-ha 高可用性</h2><p>对于hdfs-ha高可用性的必要性，是因为目前只有一台namenode，如果所在的机器down了，那么hdfs将无法提供服务，所以提出了hdfs-ha的架构模式。</p>
-<center>
-    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/hdfs_ha.jpg" width="80%">
-</center>
-
-<p>HDFS通常由两个NameNode组成，一个处于active状态，另一个处于standby状态。Active NameNode对外提供服务，比如处理来自客户端的RPC请求，而Standby NameNode则不对外提供服务，仅同步Active NameNode的状态，以便能够在它失败时快速进行切换，为了让Standby Node与Active Node保持同步，这两个Node都与一组称为JNS的互相独立的进程保持通信(Journal Nodes)。</p>
-<p><strong>未完待续 | To be continued</strong></p>
-<h1 id="附录A：Problem"><a href="#附录A：Problem" class="headerlink" title="附录A：Problem"></a>附录A：Problem</h1><h1 id="附录B：参考网站"><a href="#附录B：参考网站" class="headerlink" title="附录B：参考网站"></a>附录B：参考网站</h1><ol>
-<li><a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a></li>
-<li><a href="https://hadoop.apache.org/docs/r2.6.5/">Hadoop官方文档</a></li>
-<li><a href="https://archive.apache.org/dist">A.hadoop资源下载</a></li>
-<li><a href="http://archive.cloudera.com/cdh5">B.hadoop资源下载</a></li>
-<li><a href="https://intellipaat.com/community/161/what-exactly-is-hadoop-namenode-formatting">What exactly is hadoop namenode formatting?</a></li>
-<li><a href="https://sparkbyexamples.com/hadoop/incompatible-clusterids/">datanode无法启动</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Projects</category>
-      </categories>
-      <tags>
-        <tag>Hadoop</tag>
-        <tag>Zookepper</tag>
-        <tag>Flume</tag>
-        <tag>Kafka</tag>
-        <tag>Hive</tag>
-        <tag>Hbase</tag>
-        <tag>Spark</tag>
-        <tag>Hue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Yarn</title>
     <url>/2022/04/08/Yarn/</url>
     <content><![CDATA[<p>YARN is an open source Apache project that stands for “Yet Another Resource Negotiator”. It is a Hadoop cluster manager that is responsible for allocating resources (such as cpu, memory, disk and network), for scheduling &amp; monitoring jobs across the Hadoop cluster.</p>
@@ -1445,6 +1445,81 @@
       </categories>
       <tags>
         <tag>yarn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>imdb-scrapy</title>
+    <url>/2022/04/22/imdb-scrapy/</url>
+    <content><![CDATA[<p>在有了一定的scrapy基础之后，便可以尝试将scrapy的知识应用起来，做一些小项目。本文将介绍一个基于scrapy的imdb数据爬取项目，其主要功能有以下三点：</p>
+<ul>
+<li><p>对imdb网页，指定id电影信息，最受欢迎榜单数据，新片榜单</p>
+</li>
+<li><p>数据清洗、查重与入库</p>
+</li>
+<li><p>脚本编写，定时运行，鲁棒性检测</p>
+</li>
+</ul>
+<center>
+        <img src="/2022/04/22/imdb-scrapy/logo.jpg" , width="80%">
+</center>
+
+<span id="more"></span>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在实习期间，流媒体部分的同事需要imdb相关的数据，这个任务最后落在了我的身上，正好这个项目与公司项目相对独立，不涉及保密协议的部分，所以我打算将这个项目放在自己的github上，深入自己对scrapy的理解，同时也丰富自己的工程经验。</p>
+<p>Github入口： <a href="https://github.com/wjmars98/imdb-scrapy">imdb-scrapy：基于scrapy的imdb数据爬取项目</a></p>
+<h2 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h2><h3 id="爬取对象"><a href="#爬取对象" class="headerlink" title="爬取对象"></a>爬取对象</h3><p><strong>1. IMDB影片信息获取</strong><br>根据IMDB链接，获取IMDB页面信息供资讯站内容填充，所需信息如下(详见图片)：<br>例子：<a href="https://www.imdb.com/title/tt10048342/">https://www.imdb.com/title/tt10048342/</a></p>
+<ul>
+<li>ID：10048342</li>
+<li>影片标题</li>
+<li>IMDB评分</li>
+<li>影片热度：popularity，对应图中302</li>
+<li>影片描述</li>
+<li>影片图片：封面图，尺寸(像素)：198*261，大小：≤50k</li>
+<li>影片IMDB ID<br>更新频率：24小时&#x2F;次</li>
+</ul>
+<center>
+        <img src="/2022/04/22/imdb-scrapy/src1.png" , width="80%">
+</center>
+
+
+<p><strong>2. IMDB新片上映信息获取</strong><br>根据IMDB新片上映页面，获取影片信息供资讯站内容筛选参考，所需信息如下(详见图片)：</p>
+<ul>
+<li>新片上映页面：<a href="https://www.imdb.com/calendar/">https://www.imdb.com/calendar/</a></li>
+<li>影片上映时间：包含年月日</li>
+<li>影片名称：包含年份</li>
+<li>影片热度：点击影片获取影片热度，如图③</li>
+<li>影片IMDB ID</li>
+<li>影片链接</li>
+</ul>
+<p>更新频率：24小时&#x2F;次<br>爬取条数：最近两个月的影片</p>
+<center>
+        <img src="/2022/04/22/imdb-scrapy/src2.png" , width="80%">
+</center>
+
+<center>
+        <img src="/2022/04/22/imdb-scrapy/src3.png" , width="80%">
+</center>
+
+
+<p><strong>3. IMDB喜爱榜单信息获取</strong><br>根据IMDB喜爱榜单页面，获取影片信息供资讯站内容筛选参考，所需信息如下(详见图片)：<br>新片上映页面：<a href="https://www.imdb.com/chart/moviemeter/?ref_=nv_mv_mpm">https://www.imdb.com/chart/moviemeter/?ref_=nv_mv_mpm</a></p>
+<ul>
+<li>排名</li>
+<li>影片名称：包含年份</li>
+<li>IMDB 评分</li>
+<li>影片IMDB ID</li>
+<li>影片链接</li>
+<li>影片热度：点击影片获取影片热度</li>
+</ul>
+<p>更新频率：24小时&#x2F;次<br>爬取条数：前100条</p>
+<center>
+        <img src="/2022/04/22/imdb-scrapy/src4.png" , width="80%">
+</center>
+
+<h2 id="框架与数据流"><a href="#框架与数据流" class="headerlink" title="框架与数据流"></a>框架与数据流</h2><h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><h1 id="项目编写"><a href="#项目编写" class="headerlink" title="项目编写"></a>项目编写</h1><h2 id="scrapy脚本"><a href="#scrapy脚本" class="headerlink" title="scrapy脚本"></a>scrapy脚本</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h2 id="自动化部署"><a href="#自动化部署" class="headerlink" title="自动化部署"></a>自动化部署</h2><h1 id="项目结果"><a href="#项目结果" class="headerlink" title="项目结果"></a>项目结果</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1>]]></content>
+      <categories>
+        <category>Projects</category>
+      </categories>
+      <tags>
+        <tag>scrapy</tag>
       </tags>
   </entry>
   <entry>
@@ -1536,81 +1611,6 @@
       </categories>
       <tags>
         <tag>Zookeeper</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>imdb-scrapy</title>
-    <url>/2022/04/22/imdb-scrapy/</url>
-    <content><![CDATA[<p>在有了一定的scrapy基础之后，便可以尝试将scrapy的知识应用起来，做一些小项目。本文将介绍一个基于scrapy的imdb数据爬取项目，其主要功能有以下三点：</p>
-<ul>
-<li><p>对imdb网页，指定id电影信息，最受欢迎榜单数据，新片榜单</p>
-</li>
-<li><p>数据清洗、查重与入库</p>
-</li>
-<li><p>脚本编写，定时运行，鲁棒性检测</p>
-</li>
-</ul>
-<center>
-        <img src="/2022/04/22/imdb-scrapy/logo.jpg" , width="80%">
-</center>
-
-<span id="more"></span>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在实习期间，流媒体部分的同事需要imdb相关的数据，这个任务最后落在了我的身上，正好这个项目与公司项目相对独立，不涉及保密协议的部分，所以我打算将这个项目放在自己的github上，深入自己对scrapy的理解，同时也丰富自己的工程经验。</p>
-<p>Github入口： <a href="https://github.com/wjmars98/imdb-scrapy">imdb-scrapy：基于scrapy的imdb数据爬取项目</a></p>
-<h2 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h2><h3 id="爬取对象"><a href="#爬取对象" class="headerlink" title="爬取对象"></a>爬取对象</h3><p><strong>1. IMDB影片信息获取</strong><br>根据IMDB链接，获取IMDB页面信息供资讯站内容填充，所需信息如下(详见图片)：<br>例子：<a href="https://www.imdb.com/title/tt10048342/">https://www.imdb.com/title/tt10048342/</a></p>
-<ul>
-<li>ID：10048342</li>
-<li>影片标题</li>
-<li>IMDB评分</li>
-<li>影片热度：popularity，对应图中302</li>
-<li>影片描述</li>
-<li>影片图片：封面图，尺寸(像素)：198*261，大小：≤50k</li>
-<li>影片IMDB ID<br>更新频率：24小时&#x2F;次</li>
-</ul>
-<center>
-        <img src="/2022/04/22/imdb-scrapy/src1.png" , width="80%">
-</center>
-
-
-<p><strong>2. IMDB新片上映信息获取</strong><br>根据IMDB新片上映页面，获取影片信息供资讯站内容筛选参考，所需信息如下(详见图片)：</p>
-<ul>
-<li>新片上映页面：<a href="https://www.imdb.com/calendar/">https://www.imdb.com/calendar/</a></li>
-<li>影片上映时间：包含年月日</li>
-<li>影片名称：包含年份</li>
-<li>影片热度：点击影片获取影片热度，如图③</li>
-<li>影片IMDB ID</li>
-<li>影片链接</li>
-</ul>
-<p>更新频率：24小时&#x2F;次<br>爬取条数：最近两个月的影片</p>
-<center>
-        <img src="/2022/04/22/imdb-scrapy/src2.png" , width="80%">
-</center>
-
-<center>
-        <img src="/2022/04/22/imdb-scrapy/src3.png" , width="80%">
-</center>
-
-
-<p><strong>3. IMDB喜爱榜单信息获取</strong><br>根据IMDB喜爱榜单页面，获取影片信息供资讯站内容筛选参考，所需信息如下(详见图片)：<br>新片上映页面：<a href="https://www.imdb.com/chart/moviemeter/?ref_=nv_mv_mpm">https://www.imdb.com/chart/moviemeter/?ref_=nv_mv_mpm</a></p>
-<ul>
-<li>排名</li>
-<li>影片名称：包含年份</li>
-<li>IMDB 评分</li>
-<li>影片IMDB ID</li>
-<li>影片链接</li>
-<li>影片热度：点击影片获取影片热度</li>
-</ul>
-<p>更新频率：24小时&#x2F;次<br>爬取条数：前100条</p>
-<center>
-        <img src="/2022/04/22/imdb-scrapy/src4.png" , width="80%">
-</center>
-
-<h2 id="框架与数据流"><a href="#框架与数据流" class="headerlink" title="框架与数据流"></a>框架与数据流</h2><h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><h1 id="项目编写"><a href="#项目编写" class="headerlink" title="项目编写"></a>项目编写</h1><h2 id="scrapy脚本"><a href="#scrapy脚本" class="headerlink" title="scrapy脚本"></a>scrapy脚本</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h2 id="自动化部署"><a href="#自动化部署" class="headerlink" title="自动化部署"></a>自动化部署</h2><h1 id="项目结果"><a href="#项目结果" class="headerlink" title="项目结果"></a>项目结果</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1>]]></content>
-      <categories>
-        <category>Projects</category>
-      </categories>
-      <tags>
-        <tag>scrapy</tag>
       </tags>
   </entry>
   <entry>
