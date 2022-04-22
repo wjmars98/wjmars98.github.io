@@ -322,7 +322,24 @@ git clone https://github.com/theme-next/hexo-theme-next themes/next
 ``` shell
 theme: next
 ```
+## 添加Gitalk评论区
+打开 github.com/settings/applications/new ，具体填法如下：
+``` shell
+Application name //应用名称，随便填
+Homepage URL //没有过多要求，可以填自己的博客地址
+Application description //应用描述，描述一下，无要求
+Authorization callback URL //这个就有要求了，填自己要使用Gitalk的博客地址，不可乱填
+```
+接着，你就可以得到Client ID和Client Secret，之后会用到的。接下来，我们回到hexo的主题配置里.
 
+在next主题中，修改_config.xml文件，如图所示
+<center>
+          <img src="A-Private-Blog-Built-By-Github-Hexo-Next/gitalk1.jpg", width=80%>
+</center>
+
+<center>
+          <img src="A-Private-Blog-Built-By-Github-Hexo-Next/gitalk2.jpg", width=80%>
+</center>
 
 
 # 难点与收获
