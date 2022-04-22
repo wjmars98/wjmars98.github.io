@@ -1,5 +1,5 @@
 ---
-title: Scrapy
+title: Scrapy Introduction
 date: 2022-04-21 12:43:46
 tags:
 - scrapy
@@ -10,30 +10,26 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
 
 其最初是为了 页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。
 
-本文主要从两个部分展开： 
-- 1. scrapy的定义、原理、框架等方面 
-- 2. 实习中scrapy实战记录
-- *3. scrapy 进阶知识
+本文也是对scrapy进行一个初步的介绍。
+
 <center>
         <img src="Scrapy/scrapy_logo.png" width=80%>
 </center>
 
 <!--more-->
-
-# What is Scrapy?
-## Scrapy 简介
+# Scrapy 简介
 Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。
 
 其最初是为了 页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。
 
-## Scrapy框架、组件与流程
+# Scrapy框架、组件与流程
 首先，给出scrapy的基本框架：
-### Scrapy 框架
+## Scrapy 框架
 <center>
         <img src="./Scrapy/structure.jpg" width=80%>
 </center> 
 
-### Scrapy组件
+## Scrapy组件
 **Scrapy Engine(引擎)**: 负责Spider、ItemPipeline、Downloader、Scheduler中间的通讯，信号、数据传递等。
 
 **Scheduler(调度器)**: 它负责接受引擎发送过来的Request请求，并按照一定的方式进行整理排列，入队，当引擎需要时，交还给引擎。
@@ -49,7 +45,7 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
 **Spider Middlewares（Spider中间件）**：你可以理解为是一个可以自定扩展和操作引擎和Spider中间通信的功能组件（比如进入Spider的Responses;和从Spider出去的Requests）
 
 
-### Scrapy  流程
+## Scrapy  流程
 
 （1）引擎向Spider请求第一个要爬取的URL(s)。
 
@@ -69,11 +65,11 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
 
 （9）从（2）开始重复，直到调度器中没有更多的Request。
 
-## 构建scrapy项目
-### scrapy 安装
+# 构建scrapy项目
+## scrapy 安装
 能够直接参考[官方安装文档](https://scrapy-chs.readthedocs.io/zh_CN/0.24/intro/install.html)，不多追叙，需要掌握一下pyenv与pyenv-virtualenv，构建python的虚拟环境。
 
-### 构建scrapy项目
+## 构建scrapy项目
 创建一个新的Scrapy项目。 进入您打算存储代码的目录中，运行下列命令:
 ```shell
 scrapy startproject tutorial
@@ -102,7 +98,7 @@ tutorial/
 - tutorial/spiders/: 放置spider代码的目录.
 只需要基于概况进行开发即可。
 
-### 构建Iterm
+## 构建Iterm
 Item 是保存爬取到的数据的容器；其使用方法和python字典类似， 并且提供了额外保护机制来避免拼写错误导致的未定义字段错误。
 
 打开tutorial/items.py文件，创建一个 scrapy.Item 类， 并且定义类型为 scrapy.Field 的类属性来定义一个Item。
@@ -118,7 +114,7 @@ class DmozItem(scrapy.Item):
     desc = scrapy.Field()
 ```
 
-### 编写spider
+## 编写spider
 Spider是用户编写用于从单个网站(或者一些网站)爬取数据的类。
 
 其包含了一个用于下载的初始URL，如何跟进网页中的链接以及如何分析页面中的内容， 提取生成 item 的方法。
@@ -152,14 +148,14 @@ class DmozSpider(scrapy.Spider):
         with open(filename, 'wb') as f:
             f.write(response.body)
 ```
-### 爬取内容
+## 爬取内容
 ```python
 scrapy crawl dmoz
 # 在我的mac上需要制定python
 python -m scrapy crawl dmoz
 ```
 
-### 提取Item
+## 提取Item
 
 **1. Selectors 选择器介绍**
 
@@ -174,7 +170,7 @@ Selector有四个基本的方法(点击相应的方法
 
 每个 .xpath() 调用返回selector组成的list，因此我们可以拼接更多的 .xpath() 来进一步获取某个节点
 
-### 保存数据
+## 保存数据
 Item 对象是自定义的python字典。 您可以使用标准的字典语法来获取到其每个字段的值。(字段即是我们之前用Field赋值的属性):
 
 ```python
@@ -215,7 +211,12 @@ class DmozSpider(scrapy.Spider):
 ```python
 scrapy crawl dmoz -o items.json
 ```
-# 事件日志
+# Scrapy Shell
+前文可知，spider将爬取的结果储存在item中，返回reponse。通过调用scrapy shell，能够实现对其的交互。
+```
+scrapy shell 'example.com'
+```
+其中可以利用xpath，css进行数据的抽取，后期有机会可以写相关的文章，深入了解一下。
 
 
 # 参考
