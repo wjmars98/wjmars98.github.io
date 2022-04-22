@@ -497,7 +497,17 @@
 
 <p>​        执行完毕之后 <a href="https://theme-next.js.org/">Next 主题</a>的源码就会出现在项目的 themes&#x2F;next 文件夹下。 然后我们需要修改下博客所用的主题名称，修改项目根目录下的 _config.yml 文件，找到 theme 字段，修改为 next 即可，修改如下：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<h2 id="添加Gitalk评论区"><a href="#添加Gitalk评论区" class="headerlink" title="添加Gitalk评论区"></a>添加Gitalk评论区</h2><p>打开 github.com&#x2F;settings&#x2F;applications&#x2F;new ，具体填法如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Application name //应用名称，随便填</span><br><span class="line">Homepage URL //没有过多要求，可以填自己的博客地址</span><br><span class="line">Application description //应用描述，描述一下，无要求</span><br><span class="line">Authorization callback URL //这个就有要求了，填自己要使用Gitalk的博客地址，不可乱填</span><br></pre></td></tr></table></figure>
+<p>接着，你就可以得到Client ID和Client Secret，之后会用到的。接下来，我们回到hexo的主题配置里.</p>
+<p>在next主题中，修改_config.xml文件，如图所示</p>
+<center>
+          <img src="/2022/03/18/A-Private-Blog-Built-By-Github-Hexo-Next/gitalk1.jpg" , width="80%">
+</center>
 
+<center>
+          <img src="/2022/03/18/A-Private-Blog-Built-By-Github-Hexo-Next/gitalk2.jpg" , width="80%">
+</center>
 
 
 <h1 id="难点与收获"><a href="#难点与收获" class="headerlink" title="难点与收获"></a>难点与收获</h1><h2 id="Tags-And-Categories"><a href="#Tags-And-Categories" class="headerlink" title="Tags And Categories"></a>Tags And Categories</h2><p>​        只有文章支持分类和标签，您可以在 Front-matter 中设置。在其他系统中，分类和标签听起来很接近，但是在 Hexo 中两者有着明显的差别：分类具有顺序性和层次性，也就是说 <code>Foo, Bar</code> 不等于 <code>Bar, Foo</code>；而标签没有顺序和层次。</p>
@@ -1448,81 +1458,6 @@
       </tags>
   </entry>
   <entry>
-    <title>imdb-scrapy</title>
-    <url>/2022/04/22/imdb-scrapy/</url>
-    <content><![CDATA[<p>在有了一定的scrapy基础之后，便可以尝试将scrapy的知识应用起来，做一些小项目。本文将介绍一个基于scrapy的imdb数据爬取项目，其主要功能有以下三点：</p>
-<ul>
-<li><p>对imdb网页，指定id电影信息，最受欢迎榜单数据，新片榜单</p>
-</li>
-<li><p>数据清洗、查重与入库</p>
-</li>
-<li><p>脚本编写，定时运行，鲁棒性检测</p>
-</li>
-</ul>
-<center>
-        <img src="/2022/04/22/imdb-scrapy/logo.jpg" , width="80%">
-</center>
-
-<span id="more"></span>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在实习期间，流媒体部分的同事需要imdb相关的数据，这个任务最后落在了我的身上，正好这个项目与公司项目相对独立，不涉及保密协议的部分，所以我打算将这个项目放在自己的github上，深入自己对scrapy的理解，同时也丰富自己的工程经验。</p>
-<p>Github入口： <a href="https://github.com/wjmars98/imdb-scrapy">imdb-scrapy：基于scrapy的imdb数据爬取项目</a></p>
-<h2 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h2><h3 id="爬取对象"><a href="#爬取对象" class="headerlink" title="爬取对象"></a>爬取对象</h3><p><strong>1. IMDB影片信息获取</strong><br>根据IMDB链接，获取IMDB页面信息供资讯站内容填充，所需信息如下(详见图片)：<br>例子：<a href="https://www.imdb.com/title/tt10048342/">https://www.imdb.com/title/tt10048342/</a></p>
-<ul>
-<li>ID：10048342</li>
-<li>影片标题</li>
-<li>IMDB评分</li>
-<li>影片热度：popularity，对应图中302</li>
-<li>影片描述</li>
-<li>影片图片：封面图，尺寸(像素)：198*261，大小：≤50k</li>
-<li>影片IMDB ID<br>更新频率：24小时&#x2F;次</li>
-</ul>
-<center>
-        <img src="/2022/04/22/imdb-scrapy/src1.png" , width="80%">
-</center>
-
-
-<p><strong>2. IMDB新片上映信息获取</strong><br>根据IMDB新片上映页面，获取影片信息供资讯站内容筛选参考，所需信息如下(详见图片)：</p>
-<ul>
-<li>新片上映页面：<a href="https://www.imdb.com/calendar/">https://www.imdb.com/calendar/</a></li>
-<li>影片上映时间：包含年月日</li>
-<li>影片名称：包含年份</li>
-<li>影片热度：点击影片获取影片热度，如图③</li>
-<li>影片IMDB ID</li>
-<li>影片链接</li>
-</ul>
-<p>更新频率：24小时&#x2F;次<br>爬取条数：最近两个月的影片</p>
-<center>
-        <img src="/2022/04/22/imdb-scrapy/src2.png" , width="80%">
-</center>
-
-<center>
-        <img src="/2022/04/22/imdb-scrapy/src3.png" , width="80%">
-</center>
-
-
-<p><strong>3. IMDB喜爱榜单信息获取</strong><br>根据IMDB喜爱榜单页面，获取影片信息供资讯站内容筛选参考，所需信息如下(详见图片)：<br>新片上映页面：<a href="https://www.imdb.com/chart/moviemeter/?ref_=nv_mv_mpm">https://www.imdb.com/chart/moviemeter/?ref_=nv_mv_mpm</a></p>
-<ul>
-<li>排名</li>
-<li>影片名称：包含年份</li>
-<li>IMDB 评分</li>
-<li>影片IMDB ID</li>
-<li>影片链接</li>
-<li>影片热度：点击影片获取影片热度</li>
-</ul>
-<p>更新频率：24小时&#x2F;次<br>爬取条数：前100条</p>
-<center>
-        <img src="/2022/04/22/imdb-scrapy/src4.png" , width="80%">
-</center>
-
-<h2 id="框架与数据流"><a href="#框架与数据流" class="headerlink" title="框架与数据流"></a>框架与数据流</h2><h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><h1 id="项目编写"><a href="#项目编写" class="headerlink" title="项目编写"></a>项目编写</h1><h2 id="scrapy脚本"><a href="#scrapy脚本" class="headerlink" title="scrapy脚本"></a>scrapy脚本</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h2 id="自动化部署"><a href="#自动化部署" class="headerlink" title="自动化部署"></a>自动化部署</h2><h1 id="项目结果"><a href="#项目结果" class="headerlink" title="项目结果"></a>项目结果</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1>]]></content>
-      <categories>
-        <category>Projects</category>
-      </categories>
-      <tags>
-        <tag>scrapy</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Zookeeper Basic</title>
     <url>/2022/04/10/Zookeeper-Basic/</url>
     <content><![CDATA[<p>ZooKeeper是一个分布式、开源的分布式应用协调服务。它公开了一组简单的原语，分布式应用程序可以在此基础上构建，以实现同步、配置维护、组和命名等更高级别的服务。它的设计是易于编程的，并使用了一个数据模型，其样式类似于熟悉的文件系统的目录树结构。它在Java中运行，并且有Java和C的绑定。</p>
@@ -1611,6 +1546,81 @@
       </categories>
       <tags>
         <tag>Zookeeper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>imdb-scrapy</title>
+    <url>/2022/04/22/imdb-scrapy/</url>
+    <content><![CDATA[<p>在有了一定的scrapy基础之后，便可以尝试将scrapy的知识应用起来，做一些小项目。本文将介绍一个基于scrapy的imdb数据爬取项目，其主要功能有以下三点：</p>
+<ul>
+<li><p>对imdb网页，指定id电影信息，最受欢迎榜单数据，新片榜单</p>
+</li>
+<li><p>数据清洗、查重与入库</p>
+</li>
+<li><p>脚本编写，定时运行，鲁棒性检测</p>
+</li>
+</ul>
+<center>
+        <img src="/2022/04/22/imdb-scrapy/logo.jpg" , width="80%">
+</center>
+
+<span id="more"></span>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在实习期间，流媒体部分的同事需要imdb相关的数据，这个任务最后落在了我的身上，正好这个项目与公司项目相对独立，不涉及保密协议的部分，所以我打算将这个项目放在自己的github上，深入自己对scrapy的理解，同时也丰富自己的工程经验。</p>
+<p>Github入口： <a href="https://github.com/wjmars98/imdb-scrapy">imdb-scrapy：基于scrapy的imdb数据爬取项目</a></p>
+<h2 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h2><h3 id="爬取对象"><a href="#爬取对象" class="headerlink" title="爬取对象"></a>爬取对象</h3><p><strong>1. IMDB影片信息获取</strong><br>根据IMDB链接，获取IMDB页面信息供资讯站内容填充，所需信息如下(详见图片)：<br>例子：<a href="https://www.imdb.com/title/tt10048342/">https://www.imdb.com/title/tt10048342/</a></p>
+<ul>
+<li>ID：10048342</li>
+<li>影片标题</li>
+<li>IMDB评分</li>
+<li>影片热度：popularity，对应图中302</li>
+<li>影片描述</li>
+<li>影片图片：封面图，尺寸(像素)：198*261，大小：≤50k</li>
+<li>影片IMDB ID<br>更新频率：24小时&#x2F;次</li>
+</ul>
+<center>
+        <img src="/2022/04/22/imdb-scrapy/src1.png" , width="80%">
+</center>
+
+
+<p><strong>2. IMDB新片上映信息获取</strong><br>根据IMDB新片上映页面，获取影片信息供资讯站内容筛选参考，所需信息如下(详见图片)：</p>
+<ul>
+<li>新片上映页面：<a href="https://www.imdb.com/calendar/">https://www.imdb.com/calendar/</a></li>
+<li>影片上映时间：包含年月日</li>
+<li>影片名称：包含年份</li>
+<li>影片热度：点击影片获取影片热度，如图③</li>
+<li>影片IMDB ID</li>
+<li>影片链接</li>
+</ul>
+<p>更新频率：24小时&#x2F;次<br>爬取条数：最近两个月的影片</p>
+<center>
+        <img src="/2022/04/22/imdb-scrapy/src2.png" , width="80%">
+</center>
+
+<center>
+        <img src="/2022/04/22/imdb-scrapy/src3.png" , width="80%">
+</center>
+
+
+<p><strong>3. IMDB喜爱榜单信息获取</strong><br>根据IMDB喜爱榜单页面，获取影片信息供资讯站内容筛选参考，所需信息如下(详见图片)：<br>新片上映页面：<a href="https://www.imdb.com/chart/moviemeter/?ref_=nv_mv_mpm">https://www.imdb.com/chart/moviemeter/?ref_=nv_mv_mpm</a></p>
+<ul>
+<li>排名</li>
+<li>影片名称：包含年份</li>
+<li>IMDB 评分</li>
+<li>影片IMDB ID</li>
+<li>影片链接</li>
+<li>影片热度：点击影片获取影片热度</li>
+</ul>
+<p>更新频率：24小时&#x2F;次<br>爬取条数：前100条</p>
+<center>
+        <img src="/2022/04/22/imdb-scrapy/src4.png" , width="80%">
+</center>
+
+<h2 id="框架与数据流"><a href="#框架与数据流" class="headerlink" title="框架与数据流"></a>框架与数据流</h2><h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><h1 id="项目编写"><a href="#项目编写" class="headerlink" title="项目编写"></a>项目编写</h1><h2 id="scrapy脚本"><a href="#scrapy脚本" class="headerlink" title="scrapy脚本"></a>scrapy脚本</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h2 id="自动化部署"><a href="#自动化部署" class="headerlink" title="自动化部署"></a>自动化部署</h2><h1 id="项目结果"><a href="#项目结果" class="headerlink" title="项目结果"></a>项目结果</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1>]]></content>
+      <categories>
+        <category>Projects</category>
+      </categories>
+      <tags>
+        <tag>scrapy</tag>
       </tags>
   </entry>
   <entry>
