@@ -101,33 +101,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Big Query-Basic</title>
-    <url>/2022/04/11/Big-Query/</url>
-    <content><![CDATA[<p>BigQuery 是一种全代管式企业数据仓库，可帮助您使用机器学习、地理空间分析和商业智能等内置功能管理和分析数据。</p>
-<p>BigQuery 实现分析数据的计算引擎与存储选项分离，可最大限度地提高灵活性。</p>
-<p>BigQuery 界面包括 Google Cloud Console 界面和 BigQuery 命令行工具。</p>
-<p><strong>TO BE CONTINUED …</strong></p>
-<center>
-        <img src="/2022/04/11/Big-Query/bq_logo.jpg" width="80%">
-</center>
-
-<span id="more"></span>
-
-<h1 id="Quick-Begin"><a href="#Quick-Begin" class="headerlink" title="Quick Begin"></a>Quick Begin</h1><p>笔者感觉bq的配置、指令、命令行类的操作细节不该是本篇的关注的重点，否则文章会显得冗杂、无味，故对于此部分只会摘录google官网上的相关的文档链接，读者自行通读，在工作中边实践边学习。</p>
-<p>本篇将主要集中于bq的存储、分析、管理等工作原理，以及工作中遇到的有价值的问题与知识。</p>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p><a href="https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console?hl=zh-cn">1. Cloud Console</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-console?hl=zh-cn">2. 加载与查询数据</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-bq?hl=zh-cn">3. 命令行工具</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries?hl=zh-cn#bigquery_simple_app_client-java">4.  客户端库</a><br><a href="https://github.com/googleapis/java-bigquery/tree/f9f7abdede91e8f780d5a60b6ee9a26e9316d04d">5. BQ java指令 github仓库</a></p>
-<h2 id="付费情况"><a href="#付费情况" class="headerlink" title="付费情况"></a>付费情况</h2><h2 id="流媒体"><a href="#流媒体" class="headerlink" title="流媒体"></a>流媒体</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
-<li><a href="https://cloud.google.com/bigquery/docs/introduction?hl=zh-cn">BQ官方文档</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Big Data</category>
-      </categories>
-      <tags>
-        <tag>big query</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>A Private Blog Built By Github + Hexo + NexT</title>
     <url>/2022/03/18/A-Private-Blog-Built-By-Github-Hexo-Next/</url>
     <content><![CDATA[<p>这个私人博客的搭建是基于Github Page创建最基础的个人静态网站，Hexo则是一个快速、简洁且高效的博客框架，利用Markdown进行文章的解析，NexT是其中的一种主题theme，其拓展性优秀，后期能基于该框架与主题进行个性化的修改。基于Github + Hexo + NexT模式的博客在管理方便，实现本地-远程简单部署的同时，也保证了博客网页的美观与整洁。</p>
@@ -554,6 +527,33 @@
       </tags>
   </entry>
   <entry>
+    <title>Big Query-Basic</title>
+    <url>/2022/04/11/Big-Query/</url>
+    <content><![CDATA[<p>BigQuery 是一种全代管式企业数据仓库，可帮助您使用机器学习、地理空间分析和商业智能等内置功能管理和分析数据。</p>
+<p>BigQuery 实现分析数据的计算引擎与存储选项分离，可最大限度地提高灵活性。</p>
+<p>BigQuery 界面包括 Google Cloud Console 界面和 BigQuery 命令行工具。</p>
+<p><strong>TO BE CONTINUED …</strong></p>
+<center>
+        <img src="/2022/04/11/Big-Query/bq_logo.jpg" width="80%">
+</center>
+
+<span id="more"></span>
+
+<h1 id="Quick-Begin"><a href="#Quick-Begin" class="headerlink" title="Quick Begin"></a>Quick Begin</h1><p>笔者感觉bq的配置、指令、命令行类的操作细节不该是本篇的关注的重点，否则文章会显得冗杂、无味，故对于此部分只会摘录google官网上的相关的文档链接，读者自行通读，在工作中边实践边学习。</p>
+<p>本篇将主要集中于bq的存储、分析、管理等工作原理，以及工作中遇到的有价值的问题与知识。</p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p><a href="https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console?hl=zh-cn">1. Cloud Console</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-console?hl=zh-cn">2. 加载与查询数据</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-bq?hl=zh-cn">3. 命令行工具</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries?hl=zh-cn#bigquery_simple_app_client-java">4.  客户端库</a><br><a href="https://github.com/googleapis/java-bigquery/tree/f9f7abdede91e8f780d5a60b6ee9a26e9316d04d">5. BQ java指令 github仓库</a></p>
+<h2 id="付费情况"><a href="#付费情况" class="headerlink" title="付费情况"></a>付费情况</h2><h2 id="流媒体"><a href="#流媒体" class="headerlink" title="流媒体"></a>流媒体</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a href="https://cloud.google.com/bigquery/docs/introduction?hl=zh-cn">BQ官方文档</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>big query</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Brew</title>
     <url>/2022/03/28/Homebrew/</url>
     <content><![CDATA[<p>在使用mac系统的时候，和win 的一个区别在于sofeware的安装，要将从int下载下来的包，拽入app store中，安装在指定的位置。后来发现mac中存在一个工具——homebrew，能有效的帮助用户下载和管理相应的应用软件。本文也是记录下一些常用的homebrew的用法，提高homebrew的使用。</p>
@@ -933,6 +933,17 @@
 <blockquote>
 <p>在hadoop中，&#x2F;bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；&#x2F;sbin 目录存放启动或停止Hadoop相关服务的脚本</p>
 </blockquote>
+<h1 id="export的用法"><a href="#export的用法" class="headerlink" title="export的用法"></a>export的用法</h1><p>export命令用于设置或显示环境变量。</p>
+<p>在shell中执行程序时，shell会提供一组环境变量。export可新增，修改或删除环境变量，供后续执行的程序使用。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export [-fnp][变量名称]=[变量设置值]</span><br><span class="line"> </span><br><span class="line">参数说明：</span><br><span class="line"> </span><br><span class="line">-f 　代表[变量名称]中为函数名称。</span><br><span class="line">-n 　删除指定的变量。变量实际上并未删除，只是不会输出到后续指令的执行环境中。</span><br><span class="line">-p 　列出所有的shell赋予程序的环境变量</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">example</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将/tmp/hello的路径加入到PATH，从而可以在任何地方直接使用hello命令。</span></span><br><span class="line">export PATH=$PATH:/tmp/hello</span><br></pre></td></tr></table></figure>
+
+<p>export设置环境变量是暂时的，只在本次登录中有效，可修改如下文件来使命令长久有效</p>
+<ol>
+<li><p>修改profile文件：</p>
+</li>
+<li><p>修改自己home路径下的 ~&#x2F;.bashrc 或 ~&#x2F;.bash_profile ~&#x2F;.zshrc文件：</p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>Basic</category>
@@ -1227,41 +1238,31 @@
       </tags>
   </entry>
   <entry>
-    <title>Scrapy</title>
+    <title>Scrapy Introduction</title>
     <url>/2022/04/21/Scrapy/</url>
     <content><![CDATA[<p>Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。</p>
 <p>其最初是为了 页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。</p>
-<p>本文主要从两个部分展开： </p>
-<ul>
-<li><ol>
-<li>scrapy的定义、原理、框架等方面</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>实习中scrapy实战记录</li>
-</ol>
-</li>
-<li>*3. scrapy 进阶知识<center>
-      <img src="/2022/04/21/Scrapy/scrapy_logo.png" width="80%">
-</center></li>
-</ul>
-<span id="more"></span>
+<p>本文也是对scrapy进行一个初步的介绍。</p>
+<center>
+        <img src="/2022/04/21/Scrapy/scrapy_logo.png" width="80%">
+</center>
 
-<h1 id="What-is-Scrapy"><a href="#What-is-Scrapy" class="headerlink" title="What is Scrapy?"></a>What is Scrapy?</h1><h2 id="Scrapy-简介"><a href="#Scrapy-简介" class="headerlink" title="Scrapy 简介"></a>Scrapy 简介</h2><p>Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。</p>
+<span id="more"></span>
+<h1 id="Scrapy-简介"><a href="#Scrapy-简介" class="headerlink" title="Scrapy 简介"></a>Scrapy 简介</h1><p>Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。</p>
 <p>其最初是为了 页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。</p>
-<h2 id="Scrapy框架、组件与流程"><a href="#Scrapy框架、组件与流程" class="headerlink" title="Scrapy框架、组件与流程"></a>Scrapy框架、组件与流程</h2><p>首先，给出scrapy的基本框架：</p>
-<h3 id="Scrapy-框架"><a href="#Scrapy-框架" class="headerlink" title="Scrapy 框架"></a>Scrapy 框架</h3><center>
+<h1 id="Scrapy框架、组件与流程"><a href="#Scrapy框架、组件与流程" class="headerlink" title="Scrapy框架、组件与流程"></a>Scrapy框架、组件与流程</h1><p>首先，给出scrapy的基本框架：</p>
+<h2 id="Scrapy-框架"><a href="#Scrapy-框架" class="headerlink" title="Scrapy 框架"></a>Scrapy 框架</h2><center>
         <img src="/2022/04/21/Scrapy/structure.jpg" width="80%">
 </center> 
 
-<h3 id="Scrapy组件"><a href="#Scrapy组件" class="headerlink" title="Scrapy组件"></a>Scrapy组件</h3><p><strong>Scrapy Engine(引擎)</strong>: 负责Spider、ItemPipeline、Downloader、Scheduler中间的通讯，信号、数据传递等。</p>
+<h2 id="Scrapy组件"><a href="#Scrapy组件" class="headerlink" title="Scrapy组件"></a>Scrapy组件</h2><p><strong>Scrapy Engine(引擎)</strong>: 负责Spider、ItemPipeline、Downloader、Scheduler中间的通讯，信号、数据传递等。</p>
 <p><strong>Scheduler(调度器)</strong>: 它负责接受引擎发送过来的Request请求，并按照一定的方式进行整理排列，入队，当引擎需要时，交还给引擎。</p>
 <p><strong>Downloader（下载器）</strong>：负责下载Scrapy Engine(引擎)发送的所有Requests请求，并将其获取到的Responses交还给Scrapy Engine(引擎)，由引擎交给Spider来处理，</p>
 <p><strong>Spider（爬虫）</strong>：它负责处理所有Responses,从中分析提取数据，获取Item字段需要的数据，并将需要跟进的URL提交给引擎，再次进入Scheduler(调度器)，</p>
 <p>**Item Pipeline(管道)**：它负责处理Spider中获取到的Item，并进行进行后期处理（详细分析、过滤、存储等）的地方.</p>
 <p><strong>Downloader Middlewares（下载中间件）</strong>：你可以当作是一个可以自定义扩展下载功能的组件。</p>
 <p><strong>Spider Middlewares（Spider中间件）</strong>：你可以理解为是一个可以自定扩展和操作引擎和Spider中间通信的功能组件（比如进入Spider的Responses;和从Spider出去的Requests）</p>
-<h3 id="Scrapy-流程"><a href="#Scrapy-流程" class="headerlink" title="Scrapy  流程"></a>Scrapy  流程</h3><p>（1）引擎向Spider请求第一个要爬取的URL(s)。</p>
+<h2 id="Scrapy-流程"><a href="#Scrapy-流程" class="headerlink" title="Scrapy  流程"></a>Scrapy  流程</h2><p>（1）引擎向Spider请求第一个要爬取的URL(s)。</p>
 <p>（2）引擎从Spider中获取到第一个要爬取的URL，封装成Request并交给调度器。</p>
 <p>（3）引擎向调度器请求下一个要爬取的Request。</p>
 <p>（4）调度器返回下一个要爬取的Request给引擎，引擎将Request通过下载中间件转发给下载器。</p>
@@ -1270,8 +1271,8 @@
 <p>（7）Spider处理Response并返回爬取到的Item及新的Request给引擎。</p>
 <p>（8）引擎将爬取到的Item给Item Pipeline，将Request给调度器。</p>
 <p>（9）从（2）开始重复，直到调度器中没有更多的Request。</p>
-<h2 id="构建scrapy项目"><a href="#构建scrapy项目" class="headerlink" title="构建scrapy项目"></a>构建scrapy项目</h2><h3 id="scrapy-安装"><a href="#scrapy-安装" class="headerlink" title="scrapy 安装"></a>scrapy 安装</h3><p>能够直接参考<a href="https://scrapy-chs.readthedocs.io/zh_CN/0.24/intro/install.html">官方安装文档</a>，不多追叙，需要掌握一下pyenv与pyenv-virtualenv，构建python的虚拟环境。</p>
-<h3 id="构建scrapy项目-1"><a href="#构建scrapy项目-1" class="headerlink" title="构建scrapy项目"></a>构建scrapy项目</h3><p>创建一个新的Scrapy项目。 进入您打算存储代码的目录中，运行下列命令:</p>
+<h1 id="构建scrapy项目"><a href="#构建scrapy项目" class="headerlink" title="构建scrapy项目"></a>构建scrapy项目</h1><h2 id="scrapy-安装"><a href="#scrapy-安装" class="headerlink" title="scrapy 安装"></a>scrapy 安装</h2><p>能够直接参考<a href="https://scrapy-chs.readthedocs.io/zh_CN/0.24/intro/install.html">官方安装文档</a>，不多追叙，需要掌握一下pyenv与pyenv-virtualenv，构建python的虚拟环境。</p>
+<h2 id="构建scrapy项目-1"><a href="#构建scrapy项目-1" class="headerlink" title="构建scrapy项目"></a>构建scrapy项目</h2><p>创建一个新的Scrapy项目。 进入您打算存储代码的目录中，运行下列命令:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scrapy startproject tutorial</span><br></pre></td></tr></table></figure>
 <p>该命令将会创建包含下列内容的 tutorial 目录:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tutorial/</span><br><span class="line">    scrapy.cfg</span><br><span class="line">    tutorial/</span><br><span class="line">        __init__.py</span><br><span class="line">        items.py</span><br><span class="line">        pipelines.py</span><br><span class="line">        settings.py</span><br><span class="line">        spiders/</span><br><span class="line">            __init__.py</span><br><span class="line">            ...</span><br></pre></td></tr></table></figure>
@@ -1285,12 +1286,12 @@
 <li>tutorial&#x2F;settings.py: 项目的设置文件.</li>
 <li>tutorial&#x2F;spiders&#x2F;: 放置spider代码的目录.<br>只需要基于概况进行开发即可。</li>
 </ul>
-<h3 id="构建Iterm"><a href="#构建Iterm" class="headerlink" title="构建Iterm"></a>构建Iterm</h3><p>Item 是保存爬取到的数据的容器；其使用方法和python字典类似， 并且提供了额外保护机制来避免拼写错误导致的未定义字段错误。</p>
+<h2 id="构建Iterm"><a href="#构建Iterm" class="headerlink" title="构建Iterm"></a>构建Iterm</h2><p>Item 是保存爬取到的数据的容器；其使用方法和python字典类似， 并且提供了额外保护机制来避免拼写错误导致的未定义字段错误。</p>
 <p>打开tutorial&#x2F;items.py文件，创建一个 scrapy.Item 类， 并且定义类型为 scrapy.Field 的类属性来定义一个Item。</p>
 <p>首先根据需要从”dmo.org（爬取的网页）”获取到的数据对item进行建模，我们需要从dmoz中获取名字，url，以及网站的描述。 对此，在item中定义相应的字段。编辑 tutorial 目录中的tutorial&#x2F;items.py 文件:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DmozItem</span>(scrapy.Item):</span><br><span class="line">    title = scrapy.Field()</span><br><span class="line">    link = scrapy.Field()</span><br><span class="line">    desc = scrapy.Field()</span><br></pre></td></tr></table></figure>
 
-<h3 id="编写spider"><a href="#编写spider" class="headerlink" title="编写spider"></a>编写spider</h3><p>Spider是用户编写用于从单个网站(或者一些网站)爬取数据的类。</p>
+<h2 id="编写spider"><a href="#编写spider" class="headerlink" title="编写spider"></a>编写spider</h2><p>Spider是用户编写用于从单个网站(或者一些网站)爬取数据的类。</p>
 <p>其包含了一个用于下载的初始URL，如何跟进网页中的链接以及如何分析页面中的内容， 提取生成 item 的方法。</p>
 <p>为了创建一个Spider，您必须继承 scrapy.Spider 类， 且定义以下三个属性:</p>
 <ul>
@@ -1302,9 +1303,9 @@
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sample code</span></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DmozSpider</span>(scrapy.Spider):</span><br><span class="line">    <span class="comment"># unique spider name</span></span><br><span class="line">    name = <span class="string">&quot;dmoz&quot;</span></span><br><span class="line">    <span class="comment"># 允许的网页路径为dmoz.org域名下</span></span><br><span class="line">    allowed_domains = [<span class="string">&quot;dmoz.org&quot;</span>]</span><br><span class="line">    <span class="comment"># start urls</span></span><br><span class="line">    start_urls = [</span><br><span class="line">        <span class="string">&quot;http://www.dmoz.org/Computers/Programming/Languages/Python/Books/&quot;</span>,</span><br><span class="line">        <span class="string">&quot;http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/&quot;</span></span><br><span class="line">    ]</span><br><span class="line">    <span class="comment"># 解析返回的reponse吗，生成item，进一步生成request</span></span><br><span class="line">    <span class="comment"># 此处代码没有显示相关功能</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">parse</span>(<span class="params">self, response</span>):</span><br><span class="line">        filename = response.url.split(<span class="string">&quot;/&quot;</span>)[-<span class="number">2</span>]</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(response.body)</span><br></pre></td></tr></table></figure>
-<h3 id="爬取内容"><a href="#爬取内容" class="headerlink" title="爬取内容"></a>爬取内容</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy crawl dmoz</span><br><span class="line"><span class="comment"># 在我的mac上需要制定python</span></span><br><span class="line">python -m scrapy crawl dmoz</span><br></pre></td></tr></table></figure>
+<h2 id="爬取内容"><a href="#爬取内容" class="headerlink" title="爬取内容"></a>爬取内容</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy crawl dmoz</span><br><span class="line"><span class="comment"># 在我的mac上需要制定python</span></span><br><span class="line">python -m scrapy crawl dmoz</span><br></pre></td></tr></table></figure>
 
-<h3 id="提取Item"><a href="#提取Item" class="headerlink" title="提取Item"></a>提取Item</h3><p><strong>1. Selectors 选择器介绍</strong></p>
+<h2 id="提取Item"><a href="#提取Item" class="headerlink" title="提取Item"></a>提取Item</h2><p><strong>1. Selectors 选择器介绍</strong></p>
 <p>从网页中提取数据有很多方法。Scrapy使用了一种基于 XPath 和 CSS 表达式机制: Scrapy Selectors 。 关于selector和其他提取机制的信息请参考 Selector文档 。<em>后期可以写一下相关的博客，深入研究一下。</em></p>
 <p>Selector有四个基本的方法(点击相应的方法</p>
 <ul>
@@ -1314,14 +1315,17 @@
 <li>re(): 根据传入的正则表达式对数据进行提取，返回unicode字符串list列表</li>
 </ul>
 <p>每个 .xpath() 调用返回selector组成的list，因此我们可以拼接更多的 .xpath() 来进一步获取某个节点</p>
-<h3 id="保存数据"><a href="#保存数据" class="headerlink" title="保存数据"></a>保存数据</h3><p>Item 对象是自定义的python字典。 您可以使用标准的字典语法来获取到其每个字段的值。(字段即是我们之前用Field赋值的属性):</p>
+<h2 id="保存数据"><a href="#保存数据" class="headerlink" title="保存数据"></a>保存数据</h2><p>Item 对象是自定义的python字典。 您可以使用标准的字典语法来获取到其每个字段的值。(字段即是我们之前用Field赋值的属性):</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tutorial.items <span class="keyword">import</span> DmozItem</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DmozSpider</span>(scrapy.Spider):</span><br><span class="line">    name = <span class="string">&quot;dmoz&quot;</span></span><br><span class="line">    allowed_domains = [<span class="string">&quot;dmoz.org&quot;</span>]</span><br><span class="line">    start_urls = [</span><br><span class="line">        <span class="string">&quot;http://www.dmoz.org/Computers/Programming/Languages/Python/Books/&quot;</span>,</span><br><span class="line">        <span class="string">&quot;http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/&quot;</span></span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">parse</span>(<span class="params">self, response</span>):</span><br><span class="line">        <span class="keyword">for</span> sel <span class="keyword">in</span> response.xpath(<span class="string">&#x27;//ul/li&#x27;</span>):</span><br><span class="line">            item = DmozItem()</span><br><span class="line">            item[<span class="string">&#x27;title&#x27;</span>] = sel.xpath(<span class="string">&#x27;a/text()&#x27;</span>).extract()</span><br><span class="line">            item[<span class="string">&#x27;link&#x27;</span>] = sel.xpath(<span class="string">&#x27;a/@href&#x27;</span>).extract()</span><br><span class="line">            item[<span class="string">&#x27;desc&#x27;</span>] = sel.xpath(<span class="string">&#x27;text()&#x27;</span>).extract()</span><br><span class="line">            <span class="keyword">yield</span> item</span><br></pre></td></tr></table></figure>
 
 <p>调用结果：</p>
 <figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">[dmoz] <span class="keyword">DEBUG</span>: Scraped <span class="keyword">from</span> &lt;<span class="number">200</span> http://www.dmoz.org/Computers/Programming/Languages/Python/Books/&gt;</span><br><span class="line">     &#123;<span class="string">&#x27;desc&#x27;</span>: [u<span class="string">&#x27; - By David Mertz; Addison Wesley. Book in progress, full text, ASCII format. Asks for feedback. [author website, Gnosis Software, Inc.\n],</span></span><br><span class="line"><span class="string">      &#x27;</span>link<span class="string">&#x27;: [u&#x27;</span>http://gnosis.cx/TPiP/<span class="string">&#x27;],</span></span><br><span class="line"><span class="string">      &#x27;</span>titl<span class="string">e&#x27;: [u&#x27;</span><span class="type">Text</span> Processing <span class="keyword">in</span> Python<span class="string">&#x27;]&#125;</span></span><br><span class="line"><span class="string">[dmoz] DEBUG: Scraped from &lt;200 http://www.dmoz.org/Computers/Programming/Languages/Python/Books/&gt;</span></span><br><span class="line"><span class="string">     &#123;&#x27;</span><span class="keyword">desc</span><span class="string">&#x27;: [u&#x27;</span> - <span class="keyword">By</span> Sean McGrath; Prentice Hall PTR, <span class="number">2000</span>, ISBN <span class="number">0130211192</span>, has CD-ROM. Methods <span class="keyword">to</span> build <span class="type">XML</span> applications fast, Python tutorial, DOM <span class="keyword">and</span> SAX, <span class="built_in">new</span> Pyxie <span class="keyword">open</span> source <span class="type">XML</span> processing library. [Prentice Hall PTR]\n<span class="string">&#x27;],</span></span><br><span class="line"><span class="string">      &#x27;</span>link<span class="string">&#x27;: [u&#x27;</span>http://www.informit.com/store/product.aspx?isbn=<span class="number">0130211192</span><span class="string">&#x27;],</span></span><br><span class="line"><span class="string">      &#x27;</span>titl<span class="string">e&#x27;: [u&#x27;</span><span class="type">XML</span> Processing <span class="keyword">with</span> Python<span class="string">&#x27;]&#125;</span></span><br></pre></td></tr></table></figure>
 <p>该命令将采用 JSON 格式对爬取的数据进行序列化，生成 items.json 文件。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy crawl dmoz -o items.json</span><br></pre></td></tr></table></figure>
-<h1 id="事件日志"><a href="#事件日志" class="headerlink" title="事件日志"></a>事件日志</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<h1 id="Scrapy-Shell"><a href="#Scrapy-Shell" class="headerlink" title="Scrapy Shell"></a>Scrapy Shell</h1><p>前文可知，spider将爬取的结果储存在item中，返回reponse。通过调用scrapy shell，能够实现对其的交互。</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">scrapy <span class="keyword">shell</span><span class="language-bash"> <span class="string">&#x27;example.com&#x27;</span></span></span><br></pre></td></tr></table></figure>
+<p>其中可以利用xpath，css进行数据的抽取，后期有机会可以写相关的文章，深入了解一下。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a href="https://book.itheima.net/course/221/1270308787172941826/1271354340677787651">Scrapy框架的运作流程</a></li>
 <li><a href="https://segmentfault.com/a/1190000013178839">Scrapy框架简介</a></li>
 <li><a href="https://scrapy-chs.readthedocs.io/zh_CN/0.24/intro/overview.html">Scrapy官方文档</a></li>
