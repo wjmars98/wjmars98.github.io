@@ -223,4 +223,3 @@ scrapy shell 'example.com'
 1. [Scrapy框架的运作流程](https://book.itheima.net/course/221/1270308787172941826/1271354340677787651)
 2. [Scrapy框架简介](https://segmentfault.com/a/1190000013178839)
 3. [Scrapy官方文档](https://scrapy-chs.readthedocs.io/zh_CN/0.24/intro/overview.html)
-
