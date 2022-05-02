@@ -1549,38 +1549,67 @@
       </tags>
   </entry>
   <entry>
-    <title>Log4j</title>
-    <url>/2022/04/13/log4j/</url>
-    <content><![CDATA[<p>Apache Log4j是一个基于Java的日志记录工具</p>
-<center>
-        <img src="/2022/04/13/log4j/log4j_logo.jpg">
-</center>
-
+    <title>crontab</title>
+    <url>/2022/05/02/crontab/</url>
+    <content><![CDATA[<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令，可以实现某一任务在指定的时间运行。</p>
 <span id="more"></span>
 
-<p>Log4j是一种非常流行的日志框架。</p>
-<p>Log4j是一个组件化设计的日志系统，它的架构大致如下：</p>
+<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令。</p>
+<h1 id="crontab配置文件"><a href="#crontab配置文件" class="headerlink" title="crontab配置文件"></a>crontab配置文件</h1><p>在centos系统中，通过调用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看配置指令</span></span><br><span class="line">cat /etc/crontab</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">能够看到如下解释</span></span><br><span class="line">SHELL=/bin/bash</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">MAILTO=root</span><br><span class="line">HOME=/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">For details see man 4 crontabs</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example of job definition:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.---------------- minute (0 - 59)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| .------------- hour (0 - 23)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | |</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">* * * * * user-name <span class="built_in">command</span> to be executed</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="crontab文件含义"><a href="#crontab文件含义" class="headerlink" title="crontab文件含义"></a>crontab文件含义</h1><p>前四行是用来配置crond任务运行的环境变量</p>
+<ol>
+<li><p>第一行SHELL变量指定了系统要使用哪个shell，这里是bash；</p>
+</li>
+<li><p>第二行PATH变量指定了系统执行命令的路径；</p>
+</li>
+<li><p>第三行MAILTO变量指定了crond的任务执行信息将通过电子邮件发送给root用户，如果MAILTO变量的值为空，则表示不发送任务执行信息给用户；</p>
+</li>
+<li><p>第四行的HOME变量指定了在执行命令或者脚本时使用的主目录。</p>
+</li>
+</ol>
 <center>
-                <img src="/2022/04/13/log4j/log4j_structure.jpg" , width="80%">
+    <img src="/2022/05/02/crontab/crontab.png" , width="80%">
 </center>
 
-<h1 id="log4j-结构"><a href="#log4j-结构" class="headerlink" title="log4j 结构"></a>log4j 结构</h1><h2 id="appender"><a href="#appender" class="headerlink" title="appender"></a>appender</h2><p>使用Log4j输出一条日志时，Log4j自动通过不同的Appender把同一条日志输出到不同的目的地。例如：</p>
-<p>console：输出到屏幕；<br>file：输出到文件；<br>socket：通过网络输出到远程计算机；<br>jdbc：输出到数据库</p>
-<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>通过Filter来过滤哪些log需要被输出，哪些log不需要被输出。</p>
-<p>其中，存在8个日志级别，优先级从高到低依次为：OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、 ALL。</p>
-<h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p>通过Layout来格式化日志信息，例如，自动添加日期、时间、方法名称等信息。</p>
-<h1 id="log4j-使用"><a href="#log4j-使用" class="headerlink" title="log4j 使用"></a>log4j 使用</h1><p>上述结构虽然复杂，但我们在实际使用的时候，并不需要关心Log4j的API，而是通过配置文件来配置它。</p>
-<h2 id="log4j-配置"><a href="#log4j-配置" class="headerlink" title="log4j 配置"></a>log4j 配置</h2><p>以xml配置为例，使用Log4j的时候，我们把一个log4j2.xml的文件放到classpath下就可以让Log4j读取配置文件并按照我们的配置来输出日志。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Properties</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 定义日志格式 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Property</span> <span class="attr">name</span>=<span class="string">&quot;log.pattern&quot;</span>&gt;</span>%d&#123;MM-dd HH:mm:ss.SSS&#125; [%t] %-5level %logger&#123;36&#125;%n%msg%n%n<span class="tag">&lt;/<span class="name">Property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 定义文件名变量 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Property</span> <span class="attr">name</span>=<span class="string">&quot;file.err.filename&quot;</span>&gt;</span>log/err.log<span class="tag">&lt;/<span class="name">Property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Property</span> <span class="attr">name</span>=<span class="string">&quot;file.err.pattern&quot;</span>&gt;</span>log/err.%i.log.gz<span class="tag">&lt;/<span class="name">Property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">Properties</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 定义Appender，即目的地 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 定义输出到屏幕 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Console</span> <span class="attr">name</span>=<span class="string">&quot;console&quot;</span> <span class="attr">target</span>=<span class="string">&quot;SYSTEM_OUT&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 日志格式引用上面定义的log.pattern --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">PatternLayout</span> <span class="attr">pattern</span>=<span class="string">&quot;$&#123;log.pattern&#125;&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">Console</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 定义输出到文件,文件名引用上面定义的file.err.filename --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">RollingFile</span> <span class="attr">name</span>=<span class="string">&quot;err&quot;</span> <span class="attr">bufferedIO</span>=<span class="string">&quot;true&quot;</span> <span class="attr">fileName</span>=<span class="string">&quot;$&#123;file.err.filename&#125;&quot;</span> <span class="attr">filePattern</span>=<span class="string">&quot;$&#123;file.err.pattern&#125;&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">PatternLayout</span> <span class="attr">pattern</span>=<span class="string">&quot;$&#123;log.pattern&#125;&quot;</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">Policies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 根据文件大小自动切割日志 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">SizeBasedTriggeringPolicy</span> <span class="attr">size</span>=<span class="string">&quot;1 MB&quot;</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">Policies</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 保留最近10份 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">DefaultRolloverStrategy</span> <span class="attr">max</span>=<span class="string">&quot;10&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">RollingFile</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">&quot;info&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 对info级别的日志，输出到console --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">&quot;console&quot;</span> <span class="attr">level</span>=<span class="string">&quot;info&quot;</span> /&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 对error级别的日志，输出到err，即上面定义的RollingFile --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">&quot;err&quot;</span> <span class="attr">level</span>=<span class="string">&quot;error&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1264739436350112">使用Log4j</a></li>
+<p>在以上各个字段中，还可以使用以下特殊字符：</p>
+<p>“*“代表所有的取值范围内的数字，如月份字段为*，则表示1到12个月；</p>
+<p>“&#x2F;“代表每一定时间间隔的意思，如分钟字段为*&#x2F;10，表示每10分钟执行1次。</p>
+<p>“-“代表从某个区间范围，是闭区间。如“2-5”表示“2,3,4,5”，小时字段中0-23&#x2F;2表示在0~23点范围内每2个小时执行一次。</p>
+<p>“,”分散的数字（不一定连续），如1,2,3,4,7,9。</p>
+<p>注：由于各个地方每周第一天不一样，因此Sunday&#x3D;0（第一天）或Sunday&#x3D;7（最后1天）。</p>
+<h1 id="crontab命令详解"><a href="#crontab命令详解" class="headerlink" title="crontab命令详解"></a>crontab命令详解</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab [-u user] file</span><br><span class="line">crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-u user：用于设定某个用户的crontab服务；</li>
+<li>file: file为命令文件名，表示将file作为crontab的任务列表文件并载入crontab；</li>
+<li>-e：编辑某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
+<li>-l：显示某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
+<li>-r：从&#x2F;var&#x2F;spool&#x2F;cron目录中删除某个用户的crontab文件。</li>
+<li>-i：在删除用户的crontab文件时给确认提示。</li>
+</ul>
+<h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ol>
+<li><p>crontab有2种编辑方式：直接编辑&#x2F;etc&#x2F;crontab文件与<br>crontab –e，其中&#x2F;etc&#x2F;crontab里的计划任务是系统中的计划任务，而用户的计划任务需要通过crontab –e来编辑；</p>
+</li>
+<li><p>每次编辑完某个用户的cron设置后，cron自动在&#x2F;var&#x2F;spool&#x2F;cron下生成一个与此用户同名的文件，此用户的cron信息都记录在这个文件中，这个文件是不可以直接编辑的，只可以用crontab -e 来编辑。</p>
+</li>
+<li><p>crontab中的command尽量使用绝对路径，否则会经常因为路径错误导致任务无法执行。</p>
+</li>
+<li><p>新创建的cron job不会马上执行，至少要等2分钟才能执行，可从起cron来立即执行。</p>
+</li>
+<li><p>%在crontab文件中表示“换行”，因此假如脚本或命令含有%,需要使用%来进行转义。</p>
+</li>
+</ol>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
+<li><a href="https://www.linuxprobe.com/how-to-crontab.html">crontab用法与实例</a></li>
+<li><a href="https://man7.org/linux/man-pages/man5/crontab.5.html">crontab(5) — Linux manual page</a></li>
 </ol>
 ]]></content>
       <categories>
         <category>Basic</category>
       </categories>
       <tags>
-        <tag>Log4j</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1656,6 +1685,41 @@
       </categories>
       <tags>
         <tag>scrapy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Log4j</title>
+    <url>/2022/04/13/log4j/</url>
+    <content><![CDATA[<p>Apache Log4j是一个基于Java的日志记录工具</p>
+<center>
+        <img src="/2022/04/13/log4j/log4j_logo.jpg">
+</center>
+
+<span id="more"></span>
+
+<p>Log4j是一种非常流行的日志框架。</p>
+<p>Log4j是一个组件化设计的日志系统，它的架构大致如下：</p>
+<center>
+                <img src="/2022/04/13/log4j/log4j_structure.jpg" , width="80%">
+</center>
+
+<h1 id="log4j-结构"><a href="#log4j-结构" class="headerlink" title="log4j 结构"></a>log4j 结构</h1><h2 id="appender"><a href="#appender" class="headerlink" title="appender"></a>appender</h2><p>使用Log4j输出一条日志时，Log4j自动通过不同的Appender把同一条日志输出到不同的目的地。例如：</p>
+<p>console：输出到屏幕；<br>file：输出到文件；<br>socket：通过网络输出到远程计算机；<br>jdbc：输出到数据库</p>
+<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>通过Filter来过滤哪些log需要被输出，哪些log不需要被输出。</p>
+<p>其中，存在8个日志级别，优先级从高到低依次为：OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、 ALL。</p>
+<h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p>通过Layout来格式化日志信息，例如，自动添加日期、时间、方法名称等信息。</p>
+<h1 id="log4j-使用"><a href="#log4j-使用" class="headerlink" title="log4j 使用"></a>log4j 使用</h1><p>上述结构虽然复杂，但我们在实际使用的时候，并不需要关心Log4j的API，而是通过配置文件来配置它。</p>
+<h2 id="log4j-配置"><a href="#log4j-配置" class="headerlink" title="log4j 配置"></a>log4j 配置</h2><p>以xml配置为例，使用Log4j的时候，我们把一个log4j2.xml的文件放到classpath下就可以让Log4j读取配置文件并按照我们的配置来输出日志。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Properties</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 定义日志格式 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Property</span> <span class="attr">name</span>=<span class="string">&quot;log.pattern&quot;</span>&gt;</span>%d&#123;MM-dd HH:mm:ss.SSS&#125; [%t] %-5level %logger&#123;36&#125;%n%msg%n%n<span class="tag">&lt;/<span class="name">Property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 定义文件名变量 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Property</span> <span class="attr">name</span>=<span class="string">&quot;file.err.filename&quot;</span>&gt;</span>log/err.log<span class="tag">&lt;/<span class="name">Property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Property</span> <span class="attr">name</span>=<span class="string">&quot;file.err.pattern&quot;</span>&gt;</span>log/err.%i.log.gz<span class="tag">&lt;/<span class="name">Property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">Properties</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 定义Appender，即目的地 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 定义输出到屏幕 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Console</span> <span class="attr">name</span>=<span class="string">&quot;console&quot;</span> <span class="attr">target</span>=<span class="string">&quot;SYSTEM_OUT&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 日志格式引用上面定义的log.pattern --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">PatternLayout</span> <span class="attr">pattern</span>=<span class="string">&quot;$&#123;log.pattern&#125;&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">Console</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 定义输出到文件,文件名引用上面定义的file.err.filename --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">RollingFile</span> <span class="attr">name</span>=<span class="string">&quot;err&quot;</span> <span class="attr">bufferedIO</span>=<span class="string">&quot;true&quot;</span> <span class="attr">fileName</span>=<span class="string">&quot;$&#123;file.err.filename&#125;&quot;</span> <span class="attr">filePattern</span>=<span class="string">&quot;$&#123;file.err.pattern&#125;&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">PatternLayout</span> <span class="attr">pattern</span>=<span class="string">&quot;$&#123;log.pattern&#125;&quot;</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">Policies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 根据文件大小自动切割日志 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">SizeBasedTriggeringPolicy</span> <span class="attr">size</span>=<span class="string">&quot;1 MB&quot;</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">Policies</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 保留最近10份 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">DefaultRolloverStrategy</span> <span class="attr">max</span>=<span class="string">&quot;10&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">RollingFile</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">&quot;info&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 对info级别的日志，输出到console --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">&quot;console&quot;</span> <span class="attr">level</span>=<span class="string">&quot;info&quot;</span> /&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 对error级别的日志，输出到err，即上面定义的RollingFile --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">&quot;err&quot;</span> <span class="attr">level</span>=<span class="string">&quot;error&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1264739436350112">使用Log4j</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Basic</category>
+      </categories>
+      <tags>
+        <tag>Log4j</tag>
       </tags>
   </entry>
   <entry>
