@@ -3,8 +3,7 @@ title: Scrapy——DebuggingSpiders
 date: 2022-04-28 15:03:10
 tags:
  - scrapy
- 
- categories:
+categories:
 - Big Data
 ---
 在使用scrapy的时候，由于不能像平常一样对代码进行调试，花费了大量的时间在scrapy运行的等待上，每次溯源去寻找问题都非常麻烦。后来发现scrapy也有属于自己的调试方法，也用此文来记录学习一下scrapy的调试知识。
