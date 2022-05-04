@@ -63,7 +63,7 @@ vi /etc/hosts
 <br>
 
 
-# Hadoop 搭建
+# Hadoop 配置
 
 首先，根据教程，再/opt文件夹下文件树为：
 ```bash
@@ -123,7 +123,7 @@ yran日志聚集：日志聚集是YARN提供的日志中央化管理功能，它
 
 
 
-## 启动hadoop集群
+# hadoop集群启动
 在2.2节中对hadoop文件夹下的bin与sbin进行了说明
 > - /bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；
 > -  /sbin 目录存放启动或停止Hadoop相关服务的脚本
@@ -132,7 +132,7 @@ yran日志聚集：日志聚集是YARN提供的日志中央化管理功能，它
 
 首先,在**第一次启动**集群的时候，我们需要对Namenode进行格式化。
 
-### NameNode的格式化
+## NameNode的格式化
 **为什么需要格式化**
 
 Hadoop NameNode是HDFS文件系统的集中位置，它保存文件系统中所有文件的目录树，并跟踪整个集群中文件数据的保存位置。简而言之，它将元数据与datanode保持相关。当我们格式化namenode时，它会**格式化与数据节点相关的元数据**。通过这样做，所有关于datanode的信息都将丢失，它们可以用于新数据。
@@ -145,8 +145,8 @@ Hadoop NameNode是HDFS文件系统的集中位置，它保存文件系统中所�
 ```bash
 bin/hadoop namenode -format
 ```
-### hdfs, yarn启动
-####  hdfs启动流程
+## hdfs, yarn启动
+### 启动流程
 在完成NameNode的格式化之后，可以开始启动 hdfs(NameNode, DataNode, SecondaryNameNode) 与 yarn（ResourceManager，NodeManager）。
 首先，启动hdfs。在2.3中了解，sbin文件夹是用来存储集群启动、关闭等时候调用的文件，其内部主要文件机器功能如下：
 <center>
@@ -170,7 +170,7 @@ sbin/start-yarn.sh
 </center>
 
 
-#### hdfs启动出现问题
+### hdfs启动出现问题
 Q1: sbin/start-dfs.sh 后ripple2，ripple3机器datanode没有启动
 
 A1: datanode与namenode 的clusterid不一致导致。
@@ -220,7 +220,7 @@ java.io.IOException: All specified directories are failed to load.
     bin/hdfs namenode -format
     ```
  
-#### 启动测试
+### 启动测试
 利用yarn集群运行mapreduce程序，来测试hdfs与yarn是否正常启动。
 主要代码为：
 ```shell
