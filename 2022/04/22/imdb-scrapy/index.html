@@ -21,20 +21,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在有了一定的scrapy基础之后，便可以尝试将scrapy的知识应用起来，做一些小项目。本文将介绍一个基于scrapy的imdb数据爬取项目，其主要功能有以下三点：  对imdb网页，指定id电影信息，最受欢迎榜单数据，新片榜单  数据清洗、查重与入库  脚本编写，定时运行，鲁棒性检测">
+  <meta name="description" content="在有了一定的scrapy基础之后，便可以尝试将scrapy的知识应用起来，做一些小项目。本文将介绍一个基于scrapy的imdb数据爬取项目，其主要功能有以下三点：  imdb最受欢迎榜单数据，新片榜单数据爬取  md5文件监视与crontab定时运行  报告邮件形式发送   Github入口： imdb-scrapy：基于scrapy的imdb数据爬取项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="imdb-scrapy">
 <meta property="og:url" content="http://example.com/2022/04/22/imdb-scrapy/index.html">
 <meta property="og:site_name" content="Mars&#39; Blog">
-<meta property="og:description" content="在有了一定的scrapy基础之后，便可以尝试将scrapy的知识应用起来，做一些小项目。本文将介绍一个基于scrapy的imdb数据爬取项目，其主要功能有以下三点：  对imdb网页，指定id电影信息，最受欢迎榜单数据，新片榜单  数据清洗、查重与入库  脚本编写，定时运行，鲁棒性检测">
+<meta property="og:description" content="在有了一定的scrapy基础之后，便可以尝试将scrapy的知识应用起来，做一些小项目。本文将介绍一个基于scrapy的imdb数据爬取项目，其主要功能有以下三点：  imdb最受欢迎榜单数据，新片榜单数据爬取  md5文件监视与crontab定时运行  报告邮件形式发送   Github入口： imdb-scrapy：基于scrapy的imdb数据爬取项目">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/04/22/imdb-scrapy/logo.jpg">
 <meta property="og:image" content="http://example.com/2022/04/22/imdb-scrapy/src1.png">
 <meta property="og:image" content="http://example.com/2022/04/22/imdb-scrapy/src2.png">
 <meta property="og:image" content="http://example.com/2022/04/22/imdb-scrapy/src3.png">
 <meta property="og:image" content="http://example.com/2022/04/22/imdb-scrapy/src4.png">
+<meta property="og:image" content="http://example.com/2022/04/22/imdb-scrapy/favourite-new.jpg">
+<meta property="og:image" content="http://example.com/2022/04/22/imdb-scrapy/imdb-url-list.jpg">
+<meta property="og:image" content="http://example.com/2022/04/22/imdb-scrapy/structure.png">
 <meta property="article:published_time" content="2022-04-22T15:18:14.000Z">
-<meta property="article:modified_time" content="2022-04-24T15:16:30.848Z">
+<meta property="article:modified_time" content="2022-05-04T10:38:58.075Z">
 <meta property="article:author" content="Mars Wang">
 <meta property="article:tag" content="scrapy">
 <meta name="twitter:card" content="summary">
@@ -230,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-24 23:16:30" itemprop="dateModified" datetime="2022-04-24T23:16:30+08:00">2022-04-24</time>
+                <time title="修改时间：2022-05-04 18:38:58" itemprop="dateModified" datetime="2022-05-04T18:38:58+08:00">2022-05-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,21 +265,22 @@
       
         <p>在有了一定的scrapy基础之后，便可以尝试将scrapy的知识应用起来，做一些小项目。本文将介绍一个基于scrapy的imdb数据爬取项目，其主要功能有以下三点：</p>
 <ul>
-<li><p>对imdb网页，指定id电影信息，最受欢迎榜单数据，新片榜单</p>
+<li><p>imdb最受欢迎榜单数据，新片榜单数据爬取</p>
 </li>
-<li><p>数据清洗、查重与入库</p>
+<li><p>md5文件监视与crontab定时运行</p>
 </li>
-<li><p>脚本编写，定时运行，鲁棒性检测</p>
+<li><p>报告邮件形式发送</p>
 </li>
 </ul>
+<p>Github入口： <a target="_blank" rel="noopener" href="https://github.com/wjmars98/imdb-scrapy">imdb-scrapy：基于scrapy的imdb数据爬取项目</a></p>
 <center>
         <img src="/2022/04/22/imdb-scrapy/logo.jpg" , width="80%">
 </center>
 
 <span id="more"></span>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在实习期间，流媒体部分的同事需要imdb相关的数据，这个任务最后落在了我的身上，正好这个项目与公司项目相对独立，不涉及保密协议的部分，所以我打算将这个项目放在自己的github上，深入自己对scrapy的理解，同时也丰富自己的工程经验。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在实习期间，流媒体部分的同事需要imdb相关的数据，这个任务最后落在了我的身上，正好这个项目与公司项目相对独立，不涉及保密协议的部分，所以我打算将这个项目放在自己的github上，深入自己对scrapy的理解，同时也丰富自己的工程经验。</p>
 <p>Github入口： <a target="_blank" rel="noopener" href="https://github.com/wjmars98/imdb-scrapy">imdb-scrapy：基于scrapy的imdb数据爬取项目</a></p>
-<h2 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h2><h3 id="爬取对象"><a href="#爬取对象" class="headerlink" title="爬取对象"></a>爬取对象</h3><p><strong>1. IMDB影片信息获取</strong><br>根据IMDB链接，获取IMDB页面信息供资讯站内容填充，所需信息如下(详见图片)：<br>例子：<a target="_blank" rel="noopener" href="https://www.imdb.com/title/tt10048342/">https://www.imdb.com/title/tt10048342/</a></p>
+<h1 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h1><h2 id="爬取对象"><a href="#爬取对象" class="headerlink" title="爬取对象"></a>爬取对象</h2><p><strong>1. IMDB影片信息获取</strong><br>根据IMDB链接，获取IMDB页面信息供资讯站内容填充，所需信息如下(详见图片)：<br>例子：<a target="_blank" rel="noopener" href="https://www.imdb.com/title/tt10048342/">https://www.imdb.com/title/tt10048342/</a></p>
 <ul>
 <li>ID：10048342</li>
 <li>影片标题</li>
@@ -324,7 +328,36 @@
         <img src="/2022/04/22/imdb-scrapy/src4.png" , width="80%">
 </center>
 
-<h2 id="框架与数据流"><a href="#框架与数据流" class="headerlink" title="框架与数据流"></a>框架与数据流</h2><h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><h1 id="项目编写"><a href="#项目编写" class="headerlink" title="项目编写"></a>项目编写</h1><h2 id="scrapy脚本"><a href="#scrapy脚本" class="headerlink" title="scrapy脚本"></a>scrapy脚本</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h2 id="自动化部署"><a href="#自动化部署" class="headerlink" title="自动化部署"></a>自动化部署</h2><h1 id="项目结果"><a href="#项目结果" class="headerlink" title="项目结果"></a>项目结果</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1>
+<h2 id="报告输出格式"><a href="#报告输出格式" class="headerlink" title="报告输出格式"></a>报告输出格式</h2><p>《IMDB新片上映信息获取》、《IMDB喜爱榜单信息获取》以csv格式导出，csv所要字段如表所示：</p>
+<center>
+                <img src="/2022/04/22/imdb-scrapy/favourite-new.jpg" , width="80%">
+</center>
+备注：
+
+<p>《IMDB新片上映信息获取》：<a target="_blank" rel="noopener" href="https://www.imdb.com/calendar/">https://www.imdb.com/calendar/</a></p>
+<p>《IMDB喜爱榜单信息获取》：<a target="_blank" rel="noopener" href="https://www.imdb.com/chart/moviemeter/">https://www.imdb.com/chart/moviemeter/</a></p>
+<p>《爬取提供imdb-url-list》以csv格式导出，csv所要字段如表所示：</p>
+<center>
+                <img src="/2022/04/22/imdb-scrapy/imdb-url-list.jpg" , width="80%">
+</center>
+
+<h1 id="项目编写"><a href="#项目编写" class="headerlink" title="项目编写"></a>项目编写</h1><h2 id="scrapy框架"><a href="#scrapy框架" class="headerlink" title="scrapy框架"></a>scrapy框架</h2><center>
+                <img src="/2022/04/22/imdb-scrapy/structure.png" , width="80%">
+</center>
+
+
+<h2 id="项目文件树"><a href="#项目文件树" class="headerlink" title="项目文件树"></a>项目文件树</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── README<span class="selector-class">.md</span></span><br><span class="line">├── imdbSpider</span><br><span class="line">│   ├── bin</span><br><span class="line">│   │   ├── get_report<span class="selector-class">.py</span></span><br><span class="line">│   │   ├── lib_noti<span class="selector-class">.py</span></span><br><span class="line">│   │   └── spy_list<span class="selector-class">.sh</span></span><br><span class="line">│   ├── conf</span><br><span class="line">│   │   └── list</span><br><span class="line">│   │       ├── imdb-url-list</span><br><span class="line">│   │       └── imdb-url-list<span class="selector-class">.md5</span></span><br><span class="line">│   ├── data</span><br><span class="line">│   │   ├── favourite<span class="selector-class">.csv</span></span><br><span class="line">│   │   ├── list<span class="selector-class">.csv</span></span><br><span class="line">│   │   └── new<span class="selector-class">.csv</span></span><br><span class="line">│   ├── images</span><br><span class="line">│   │   ├── full</span><br><span class="line">│   │   └── thumbs</span><br><span class="line">│   │       └── format</span><br><span class="line">│   ├── imdbSpider</span><br><span class="line">│   │   ├── __init__<span class="selector-class">.py</span></span><br><span class="line">│   │   ├── items<span class="selector-class">.py</span></span><br><span class="line">│   │   ├── middlewares<span class="selector-class">.py</span></span><br><span class="line">│   │   ├── pipelines<span class="selector-class">.py</span></span><br><span class="line">│   │   ├── settings<span class="selector-class">.py</span></span><br><span class="line">│   │   └── spiders</span><br><span class="line">│   │       ├── __init__<span class="selector-class">.py</span></span><br><span class="line">│   │       ├── favourite<span class="selector-class">.py</span></span><br><span class="line">│   │       ├── list<span class="selector-class">.py</span></span><br><span class="line">│   │       └── new<span class="selector-class">.py</span></span><br><span class="line">│   ├── log</span><br><span class="line">│   │   ├── spider<span class="selector-class">.log</span></span><br><span class="line">│   │   ├── spy-list<span class="selector-class">.log</span></span><br><span class="line">│   │   └── spy-profile<span class="selector-class">.log</span></span><br><span class="line">│   ├── run<span class="selector-class">.sh</span></span><br><span class="line">│   ├── scrapy<span class="selector-class">.cfg</span></span><br><span class="line">│   └── spy<span class="selector-class">.sh</span></span><br><span class="line">└── pic</span><br><span class="line">    ├── project_structure<span class="selector-class">.png</span></span><br><span class="line">    ├── scrapy_logo<span class="selector-class">.png</span></span><br><span class="line">    ├── spider_structure<span class="selector-class">.png</span></span><br><span class="line">    └── structure.png</span><br></pre></td></tr></table></figure>
+
+<h2 id="自动化部署与监视"><a href="#自动化部署与监视" class="headerlink" title="自动化部署与监视"></a>自动化部署与监视</h2><h3 id="crontab-自动化部署"><a href="#crontab-自动化部署" class="headerlink" title="crontab 自动化部署"></a>crontab 自动化部署</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```shell</span><br><span class="line"># imdb-scrapy crontab profile</span><br><span class="line">0 8 * * * cd /home/apps/wj/stream-media-pump/imdbSpider;/bin/sh /home/apps/wj/stream-media-pump/imdbSpider/run.sh &gt; /home/apps/wj/stream-media-pump/imdbSpider/crontab-log.txt</span><br></pre></td></tr></table></figure>
+
+<p>crontab的详细配置可以查看：<br><a target="_blank" rel="noopener" href="https://wjmars98.github.io/2022/05/02/crontab/#more">Mars’ Blog crontab</a></p>
+<h3 id="md5文件数据监视"><a href="#md5文件数据监视" class="headerlink" title="md5文件数据监视"></a>md5文件数据监视</h3><p>在imdb-scrapy项目中，存在对imdb-url-list文件进行监视的需求，当用户上传新的imdb-url-list时，服务器能够捕捉到数据改变，启动list 爬虫进行数爬取。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">监视shell 脚本储存于```imdbSpider/bin/spy-list.sh```中，如下所示。</span><br><span class="line">```shell</span><br><span class="line">#!/bin/sh</span><br><span class="line">while true</span><br><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">  cd /path/to/imdbSpider</span><br><span class="line">  # Using md5 to check whether the imdb-url-list changed.</span><br><span class="line">  char=$(md5sum -c conf/list/imdb-url-list.md5 2&gt;/dev/null|grep &quot;OK&quot;|wc -l)</span><br><span class="line"></span><br><span class="line">  if [ $char -eq 1 ];then</span><br><span class="line">    echo &quot;yes&quot;</span><br><span class="line">  else</span><br><span class="line">    echo &quot;begin output list csv&quot;</span><br><span class="line"></span><br><span class="line">    # Fetch the new list data</span><br><span class="line">    python -m scrapy crawl list</span><br><span class="line"></span><br><span class="line">    # Path of the server which store the report.</span><br><span class="line">    scp data/list.csv server:path</span><br><span class="line">    python bin/get_report.py -r &quot;list&quot;</span><br><span class="line"></span><br><span class="line">    # Update the imdb-url-list md5</span><br><span class="line">    md5sum conf/list/imdb-url-list &gt; conf/list/imdb-url-list.md5</span><br><span class="line">  fi</span><br><span class="line">  sleep 10</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://wjmars98.github.io/">1. Mars’ Blog</a></p>
+<p><a target="_blank" rel="noopener" href="https://scrapy-chs.readthedocs.io/zh_CN/0.24/intro/overview.html">2. 初窥Scrapy</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.imdb.com/">3. imdb官网</a></p>
+
     </div>
 
     
@@ -408,7 +441,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E9%9C%80%E6%B1%82"><span class="nav-number">1.2.</span> <span class="nav-text">项目需求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%AC%E5%8F%96%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.1.</span> <span class="nav-text">爬取对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%86%E6%9E%B6%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">1.3.</span> <span class="nav-text">框架与数据流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.4.</span> <span class="nav-text">数据库设计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BC%96%E5%86%99"><span class="nav-number">2.</span> <span class="nav-text">项目编写</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#scrapy%E8%84%9A%E6%9C%AC"><span class="nav-number">2.1.</span> <span class="nav-text">scrapy脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.2.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="nav-number">2.3.</span> <span class="nav-text">自动化部署</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text">项目结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">项目需求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%88%AC%E5%8F%96%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.1.</span> <span class="nav-text">爬取对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%A5%E5%91%8A%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">报告输出格式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BC%96%E5%86%99"><span class="nav-number">3.</span> <span class="nav-text">项目编写</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#scrapy%E6%A1%86%E6%9E%B6"><span class="nav-number">3.1.</span> <span class="nav-text">scrapy框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E6%A0%91"><span class="nav-number">3.2.</span> <span class="nav-text">项目文件树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%9B%91%E8%A7%86"><span class="nav-number">3.3.</span> <span class="nav-text">自动化部署与监视</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#crontab-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="nav-number">3.3.1.</span> <span class="nav-text">crontab 自动化部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#md5%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE%E7%9B%91%E8%A7%86"><span class="nav-number">3.3.2.</span> <span class="nav-text">md5文件数据监视</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
