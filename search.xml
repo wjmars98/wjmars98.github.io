@@ -647,6 +647,90 @@
       </tags>
   </entry>
   <entry>
+    <title>Internship ASA(Apple Search Ads)</title>
+    <url>/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/</url>
+    <content><![CDATA[<p>本文是为了记录与总结笔者在实习(前10天)中完成的第一个小项目——<strong>ASA(Apple Search Ads)投放数据拉取</strong>.<br>该项目大体由数据拉取、数据清洗、数据存储三个部分构成，笔者在这个项目中，目前实现了每天定时拉取应用数据，对其进行格式化处理，上传至Bigquery数据库中。</p>
+<p><strong>TO BE CONTINUED …</strong></p>
+<center>
+    <img src="/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/asa_logo.jpg" , width="80%">
+</center>
+<span id="more"></span>
+
+<h1 id="What-is-ASA"><a href="#What-is-ASA" class="headerlink" title="What is ASA"></a>What is ASA</h1><p>Apple Search Ads helps people discover your app when they search on the App Store, matching customers with your app right when they’re looking.</p>
+<p>苹果搜索广告（Apple Search Ads）是苹果官方设置在iphone、ipad AppStore中的竞价广告，它展示在特定关键词搜索结果首位（ipad为右上角），每次搜索仅展示一个广告位，用户可以通过点击广告下载对应的App。苹果搜索广告展示页面有特殊的标识——蓝色背景和”Ad“字样的图标。</p>
+<center>
+    <img src="/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/ad_show.jpg" , width="80%">
+</center>
+
+<p>ASA一共有两种模式，basic&#x2F;advanced,实习期间我主要运用的是advanced模式。</p>
+<center>
+    <img src="/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/two_kinds.jpg" , width="80%">
+</center>
+
+<h1 id="实习部分"><a href="#实习部分" class="headerlink" title="实习部分"></a>实习部分</h1><h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><h2 id="苹果搜索广告的竞价模式"><a href="#苹果搜索广告的竞价模式" class="headerlink" title="苹果搜索广告的竞价模式"></a>苹果搜索广告的竞价模式</h2><p>搜索广告能否在特定关键词下展示以及展示量级受到竞价系数的影响，影响竞价系数的因素有两个——<strong>相关性</strong>和<strong>出价</strong>。</p>
+<p>竞价系数&#x3D;相关性*CPT出价</p>
+<p>影响App与投放关键词相关性的因素有以下两个方面：<br><strong>App元数据</strong>。 App的名称、副标题、关键词、描述等文本信息会对App与关键词的相关性产生影响。</p>
+<p><strong>用户反馈</strong>。App在特定关键词下的广告从展示到点击、下载的转化率过低时，搜索广告系统会判断该关键与App的相关性较差，从而降低两者的相关性，减少广告展示量甚至不再展示。</p>
+<p>苹果搜索广告采用竞价系统，最终按照点击（cost-per-taps）计费，也就是说只有用户点击广告时开发者才需要付出费用。点击的实际成本采用<strong>次价密封竞价模式</strong>，<em>是根据开发者出价和仅次于该出价的竞争对手出价计算得出</em>。</p>
+<blockquote>
+<p>例如：关键词“games”某开发者出价为5美元&#x2F;CPT,仅次于该出价的为3美元&#x2F;CPT,最后成交价格高于3美元而低于5美元。也就是说开发者可以投标竞价而不用担心过度支付。</p>
+</blockquote>
+<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><h3 id="账户体系"><a href="#账户体系" class="headerlink" title="账户体系"></a>账户体系</h3><p>Account<br>账户，任何一个AppleID都可以注册成为搜索广告账户。账户下对投放应用没有限制，可以投放任意一款在线应用，也可以同时投放一款或多款应用。</p>
+<p>Campaign Group<br>广告组，广告计划（Campaign）的集合。广告组能够开放查看或修改权限给其他苹果搜索广告账户，便于数据分享。每一个Campaign Group可以创建2000个Campaign。</p>
+<p>Campaign<br>广告计划，一个计划对应一款App在一个国家的广告活动，一个广告计划内可以创建2000个Ad Group。</p>
+<p>Ad Group<br>关键词组，是关键词的集合。一个关键词组中可以添加1000个关键词、2000个屏蔽词。开发者可以根据关键词的类型设置不同的词组，比如可以将竞品品牌词、行业词设置不同的词组，对比投放效果。</p>
+<p>Keywords<br>关键词，竞价广告中最低的投放单元。开发者可针对每一个Campaign设定出价、匹配模式等等。</p>
+<center>
+    <img src="/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/asa_structure.png" width="80%">
+</center>
+
+<center>
+    <img src="/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/ASA账户结构说明.jpg" , width="80%">
+</center>
+
+<p><a href="https://zhuanlan.zhihu.com/p/150152235"><em>ps: ASA 账户结构说明</em></a></p>
+<h3 id="创建广告计划"><a href="#创建广告计划" class="headerlink" title="创建广告计划"></a>创建广告计划</h3><p>App Name：应用名称</p>
+<p>Storefront：广告投放地区</p>
+<p>Budget：总预算，创建搜索广告时为一个App，也就是Campaign（广告计划）设置的预算金额。Budget在广告开启后，只能提高不能降低。</p>
+<p>Daily Cap：每日预算，当花费达到每日预算上限时，广告就会在当天停止展示，如果Campaign仍有剩余预算，则会在第二天重新开始投放。每日预算是选填项，苹果搜索广告系统并不会严格执行每日预算，因此实际花费会高于或低于每日预算。</p>
+<p>Devices：设备，可选择iphone、ipad或iphone and ipad</p>
+<p>Default Max CPT Bid ：默认点击出价，这个价格将默认为广告组中任何关键词以及Search Match的出价。</p>
+<p>CPA Goal：目标CPA，是开发者期望的每个获取量（cost-per-acquisition）的价格。目标CPA是选填项，这个数值苹果系统同样不会严格执行，甚至有时候实际CPA会大大高于目标CPA。</p>
+<p>Search Match：搜索匹配，是指苹果系统自动为广告匹配搜索词的行为。搜索匹配是一项默认功能，它使用多种资源将广告与App Store上的相关搜索进行匹配，其中包括应用在App Store列表中的元数据，相同分类中类似应用的相关信息以及其他搜索数据。搜索匹配的CPT出价依据为默认最高CPT单价。</p>
+<p>Recommended Keywords：推荐关键词，在创建Ad Group时，苹果搜索广告系统为应用推荐的关键词。推荐关键词数量不会超过50个。</p>
+<p>Customer Types：受众类型，包括三个选项，All User、Have not downloaded the app、Have downloaded my other apps</p>
+<p>Gender：性别，可选择male、famale或all。</p>
+<p>Age range：年龄，搜索广告不会向13岁及以下的人群展示广告，年龄最低可选18岁，最高为65+。</p>
+<p>Locations：位置，搜索广告支持位置细分，可以针对特定的州或城市投放广告。</p>
+<p>Negative Keywords：屏蔽词，屏蔽词可以确保广告不会针对特定关键词展示。在搜索广告中，有两个层级可以添加屏蔽词——Campaign和Ad Group。 屏蔽词可以帮助开发者控制成本并提高广告系列的效率。</p>
+<p>Exact Match&#x2F;Broad Match：精确匹配&#x2F;广泛匹配。</p>
+<p>精确匹配包含四种匹配方式，即原型、单复数、各种形态、拼写错误，开发者无需单独添加这几种形态的关键词，广告也能够匹配到这些关键词，这种方式能够最大限度的控制可能展示广告的搜索内容，造成广告展示量降低，但点击率（TTR）和转化率（CR）可能会提高。在关键词中，添加有双括号的[keyword]的关键词采用的是精确匹配。</p>
+<h3 id="报表"><a href="#报表" class="headerlink" title="报表"></a>报表</h3><p>CPT：Cost-Per-Tap，是搜索广告的计费模式，即广告定价是按照点击数量收取费用。</p>
+<p>Impressions：展示量</p>
+<p>Taps：点击量</p>
+<p>Conversions：获取（安装）量，也可理解为下载量。New Downloads是指首次下载该款App的新用户。Redownloads是指当用户下载某款App后，删除该App并在App Store上点击苹果搜索广告后再次下载同一App，或将该App下载到其他设备时所产生的下载量。LAT是指 Limit Ad Tracking限制广告追踪，开启LAT的设备将不会接收到广告或对其活动进行跟踪。LAT On Conversions来自已启用LAT的用户。LAT Off Conversions来自未在其设备上启用LAT的用户的安装。</p>
+<p>CR（Conversion Rate）：下载转化率，下载量&#x2F;点击量</p>
+<p>TTR（Tap-Through Rate）：点击转化率，点击量&#x2F;下载量</p>
+<p>Avg CPT：平均CPT单价</p>
+<p>Avg CPA：平均CPA单价</p>
+<p>Search Term：搜索项目，是广告展示、点击或下载量的详细来源，会统计到下载量来自哪个关键词，这里的关键词不是指投放设置的关键词，而是指用户看到并点击广告之前，搜索的关键词。</p>
+<p>Match Source：匹配来源，是指搜索项目的来源。匹配来源主要有两种——Keywords、Search Match：Keywords是指搜索项目来源于添加关键词的广泛或精确匹配形式；Search Match是指搜索项目来源于系统自动匹配出的关键词。</p>
+<p>Low volume terms：低量，这意味着这些数据低于Apple的隐私权阈值，例如搜索词必须至少达到10词展示，否则搜索词报表中会显示“低量”值。</p>
+<p>User withheld：用户保留，如果广告用户在其设备上启用了“显示广告跟踪”或停用了位置服务时，可能会在性别、年龄和位置的报表中看到用户保留。</p>
+<p>CPI（cost-per-install）：每个下载（安装）的费用，即按安装付费。</p>
+<p>Maximum Cost-Per-Install (CPI)：愿意为每个安装的应用支付的最高金额。 实际CPI永远不会超过这个金额。</p>
+<p>Monthly Budget：每月预算。 搜索广告基础版每个App每月最高预算为5000美元。月预算可以随时更改，直至最高金额。需要注意的是，预算增加会立即生效，减少将在下个自然月生效。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://searchads.apple.com/advanced">1. 官方网站</a><br><a href="https://zhuanlan.zhihu.com/p/42119163">2. 值得收藏!Apple Search Ads专有名词解释</a><br><a href="https://zhuanlan.zhihu.com/p/150152235">3. ASA 账户结构说明</a></p>
+]]></content>
+      <categories>
+        <category>Intership</category>
+      </categories>
+      <tags>
+        <tag>intership</tag>
+        <tag>ads</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Internship Fetch Data</title>
     <url>/2022/04/14/Internship%20Fetch%20Data/</url>
     <content><![CDATA[<p>在实习的前两个星期，感觉最常接触的一类任务就是<strong>数据的拉取</strong>以及api的调用，本文也是对这个part的内容、方法以及遇到的问题进行一个记录。</p>
@@ -804,90 +888,6 @@
       <tags>
         <tag>intership</tag>
         <tag>http</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Internship ASA(Apple Search Ads)</title>
-    <url>/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/</url>
-    <content><![CDATA[<p>本文是为了记录与总结笔者在实习(前10天)中完成的第一个小项目——<strong>ASA(Apple Search Ads)投放数据拉取</strong>.<br>该项目大体由数据拉取、数据清洗、数据存储三个部分构成，笔者在这个项目中，目前实现了每天定时拉取应用数据，对其进行格式化处理，上传至Bigquery数据库中。</p>
-<p><strong>TO BE CONTINUED …</strong></p>
-<center>
-    <img src="/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/asa_logo.jpg" , width="80%">
-</center>
-<span id="more"></span>
-
-<h1 id="What-is-ASA"><a href="#What-is-ASA" class="headerlink" title="What is ASA"></a>What is ASA</h1><p>Apple Search Ads helps people discover your app when they search on the App Store, matching customers with your app right when they’re looking.</p>
-<p>苹果搜索广告（Apple Search Ads）是苹果官方设置在iphone、ipad AppStore中的竞价广告，它展示在特定关键词搜索结果首位（ipad为右上角），每次搜索仅展示一个广告位，用户可以通过点击广告下载对应的App。苹果搜索广告展示页面有特殊的标识——蓝色背景和”Ad“字样的图标。</p>
-<center>
-    <img src="/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/ad_show.jpg" , width="80%">
-</center>
-
-<p>ASA一共有两种模式，basic&#x2F;advanced,实习期间我主要运用的是advanced模式。</p>
-<center>
-    <img src="/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/two_kinds.jpg" , width="80%">
-</center>
-
-<h1 id="实习部分"><a href="#实习部分" class="headerlink" title="实习部分"></a>实习部分</h1><h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><h2 id="苹果搜索广告的竞价模式"><a href="#苹果搜索广告的竞价模式" class="headerlink" title="苹果搜索广告的竞价模式"></a>苹果搜索广告的竞价模式</h2><p>搜索广告能否在特定关键词下展示以及展示量级受到竞价系数的影响，影响竞价系数的因素有两个——<strong>相关性</strong>和<strong>出价</strong>。</p>
-<p>竞价系数&#x3D;相关性*CPT出价</p>
-<p>影响App与投放关键词相关性的因素有以下两个方面：<br><strong>App元数据</strong>。 App的名称、副标题、关键词、描述等文本信息会对App与关键词的相关性产生影响。</p>
-<p><strong>用户反馈</strong>。App在特定关键词下的广告从展示到点击、下载的转化率过低时，搜索广告系统会判断该关键与App的相关性较差，从而降低两者的相关性，减少广告展示量甚至不再展示。</p>
-<p>苹果搜索广告采用竞价系统，最终按照点击（cost-per-taps）计费，也就是说只有用户点击广告时开发者才需要付出费用。点击的实际成本采用<strong>次价密封竞价模式</strong>，<em>是根据开发者出价和仅次于该出价的竞争对手出价计算得出</em>。</p>
-<blockquote>
-<p>例如：关键词“games”某开发者出价为5美元&#x2F;CPT,仅次于该出价的为3美元&#x2F;CPT,最后成交价格高于3美元而低于5美元。也就是说开发者可以投标竞价而不用担心过度支付。</p>
-</blockquote>
-<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><h3 id="账户体系"><a href="#账户体系" class="headerlink" title="账户体系"></a>账户体系</h3><p>Account<br>账户，任何一个AppleID都可以注册成为搜索广告账户。账户下对投放应用没有限制，可以投放任意一款在线应用，也可以同时投放一款或多款应用。</p>
-<p>Campaign Group<br>广告组，广告计划（Campaign）的集合。广告组能够开放查看或修改权限给其他苹果搜索广告账户，便于数据分享。每一个Campaign Group可以创建2000个Campaign。</p>
-<p>Campaign<br>广告计划，一个计划对应一款App在一个国家的广告活动，一个广告计划内可以创建2000个Ad Group。</p>
-<p>Ad Group<br>关键词组，是关键词的集合。一个关键词组中可以添加1000个关键词、2000个屏蔽词。开发者可以根据关键词的类型设置不同的词组，比如可以将竞品品牌词、行业词设置不同的词组，对比投放效果。</p>
-<p>Keywords<br>关键词，竞价广告中最低的投放单元。开发者可针对每一个Campaign设定出价、匹配模式等等。</p>
-<center>
-    <img src="/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/asa_structure.png" width="80%">
-</center>
-
-<center>
-    <img src="/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/ASA账户结构说明.jpg" , width="80%">
-</center>
-
-<p><a href="https://zhuanlan.zhihu.com/p/150152235"><em>ps: ASA 账户结构说明</em></a></p>
-<h3 id="创建广告计划"><a href="#创建广告计划" class="headerlink" title="创建广告计划"></a>创建广告计划</h3><p>App Name：应用名称</p>
-<p>Storefront：广告投放地区</p>
-<p>Budget：总预算，创建搜索广告时为一个App，也就是Campaign（广告计划）设置的预算金额。Budget在广告开启后，只能提高不能降低。</p>
-<p>Daily Cap：每日预算，当花费达到每日预算上限时，广告就会在当天停止展示，如果Campaign仍有剩余预算，则会在第二天重新开始投放。每日预算是选填项，苹果搜索广告系统并不会严格执行每日预算，因此实际花费会高于或低于每日预算。</p>
-<p>Devices：设备，可选择iphone、ipad或iphone and ipad</p>
-<p>Default Max CPT Bid ：默认点击出价，这个价格将默认为广告组中任何关键词以及Search Match的出价。</p>
-<p>CPA Goal：目标CPA，是开发者期望的每个获取量（cost-per-acquisition）的价格。目标CPA是选填项，这个数值苹果系统同样不会严格执行，甚至有时候实际CPA会大大高于目标CPA。</p>
-<p>Search Match：搜索匹配，是指苹果系统自动为广告匹配搜索词的行为。搜索匹配是一项默认功能，它使用多种资源将广告与App Store上的相关搜索进行匹配，其中包括应用在App Store列表中的元数据，相同分类中类似应用的相关信息以及其他搜索数据。搜索匹配的CPT出价依据为默认最高CPT单价。</p>
-<p>Recommended Keywords：推荐关键词，在创建Ad Group时，苹果搜索广告系统为应用推荐的关键词。推荐关键词数量不会超过50个。</p>
-<p>Customer Types：受众类型，包括三个选项，All User、Have not downloaded the app、Have downloaded my other apps</p>
-<p>Gender：性别，可选择male、famale或all。</p>
-<p>Age range：年龄，搜索广告不会向13岁及以下的人群展示广告，年龄最低可选18岁，最高为65+。</p>
-<p>Locations：位置，搜索广告支持位置细分，可以针对特定的州或城市投放广告。</p>
-<p>Negative Keywords：屏蔽词，屏蔽词可以确保广告不会针对特定关键词展示。在搜索广告中，有两个层级可以添加屏蔽词——Campaign和Ad Group。 屏蔽词可以帮助开发者控制成本并提高广告系列的效率。</p>
-<p>Exact Match&#x2F;Broad Match：精确匹配&#x2F;广泛匹配。</p>
-<p>精确匹配包含四种匹配方式，即原型、单复数、各种形态、拼写错误，开发者无需单独添加这几种形态的关键词，广告也能够匹配到这些关键词，这种方式能够最大限度的控制可能展示广告的搜索内容，造成广告展示量降低，但点击率（TTR）和转化率（CR）可能会提高。在关键词中，添加有双括号的[keyword]的关键词采用的是精确匹配。</p>
-<h3 id="报表"><a href="#报表" class="headerlink" title="报表"></a>报表</h3><p>CPT：Cost-Per-Tap，是搜索广告的计费模式，即广告定价是按照点击数量收取费用。</p>
-<p>Impressions：展示量</p>
-<p>Taps：点击量</p>
-<p>Conversions：获取（安装）量，也可理解为下载量。New Downloads是指首次下载该款App的新用户。Redownloads是指当用户下载某款App后，删除该App并在App Store上点击苹果搜索广告后再次下载同一App，或将该App下载到其他设备时所产生的下载量。LAT是指 Limit Ad Tracking限制广告追踪，开启LAT的设备将不会接收到广告或对其活动进行跟踪。LAT On Conversions来自已启用LAT的用户。LAT Off Conversions来自未在其设备上启用LAT的用户的安装。</p>
-<p>CR（Conversion Rate）：下载转化率，下载量&#x2F;点击量</p>
-<p>TTR（Tap-Through Rate）：点击转化率，点击量&#x2F;下载量</p>
-<p>Avg CPT：平均CPT单价</p>
-<p>Avg CPA：平均CPA单价</p>
-<p>Search Term：搜索项目，是广告展示、点击或下载量的详细来源，会统计到下载量来自哪个关键词，这里的关键词不是指投放设置的关键词，而是指用户看到并点击广告之前，搜索的关键词。</p>
-<p>Match Source：匹配来源，是指搜索项目的来源。匹配来源主要有两种——Keywords、Search Match：Keywords是指搜索项目来源于添加关键词的广泛或精确匹配形式；Search Match是指搜索项目来源于系统自动匹配出的关键词。</p>
-<p>Low volume terms：低量，这意味着这些数据低于Apple的隐私权阈值，例如搜索词必须至少达到10词展示，否则搜索词报表中会显示“低量”值。</p>
-<p>User withheld：用户保留，如果广告用户在其设备上启用了“显示广告跟踪”或停用了位置服务时，可能会在性别、年龄和位置的报表中看到用户保留。</p>
-<p>CPI（cost-per-install）：每个下载（安装）的费用，即按安装付费。</p>
-<p>Maximum Cost-Per-Install (CPI)：愿意为每个安装的应用支付的最高金额。 实际CPI永远不会超过这个金额。</p>
-<p>Monthly Budget：每月预算。 搜索广告基础版每个App每月最高预算为5000美元。月预算可以随时更改，直至最高金额。需要注意的是，预算增加会立即生效，减少将在下个自然月生效。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://searchads.apple.com/advanced">1. 官方网站</a><br><a href="https://zhuanlan.zhihu.com/p/42119163">2. 值得收藏!Apple Search Ads专有名词解释</a><br><a href="https://zhuanlan.zhihu.com/p/150152235">3. ASA 账户结构说明</a></p>
-]]></content>
-      <categories>
-        <category>Intership</category>
-      </categories>
-      <tags>
-        <tag>intership</tag>
-        <tag>ads</tag>
       </tags>
   </entry>
   <entry>
@@ -1054,7 +1054,7 @@
 <br>
 
 
-<h2 id="Hadoop-搭建"><a href="#Hadoop-搭建" class="headerlink" title="Hadoop 搭建"></a>Hadoop 搭建</h2><p>首先，根据教程，再&#x2F;opt文件夹下文件树为：</p>
+<h1 id="Hadoop-搭建"><a href="#Hadoop-搭建" class="headerlink" title="Hadoop 搭建"></a>Hadoop 搭建</h1><p>首先，根据教程，再&#x2F;opt文件夹下文件树为：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">|-- opt <span class="comment"># 主要文件夹</span></span><br><span class="line">|   |-- data <span class="comment"># 存放数据</span></span><br><span class="line">|   |-- modules <span class="comment"># haddop</span></span><br><span class="line">|   |-- softwares <span class="comment"># 相关软件下载包</span></span><br><span class="line">|   |-- tool <span class="comment"># 工具插件</span></span><br><span class="line">|</span><br></pre></td></tr></table></figure>
 <p>在<a href="https://archive.apache.org/dist">A.hadoop资源下载</a>中，-&gt; hadoop -&gt; core -&gt;   hadoop-2.6.5.tar.gz，下载相关资源，并下载在software，最终解压至&#x2F;opt&#x2F;modules&#x2F;，重命名为hadoop。</p>
 <p>其中hadoop文件夹中的各文件及其功能如图所示:</p>
@@ -1070,18 +1070,18 @@
 <li>&#x2F;share 目录存放Hadoop的依赖jar包、文档、和官方案例</li>
 </ul>
 <p>下载相关jdk也安装在&#x2F;opt&#x2F;modules中，配置&#x2F;etc&#x2F;profile环境变量。对于hadoop，有几个关键文件需要配置:</p>
-<h3 id="core-site-xml"><a href="#core-site-xml" class="headerlink" title="core-site.xml"></a>core-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop</p>
+<h2 id="core-site-xml"><a href="#core-site-xml" class="headerlink" title="core-site.xml"></a>core-site.xml</h2><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop</p>
 <p>功能:  配置集群全局参数属性，用于定义系统级别的参数，如HDFS URL 、Hadoop的临时目录等</p>
-<h3 id="hdfs-site-xml"><a href="#hdfs-site-xml" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;hdfs-site.xml</p>
+<h2 id="hdfs-site-xml"><a href="#hdfs-site-xml" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h2><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;hdfs-site.xml</p>
 <p>功能: 配置HDFS组件的属性，如名称节点和数据节点的存放位置、文件副本的个数、文件的读取权限等</p>
-<h3 id="mapred-site-xml"><a href="#mapred-site-xml" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;mapred-site.xml</p>
+<h2 id="mapred-site-xml"><a href="#mapred-site-xml" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h2><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;mapred-site.xml</p>
 <p>功能：配置map-reduce组件的属性，包括JobHistory Server 和应用程序参数两部分，如reduce任务的默认个数、任务所能够使用内存的默认上下限等</p>
-<h3 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="yarn-site.xml"></a>yarn-site.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;yarn-site.xml</p>
+<h2 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="yarn-site.xml"></a>yarn-site.xml</h2><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;yarn-site.xml</p>
 <p>功能: 集群资源管理系统参数，配置ResourceManager ，nodeManager的通信端口，web监控端口等</p>
 <p>yran日志聚集：日志聚集是YARN提供的日志中央化管理功能，它能将运行完成的Container任务日志上传到HDFS上，从而减轻NodeManager负载，且提供一个中央化存储和分析机制。</p>
-<h3 id="hadoop-env-xml"><a href="#hadoop-env-xml" class="headerlink" title="hadoop-env.xml"></a>hadoop-env.xml</h3><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;haddop-env.sh</p>
+<h2 id="hadoop-env-xml"><a href="#hadoop-env-xml" class="headerlink" title="hadoop-env.xml"></a>hadoop-env.xml</h2><p>路径: &#x2F;opt&#x2F;modules&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;haddop-env.sh</p>
 <p>功能: hadoop运行环境,用来定义hadoop运行环境相关的配置信息</p>
-<h2 id="启动集群"><a href="#启动集群" class="headerlink" title="启动集群"></a>启动集群</h2><p>在2.2节中对hadoop文件夹下的bin与sbin进行了说明</p>
+<h2 id="启动hadoop集群"><a href="#启动hadoop集群" class="headerlink" title="启动hadoop集群"></a>启动hadoop集群</h2><p>在2.2节中对hadoop文件夹下的bin与sbin进行了说明</p>
 <blockquote>
 <ul>
 <li>&#x2F;bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；</li>
@@ -1143,13 +1143,38 @@
 </center>
 
 <p>至此，hdfs与yarn的集群启动完毕。</p>
-<h2 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h2><p>zookeeper 的部分可以查看<a href="https://wjmars98.github.io/2022/04/10/Zookeeper-Basic/">zookeeper基础</a>.</p>
-<h2 id="hdfs-ha-高可用性"><a href="#hdfs-ha-高可用性" class="headerlink" title="hdfs-ha 高可用性"></a>hdfs-ha 高可用性</h2><p>对于hdfs-ha高可用性的必要性，是因为目前只有一台namenode，如果所在的机器down了，那么hdfs将无法提供服务，所以提出了hdfs-ha的架构模式。</p>
+<h1 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h1><p>zookeeper 的部分可以查看<a href="https://wjmars98.github.io/2022/04/10/Zookeeper-Basic/">zookeeper基础</a>.</p>
+<h1 id="hdfs-ha-高可用下模式"><a href="#hdfs-ha-高可用下模式" class="headerlink" title="hdfs-ha 高可用下模式"></a>hdfs-ha 高可用下模式</h1><h2 id="hdfs-ha-高可用性"><a href="#hdfs-ha-高可用性" class="headerlink" title="hdfs-ha 高可用性"></a>hdfs-ha 高可用性</h2><p>对于hdfs-ha高可用性的必要性，是因为目前只有一台namenode，如果所在的机器down了，那么hdfs将无法提供服务，所以提出了hdfs-ha的架构模式。</p>
 <center>
     <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/hdfs_ha.jpg" width="80%">
 </center>
 
 <p>HDFS通常由两个NameNode组成，一个处于active状态，另一个处于standby状态。Active NameNode对外提供服务，比如处理来自客户端的RPC请求，而Standby NameNode则不对外提供服务，仅同步Active NameNode的状态，以便能够在它失败时快速进行切换，为了让Standby Node与Active Node保持同步，这两个Node都与一组称为JNS的互相独立的进程保持通信(Journal Nodes)。</p>
+<h2 id="hdfs-ha-配置"><a href="#hdfs-ha-配置" class="headerlink" title="hdfs-ha 配置"></a>hdfs-ha 配置</h2><p>查看官方文档：<br><a href="https://hadoop.apache.org/docs/r2.10.1/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html">HDFS High Availability Using the Quorum Journal Manager</a></p>
+<h2 id="hdfs-ha-各类顺序"><a href="#hdfs-ha-各类顺序" class="headerlink" title="hdfs-ha 各类顺序"></a>hdfs-ha 各类顺序</h2><p>在启动hdfs-ha模式的时候，其中启动，关闭的顺序都十分重要，对hdfs-ha会产生影响，该节来记录一下hdfs-ha的相关正确顺序。</p>
+<p><strong>应用层次：ZooKeeper -&gt; Hadoop -&gt; HBase</strong></p>
+<p>服务层次： ZooKeeper -&gt; JournalNode (Hadoop) -&gt; NameNode (Hadoop) -&gt; DataNode (Hadoop) -&gt; 主 ResourceManager&#x2F;NodeManager (Hadoop) -&gt; 备份 ResourceManager (Hadoop) -&gt; ZKFC (Hadoop) -&gt; MapReduce JobHistory (Hadoop) -&gt; 主 Hmaster&#x2F;HRegionServer (HBase) -&gt;备份 Hmaster (HBase)</p>
+<h3 id="hdfs-ha首次启动顺序"><a href="#hdfs-ha首次启动顺序" class="headerlink" title="hdfs-ha首次启动顺序"></a>hdfs-ha首次启动顺序</h3><ol>
+<li>启动 ZooKeeper 集群. 分别登陆到三台机子（ripple1, ripple2, ripple3）上执行<code>zkServer.sh start</code></li>
+<li>格式化 ZooKeeper 集群. 在任意的 namenode 上都可以执行.<code>hdfs zkfc –formatZK</code></li>
+<li>启动 JournalNode 集群. 分别在ipple1, ripple2, ripple3上执行<code>hadoop-daemon.sh start journalnode</code>.</li>
+<li>格式化集群的 NameNode, 在ripple1上格式化namenode<code>hdfs namenode -format</code></li>
+<li>启动刚格式化的 NameNode. 在ripple1上执行<code>hadoop-daemon.sh start namenode</code>.</li>
+<li>同步 NameNode1 元数据到 NameNode2 上. 在ripple2上执行<code>hdfs namenode -bootstrapStandby</code></li>
+<li>启动 NameNode2. ripple2拷贝了元数据之后，就接着启动 namenode 进程<code>hadoop-daemon.sh start namenode</code></li>
+<li>启动集群中所有的DataNode. 在ripple1上执行 <code>hadoop-daemons.sh start datanode</code></li>
+<li>在 RM1 启动 YARN,在ripple1上执行<code>start-yarn.sh</code></li>
+<li>在 RM2 单独启动 YARN。<code>yarn-daemon.sh start resourcemanager</code></li>
+<li>启动 ZKFC. 在ripple1与ripple2分别启动<code>hadoop-daemon.sh start zkfc</code></li>
+<li>开启历史日志服务, 在ripple1与ripple2分别启动<code>mr-jobhistory-daemon.sh   start historyserver</code><br>至此hdfs-ha正式启动，在ripple1上jps结果，如下图所示：<center>
+    <img src="/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/hdfs-ha.jpg" , width="80%">
+</center></li>
+</ol>
+<h3 id="hdfs-ha-非首次启动与关闭顺序"><a href="#hdfs-ha-非首次启动与关闭顺序" class="headerlink" title="hdfs-ha 非首次启动与关闭顺序"></a>hdfs-ha 非首次启动与关闭顺序</h3><p>参考网址: <a href="https://blog.csdn.net/jingsiyu6588/article/details/100166928#t6">3.1 Hadoop 生态系统集群的启动顺序概览</a><br>ps: </p>
+<ol>
+<li>与 “首次启动格式化集群” 不同的是没有 格式化 ZooKeeper 集群 和 格式化集群的 NameNode 这两个步骤！</li>
+<li>一定要按顺序停止，如果先停 ZooKeeper 再停 HBase 的话，基本停不下来</li>
+</ol>
 <p><strong>未完待续 | To be continued</strong></p>
 <h1 id="附录A：Problem"><a href="#附录A：Problem" class="headerlink" title="附录A：Problem"></a>附录A：Problem</h1><h1 id="附录B：参考网站"><a href="#附录B：参考网站" class="headerlink" title="附录B：参考网站"></a>附录B：参考网站</h1><ol>
 <li><a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a></li>
@@ -1158,6 +1183,7 @@
 <li><a href="http://archive.cloudera.com/cdh5">B.hadoop资源下载</a></li>
 <li><a href="https://intellipaat.com/community/161/what-exactly-is-hadoop-namenode-formatting">What exactly is hadoop namenode formatting?</a></li>
 <li><a href="https://sparkbyexamples.com/hadoop/incompatible-clusterids/">datanode无法启动</a></li>
+<li><a href="https://blog.csdn.net/jingsiyu6588/article/details/100166928">HA模式下的各种启动顺序</a></li>
 </ol>
 ]]></content>
       <categories>
@@ -1770,39 +1796,6 @@
       </tags>
   </entry>
   <entry>
-    <title>随想录：长期竞争价值</title>
-    <url>/2022/04/19/%E9%9A%8F%E6%83%B3%E5%BD%95%EF%BC%9A%E9%95%BF%E6%9C%9F%E7%AB%9E%E4%BA%89%E4%BB%B7%E5%80%BC/</url>
-    <content><![CDATA[<p>我之后会不断记录下自己的想法、自己的生活，或者对之前的想法进行批判。希望这篇随想是随想的录的开始而非结束。</p>
-<p>综上，为了应对未来的中年危机，我有提升技术的必要，但千万不能以为仅仅自己凭借技术能养活自己一辈子；其次，我得去寻找自身的平衡点，了解多个领域的知识，尽量做跨领域的工作，能够减少自身的竞争压力；第三，当前国内就业环境太差，我可以利用自己出国留学的机会，正确去国外工作几年，相信国外的工作经验也是自己的长期竞争力之一。我们要学会构建自己的长期竞争力，而构建自身长期竞争力的方法与途径就是不断对自己进行长期投资。</p>
-<center>
-        <img src="/2022/04/19/%E9%9A%8F%E6%83%B3%E5%BD%95%EF%BC%9A%E9%95%BF%E6%9C%9F%E7%AB%9E%E4%BA%89%E4%BB%B7%E5%80%BC/first.jpg" , width="80%">
-</center>
-<span id="more"></span>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>到广州实习的第一个月，遇见了各类形形色色的人，做了陌生完全不熟悉的事，接受的海量的外界信息，对自己的生活态度乃至价值观产生了巨大的冲击。</p>
-<p>最近自己逐渐养成了一个习惯——思考。不但是对眼前所欲事物的思考，更是对自己职业规划，自己人生理想与目标的思考。虽然和父母的交流中，他们更希望我不要多想，安心做眼前的事物。但是我还是觉得多思考总归是胜于麻木盲从，思考也让我受益非浅。</p>
-<p>遂建立随想录这一目录，记录一些自己的思考过程与结果，或长或短，或真知灼见，或可笑万分，我姑且都记下，就当作是眼下生活的小小总结，留下些许痕迹。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>最近，一直在思考自己未来10年后，也就是程序员的35岁的中年危机我该如何度过。30到35岁是一道坎，很多搞技术的人也就倒在这到坎上，一蹶不振，我该如何去应对，是否应该按部就班的听我父母一步一个脚印走好，比如：找份大厂工作，好好努力，一步一个脚印走上高级技术员或者管理层等等。</p>
-<p>在和俊哥吃饭的时候，我也聊到35岁危机的问题，他提出一个长期竞争力的概念，我觉得还是挺有道理。</p>
-<p>第一，是扎实底层技术。我们常说核心竞争力，但是到底什么是核心竞争力呢？说白了，就是你的某个优势，别人难以取代，可以称为你的核心竞争力。俊哥也由此展开，说明互联网的技术日新月异，但是其底层的技术其实变化十分缓慢，如果把底层的技术打扎实了，那么学习新技术的时间也就很短，能维持自己长期的竞争力，这点是值得我去思考与学习的，不断扎实自己对底层技术的了解。</p>
-<p>第二，平衡点。中国是一个人口大国，近年经济形势下滑，考研考公人数屡创新高，这也说明了在未来的一段时间人才与职位会出现供大于求，竞争异常激烈。</p>
-<p>第一条路，不断提升自己技术，卷过绝大多数人。这也是我父母期望我走的路，按部就班，一步一个较硬。但是这难度真的实在太大了，竞争的人数是如此之多，而且未来会更多，我们每个人就像一颗螺丝钉，完全可以替换，对自己的健康也会有很大的损坏，而且我也不认为自己是一个长于技术的人，这条路对我来说性价比不高，虽然技术是我的立足之本，但我不能靠技术吃一辈子的饭。</p>
-<p>第二条路，寻找自己多领域的平衡点。当前的赛道竞争对手是如此之多，是否有办法寻找一条跨学科交叉的道路，减少我们的竞争压力。比如数据与金融的结合，数据与车企的结合，数据与医疗的结合等等，这都是值得我去研究的领域。找到适合自己的平衡点，多放下注，广积粮（扎实技术，保持多领域信息优势，减少信息差）、缓称王（不要没思考、调研，就浪费大量精力前进）。</p>
-<p>第三条路，更换自己的环境。目前国内的就业环境不行，但并不代表这国外的坏境不行。可以尝试去外企，或者一步到位直接利用自己去hk留学的继续，去hk或者新加坡、新西兰、澳大利亚找相应的岗位，也是未尝不可。这里又涉及绿卡移民的问题，值得我之后为此专门写一篇文章聊聊。</p>
-<p>我要时刻问问自己，自己向往什么样的生活？成为大厂的一颗螺丝钉，还是有自己的生活，实现wlb，靠投资实现财富自由。永远学会去投资自己，要做长期投资，比如学习新的技能（保持生活的新鲜感），扎实自己的技术（这是我的立足之本），多结交优秀的朋友（了解更多行业的情况），等等。</p>
-<p>虽然长期投资的回报是有延后性的，但是长期投资的回报也是丰厚。因为我们在时间是公平的，我们在对自己进行长期投资，正是在培养自身的长期竞争力，而别人要取代你的优势，也需要付出相应的时间成本，这是有门槛的，所以多做对自己作长期投资吧，我的朋友。</p>
-<p>虽然长期投资是如此重要，但这也不代表着我们要放弃短期的收益，比如准备考试、应酬、娱乐等等。短期投资，回报快，能增长自己生活的激情。但是千万不要做竭泽而渔，比如沉迷于游戏，沉迷于无意义的消遣。任何致瘾的都是有害的，千万小心。</p>
-<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>综上，为了应对未来的中年危机，我有提升技术的必要，但千万不能以为仅仅自己凭借技术能养活自己一辈子；其次，我得去寻找自身的平衡点，了解多个领域的知识，尽量做跨领域的工作，能够减少自身的竞争压力；第三，当前国内就业环境太差，我可以利用自己出国留学的机会，正确去国外工作几年，相信国外的工作经验也是自己的长期竞争力之一。我们要学会构建自己的长期竞争力，而构建自身长期竞争力的方法与途径就是不断对自己进行长期投资。</p>
-<p>我之后会不断记录下自己的想法、自己的生活，或者对之前的想法进行批判。希望这篇随想是随想的录的开始而非结束，</p>
-]]></content>
-      <categories>
-        <category>Collection Of Essays</category>
-      </categories>
-      <tags>
-        <tag>essay</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Log4j</title>
     <url>/2022/04/13/log4j/</url>
     <content><![CDATA[<p>Apache Log4j是一个基于Java的日志记录工具</p>
@@ -1835,6 +1828,39 @@
       </categories>
       <tags>
         <tag>Log4j</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随想录：长期竞争价值</title>
+    <url>/2022/04/19/%E9%9A%8F%E6%83%B3%E5%BD%95%EF%BC%9A%E9%95%BF%E6%9C%9F%E7%AB%9E%E4%BA%89%E4%BB%B7%E5%80%BC/</url>
+    <content><![CDATA[<p>我之后会不断记录下自己的想法、自己的生活，或者对之前的想法进行批判。希望这篇随想是随想的录的开始而非结束。</p>
+<p>综上，为了应对未来的中年危机，我有提升技术的必要，但千万不能以为仅仅自己凭借技术能养活自己一辈子；其次，我得去寻找自身的平衡点，了解多个领域的知识，尽量做跨领域的工作，能够减少自身的竞争压力；第三，当前国内就业环境太差，我可以利用自己出国留学的机会，正确去国外工作几年，相信国外的工作经验也是自己的长期竞争力之一。我们要学会构建自己的长期竞争力，而构建自身长期竞争力的方法与途径就是不断对自己进行长期投资。</p>
+<center>
+        <img src="/2022/04/19/%E9%9A%8F%E6%83%B3%E5%BD%95%EF%BC%9A%E9%95%BF%E6%9C%9F%E7%AB%9E%E4%BA%89%E4%BB%B7%E5%80%BC/first.jpg" , width="80%">
+</center>
+<span id="more"></span>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>到广州实习的第一个月，遇见了各类形形色色的人，做了陌生完全不熟悉的事，接受的海量的外界信息，对自己的生活态度乃至价值观产生了巨大的冲击。</p>
+<p>最近自己逐渐养成了一个习惯——思考。不但是对眼前所欲事物的思考，更是对自己职业规划，自己人生理想与目标的思考。虽然和父母的交流中，他们更希望我不要多想，安心做眼前的事物。但是我还是觉得多思考总归是胜于麻木盲从，思考也让我受益非浅。</p>
+<p>遂建立随想录这一目录，记录一些自己的思考过程与结果，或长或短，或真知灼见，或可笑万分，我姑且都记下，就当作是眼下生活的小小总结，留下些许痕迹。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>最近，一直在思考自己未来10年后，也就是程序员的35岁的中年危机我该如何度过。30到35岁是一道坎，很多搞技术的人也就倒在这到坎上，一蹶不振，我该如何去应对，是否应该按部就班的听我父母一步一个脚印走好，比如：找份大厂工作，好好努力，一步一个脚印走上高级技术员或者管理层等等。</p>
+<p>在和俊哥吃饭的时候，我也聊到35岁危机的问题，他提出一个长期竞争力的概念，我觉得还是挺有道理。</p>
+<p>第一，是扎实底层技术。我们常说核心竞争力，但是到底什么是核心竞争力呢？说白了，就是你的某个优势，别人难以取代，可以称为你的核心竞争力。俊哥也由此展开，说明互联网的技术日新月异，但是其底层的技术其实变化十分缓慢，如果把底层的技术打扎实了，那么学习新技术的时间也就很短，能维持自己长期的竞争力，这点是值得我去思考与学习的，不断扎实自己对底层技术的了解。</p>
+<p>第二，平衡点。中国是一个人口大国，近年经济形势下滑，考研考公人数屡创新高，这也说明了在未来的一段时间人才与职位会出现供大于求，竞争异常激烈。</p>
+<p>第一条路，不断提升自己技术，卷过绝大多数人。这也是我父母期望我走的路，按部就班，一步一个较硬。但是这难度真的实在太大了，竞争的人数是如此之多，而且未来会更多，我们每个人就像一颗螺丝钉，完全可以替换，对自己的健康也会有很大的损坏，而且我也不认为自己是一个长于技术的人，这条路对我来说性价比不高，虽然技术是我的立足之本，但我不能靠技术吃一辈子的饭。</p>
+<p>第二条路，寻找自己多领域的平衡点。当前的赛道竞争对手是如此之多，是否有办法寻找一条跨学科交叉的道路，减少我们的竞争压力。比如数据与金融的结合，数据与车企的结合，数据与医疗的结合等等，这都是值得我去研究的领域。找到适合自己的平衡点，多放下注，广积粮（扎实技术，保持多领域信息优势，减少信息差）、缓称王（不要没思考、调研，就浪费大量精力前进）。</p>
+<p>第三条路，更换自己的环境。目前国内的就业环境不行，但并不代表这国外的坏境不行。可以尝试去外企，或者一步到位直接利用自己去hk留学的继续，去hk或者新加坡、新西兰、澳大利亚找相应的岗位，也是未尝不可。这里又涉及绿卡移民的问题，值得我之后为此专门写一篇文章聊聊。</p>
+<p>我要时刻问问自己，自己向往什么样的生活？成为大厂的一颗螺丝钉，还是有自己的生活，实现wlb，靠投资实现财富自由。永远学会去投资自己，要做长期投资，比如学习新的技能（保持生活的新鲜感），扎实自己的技术（这是我的立足之本），多结交优秀的朋友（了解更多行业的情况），等等。</p>
+<p>虽然长期投资的回报是有延后性的，但是长期投资的回报也是丰厚。因为我们在时间是公平的，我们在对自己进行长期投资，正是在培养自身的长期竞争力，而别人要取代你的优势，也需要付出相应的时间成本，这是有门槛的，所以多做对自己作长期投资吧，我的朋友。</p>
+<p>虽然长期投资是如此重要，但这也不代表着我们要放弃短期的收益，比如准备考试、应酬、娱乐等等。短期投资，回报快，能增长自己生活的激情。但是千万不要做竭泽而渔，比如沉迷于游戏，沉迷于无意义的消遣。任何致瘾的都是有害的，千万小心。</p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>综上，为了应对未来的中年危机，我有提升技术的必要，但千万不能以为仅仅自己凭借技术能养活自己一辈子；其次，我得去寻找自身的平衡点，了解多个领域的知识，尽量做跨领域的工作，能够减少自身的竞争压力；第三，当前国内就业环境太差，我可以利用自己出国留学的机会，正确去国外工作几年，相信国外的工作经验也是自己的长期竞争力之一。我们要学会构建自己的长期竞争力，而构建自身长期竞争力的方法与途径就是不断对自己进行长期投资。</p>
+<p>我之后会不断记录下自己的想法、自己的生活，或者对之前的想法进行批判。希望这篇随想是随想的录的开始而非结束，</p>
+]]></content>
+      <categories>
+        <category>Collection Of Essays</category>
+      </categories>
+      <tags>
+        <tag>essay</tag>
       </tags>
   </entry>
 </search>
