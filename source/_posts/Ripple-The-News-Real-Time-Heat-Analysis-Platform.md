@@ -63,7 +63,7 @@ vi /etc/hosts
 <br>
 
 
-## Hadoop 搭建
+# Hadoop 搭建
 
 首先，根据教程，再/opt文件夹下文件树为：
 ```bash
@@ -89,26 +89,26 @@ vi /etc/hosts
 
 下载相关jdk也安装在/opt/modules中，配置/etc/profile环境变量。对于hadoop，有几个关键文件需要配置:
 
-### core-site.xml
+## core-site.xml
 路径: /opt/modules/hadoop/etc/hadoop
 
 功能:  配置集群全局参数属性，用于定义系统级别的参数，如HDFS URL 、Hadoop的临时目录等
 
 
-### hdfs-site.xml
+## hdfs-site.xml
 路径: /opt/modules/hadoop/etc/hadoop/hdfs-site.xml
 
 功能: 配置HDFS组件的属性，如名称节点和数据节点的存放位置、文件副本的个数、文件的读取权限等
 
 
-### mapred-site.xml
+## mapred-site.xml
 路径: /opt/modules/hadoop/etc/hadoop/mapred-site.xml
 
 功能：配置map-reduce组件的属性，包括JobHistory Server 和应用程序参数两部分，如reduce任务的默认个数、任务所能够使用内存的默认上下限等
 
 
 
-### yarn-site.xml
+## yarn-site.xml
 路径: /opt/modules/hadoop/etc/hadoop/yarn-site.xml
 
 功能: 集群资源管理系统参数，配置ResourceManager ，nodeManager的通信端口，web监控端口等
@@ -116,14 +116,14 @@ vi /etc/hosts
 yran日志聚集：日志聚集是YARN提供的日志中央化管理功能，它能将运行完成的Container任务日志上传到HDFS上，从而减轻NodeManager负载，且提供一个中央化存储和分析机制。
 
 
-### hadoop-env.xml
+## hadoop-env.xml
 路径: /opt/modules/hadoop/etc/hadoop/haddop-env.sh
 
 功能: hadoop运行环境,用来定义hadoop运行环境相关的配置信息
 
 
 
-## 启动集群
+## 启动hadoop集群
 在2.2节中对hadoop文件夹下的bin与sbin进行了说明
 > - /bin 目录存放对Hadoop相关服务（HDFS, YARN）进行操作的脚本；
 > -  /sbin 目录存放启动或停止Hadoop相关服务的脚本
@@ -244,10 +244,10 @@ bin/yarn jar share/hadoop/mapreduce/hadoop-examples-2.6.5 wordcount 数据源目
 
 至此，hdfs与yarn的集群启动完毕。
 
-## zookeeper
+# zookeeper
 zookeeper 的部分可以查看[zookeeper基础](https://wjmars98.github.io/2022/04/10/Zookeeper-Basic/).
 
-
+# hdfs-ha 高可用下模式
 ## hdfs-ha 高可用性
 对于hdfs-ha高可用性的必要性，是因为目前只有一台namenode，如果所在的机器down了，那么hdfs将无法提供服务，所以提出了hdfs-ha的架构模式。
 
@@ -258,7 +258,41 @@ zookeeper 的部分可以查看[zookeeper基础](https://wjmars98.github.io/2022
 HDFS通常由两个NameNode组成，一个处于active状态，另一个处于standby状态。Active NameNode对外提供服务，比如处理来自客户端的RPC请求，而Standby NameNode则不对外提供服务，仅同步Active NameNode的状态，以便能够在它失败时快速进行切换，为了让Standby Node与Active Node保持同步，这两个Node都与一组称为JNS的互相独立的进程保持通信(Journal Nodes)。
 
 
+## hdfs-ha 配置
+查看官方文档：
+[HDFS High Availability Using the Quorum Journal Manager](https://hadoop.apache.org/docs/r2.10.1/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html)
 
+## hdfs-ha 各类顺序
+在启动hdfs-ha模式的时候，其中启动，关闭的顺序都十分重要，对hdfs-ha会产生影响，该节来记录一下hdfs-ha的相关正确顺序。
+
+**应用层次：ZooKeeper -> Hadoop -> HBase**
+
+服务层次： ZooKeeper -> JournalNode (Hadoop) -> NameNode (Hadoop) -> DataNode (Hadoop) -> 主 ResourceManager/NodeManager (Hadoop) -> 备份 ResourceManager (Hadoop) -> ZKFC (Hadoop) -> MapReduce JobHistory (Hadoop) -> 主 Hmaster/HRegionServer (HBase) ->备份 Hmaster (HBase)
+
+### hdfs-ha首次启动顺序
+1. 启动 ZooKeeper 集群. 分别登陆到三台机子（ripple1, ripple2, ripple3）上执行```zkServer.sh start```
+2. 格式化 ZooKeeper 集群. 在任意的 namenode 上都可以执行.```hdfs zkfc –formatZK```
+3. 启动 JournalNode 集群. 分别在ipple1, ripple2, ripple3上执行```hadoop-daemon.sh start journalnode```.
+4. 格式化集群的 NameNode, 在ripple1上格式化namenode```hdfs namenode -format```
+5. 启动刚格式化的 NameNode. 在ripple1上执行```hadoop-daemon.sh start namenode```.
+6. 同步 NameNode1 元数据到 NameNode2 上. 在ripple2上执行```hdfs namenode -bootstrapStandby```
+7. 启动 NameNode2. ripple2拷贝了元数据之后，就接着启动 namenode 进程```hadoop-daemon.sh start namenode```
+8. 启动集群中所有的DataNode. 在ripple1上执行 ```hadoop-daemons.sh start datanode```
+9. 在 RM1 启动 YARN,在ripple1上执行```start-yarn.sh```
+10. 在 RM2 单独启动 YARN。```yarn-daemon.sh start resourcemanager```
+11. 启动 ZKFC. 在ripple1与ripple2分别启动```hadoop-daemon.sh start zkfc```
+12. 开启历史日志服务, 在ripple1与ripple2分别启动```mr-jobhistory-daemon.sh   start historyserver```
+至此hdfs-ha正式启动，在ripple1上jps结果，如下图所示：
+<center>
+        <img src="Ripple-The-News-Real-Time-Heat-Analysis-Platform/hdfs-ha.jpg", width=80%>
+</center>
+
+
+### hdfs-ha 非首次启动与关闭顺序
+参考网址: [3.1 Hadoop 生态系统集群的启动顺序概览](https://blog.csdn.net/jingsiyu6588/article/details/100166928#t6)
+ps: 
+1. 与 “首次启动格式化集群” 不同的是没有 格式化 ZooKeeper 集群 和 格式化集群的 NameNode 这两个步骤！
+2. 一定要按顺序停止，如果先停 ZooKeeper 再停 HBase 的话，基本停不下来
 
 **未完待续 | To be continued**
 
@@ -272,6 +306,6 @@ HDFS通常由两个NameNode组成，一个处于active状态，另一个处于st
 4. [B.hadoop资源下载](http://archive.cloudera.com/cdh5)
 5. [What exactly is hadoop namenode formatting?](https://intellipaat.com/community/161/what-exactly-is-hadoop-namenode-formatting)
 6. [datanode无法启动](https://sparkbyexamples.com/hadoop/incompatible-clusterids/)
-
+7. [HA模式下的各种启动顺序](https://blog.csdn.net/jingsiyu6588/article/details/100166928)
 
 
