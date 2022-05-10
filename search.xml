@@ -1340,8 +1340,15 @@
 </center>
 <span id="more"></span>
 
-
-]]></content>
+<p>To be more specific, I would love to share a situation appeared in my program developing process.</p>
+<p>When I tried to develop a scrapy project to crawl some data on the imdb website, which not only included the titles and release time, rating and other text data, but also contained the images data like movie posters, I found the a single item contains both.</p>
+<p>Of course, we can create different type of pipeline and appoint each single pipeline to statisfy each single need. However, our code will be real complex and redundancy in this method. It will be a better way to assemble some pipelines into a pipeline moudle in specified order. Comparing to the first method, this approach has several advantages:</p>
+<ul>
+<li>High Efficiency</li>
+<li>Code Modularization</li>
+<li>Easy to Debug</li>
+</ul>
+<h1 id="Pipeline"><a href="#Pipeline" class="headerlink" title="Pipeline"></a>Pipeline</h1><h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
       <categories>
         <category>Big Data</category>
       </categories>
@@ -1651,6 +1658,70 @@
       </tags>
   </entry>
   <entry>
+    <title>crontab</title>
+    <url>/2022/05/02/crontab/</url>
+    <content><![CDATA[<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令，可以实现某一任务在指定的时间运行。</p>
+<span id="more"></span>
+
+<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令。</p>
+<h1 id="crontab配置文件"><a href="#crontab配置文件" class="headerlink" title="crontab配置文件"></a>crontab配置文件</h1><p>在centos系统中，通过调用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看配置指令</span></span><br><span class="line">cat /etc/crontab</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">能够看到如下解释</span></span><br><span class="line">SHELL=/bin/bash</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">MAILTO=root</span><br><span class="line">HOME=/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">For details see man 4 crontabs</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example of job definition:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.---------------- minute (0 - 59)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| .------------- hour (0 - 23)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | |</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">* * * * * user-name <span class="built_in">command</span> to be executed</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="crontab文件含义"><a href="#crontab文件含义" class="headerlink" title="crontab文件含义"></a>crontab文件含义</h1><p>前四行是用来配置crond任务运行的环境变量</p>
+<ol>
+<li><p>第一行SHELL变量指定了系统要使用哪个shell，这里是bash；</p>
+</li>
+<li><p>第二行PATH变量指定了系统执行命令的路径；</p>
+</li>
+<li><p>第三行MAILTO变量指定了crond的任务执行信息将通过电子邮件发送给root用户，如果MAILTO变量的值为空，则表示不发送任务执行信息给用户；</p>
+</li>
+<li><p>第四行的HOME变量指定了在执行命令或者脚本时使用的主目录。</p>
+</li>
+</ol>
+<center>
+    <img src="/2022/05/02/crontab/crontab.png" , width="80%">
+</center>
+
+<p>在以上各个字段中，还可以使用以下特殊字符：</p>
+<p>“*“代表所有的取值范围内的数字，如月份字段为*，则表示1到12个月；</p>
+<p>“&#x2F;“代表每一定时间间隔的意思，如分钟字段为*&#x2F;10，表示每10分钟执行1次。</p>
+<p>“-“代表从某个区间范围，是闭区间。如“2-5”表示“2,3,4,5”，小时字段中0-23&#x2F;2表示在0~23点范围内每2个小时执行一次。</p>
+<p>“,”分散的数字（不一定连续），如1,2,3,4,7,9。</p>
+<p>注：由于各个地方每周第一天不一样，因此Sunday&#x3D;0（第一天）或Sunday&#x3D;7（最后1天）。</p>
+<h1 id="crontab命令详解"><a href="#crontab命令详解" class="headerlink" title="crontab命令详解"></a>crontab命令详解</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab [-u user] file</span><br><span class="line">crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-u user：用于设定某个用户的crontab服务；</li>
+<li>file: file为命令文件名，表示将file作为crontab的任务列表文件并载入crontab；</li>
+<li>-e：编辑某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
+<li>-l：显示某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
+<li>-r：从&#x2F;var&#x2F;spool&#x2F;cron目录中删除某个用户的crontab文件。</li>
+<li>-i：在删除用户的crontab文件时给确认提示。</li>
+</ul>
+<h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ol>
+<li><p>crontab有2种编辑方式：直接编辑&#x2F;etc&#x2F;crontab文件与<br>crontab –e，其中&#x2F;etc&#x2F;crontab里的计划任务是系统中的计划任务，而用户的计划任务需要通过crontab –e来编辑；</p>
+</li>
+<li><p>每次编辑完某个用户的cron设置后，cron自动在&#x2F;var&#x2F;spool&#x2F;cron下生成一个与此用户同名的文件，此用户的cron信息都记录在这个文件中，这个文件是不可以直接编辑的，只可以用crontab -e 来编辑。</p>
+</li>
+<li><p>crontab中的command尽量使用绝对路径，否则会经常因为路径错误导致任务无法执行。</p>
+</li>
+<li><p>新创建的cron job不会马上执行，至少要等2分钟才能执行，可从起cron来立即执行。</p>
+</li>
+<li><p>%在crontab文件中表示“换行”，因此假如脚本或命令含有%,需要使用%来进行转义。</p>
+</li>
+</ol>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
+<li><a href="https://www.linuxprobe.com/how-to-crontab.html">crontab用法与实例</a></li>
+<li><a href="https://man7.org/linux/man-pages/man5/crontab.5.html">crontab(5) — Linux manual page</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Basic</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>imdb-scrapy</title>
     <url>/2022/04/22/imdb-scrapy/</url>
     <content><![CDATA[<p>在有了一定的scrapy基础之后，便可以尝试将scrapy的知识应用起来，做一些小项目。本文将介绍一个基于scrapy的imdb数据爬取项目，其主要功能有以下三点：</p>
@@ -1756,67 +1827,36 @@
       </tags>
   </entry>
   <entry>
-    <title>crontab</title>
-    <url>/2022/05/02/crontab/</url>
-    <content><![CDATA[<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令，可以实现某一任务在指定的时间运行。</p>
+    <title>随想录：长期竞争价值</title>
+    <url>/2022/04/19/%E9%9A%8F%E6%83%B3%E5%BD%95%EF%BC%9A%E9%95%BF%E6%9C%9F%E7%AB%9E%E4%BA%89%E4%BB%B7%E5%80%BC/</url>
+    <content><![CDATA[<p>我之后会不断记录下自己的想法、自己的生活，或者对之前的想法进行批判。希望这篇随想是随想的录的开始而非结束。</p>
+<p>综上，为了应对未来的中年危机，我有提升技术的必要，但千万不能以为仅仅自己凭借技术能养活自己一辈子；其次，我得去寻找自身的平衡点，了解多个领域的知识，尽量做跨领域的工作，能够减少自身的竞争压力；第三，当前国内就业环境太差，我可以利用自己出国留学的机会，正确去国外工作几年，相信国外的工作经验也是自己的长期竞争力之一。我们要学会构建自己的长期竞争力，而构建自身长期竞争力的方法与途径就是不断对自己进行长期投资。</p>
+<center>
+        <img src="/2022/04/19/%E9%9A%8F%E6%83%B3%E5%BD%95%EF%BC%9A%E9%95%BF%E6%9C%9F%E7%AB%9E%E4%BA%89%E4%BB%B7%E5%80%BC/first.jpg" , width="80%">
+</center>
 <span id="more"></span>
 
-<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令。</p>
-<h1 id="crontab配置文件"><a href="#crontab配置文件" class="headerlink" title="crontab配置文件"></a>crontab配置文件</h1><p>在centos系统中，通过调用</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看配置指令</span></span><br><span class="line">cat /etc/crontab</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">能够看到如下解释</span></span><br><span class="line">SHELL=/bin/bash</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">MAILTO=root</span><br><span class="line">HOME=/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">For details see man 4 crontabs</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example of job definition:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.---------------- minute (0 - 59)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| .------------- hour (0 - 23)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | |</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">* * * * * user-name <span class="built_in">command</span> to be executed</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="crontab文件含义"><a href="#crontab文件含义" class="headerlink" title="crontab文件含义"></a>crontab文件含义</h1><p>前四行是用来配置crond任务运行的环境变量</p>
-<ol>
-<li><p>第一行SHELL变量指定了系统要使用哪个shell，这里是bash；</p>
-</li>
-<li><p>第二行PATH变量指定了系统执行命令的路径；</p>
-</li>
-<li><p>第三行MAILTO变量指定了crond的任务执行信息将通过电子邮件发送给root用户，如果MAILTO变量的值为空，则表示不发送任务执行信息给用户；</p>
-</li>
-<li><p>第四行的HOME变量指定了在执行命令或者脚本时使用的主目录。</p>
-</li>
-</ol>
-<center>
-    <img src="/2022/05/02/crontab/crontab.png" , width="80%">
-</center>
-
-<p>在以上各个字段中，还可以使用以下特殊字符：</p>
-<p>“*“代表所有的取值范围内的数字，如月份字段为*，则表示1到12个月；</p>
-<p>“&#x2F;“代表每一定时间间隔的意思，如分钟字段为*&#x2F;10，表示每10分钟执行1次。</p>
-<p>“-“代表从某个区间范围，是闭区间。如“2-5”表示“2,3,4,5”，小时字段中0-23&#x2F;2表示在0~23点范围内每2个小时执行一次。</p>
-<p>“,”分散的数字（不一定连续），如1,2,3,4,7,9。</p>
-<p>注：由于各个地方每周第一天不一样，因此Sunday&#x3D;0（第一天）或Sunday&#x3D;7（最后1天）。</p>
-<h1 id="crontab命令详解"><a href="#crontab命令详解" class="headerlink" title="crontab命令详解"></a>crontab命令详解</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab [-u user] file</span><br><span class="line">crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>-u user：用于设定某个用户的crontab服务；</li>
-<li>file: file为命令文件名，表示将file作为crontab的任务列表文件并载入crontab；</li>
-<li>-e：编辑某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
-<li>-l：显示某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
-<li>-r：从&#x2F;var&#x2F;spool&#x2F;cron目录中删除某个用户的crontab文件。</li>
-<li>-i：在删除用户的crontab文件时给确认提示。</li>
-</ul>
-<h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ol>
-<li><p>crontab有2种编辑方式：直接编辑&#x2F;etc&#x2F;crontab文件与<br>crontab –e，其中&#x2F;etc&#x2F;crontab里的计划任务是系统中的计划任务，而用户的计划任务需要通过crontab –e来编辑；</p>
-</li>
-<li><p>每次编辑完某个用户的cron设置后，cron自动在&#x2F;var&#x2F;spool&#x2F;cron下生成一个与此用户同名的文件，此用户的cron信息都记录在这个文件中，这个文件是不可以直接编辑的，只可以用crontab -e 来编辑。</p>
-</li>
-<li><p>crontab中的command尽量使用绝对路径，否则会经常因为路径错误导致任务无法执行。</p>
-</li>
-<li><p>新创建的cron job不会马上执行，至少要等2分钟才能执行，可从起cron来立即执行。</p>
-</li>
-<li><p>%在crontab文件中表示“换行”，因此假如脚本或命令含有%,需要使用%来进行转义。</p>
-</li>
-</ol>
-<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
-<li><a href="https://www.linuxprobe.com/how-to-crontab.html">crontab用法与实例</a></li>
-<li><a href="https://man7.org/linux/man-pages/man5/crontab.5.html">crontab(5) — Linux manual page</a></li>
-</ol>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>到广州实习的第一个月，遇见了各类形形色色的人，做了陌生完全不熟悉的事，接受的海量的外界信息，对自己的生活态度乃至价值观产生了巨大的冲击。</p>
+<p>最近自己逐渐养成了一个习惯——思考。不但是对眼前所欲事物的思考，更是对自己职业规划，自己人生理想与目标的思考。虽然和父母的交流中，他们更希望我不要多想，安心做眼前的事物。但是我还是觉得多思考总归是胜于麻木盲从，思考也让我受益非浅。</p>
+<p>遂建立随想录这一目录，记录一些自己的思考过程与结果，或长或短，或真知灼见，或可笑万分，我姑且都记下，就当作是眼下生活的小小总结，留下些许痕迹。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>最近，一直在思考自己未来10年后，也就是程序员的35岁的中年危机我该如何度过。30到35岁是一道坎，很多搞技术的人也就倒在这到坎上，一蹶不振，我该如何去应对，是否应该按部就班的听我父母一步一个脚印走好，比如：找份大厂工作，好好努力，一步一个脚印走上高级技术员或者管理层等等。</p>
+<p>在和俊哥吃饭的时候，我也聊到35岁危机的问题，他提出一个长期竞争力的概念，我觉得还是挺有道理。</p>
+<p>第一，是扎实底层技术。我们常说核心竞争力，但是到底什么是核心竞争力呢？说白了，就是你的某个优势，别人难以取代，可以称为你的核心竞争力。俊哥也由此展开，说明互联网的技术日新月异，但是其底层的技术其实变化十分缓慢，如果把底层的技术打扎实了，那么学习新技术的时间也就很短，能维持自己长期的竞争力，这点是值得我去思考与学习的，不断扎实自己对底层技术的了解。</p>
+<p>第二，平衡点。中国是一个人口大国，近年经济形势下滑，考研考公人数屡创新高，这也说明了在未来的一段时间人才与职位会出现供大于求，竞争异常激烈。</p>
+<p>第一条路，不断提升自己技术，卷过绝大多数人。这也是我父母期望我走的路，按部就班，一步一个较硬。但是这难度真的实在太大了，竞争的人数是如此之多，而且未来会更多，我们每个人就像一颗螺丝钉，完全可以替换，对自己的健康也会有很大的损坏，而且我也不认为自己是一个长于技术的人，这条路对我来说性价比不高，虽然技术是我的立足之本，但我不能靠技术吃一辈子的饭。</p>
+<p>第二条路，寻找自己多领域的平衡点。当前的赛道竞争对手是如此之多，是否有办法寻找一条跨学科交叉的道路，减少我们的竞争压力。比如数据与金融的结合，数据与车企的结合，数据与医疗的结合等等，这都是值得我去研究的领域。找到适合自己的平衡点，多放下注，广积粮（扎实技术，保持多领域信息优势，减少信息差）、缓称王（不要没思考、调研，就浪费大量精力前进）。</p>
+<p>第三条路，更换自己的环境。目前国内的就业环境不行，但并不代表这国外的坏境不行。可以尝试去外企，或者一步到位直接利用自己去hk留学的继续，去hk或者新加坡、新西兰、澳大利亚找相应的岗位，也是未尝不可。这里又涉及绿卡移民的问题，值得我之后为此专门写一篇文章聊聊。</p>
+<p>我要时刻问问自己，自己向往什么样的生活？成为大厂的一颗螺丝钉，还是有自己的生活，实现wlb，靠投资实现财富自由。永远学会去投资自己，要做长期投资，比如学习新的技能（保持生活的新鲜感），扎实自己的技术（这是我的立足之本），多结交优秀的朋友（了解更多行业的情况），等等。</p>
+<p>虽然长期投资的回报是有延后性的，但是长期投资的回报也是丰厚。因为我们在时间是公平的，我们在对自己进行长期投资，正是在培养自身的长期竞争力，而别人要取代你的优势，也需要付出相应的时间成本，这是有门槛的，所以多做对自己作长期投资吧，我的朋友。</p>
+<p>虽然长期投资是如此重要，但这也不代表着我们要放弃短期的收益，比如准备考试、应酬、娱乐等等。短期投资，回报快，能增长自己生活的激情。但是千万不要做竭泽而渔，比如沉迷于游戏，沉迷于无意义的消遣。任何致瘾的都是有害的，千万小心。</p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>综上，为了应对未来的中年危机，我有提升技术的必要，但千万不能以为仅仅自己凭借技术能养活自己一辈子；其次，我得去寻找自身的平衡点，了解多个领域的知识，尽量做跨领域的工作，能够减少自身的竞争压力；第三，当前国内就业环境太差，我可以利用自己出国留学的机会，正确去国外工作几年，相信国外的工作经验也是自己的长期竞争力之一。我们要学会构建自己的长期竞争力，而构建自身长期竞争力的方法与途径就是不断对自己进行长期投资。</p>
+<p>我之后会不断记录下自己的想法、自己的生活，或者对之前的想法进行批判。希望这篇随想是随想的录的开始而非结束，</p>
 ]]></content>
       <categories>
-        <category>Basic</category>
+        <category>Collection Of Essays</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>essay</tag>
       </tags>
   </entry>
   <entry>
@@ -1852,39 +1892,6 @@
       </categories>
       <tags>
         <tag>Log4j</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>随想录：长期竞争价值</title>
-    <url>/2022/04/19/%E9%9A%8F%E6%83%B3%E5%BD%95%EF%BC%9A%E9%95%BF%E6%9C%9F%E7%AB%9E%E4%BA%89%E4%BB%B7%E5%80%BC/</url>
-    <content><![CDATA[<p>我之后会不断记录下自己的想法、自己的生活，或者对之前的想法进行批判。希望这篇随想是随想的录的开始而非结束。</p>
-<p>综上，为了应对未来的中年危机，我有提升技术的必要，但千万不能以为仅仅自己凭借技术能养活自己一辈子；其次，我得去寻找自身的平衡点，了解多个领域的知识，尽量做跨领域的工作，能够减少自身的竞争压力；第三，当前国内就业环境太差，我可以利用自己出国留学的机会，正确去国外工作几年，相信国外的工作经验也是自己的长期竞争力之一。我们要学会构建自己的长期竞争力，而构建自身长期竞争力的方法与途径就是不断对自己进行长期投资。</p>
-<center>
-        <img src="/2022/04/19/%E9%9A%8F%E6%83%B3%E5%BD%95%EF%BC%9A%E9%95%BF%E6%9C%9F%E7%AB%9E%E4%BA%89%E4%BB%B7%E5%80%BC/first.jpg" , width="80%">
-</center>
-<span id="more"></span>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>到广州实习的第一个月，遇见了各类形形色色的人，做了陌生完全不熟悉的事，接受的海量的外界信息，对自己的生活态度乃至价值观产生了巨大的冲击。</p>
-<p>最近自己逐渐养成了一个习惯——思考。不但是对眼前所欲事物的思考，更是对自己职业规划，自己人生理想与目标的思考。虽然和父母的交流中，他们更希望我不要多想，安心做眼前的事物。但是我还是觉得多思考总归是胜于麻木盲从，思考也让我受益非浅。</p>
-<p>遂建立随想录这一目录，记录一些自己的思考过程与结果，或长或短，或真知灼见，或可笑万分，我姑且都记下，就当作是眼下生活的小小总结，留下些许痕迹。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>最近，一直在思考自己未来10年后，也就是程序员的35岁的中年危机我该如何度过。30到35岁是一道坎，很多搞技术的人也就倒在这到坎上，一蹶不振，我该如何去应对，是否应该按部就班的听我父母一步一个脚印走好，比如：找份大厂工作，好好努力，一步一个脚印走上高级技术员或者管理层等等。</p>
-<p>在和俊哥吃饭的时候，我也聊到35岁危机的问题，他提出一个长期竞争力的概念，我觉得还是挺有道理。</p>
-<p>第一，是扎实底层技术。我们常说核心竞争力，但是到底什么是核心竞争力呢？说白了，就是你的某个优势，别人难以取代，可以称为你的核心竞争力。俊哥也由此展开，说明互联网的技术日新月异，但是其底层的技术其实变化十分缓慢，如果把底层的技术打扎实了，那么学习新技术的时间也就很短，能维持自己长期的竞争力，这点是值得我去思考与学习的，不断扎实自己对底层技术的了解。</p>
-<p>第二，平衡点。中国是一个人口大国，近年经济形势下滑，考研考公人数屡创新高，这也说明了在未来的一段时间人才与职位会出现供大于求，竞争异常激烈。</p>
-<p>第一条路，不断提升自己技术，卷过绝大多数人。这也是我父母期望我走的路，按部就班，一步一个较硬。但是这难度真的实在太大了，竞争的人数是如此之多，而且未来会更多，我们每个人就像一颗螺丝钉，完全可以替换，对自己的健康也会有很大的损坏，而且我也不认为自己是一个长于技术的人，这条路对我来说性价比不高，虽然技术是我的立足之本，但我不能靠技术吃一辈子的饭。</p>
-<p>第二条路，寻找自己多领域的平衡点。当前的赛道竞争对手是如此之多，是否有办法寻找一条跨学科交叉的道路，减少我们的竞争压力。比如数据与金融的结合，数据与车企的结合，数据与医疗的结合等等，这都是值得我去研究的领域。找到适合自己的平衡点，多放下注，广积粮（扎实技术，保持多领域信息优势，减少信息差）、缓称王（不要没思考、调研，就浪费大量精力前进）。</p>
-<p>第三条路，更换自己的环境。目前国内的就业环境不行，但并不代表这国外的坏境不行。可以尝试去外企，或者一步到位直接利用自己去hk留学的继续，去hk或者新加坡、新西兰、澳大利亚找相应的岗位，也是未尝不可。这里又涉及绿卡移民的问题，值得我之后为此专门写一篇文章聊聊。</p>
-<p>我要时刻问问自己，自己向往什么样的生活？成为大厂的一颗螺丝钉，还是有自己的生活，实现wlb，靠投资实现财富自由。永远学会去投资自己，要做长期投资，比如学习新的技能（保持生活的新鲜感），扎实自己的技术（这是我的立足之本），多结交优秀的朋友（了解更多行业的情况），等等。</p>
-<p>虽然长期投资的回报是有延后性的，但是长期投资的回报也是丰厚。因为我们在时间是公平的，我们在对自己进行长期投资，正是在培养自身的长期竞争力，而别人要取代你的优势，也需要付出相应的时间成本，这是有门槛的，所以多做对自己作长期投资吧，我的朋友。</p>
-<p>虽然长期投资是如此重要，但这也不代表着我们要放弃短期的收益，比如准备考试、应酬、娱乐等等。短期投资，回报快，能增长自己生活的激情。但是千万不要做竭泽而渔，比如沉迷于游戏，沉迷于无意义的消遣。任何致瘾的都是有害的，千万小心。</p>
-<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>综上，为了应对未来的中年危机，我有提升技术的必要，但千万不能以为仅仅自己凭借技术能养活自己一辈子；其次，我得去寻找自身的平衡点，了解多个领域的知识，尽量做跨领域的工作，能够减少自身的竞争压力；第三，当前国内就业环境太差，我可以利用自己出国留学的机会，正确去国外工作几年，相信国外的工作经验也是自己的长期竞争力之一。我们要学会构建自己的长期竞争力，而构建自身长期竞争力的方法与途径就是不断对自己进行长期投资。</p>
-<p>我之后会不断记录下自己的想法、自己的生活，或者对之前的想法进行批判。希望这篇随想是随想的录的开始而非结束，</p>
-]]></content>
-      <categories>
-        <category>Collection Of Essays</category>
-      </categories>
-      <tags>
-        <tag>essay</tag>
       </tags>
   </entry>
 </search>
