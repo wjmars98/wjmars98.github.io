@@ -17,16 +17,42 @@ What's worse, there may be not only one spider in the porject, and each  spider 
 </center>
 <!--more-->
 
-To be more specific, I would love to share a situation appeared in my program developing process.
+# Background
+To be more specific, I would love to share a software developing program situation appeared in my program developing process.
 
 When I tried to develop a scrapy project to crawl some data on the imdb website, which not only included the titles and release time, rating and other text data, but also contained the images data like movie posters, I found the a single item contains both.
 
-Of course, we can create different type of pipeline and appoint each single pipeline to statisfy each single need. However, our code will be real complex and redundancy in this method. It will be a better way to assemble some pipelines into a pipeline moudle in specified order. Comparing to the first method, this approach has several advantages:
+To solve this problem, of course, we can try to create different spiders which can crawl text data while the other can crawl image data. However, basing on our observation, this data can be crawled by only one spider if we can assemble a functional pipeline module.  Comparing to the first solution, this approach has several advantages:
 
 - High Efficiency
 - Code Modularization
 - Easy to Debug
 
-# Pipeline
-## 
+# Example
+## Crawl Requirements
+Firstly, let me to show you the project requirement  as following.
+
+Target crawk website: [imd: The Batman](https://www.imdb.com/title/tt1877830)
+
+<center>
+        <img src="Scrapy-Manage-Multiple-Pipelines/imdb-the-batman.jpg", width=80%>
+</center>
+
+Target crawl text info:
+
+- Text: title, rating, description
+
+- Image: image
+
+## Understand Pipeline Module
+
+According to [scrapy document](https://docs.scrapy.org/en/latest/topics/item-pipeline.html), the pipeline is briefly descriped as: 
+> Item has been scraped by a spider, it is sent to the Item Pipeline which processes it through several components that are executed sequentially.
+
+As mentioned above, pipeline is designed to process the item data. And what's more important, we are allowed to assemble a number of pipelines in a specific order as pipeline module to implement complex functions.
+ 
+
+# Reference
+
+[1. Scrapy at a glance](https://docs.scrapy.org/en/latest/intro/overview.html)
 
