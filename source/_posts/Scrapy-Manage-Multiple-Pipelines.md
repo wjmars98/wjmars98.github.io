@@ -49,8 +49,10 @@ Target crawl text info:
 According to [scrapy document](https://docs.scrapy.org/en/latest/topics/item-pipeline.html), the pipeline is briefly descriped as: 
 > Item has been scraped by a spider, it is sent to the Item Pipeline which processes it through several components that are executed sequentially.
 
-As mentioned above, pipeline is designed to process the item data. And what's more important, we are allowed to assemble a number of pipelines in a specific order as pipeline module to implement complex functions.
+As mentioned above, pipeline is designed to process the item data from spiders. And to achieve the designated function, we can try to assemble a number of pipelines in a specific order which is the key to  make a pipeline module to implement complex functions.
  
+ 
+
 
 # Reference
 
