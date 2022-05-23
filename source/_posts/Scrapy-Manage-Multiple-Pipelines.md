@@ -28,6 +28,34 @@ To solve this problem, of course, we can try to create different spiders which c
 - Code Modularization
 - Easy to Debug
 
+## Understand Pipeline Module
+
+According to [scrapy document](https://docs.scrapy.org/en/latest/topics/item-pipeline.html), the pipeline is briefly descriped as: 
+> Item has been scraped by a spider, it is sent to the Item Pipeline which processes it through several components that are executed sequentially.
+
+As mentioned above, pipeline is designed to process the item data from spiders. And to achieve the designated function, we can try to assemble a number of pipelines in a specific order which is the key to  make a pipeline module to implement complex functions.
+
+As the following code shows, the "custom_setting" decided each pipelines' order for item data.  In this way, we can make full use of the data contained in item.
+
+```python
+# For example
+class MovieSpider(scrapy.Spider):
+    name = "list"
+    allowed_domains = ["imdb.com"]
+    start_urls = ["https://www.imdb.com/title/tt4788734/"]
+
+    custom_settings = {
+        "ITEM_PIPELINES": {
+            "imdbSpider.pipelines.InitSettingPipeline": 100,
+            "imdbSpider.pipelines.BannerPipeline": 200,
+            "imdbSpider.pipelines.ImagePipeline": 400,
+            'imdbSpider.pipelines.ProcessImagePipeline': 500,
+            'imdbSpider.pipelines.UploadPipeline': 600,
+            "imdbSpider.pipelines.ListPipeline": 700,
+        },
+    }
+ ```
+
 # Example
 ## Crawl Requirements
 Firstly, let me to show you the project requirement  as following.
@@ -43,15 +71,6 @@ Target crawl text info:
 - Text: title, rating, description
 
 - Image: image
-
-## Understand Pipeline Module
-
-According to [scrapy document](https://docs.scrapy.org/en/latest/topics/item-pipeline.html), the pipeline is briefly descriped as: 
-> Item has been scraped by a spider, it is sent to the Item Pipeline which processes it through several components that are executed sequentially.
-
-As mentioned above, pipeline is designed to process the item data from spiders. And to achieve the designated function, we can try to assemble a number of pipelines in a specific order which is the key to  make a pipeline module to implement complex functions.
- 
- 
 
 
 # Reference
