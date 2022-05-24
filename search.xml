@@ -736,6 +736,43 @@
       </tags>
   </entry>
   <entry>
+    <title>Intership Appsflyer</title>
+    <url>/2022/04/18/Intership%20Appsflyer/</url>
+    <content><![CDATA[<p>AppsFlyer是以色列公司APPSFLYER LTD旗下移动归因与营销分析平台品牌。目标是帮助应用营销人员做出决策。</p>
+<center>
+        <img src="/2022/04/18/Intership%20Appsflyer/appsflyer.png" width="80%">
+</center>
+
+<span id="more"></span>
+
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>AppsFlyer（以下简称AF）是SaaS移动营销分析和归因平台（类似国内的友盟），总部位于加利福尼亚州的旧金山。出海的应用或多或少都会用到。</p>
+<p>所谓归因就是找到事件发生的原因。通常的说法就是，用户安装了你的App，是因为哪个广告带来的效果。</p>
+<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><p><strong>Organic Install 自然量安装</strong><br>指的是不需要你的推广，用户自发的下载并安装了你的应用。</p>
+<p><strong>Non-Organic Install 非自然量安装</strong><br>指的是你通过某些广告点击跳转到App下载的界面下载并安装的。非自然量安装主要是广告商给你带来的，是你早期流量的来源，应该重点关注的。</p>
+<p><strong>Impression 广告的曝光或展示</strong></p>
+<p><strong>Conversion Rate(CVR) 转化率</strong><br>non-organic installs 除以广告点击数。</p>
+<p><strong>Attribution</strong> 归因<br>追溯应用安装和其他事件的源头，确定是哪个渠道最终导致某一激活或者应用内事件的发生。</p>
+<p><strong>Multi-touch Attribution 多源归因</strong><br>传统的归因把事件发生的全部功劳都归于产生最后一次点击的渠道，多源归因会考虑在这之前也产生了点击的其他渠道，因为他们对事件的发生也起到了推动作用。</p>
+<p><strong>Assisted Installs 辅助性安装</strong><br>在一个 non-organic install 转化的过程中，假设用户分别点击了渠道A，渠道B 和渠道C 的广告，然后进行下载并激活应用; 那么渠道A 和B 就各自贡献一个辅助性安装(assisted install)。</p>
+<p><strong>Re-engagement</strong><br>广告类型的主要目标是为了增加已有用户的活跃性，提醒用户更加频繁的体验应用。</p>
+<p><strong>Re-targeting 重定向或再营销</strong><br>针对那些已经安装但又卸载了应用的用户的广告类型，为的是调动这部分用户重新安装应用。</p>
+<p><strong>Revenue 应用收入</strong><br>统计时间区间内新增用户至今为止产生的收益，而收益的统计依赖于应用内事件(in-app event)埋点设置。例如您如果对事件A 和事件B 设置了收益，那么Revenue 最终呈现的就是对应选中的那部分用户至今为止在事件A 和事件B 的收益总和。</p>
+<p><strong>Life-Time Value(LTV) 生命周期价值</strong><br>用户在整个生命周期中给广告主带来的总价值。</p>
+<p><strong>Session 应用开启</strong><br>定义忠实用户和计算留存等的依据。</p>
+<p><strong>ARPU (AverageRevenue per User) 每个用户平均产生的收益</strong><br>Revenue 除以激活用户数。</p>
+<p><strong>DeepLink 深度链接</strong><br>可以直达网站或者应用中某个特定页面的链接，比如可以直接打开手机上的淘宝应用，并跳转到某个商品的详情页。</p>
+<p><strong>Media Source 媒体源</strong><br> 进行服务器对服务器对接的渠道统称为媒体源(Media Source)，这些媒体源可以是publisher,移动广告平台和移动广告网盟等。</p>
+<p> <strong>In-app Event 应用内事件</strong><br> 在AppsFlyer 平台上分析用户行为的基础。通过在接入AppsFlyer SDK 时对关注的事件(e.g. 购买，充值和注册等)添加对应代码，便可实现对用户从激活到整个生命周期的追踪和分析。</p>
+]]></content>
+      <categories>
+        <category>Intership</category>
+      </categories>
+      <tags>
+        <tag>intership</tag>
+        <tag>ads</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Internship Fetch Data</title>
     <url>/2022/04/14/Internship%20Fetch%20Data/</url>
     <content><![CDATA[<p>在实习的前两个星期，感觉最常接触的一类任务就是<strong>数据的拉取</strong>以及api的调用，本文也是对这个part的内容、方法以及遇到的问题进行一个记录。</p>
@@ -896,43 +933,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Intership Appsflyer</title>
-    <url>/2022/04/18/Intership%20Appsflyer/</url>
-    <content><![CDATA[<p>AppsFlyer是以色列公司APPSFLYER LTD旗下移动归因与营销分析平台品牌。目标是帮助应用营销人员做出决策。</p>
-<center>
-        <img src="/2022/04/18/Intership%20Appsflyer/appsflyer.png" width="80%">
-</center>
-
-<span id="more"></span>
-
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>AppsFlyer（以下简称AF）是SaaS移动营销分析和归因平台（类似国内的友盟），总部位于加利福尼亚州的旧金山。出海的应用或多或少都会用到。</p>
-<p>所谓归因就是找到事件发生的原因。通常的说法就是，用户安装了你的App，是因为哪个广告带来的效果。</p>
-<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><p><strong>Organic Install 自然量安装</strong><br>指的是不需要你的推广，用户自发的下载并安装了你的应用。</p>
-<p><strong>Non-Organic Install 非自然量安装</strong><br>指的是你通过某些广告点击跳转到App下载的界面下载并安装的。非自然量安装主要是广告商给你带来的，是你早期流量的来源，应该重点关注的。</p>
-<p><strong>Impression 广告的曝光或展示</strong></p>
-<p><strong>Conversion Rate(CVR) 转化率</strong><br>non-organic installs 除以广告点击数。</p>
-<p><strong>Attribution</strong> 归因<br>追溯应用安装和其他事件的源头，确定是哪个渠道最终导致某一激活或者应用内事件的发生。</p>
-<p><strong>Multi-touch Attribution 多源归因</strong><br>传统的归因把事件发生的全部功劳都归于产生最后一次点击的渠道，多源归因会考虑在这之前也产生了点击的其他渠道，因为他们对事件的发生也起到了推动作用。</p>
-<p><strong>Assisted Installs 辅助性安装</strong><br>在一个 non-organic install 转化的过程中，假设用户分别点击了渠道A，渠道B 和渠道C 的广告，然后进行下载并激活应用; 那么渠道A 和B 就各自贡献一个辅助性安装(assisted install)。</p>
-<p><strong>Re-engagement</strong><br>广告类型的主要目标是为了增加已有用户的活跃性，提醒用户更加频繁的体验应用。</p>
-<p><strong>Re-targeting 重定向或再营销</strong><br>针对那些已经安装但又卸载了应用的用户的广告类型，为的是调动这部分用户重新安装应用。</p>
-<p><strong>Revenue 应用收入</strong><br>统计时间区间内新增用户至今为止产生的收益，而收益的统计依赖于应用内事件(in-app event)埋点设置。例如您如果对事件A 和事件B 设置了收益，那么Revenue 最终呈现的就是对应选中的那部分用户至今为止在事件A 和事件B 的收益总和。</p>
-<p><strong>Life-Time Value(LTV) 生命周期价值</strong><br>用户在整个生命周期中给广告主带来的总价值。</p>
-<p><strong>Session 应用开启</strong><br>定义忠实用户和计算留存等的依据。</p>
-<p><strong>ARPU (AverageRevenue per User) 每个用户平均产生的收益</strong><br>Revenue 除以激活用户数。</p>
-<p><strong>DeepLink 深度链接</strong><br>可以直达网站或者应用中某个特定页面的链接，比如可以直接打开手机上的淘宝应用，并跳转到某个商品的详情页。</p>
-<p><strong>Media Source 媒体源</strong><br> 进行服务器对服务器对接的渠道统称为媒体源(Media Source)，这些媒体源可以是publisher,移动广告平台和移动广告网盟等。</p>
-<p> <strong>In-app Event 应用内事件</strong><br> 在AppsFlyer 平台上分析用户行为的基础。通过在接入AppsFlyer SDK 时对关注的事件(e.g. 购买，充值和注册等)添加对应代码，便可实现对用户从激活到整个生命周期的追踪和分析。</p>
-]]></content>
-      <categories>
-        <category>Intership</category>
-      </categories>
-      <tags>
-        <tag>intership</tag>
-        <tag>ads</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux Fragments</title>
     <url>/2022/04/08/Linux-Fragments/</url>
     <content><![CDATA[<p>This article is used to record some knowledge fragments when using linux.</p>
@@ -966,6 +966,11 @@
       <tags>
         <tag>linux</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Mysql WorkBench</title>
+    <url>/2022/05/24/Mysql-WorkBench/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Pyenv</title>
@@ -1353,6 +1358,14 @@
 <li>Code Modularization</li>
 <li>Easy to Debug</li>
 </ul>
+<h2 id="Understand-Pipeline-Module"><a href="#Understand-Pipeline-Module" class="headerlink" title="Understand Pipeline Module"></a>Understand Pipeline Module</h2><p>According to <a href="https://docs.scrapy.org/en/latest/topics/item-pipeline.html">scrapy document</a>, the pipeline is briefly descriped as: </p>
+<blockquote>
+<p>Item has been scraped by a spider, it is sent to the Item Pipeline which processes it through several components that are executed sequentially.</p>
+</blockquote>
+<p>As mentioned above, pipeline is designed to process the item data from spiders. And to achieve the designated function, we can try to assemble a number of pipelines in a specific order which is the key to  make a pipeline module to implement complex functions.</p>
+<p>As the following code shows, the “custom_setting” decided each pipelines’ order for item data.  In this way, we can make full use of the data contained in item.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># For example</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MovieSpider</span>(scrapy.Spider):</span><br><span class="line">    name = <span class="string">&quot;list&quot;</span></span><br><span class="line">    allowed_domains = [<span class="string">&quot;imdb.com&quot;</span>]</span><br><span class="line">    start_urls = [<span class="string">&quot;https://www.imdb.com/title/tt4788734/&quot;</span>]</span><br><span class="line"></span><br><span class="line">    custom_settings = &#123;</span><br><span class="line">        <span class="string">&quot;ITEM_PIPELINES&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.InitSettingPipeline&quot;</span>: <span class="number">100</span>,</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.BannerPipeline&quot;</span>: <span class="number">200</span>,</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.ImagePipeline&quot;</span>: <span class="number">400</span>,</span><br><span class="line">            <span class="string">&#x27;imdbSpider.pipelines.ProcessImagePipeline&#x27;</span>: <span class="number">500</span>,</span><br><span class="line">            <span class="string">&#x27;imdbSpider.pipelines.UploadPipeline&#x27;</span>: <span class="number">600</span>,</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.ListPipeline&quot;</span>: <span class="number">700</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="Crawl-Requirements"><a href="#Crawl-Requirements" class="headerlink" title="Crawl Requirements"></a>Crawl Requirements</h2><p>Firstly, let me to show you the project requirement  as following.</p>
 <p>Target crawk website: <a href="https://www.imdb.com/title/tt1877830">imd: The Batman</a></p>
 <center>
@@ -1366,11 +1379,6 @@
 <li><p>Image: image</p>
 </li>
 </ul>
-<h2 id="Understand-Pipeline-Module"><a href="#Understand-Pipeline-Module" class="headerlink" title="Understand Pipeline Module"></a>Understand Pipeline Module</h2><p>According to <a href="https://docs.scrapy.org/en/latest/topics/item-pipeline.html">scrapy document</a>, the pipeline is briefly descriped as: </p>
-<blockquote>
-<p>Item has been scraped by a spider, it is sent to the Item Pipeline which processes it through several components that are executed sequentially.</p>
-</blockquote>
-<p>As mentioned above, pipeline is designed to process the item data from spiders. And to achieve the designated function, we can try to assemble a number of pipelines in a specific order which is the key to  make a pipeline module to implement complex functions.</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://docs.scrapy.org/en/latest/intro/overview.html">1. Scrapy at a glance</a></p>
 ]]></content>
       <categories>
