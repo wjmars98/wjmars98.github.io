@@ -542,33 +542,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Big Query-Basic</title>
-    <url>/2022/04/11/Big-Query/</url>
-    <content><![CDATA[<p>BigQuery 是一种全代管式企业数据仓库，可帮助您使用机器学习、地理空间分析和商业智能等内置功能管理和分析数据。</p>
-<p>BigQuery 实现分析数据的计算引擎与存储选项分离，可最大限度地提高灵活性。</p>
-<p>BigQuery 界面包括 Google Cloud Console 界面和 BigQuery 命令行工具。</p>
-<p><strong>TO BE CONTINUED …</strong></p>
-<center>
-        <img src="/2022/04/11/Big-Query/bq_logo.jpg" width="80%">
-</center>
-
-<span id="more"></span>
-
-<h1 id="Quick-Begin"><a href="#Quick-Begin" class="headerlink" title="Quick Begin"></a>Quick Begin</h1><p>笔者感觉bq的配置、指令、命令行类的操作细节不该是本篇的关注的重点，否则文章会显得冗杂、无味，故对于此部分只会摘录google官网上的相关的文档链接，读者自行通读，在工作中边实践边学习。</p>
-<p>本篇将主要集中于bq的存储、分析、管理等工作原理，以及工作中遇到的有价值的问题与知识。</p>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p><a href="https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console?hl=zh-cn">1. Cloud Console</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-console?hl=zh-cn">2. 加载与查询数据</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-bq?hl=zh-cn">3. 命令行工具</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries?hl=zh-cn#bigquery_simple_app_client-java">4.  客户端库</a><br><a href="https://github.com/googleapis/java-bigquery/tree/f9f7abdede91e8f780d5a60b6ee9a26e9316d04d">5. BQ java指令 github仓库</a></p>
-<h2 id="付费情况"><a href="#付费情况" class="headerlink" title="付费情况"></a>付费情况</h2><h2 id="流媒体"><a href="#流媒体" class="headerlink" title="流媒体"></a>流媒体</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
-<li><a href="https://cloud.google.com/bigquery/docs/introduction?hl=zh-cn">BQ官方文档</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Big Data</category>
-      </categories>
-      <tags>
-        <tag>big query</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Brew</title>
     <url>/2022/03/28/Homebrew/</url>
     <content><![CDATA[<p>在使用mac系统的时候，和win 的一个区别在于sofeware的安装，要将从int下载下来的包，拽入app store中，安装在指定的位置。后来发现mac中存在一个工具——homebrew，能有效的帮助用户下载和管理相应的应用软件。本文也是记录下一些常用的homebrew的用法，提高homebrew的使用。</p>
@@ -652,6 +625,33 @@
       </tags>
   </entry>
   <entry>
+    <title>Big Query-Basic</title>
+    <url>/2022/04/11/Big-Query/</url>
+    <content><![CDATA[<p>BigQuery 是一种全代管式企业数据仓库，可帮助您使用机器学习、地理空间分析和商业智能等内置功能管理和分析数据。</p>
+<p>BigQuery 实现分析数据的计算引擎与存储选项分离，可最大限度地提高灵活性。</p>
+<p>BigQuery 界面包括 Google Cloud Console 界面和 BigQuery 命令行工具。</p>
+<p><strong>TO BE CONTINUED …</strong></p>
+<center>
+        <img src="/2022/04/11/Big-Query/bq_logo.jpg" width="80%">
+</center>
+
+<span id="more"></span>
+
+<h1 id="Quick-Begin"><a href="#Quick-Begin" class="headerlink" title="Quick Begin"></a>Quick Begin</h1><p>笔者感觉bq的配置、指令、命令行类的操作细节不该是本篇的关注的重点，否则文章会显得冗杂、无味，故对于此部分只会摘录google官网上的相关的文档链接，读者自行通读，在工作中边实践边学习。</p>
+<p>本篇将主要集中于bq的存储、分析、管理等工作原理，以及工作中遇到的有价值的问题与知识。</p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p><a href="https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console?hl=zh-cn">1. Cloud Console</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-console?hl=zh-cn">2. 加载与查询数据</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-bq?hl=zh-cn">3. 命令行工具</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries?hl=zh-cn#bigquery_simple_app_client-java">4.  客户端库</a><br><a href="https://github.com/googleapis/java-bigquery/tree/f9f7abdede91e8f780d5a60b6ee9a26e9316d04d">5. BQ java指令 github仓库</a></p>
+<h2 id="付费情况"><a href="#付费情况" class="headerlink" title="付费情况"></a>付费情况</h2><h2 id="流媒体"><a href="#流媒体" class="headerlink" title="流媒体"></a>流媒体</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a href="https://cloud.google.com/bigquery/docs/introduction?hl=zh-cn">BQ官方文档</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>big query</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Internship ASA(Apple Search Ads)</title>
     <url>/2022/04/07/Internship%20ASA(Apple%20Search%20Ads)/</url>
     <content><![CDATA[<p>本文是为了记录与总结笔者在实习(前10天)中完成的第一个小项目——<strong>ASA(Apple Search Ads)投放数据拉取</strong>.<br>该项目大体由数据拉取、数据清洗、数据存储三个部分构成，笔者在这个项目中，目前实现了每天定时拉取应用数据，对其进行格式化处理，上传至Bigquery数据库中。</p>
@@ -726,43 +726,6 @@
 <p>Maximum Cost-Per-Install (CPI)：愿意为每个安装的应用支付的最高金额。 实际CPI永远不会超过这个金额。</p>
 <p>Monthly Budget：每月预算。 搜索广告基础版每个App每月最高预算为5000美元。月预算可以随时更改，直至最高金额。需要注意的是，预算增加会立即生效，减少将在下个自然月生效。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://searchads.apple.com/advanced">1. 官方网站</a><br><a href="https://zhuanlan.zhihu.com/p/42119163">2. 值得收藏!Apple Search Ads专有名词解释</a><br><a href="https://zhuanlan.zhihu.com/p/150152235">3. ASA 账户结构说明</a></p>
-]]></content>
-      <categories>
-        <category>Intership</category>
-      </categories>
-      <tags>
-        <tag>intership</tag>
-        <tag>ads</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Intership Appsflyer</title>
-    <url>/2022/04/18/Intership%20Appsflyer/</url>
-    <content><![CDATA[<p>AppsFlyer是以色列公司APPSFLYER LTD旗下移动归因与营销分析平台品牌。目标是帮助应用营销人员做出决策。</p>
-<center>
-        <img src="/2022/04/18/Intership%20Appsflyer/appsflyer.png" width="80%">
-</center>
-
-<span id="more"></span>
-
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>AppsFlyer（以下简称AF）是SaaS移动营销分析和归因平台（类似国内的友盟），总部位于加利福尼亚州的旧金山。出海的应用或多或少都会用到。</p>
-<p>所谓归因就是找到事件发生的原因。通常的说法就是，用户安装了你的App，是因为哪个广告带来的效果。</p>
-<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><p><strong>Organic Install 自然量安装</strong><br>指的是不需要你的推广，用户自发的下载并安装了你的应用。</p>
-<p><strong>Non-Organic Install 非自然量安装</strong><br>指的是你通过某些广告点击跳转到App下载的界面下载并安装的。非自然量安装主要是广告商给你带来的，是你早期流量的来源，应该重点关注的。</p>
-<p><strong>Impression 广告的曝光或展示</strong></p>
-<p><strong>Conversion Rate(CVR) 转化率</strong><br>non-organic installs 除以广告点击数。</p>
-<p><strong>Attribution</strong> 归因<br>追溯应用安装和其他事件的源头，确定是哪个渠道最终导致某一激活或者应用内事件的发生。</p>
-<p><strong>Multi-touch Attribution 多源归因</strong><br>传统的归因把事件发生的全部功劳都归于产生最后一次点击的渠道，多源归因会考虑在这之前也产生了点击的其他渠道，因为他们对事件的发生也起到了推动作用。</p>
-<p><strong>Assisted Installs 辅助性安装</strong><br>在一个 non-organic install 转化的过程中，假设用户分别点击了渠道A，渠道B 和渠道C 的广告，然后进行下载并激活应用; 那么渠道A 和B 就各自贡献一个辅助性安装(assisted install)。</p>
-<p><strong>Re-engagement</strong><br>广告类型的主要目标是为了增加已有用户的活跃性，提醒用户更加频繁的体验应用。</p>
-<p><strong>Re-targeting 重定向或再营销</strong><br>针对那些已经安装但又卸载了应用的用户的广告类型，为的是调动这部分用户重新安装应用。</p>
-<p><strong>Revenue 应用收入</strong><br>统计时间区间内新增用户至今为止产生的收益，而收益的统计依赖于应用内事件(in-app event)埋点设置。例如您如果对事件A 和事件B 设置了收益，那么Revenue 最终呈现的就是对应选中的那部分用户至今为止在事件A 和事件B 的收益总和。</p>
-<p><strong>Life-Time Value(LTV) 生命周期价值</strong><br>用户在整个生命周期中给广告主带来的总价值。</p>
-<p><strong>Session 应用开启</strong><br>定义忠实用户和计算留存等的依据。</p>
-<p><strong>ARPU (AverageRevenue per User) 每个用户平均产生的收益</strong><br>Revenue 除以激活用户数。</p>
-<p><strong>DeepLink 深度链接</strong><br>可以直达网站或者应用中某个特定页面的链接，比如可以直接打开手机上的淘宝应用，并跳转到某个商品的详情页。</p>
-<p><strong>Media Source 媒体源</strong><br> 进行服务器对服务器对接的渠道统称为媒体源(Media Source)，这些媒体源可以是publisher,移动广告平台和移动广告网盟等。</p>
-<p> <strong>In-app Event 应用内事件</strong><br> 在AppsFlyer 平台上分析用户行为的基础。通过在接入AppsFlyer SDK 时对关注的事件(e.g. 购买，充值和注册等)添加对应代码，便可实现对用户从激活到整个生命周期的追踪和分析。</p>
 ]]></content>
       <categories>
         <category>Intership</category>
@@ -933,6 +896,43 @@
       </tags>
   </entry>
   <entry>
+    <title>Intership Appsflyer</title>
+    <url>/2022/04/18/Intership%20Appsflyer/</url>
+    <content><![CDATA[<p>AppsFlyer是以色列公司APPSFLYER LTD旗下移动归因与营销分析平台品牌。目标是帮助应用营销人员做出决策。</p>
+<center>
+        <img src="/2022/04/18/Intership%20Appsflyer/appsflyer.png" width="80%">
+</center>
+
+<span id="more"></span>
+
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>AppsFlyer（以下简称AF）是SaaS移动营销分析和归因平台（类似国内的友盟），总部位于加利福尼亚州的旧金山。出海的应用或多或少都会用到。</p>
+<p>所谓归因就是找到事件发生的原因。通常的说法就是，用户安装了你的App，是因为哪个广告带来的效果。</p>
+<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><p><strong>Organic Install 自然量安装</strong><br>指的是不需要你的推广，用户自发的下载并安装了你的应用。</p>
+<p><strong>Non-Organic Install 非自然量安装</strong><br>指的是你通过某些广告点击跳转到App下载的界面下载并安装的。非自然量安装主要是广告商给你带来的，是你早期流量的来源，应该重点关注的。</p>
+<p><strong>Impression 广告的曝光或展示</strong></p>
+<p><strong>Conversion Rate(CVR) 转化率</strong><br>non-organic installs 除以广告点击数。</p>
+<p><strong>Attribution</strong> 归因<br>追溯应用安装和其他事件的源头，确定是哪个渠道最终导致某一激活或者应用内事件的发生。</p>
+<p><strong>Multi-touch Attribution 多源归因</strong><br>传统的归因把事件发生的全部功劳都归于产生最后一次点击的渠道，多源归因会考虑在这之前也产生了点击的其他渠道，因为他们对事件的发生也起到了推动作用。</p>
+<p><strong>Assisted Installs 辅助性安装</strong><br>在一个 non-organic install 转化的过程中，假设用户分别点击了渠道A，渠道B 和渠道C 的广告，然后进行下载并激活应用; 那么渠道A 和B 就各自贡献一个辅助性安装(assisted install)。</p>
+<p><strong>Re-engagement</strong><br>广告类型的主要目标是为了增加已有用户的活跃性，提醒用户更加频繁的体验应用。</p>
+<p><strong>Re-targeting 重定向或再营销</strong><br>针对那些已经安装但又卸载了应用的用户的广告类型，为的是调动这部分用户重新安装应用。</p>
+<p><strong>Revenue 应用收入</strong><br>统计时间区间内新增用户至今为止产生的收益，而收益的统计依赖于应用内事件(in-app event)埋点设置。例如您如果对事件A 和事件B 设置了收益，那么Revenue 最终呈现的就是对应选中的那部分用户至今为止在事件A 和事件B 的收益总和。</p>
+<p><strong>Life-Time Value(LTV) 生命周期价值</strong><br>用户在整个生命周期中给广告主带来的总价值。</p>
+<p><strong>Session 应用开启</strong><br>定义忠实用户和计算留存等的依据。</p>
+<p><strong>ARPU (AverageRevenue per User) 每个用户平均产生的收益</strong><br>Revenue 除以激活用户数。</p>
+<p><strong>DeepLink 深度链接</strong><br>可以直达网站或者应用中某个特定页面的链接，比如可以直接打开手机上的淘宝应用，并跳转到某个商品的详情页。</p>
+<p><strong>Media Source 媒体源</strong><br> 进行服务器对服务器对接的渠道统称为媒体源(Media Source)，这些媒体源可以是publisher,移动广告平台和移动广告网盟等。</p>
+<p> <strong>In-app Event 应用内事件</strong><br> 在AppsFlyer 平台上分析用户行为的基础。通过在接入AppsFlyer SDK 时对关注的事件(e.g. 购买，充值和注册等)添加对应代码，便可实现对用户从激活到整个生命周期的追踪和分析。</p>
+]]></content>
+      <categories>
+        <category>Intership</category>
+      </categories>
+      <tags>
+        <tag>intership</tag>
+        <tag>ads</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux Fragments</title>
     <url>/2022/04/08/Linux-Fragments/</url>
     <content><![CDATA[<p>This article is used to record some knowledge fragments when using linux.</p>
@@ -966,11 +966,6 @@
       <tags>
         <tag>linux</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Mysql WorkBench</title>
-    <url>/2022/05/24/Mysql-WorkBench/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Pyenv</title>
@@ -1021,6 +1016,11 @@
       <tags>
         <tag>python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Mysql WorkBench</title>
+    <url>/2022/05/24/Mysql-WorkBench/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Ripple--The News Real Time Heat Analysis Platform</title>
@@ -1209,6 +1209,11 @@
         <tag>Spark</tag>
         <tag>Hue</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Scrapy 503 status error solution</title>
+    <url>/2022/06/01/Scrapy-503-status-error-solution/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>SSL</title>
