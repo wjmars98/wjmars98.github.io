@@ -155,7 +155,7 @@ deploy:
 npm install hexo-deployer-git --save
 
 # 部署命令
-sh deploy.sh
+hexo deploy
 
 # 如果不按照会报错
 # Deployer not found: git
