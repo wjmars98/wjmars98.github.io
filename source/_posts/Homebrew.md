@@ -16,7 +16,7 @@ categories:
   <img src="./Homebrew/logo.png" width=80%  >
 </center>
 
-<!--more-->
+<!--more-->t
 
 # What Is Homebrew?
 Homebrew: 是一款自由及开放源代码的软件包管理系统，用以简化macOS系统上的软件安装过程，最初由马克斯·霍威尔（Max Howell）写成。因其可扩展性得到了一致好评，而在Ruby on Rails社区广为人知。
