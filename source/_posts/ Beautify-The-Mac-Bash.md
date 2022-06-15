@@ -157,6 +157,159 @@ source ~/.zshrc
     "terminal.integrated.fontFamily": "Meslo LG L DZ for Powerline",
 ```
 
+# 7. 拓展
+## 7.1 不同环境的profile切换
+在开发过程，我们会经常掉用到ssh，连接服务器进行开发，此时会产生如下需求：
+
+**希望在不同的环境，自动切换对应的profile。**
+
+比如，我们在local的时候能够使用local profile， 在ssh连接 服务器时，能切换到开发profile。
+
+### 7.1.1 构建profiles
+根据我们需求，构建指定profile。
+例如笔者在开发过程中，会存在本地，与开发环境两种环境，所以构造了三种不同的profile（Mars_Default, Mars_Server, Mars_other）,其中profile命名可以自行定义。
+<center>
+<img src="%20Beautify-The-Mac-Bash/profiles.jpg" width=80% >
+</center>
+
+### 7.1.2 修改域名映射
+
+实现不同环境自动切换profile的原理，为识别server名中指定部分，触发profile的切换。所以我们需要修改本地的域名映射, 添加上前缀即可。
+```shell
+vi /etc/hosts
+# hosts example
+# [server ip1] ser_spider
+# [server ip2] ser_stats1
+```
+
+
+### 7.1.3 创建custom shell 脚本
+进入路径, 创建```iTrem2-ssh.zsh```，其中有样例```example.zsh```可做参考。
+```shell
+cd ~/.oh-my-zsh/custom
+```
+往```iTrem2-ssh.zsh```文件写入脚本，注意其中Mars_Default, Mars_Server, Mars_other 需要根据自身需求进行替换。
+
+```python
+## reference: https://gist.github.com/erangaeb/78614828234323f57b328b61a588209e#file-itrem2-ssh-zsh
+# tabc <profile name> do the profile change
+function tabc() {
+  NAME=$1; if [ -z "$NAME" ]; then NAME="Mars_Default"; fi 
+  # if you have trouble with this, change
+  # "Default" to the name of your default theme
+  echo -e "\033]50;SetProfile=$NAME\a"
+}
+
+# reset the terminal profile to Default  when exit from the ssh session
+function tab-reset() {
+    NAME="Mars_Default"
+    echo -e "\033]50;SetProfile=$NAME\a"
+}
+
+# selecting different terminal profile according to ssh'ing host
+# tabc <profile name> do the profile change
+#   1. Production profile to production server (ssh eranga@production_box) 
+#   2. Staging profile to staging server(ssh eranga@staging_box) 
+#   3. Other profile to any other server(test server, amazon box etc)
+function colorssh() {
+    if [[ -n "$ITERM_SESSION_ID" ]]; then
+        trap "tab-reset" INT EXIT
+        if [[ "$*" =~ "ser_*" ]]; then
+            tabc Mars_Server
+        else
+            tabc Mars_other
+        fi
+    fi
+    ssh $*
+}
+compdef _ssh tabc=ssh
+
+# creates an alias to ssh
+# when execute ssh from the terminal it calls to colorssh function
+alias ssh="colorssh"
+```
+
+### 7.1.4 效果
+<center>
+<img src="%20Beautify-The-Mac-Bash/local_profile.jpg" width=80% >
+</center>
+
+<center>
+<img src="%20Beautify-The-Mac-Bash/ser_profile.jpg" width=80% >
+</center>
+
+## 自定义oh-my-zsh 颜色
+###  自定义提示项颜色
+在使用iterm2的过程，出现了如下的问题。
+在pycharm， vscode中集成了zsh, 由于iterm2默认背景为黑色，而pycharm，vscode背景颜色为白色，导致提示项（标签以及hostname）的颜色不协调。
+1. 原iterm2颜色
+<center>
+<img src="%20Beautify-The-Mac-Bash/defalut_zsh_color.jpg" width=80% >
+</center>
+2. 原pycharm终端颜色
+<center>
+<img src="%20Beautify-The-Mac-Bash/defalut_pycahrm_zsh_color.jpg" width=80% >
+</center>
+3. 原vscode终端颜色
+<center>
+<img src="%20Beautify-The-Mac-Bash/default_vscode_zsh_color.jpg" width=80% >
+</center>
+
+希望能够对提示项的颜色自定义。
+
+修改 ~/.oh-my-zsh/themes/agnoster.zsh-theme 文件（该文件取决与主题选择）中prompt_context() ，将原black修改为自定颜色代码(Xterm Number，Xterm Name皆可name注意大小写)，参考[256 Colors Cheat Sheet](https://www.ditig.com/256-colors-cheat-sheet).
+```shell
+# the theme file depend on your customer theme
+vi ~/.oh-my-zsh/themes/agnoster.zsh-theme
+
+### Prompt components
+# Each component will draw itself, and hide itself if no information needs to be shown
+
+# Context: user@hostname (who am I and where am I)
+prompt_context() {
+  if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+      # prompt_segment black default "%(!.%{%F{black}%}.)%n@%m"
+     prompt_segment cyan default "%(!.%{%F{black}%}.)%n@%m"
+  fi
+}
+```
+
+修改完成后，调用```source ~/.zshrc```激活设置。
+
+笔者选用cyan，效果如下：
+1. iterm2 终端效果
+<center>
+<img src="%20Beautify-The-Mac-Bash/beautify_zsh.jpg" width=80% >
+</center>
+2. vscode 效果
+<center>
+<img src="%20Beautify-The-Mac-Bash/beautify_vscode_zsh.jpg" width=80% >
+</center>
+
+## 自定义hostname颜色
+虽然完成了提示项颜色的自定义，但是发现在终端中cyan背景和绿色字体显示效果不佳，希望能将hotsname修改为黑色。修改hostname与修改提示项颜色类似，在原prompt_context()，中```%n@%m```代表用户名与主机名，在该项前添加颜色项%F{custom_color}即可，笔者最终代码如下：
+```shell
+# the theme file depend on your customer theme
+vi ~/.oh-my-zsh/themes/agnoster.zsh-theme
+
+### Prompt components
+# Each component will draw itself, and hide itself if no information needs to be shown
+
+# Context: user@hostname (who am I and where am I)
+prompt_context() {
+  if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+      # prompt_segment black default "%(!.%{%F{black}%}.)%n@%m"
+     prompt_segment cyan default "%(!.%{%F{black}%}.)%F{black}%n@%m"
+  fi
+}
+```
+修改完成后，调用```source ~/.zshrc```激活设置,最终iterm效果如下：
+<center>
+<img src="%20Beautify-The-Mac-Bash/beautify_hostname.jpg" width=80% >
+</center>
+
+
+
 # 参考文档：
 [1. Iterm2官方文档以及下载链接](https://iterm2.com/)
 
@@ -169,3 +322,6 @@ source ~/.zshrc
 [5. Bash shell / Zsh 里修改前缀 (隐藏用户@主机，添加Git分支名称)](https://www.jianshu.com/p/ee442cb4d6c2)
 
 [6.macOS使用oh-my-zsh美化Terminal,iTerm2,VSCode命令行终端配置教程](https://www.ioiox.com/archives/34.html)
+
+[7. Change terminal color when SSH
+](https://medium.com/rahasak/change-terminal-color-when-ssh-e2a13ccee681)
