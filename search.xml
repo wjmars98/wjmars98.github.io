@@ -84,12 +84,74 @@
 <h1 id="6-vscode-配置"><a href="#6-vscode-配置" class="headerlink" title="6. vscode 配置"></a>6. vscode 配置</h1><p>在vscode中有可能会出现乱码的情况，这是因为终端的字体没有设置好。在设置搜索中，打开setting.json文件，加入</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;terminal.integrated.defaultProfile.osx&quot;</span>: <span class="string">&quot;zsh&quot;</span>,</span><br><span class="line"><span class="string">&quot;terminal.integrated.fontFamily&quot;</span>: <span class="string">&quot;Meslo LG L DZ for Powerline&quot;</span>,</span><br></pre></td></tr></table></figure>
 
+<h1 id="7-拓展"><a href="#7-拓展" class="headerlink" title="7. 拓展"></a>7. 拓展</h1><h2 id="7-1-不同环境的profile切换"><a href="#7-1-不同环境的profile切换" class="headerlink" title="7.1 不同环境的profile切换"></a>7.1 不同环境的profile切换</h2><p>在开发过程，我们会经常掉用到ssh，连接服务器进行开发，此时会产生如下需求：</p>
+<p><strong>希望在不同的环境，自动切换对应的profile。</strong></p>
+<p>比如，我们在local的时候能够使用local profile， 在ssh连接 服务器时，能切换到开发profile。</p>
+<h3 id="7-1-1-构建profiles"><a href="#7-1-1-构建profiles" class="headerlink" title="7.1.1 构建profiles"></a>7.1.1 构建profiles</h3><p>根据我们需求，构建指定profile。<br>例如笔者在开发过程中，会存在本地，与开发环境两种环境，所以构造了三种不同的profile（Mars_Default, Mars_Server, Mars_other）,其中profile命名可以自行定义。</p>
+<center>
+<img src="/2022/04/02/%20Beautify-The-Mac-Bash/profiles.jpg" width="80%">
+</center>
+
+<h3 id="7-1-2-修改域名映射"><a href="#7-1-2-修改域名映射" class="headerlink" title="7.1.2 修改域名映射"></a>7.1.2 修改域名映射</h3><p>实现不同环境自动切换profile的原理，为识别server名中指定部分，触发profile的切换。所以我们需要修改本地的域名映射, 添加上前缀即可。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/hosts</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hosts example</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[server ip1] ser_spider</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[server ip2] ser_stats1</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="7-1-3-创建custom-shell-脚本"><a href="#7-1-3-创建custom-shell-脚本" class="headerlink" title="7.1.3 创建custom shell 脚本"></a>7.1.3 创建custom shell 脚本</h3><p>进入路径, 创建<code>iTrem2-ssh.zsh</code>，其中有样例<code>example.zsh</code>可做参考。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ~/.oh-my-zsh/custom</span><br></pre></td></tr></table></figure>
+<p>往<code>iTrem2-ssh.zsh</code>文件写入脚本，注意其中Mars_Default, Mars_Server, Mars_other 需要根据自身需求进行替换。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## reference: https://gist.github.com/erangaeb/78614828234323f57b328b61a588209e#file-itrem2-ssh-zsh</span></span><br><span class="line"><span class="comment"># tabc &lt;profile name&gt; do the profile change</span></span><br><span class="line">function tabc() &#123;</span><br><span class="line">  NAME=$<span class="number">1</span>; <span class="keyword">if</span> [ -z <span class="string">&quot;$NAME&quot;</span> ]; then NAME=<span class="string">&quot;Mars_Default&quot;</span>; fi </span><br><span class="line">  <span class="comment"># if you have trouble with this, change</span></span><br><span class="line">  <span class="comment"># &quot;Default&quot; to the name of your default theme</span></span><br><span class="line">  echo -e <span class="string">&quot;\033]50;SetProfile=$NAME\a&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># reset the terminal profile to Default  when exit from the ssh session</span></span><br><span class="line">function tab-reset() &#123;</span><br><span class="line">    NAME=<span class="string">&quot;Mars_Default&quot;</span></span><br><span class="line">    echo -e <span class="string">&quot;\033]50;SetProfile=$NAME\a&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># selecting different terminal profile according to ssh&#x27;ing host</span></span><br><span class="line"><span class="comment"># tabc &lt;profile name&gt; do the profile change</span></span><br><span class="line"><span class="comment">#   1. Production profile to production server (ssh eranga@production_box) </span></span><br><span class="line"><span class="comment">#   2. Staging profile to staging server(ssh eranga@staging_box) </span></span><br><span class="line"><span class="comment">#   3. Other profile to any other server(test server, amazon box etc)</span></span><br><span class="line">function colorssh() &#123;</span><br><span class="line">    <span class="keyword">if</span> [[ -n <span class="string">&quot;$ITERM_SESSION_ID&quot;</span> ]]; then</span><br><span class="line">        trap <span class="string">&quot;tab-reset&quot;</span> INT EXIT</span><br><span class="line">        <span class="keyword">if</span> [[ <span class="string">&quot;$*&quot;</span> =~ <span class="string">&quot;ser_*&quot;</span> ]]; then</span><br><span class="line">            tabc Mars_Server</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            tabc Mars_other</span><br><span class="line">        fi</span><br><span class="line">    fi</span><br><span class="line">    ssh $*</span><br><span class="line">&#125;</span><br><span class="line">compdef _ssh tabc=ssh</span><br><span class="line"></span><br><span class="line"><span class="comment"># creates an alias to ssh</span></span><br><span class="line"><span class="comment"># when execute ssh from the terminal it calls to colorssh function</span></span><br><span class="line">alias ssh=<span class="string">&quot;colorssh&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-1-4-效果"><a href="#7-1-4-效果" class="headerlink" title="7.1.4 效果"></a>7.1.4 效果</h3><center>
+<img src="/2022/04/02/%20Beautify-The-Mac-Bash/local_profile.jpg" width="80%">
+</center>
+
+<center>
+<img src="/2022/04/02/%20Beautify-The-Mac-Bash/ser_profile.jpg" width="80%">
+</center>
+
+<h2 id="自定义oh-my-zsh-颜色"><a href="#自定义oh-my-zsh-颜色" class="headerlink" title="自定义oh-my-zsh 颜色"></a>自定义oh-my-zsh 颜色</h2><h3 id="自定义提示项颜色"><a href="#自定义提示项颜色" class="headerlink" title="自定义提示项颜色"></a>自定义提示项颜色</h3><p>在使用iterm2的过程，出现了如下的问题。<br>在pycharm， vscode中集成了zsh, 由于iterm2默认背景为黑色，而pycharm，vscode背景颜色为白色，导致提示项（标签以及hostname）的颜色不协调。</p>
+<ol>
+<li>原iterm2颜色<center>
+<img src="/2022/04/02/%20Beautify-The-Mac-Bash/defalut_zsh_color.jpg" width="80%">
+</center></li>
+<li>原pycharm终端颜色<center>
+<img src="/2022/04/02/%20Beautify-The-Mac-Bash/defalut_pycahrm_zsh_color.jpg" width="80%">
+</center></li>
+<li>原vscode终端颜色<center>
+<img src="/2022/04/02/%20Beautify-The-Mac-Bash/default_vscode_zsh_color.jpg" width="80%">
+</center></li>
+</ol>
+<p>希望能够对提示项的颜色自定义。</p>
+<p>修改 ~&#x2F;.oh-my-zsh&#x2F;themes&#x2F;agnoster.zsh-theme 文件（该文件取决与主题选择）中prompt_context() ，将原black修改为自定颜色代码(Xterm Number，Xterm Name皆可name注意大小写)，参考<a href="https://www.ditig.com/256-colors-cheat-sheet">256 Colors Cheat Sheet</a>.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">the theme file depend on your customer theme</span></span><br><span class="line">vi ~/.oh-my-zsh/themes/agnoster.zsh-theme</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Prompt components</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Each component will draw itself, and hide itself <span class="keyword">if</span> no information needs to be shown</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Context: user@hostname (<span class="built_in">who</span> am I and <span class="built_in">where</span> am I)</span></span><br><span class="line">prompt_context() &#123;</span><br><span class="line">  if [[ &quot;$USERNAME&quot; != &quot;$DEFAULT_USER&quot; || -n &quot;$SSH_CLIENT&quot; ]]; then</span><br><span class="line">      # prompt_segment black default &quot;%(!.%&#123;%F&#123;black&#125;%&#125;.)%n@%m&quot;</span><br><span class="line">     prompt_segment cyan default &quot;%(!.%&#123;%F&#123;black&#125;%&#125;.)%n@%m&quot;</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改完成后，调用<code>source ~/.zshrc</code>激活设置。</p>
+<p>笔者选用cyan，效果如下：</p>
+<ol>
+<li>iterm2 终端效果<center>
+<img src="/2022/04/02/%20Beautify-The-Mac-Bash/beautify_zsh.jpg" width="80%">
+</center></li>
+<li>vscode 效果<center>
+<img src="/2022/04/02/%20Beautify-The-Mac-Bash/beautify_vscode_zsh.jpg" width="80%">
+</center></li>
+</ol>
+<h2 id="自定义hostname颜色"><a href="#自定义hostname颜色" class="headerlink" title="自定义hostname颜色"></a>自定义hostname颜色</h2><p>虽然完成了提示项颜色的自定义，但是发现在终端中cyan背景和绿色字体显示效果不佳，希望能将hotsname修改为黑色。修改hostname与修改提示项颜色类似，在原prompt_context()，中<code>%n@%m</code>代表用户名与主机名，在该项前添加颜色项%F{custom_color}即可，笔者最终代码如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">the theme file depend on your customer theme</span></span><br><span class="line">vi ~/.oh-my-zsh/themes/agnoster.zsh-theme</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Prompt components</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Each component will draw itself, and hide itself <span class="keyword">if</span> no information needs to be shown</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Context: user@hostname (<span class="built_in">who</span> am I and <span class="built_in">where</span> am I)</span></span><br><span class="line">prompt_context() &#123;</span><br><span class="line">  if [[ &quot;$USERNAME&quot; != &quot;$DEFAULT_USER&quot; || -n &quot;$SSH_CLIENT&quot; ]]; then</span><br><span class="line">      # prompt_segment black default &quot;%(!.%&#123;%F&#123;black&#125;%&#125;.)%n@%m&quot;</span><br><span class="line">     prompt_segment cyan default &quot;%(!.%&#123;%F&#123;black&#125;%&#125;.)%F&#123;black&#125;%n@%m&quot;</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改完成后，调用<code>source ~/.zshrc</code>激活设置,最终iterm效果如下：</p>
+<center>
+<img src="/2022/04/02/%20Beautify-The-Mac-Bash/beautify_hostname.jpg" width="80%">
+</center>
+
+
+
 <h1 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h1><p><a href="https://iterm2.com/">1. Iterm2官方文档以及下载链接</a></p>
 <p><a href="https://segmentfault.com/a/1190000039834490">2. mac之 iTerm2 + Oh My Zsh 终端安装教程</a></p>
 <p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">3. oh-my-zsh theme主题方案</a></p>
 <p><a href="https://0clickjacking0.github.io/2020/10/04/oh-my-zsh%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7%E5%90%8D%E6%88%96%E8%80%85%E4%B8%BB%E6%9C%BA%E5%90%8D/">4. oh-my-zsh 隐藏主机名</a></p>
 <p><a href="https://www.jianshu.com/p/ee442cb4d6c2">5. Bash shell &#x2F; Zsh 里修改前缀 (隐藏用户@主机，添加Git分支名称)</a></p>
 <p><a href="https://www.ioiox.com/archives/34.html">6.macOS使用oh-my-zsh美化Terminal,iTerm2,VSCode命令行终端配置教程</a></p>
+<p><a href="https://medium.com/rahasak/change-terminal-color-when-ssh-e2a13ccee681">7. Change terminal color when SSH
+</a></p>
 ]]></content>
       <categories>
         <category>Mac</category>
@@ -654,9 +716,22 @@
   <entry>
     <title>Image Fingerprint</title>
     <url>/2022/06/07/Image%20Fingerprint/</url>
-    <content><![CDATA[<p>When I tried to build a database for images, primary key was required to designed for database principle and each image’s identification. In this article, I explore how to using image hash method to build each image’s fingerprint.</p>
+    <content><![CDATA[<p>When I tried to build a database for images, a parameter was required to designed for the identification of each image. </p>
+<p>In this article, I explored how to establish the fingerprint of each image by combining its<br>image dhash code and text hash code.</p>
 <center>
-    </center>]]></content>
+    <img src="/2022/06/07/Image%20Fingerprint/image_fingerprint_logo.jpg">
+</center>
+
+<span id="more"></span>
+
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>The fingerprint wsa needed when I tried to establish my database for images. This database not only should be able to<br>insert the new image record, but the old record can be updated when its image content changed. Therefore, it’s necessary to<br>build a parameter including the features of primary key(format name) and image content.</p>
+<p>To achieve this two features, I used this two methods below:</p>
+<ol>
+<li>dHash (image feature)</li>
+<li>hexdigest (image format name feature)</li>
+</ol>
+<h1 id="dHash-Method"><a href="#dHash-Method" class="headerlink" title="dHash Method"></a>dHash Method</h1><p>In common case, there are three image hash methods(aHash, pHash and dHash) in mython.</p>
+]]></content>
       <tags>
         <tag>Basic</tag>
       </tags>
@@ -1221,6 +1296,11 @@
       </tags>
   </entry>
   <entry>
+    <title>Scrapy 503 status error solution</title>
+    <url>/2022/06/01/Scrapy-503-status-error-solution/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>SSL</title>
     <url>/2022/04/05/SSL/</url>
     <content><![CDATA[<p>在处理实习的业务需求的时候，涉及到ssl公钥私钥部分的相关知识。本文用以记录与ssl相关的基础知识及其应用。</p>
@@ -1292,11 +1372,6 @@
       <tags>
         <tag>SSL</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Scrapy 503 status error solution</title>
-    <url>/2022/06/01/Scrapy-503-status-error-solution/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Scrapy——DebuggingSpiders</title>
