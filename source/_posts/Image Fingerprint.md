@@ -8,8 +8,9 @@ When I tried to build a database for images, a parameter was required to designe
 
 In this article, I explored how to establish the fingerprint of each image by combining its
 image dhash code and text hash code.
+
 <center>
-	<img src='Image-Fingerprint/image_fingerprint_logo.jpg'>
+	<img src='Image-Fingerprint/image_fingerprint_logo.jpg' width="80%">
 </center>
 
 <!--more-->
@@ -25,4 +26,8 @@ To achieve this two features, I used this two methods below:
 2. hexdigest (image format name feature)
 
 # dHash Method
-In common case, there are three image hash methods(aHash, pHash and dHash) in mython.
+In common case, there are three image hash methods(aHash, pHash and dHash) in mython. I chose the dhash method to generate
+the image hash code.
+
+Dhash, also known as  Difference Hash, is a quick algorithm to compare in images visually. Comparing to ahash and phash,
+this method is far more accurate and quick. That's the most important reason for me to choose this image hash method.
