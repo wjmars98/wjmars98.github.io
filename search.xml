@@ -710,11 +710,11 @@
   </entry>
   <entry>
     <title>Image Fingerprint</title>
-    <url>/2022/06/07/Image%20Fingerprint/</url>
+    <url>/2022/06/07/Image_Fingerprint/</url>
     <content><![CDATA[<p>When I tried to build a database for images, a parameter was required to designed for the identification of each image. </p>
 <p>In this article, I explored how to establish the fingerprint of each image by combining its<br>image dhash code and text hash code.</p>
 <center>
-        <img src="/2022/06/07/Image%20Fingerprint/log4j_logo.jpg" width="80%">
+        <img src="/2022/06/07/Image_Fingerprint/image_fingerprint_logo.jpg" width="80%">
 </center>
 
 
@@ -1432,11 +1432,6 @@
       <tags>
         <tag>scrapy</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Scrapy Image Download</title>
-    <url>/2022/05/07/Scrapy-Image-Download/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Scrapy: Manage Multiple Pipelines</title>
