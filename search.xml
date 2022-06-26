@@ -604,33 +604,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Big Query-Basic</title>
-    <url>/2022/04/11/Big-Query/</url>
-    <content><![CDATA[<p>BigQuery 是一种全代管式企业数据仓库，可帮助您使用机器学习、地理空间分析和商业智能等内置功能管理和分析数据。</p>
-<p>BigQuery 实现分析数据的计算引擎与存储选项分离，可最大限度地提高灵活性。</p>
-<p>BigQuery 界面包括 Google Cloud Console 界面和 BigQuery 命令行工具。</p>
-<p><strong>TO BE CONTINUED …</strong></p>
-<center>
-        <img src="/2022/04/11/Big-Query/bq_logo.jpg" width="80%">
-</center>
-
-<span id="more"></span>
-
-<h1 id="Quick-Begin"><a href="#Quick-Begin" class="headerlink" title="Quick Begin"></a>Quick Begin</h1><p>笔者感觉bq的配置、指令、命令行类的操作细节不该是本篇的关注的重点，否则文章会显得冗杂、无味，故对于此部分只会摘录google官网上的相关的文档链接，读者自行通读，在工作中边实践边学习。</p>
-<p>本篇将主要集中于bq的存储、分析、管理等工作原理，以及工作中遇到的有价值的问题与知识。</p>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p><a href="https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console?hl=zh-cn">1. Cloud Console</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-console?hl=zh-cn">2. 加载与查询数据</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-bq?hl=zh-cn">3. 命令行工具</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries?hl=zh-cn#bigquery_simple_app_client-java">4.  客户端库</a><br><a href="https://github.com/googleapis/java-bigquery/tree/f9f7abdede91e8f780d5a60b6ee9a26e9316d04d">5. BQ java指令 github仓库</a></p>
-<h2 id="付费情况"><a href="#付费情况" class="headerlink" title="付费情况"></a>付费情况</h2><h2 id="流媒体"><a href="#流媒体" class="headerlink" title="流媒体"></a>流媒体</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
-<li><a href="https://cloud.google.com/bigquery/docs/introduction?hl=zh-cn">BQ官方文档</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Big Data</category>
-      </categories>
-      <tags>
-        <tag>big query</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Brew</title>
     <url>/2022/03/28/Homebrew/</url>
     <content><![CDATA[<p>在使用mac系统的时候，和win 的一个区别在于sofeware的安装，要将从int下载下来的包，拽入app store中，安装在指定的位置。后来发现mac中存在一个工具——homebrew，能有效的帮助用户下载和管理相应的应用软件。本文也是记录下一些常用的homebrew的用法，提高homebrew的使用。</p>
@@ -714,12 +687,39 @@
       </tags>
   </entry>
   <entry>
+    <title>Big Query-Basic</title>
+    <url>/2022/04/11/Big-Query/</url>
+    <content><![CDATA[<p>BigQuery 是一种全代管式企业数据仓库，可帮助您使用机器学习、地理空间分析和商业智能等内置功能管理和分析数据。</p>
+<p>BigQuery 实现分析数据的计算引擎与存储选项分离，可最大限度地提高灵活性。</p>
+<p>BigQuery 界面包括 Google Cloud Console 界面和 BigQuery 命令行工具。</p>
+<p><strong>TO BE CONTINUED …</strong></p>
+<center>
+        <img src="/2022/04/11/Big-Query/bq_logo.jpg" width="80%">
+</center>
+
+<span id="more"></span>
+
+<h1 id="Quick-Begin"><a href="#Quick-Begin" class="headerlink" title="Quick Begin"></a>Quick Begin</h1><p>笔者感觉bq的配置、指令、命令行类的操作细节不该是本篇的关注的重点，否则文章会显得冗杂、无味，故对于此部分只会摘录google官网上的相关的文档链接，读者自行通读，在工作中边实践边学习。</p>
+<p>本篇将主要集中于bq的存储、分析、管理等工作原理，以及工作中遇到的有价值的问题与知识。</p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p><a href="https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console?hl=zh-cn">1. Cloud Console</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-console?hl=zh-cn">2. 加载与查询数据</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/load-data-bq?hl=zh-cn">3. 命令行工具</a><br><a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries?hl=zh-cn#bigquery_simple_app_client-java">4.  客户端库</a><br><a href="https://github.com/googleapis/java-bigquery/tree/f9f7abdede91e8f780d5a60b6ee9a26e9316d04d">5. BQ java指令 github仓库</a></p>
+<h2 id="付费情况"><a href="#付费情况" class="headerlink" title="付费情况"></a>付费情况</h2><h2 id="流媒体"><a href="#流媒体" class="headerlink" title="流媒体"></a>流媒体</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a href="https://cloud.google.com/bigquery/docs/introduction?hl=zh-cn">BQ官方文档</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>big query</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Image Fingerprint</title>
     <url>/2022/06/07/Image%20Fingerprint/</url>
     <content><![CDATA[<p>When I tried to build a database for images, a parameter was required to designed for the identification of each image. </p>
 <p>In this article, I explored how to establish the fingerprint of each image by combining its<br>image dhash code and text hash code.</p>
 <center>
-    <img src="/2022/06/07/Image%20Fingerprint/image_fingerprint_logo.jpg" width="80%">
+        <img src="/2022/06/07/Image%20Fingerprint/linux-logo.png" width="80%">
 </center>
 
 <span id="more"></span>
@@ -1070,6 +1070,61 @@
       </tags>
   </entry>
   <entry>
+    <title>Mysql WorkBench</title>
+    <url>/2022/05/24/Mysql-WorkBench/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Pyenv</title>
+    <url>/2022/04/02/Pyenv/</url>
+    <content><![CDATA[<p>在python编程的过程中，经常需要在2.x 与  3.x 中进行切换，2和3两个版本间差异巨大，需要进行管理。</p>
+<p>pyenv是一个forked自ruby社区的简单、低调、遵循UNIX哲学的Python环境管理工具, 它可以轻松切换全局解释器版本, 同时结合vitualenv插件可以方便的管理对应的包源.</p>
+<p>pyenv和virtualenv。前者用于管理不同的Python版本，后者用 于管理不同的工作环境，能够极好得解决我们工作学习中遇到的python版本环境控制问题。</p>
+<span id="more"></span>
+
+<h1 id="Pyenv简介"><a href="#Pyenv简介" class="headerlink" title="Pyenv简介"></a>Pyenv简介</h1><p>如前言所言，pyenv允许用户在不同版本的python中切换。pyenv基于rbenv进行开发，由ruby语言进行编程，为python而准备的。</p>
+<h2 id="Pyenv-用处"><a href="#Pyenv-用处" class="headerlink" title="Pyenv 用处"></a>Pyenv 用处</h2><ol>
+<li>允许用户更改全局python的版本</li>
+<li>为每个python版本都提供支持</li>
+<li>允许使用环境变量重写python版本</li>
+<li>有助于使用 tox 跨 Python 版本进行测试</li>
+</ol>
+<h2 id="Pyenv-不允许"><a href="#Pyenv-不允许" class="headerlink" title="Pyenv 不允许"></a>Pyenv 不允许</h2><ol>
+<li>pyenv是由shell 脚本编写的，不存在python的引导问题。</li>
+<li>需要将把pyenv安装目录载入到环境中。</li>
+<li>pyenv无法管理虚拟环境，但是可以利用 virtualenv或者 pyenv-virtualenv实现。</li>
+</ol>
+<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>pyenv 就是使用了中间层的原理来实现的的，即 shims&#x2F;垫片。</p>
+<h2 id="初始化-pyenv"><a href="#初始化-pyenv" class="headerlink" title="初始化 pyenv"></a>初始化 pyenv</h2><p>安装 pyenv 后，需要在当前 shell 的配置文件（bash 为 ~&#x2F;.bashrc，zsh 为 ~&#x2F;.zshrc 等等）中增加相应命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/data/sammyshen/.pyenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv init -)</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv virtualenv-init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这几个命令在每次登陆 shell 时，会更改 PATH 环境变量，将 pyenv 的路径加入到 PATH 环境变量前面。</p>
+<h2 id="shims-x2F-垫片的简化基本原理"><a href="#shims-x2F-垫片的简化基本原理" class="headerlink" title="shims&#x2F;垫片的简化基本原理"></a>shims&#x2F;垫片的简化基本原理</h2><p>Linux 执行命令时，是依次遍历 PATH 环境变量的每个路径，查找所执行的命令。当在某个目录下找到第一个匹配时即停止遍历，所以 PATH 环境变量中，前面的路径比后面的路径具有更高的优先级。</p>
+<p>pyenv 在 <del>&#x2F;.pyenv&#x2F;shims 目录下创建了各种 python 相关命令的垫片（</del>&#x2F;.bashrc 中加入的命令调用 pyenv-rehash 生成的，pyenv install 命令也会调用 pyenv-rehash 进行更新）</p>
+<center>
+        <img src="/2022/04/02/Pyenv/shim.jpg">
+</center>
+
+<p>从脚本内容可以看出，当我们执行某个命令 program “param1” “param2” ……时，实际执行的是 pyenv exec “program” “param1” “param2” ……。</p>
+<p>例如执行 python -V，实际执行的是 pyenv exec python -V。</p>
+<h2 id="确定版本号"><a href="#确定版本号" class="headerlink" title="确定版本号"></a>确定版本号</h2><p>在 pyenv-exec 命令中，首先会调用 pyenv-version-name 确定 python 版本或虚拟环境版本，具体查找规则为：</p>
+<center>
+        <img src="/2022/04/02/Pyenv/Pyenv 确定版本号.jpg" width="80%">
+</center>
+
+<h2 id="确定与版本号对应的可执行文件"><a href="#确定与版本号对应的可执行文件" class="headerlink" title="确定与版本号对应的可执行文件"></a>确定与版本号对应的可执行文件</h2><p>在 pyenv-exec 命令中，会再调用 pyenv-which 确定可执行文件 program 的路径。如果前面 pyenv-version-name 确定了 python 版本或虚拟环境版本，则使用 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;bin&#x2F;&lt;程序名&gt; 或 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;env&#x2F;&lt;虚拟环境名&gt;&#x2F;bin&#x2F;&lt;程序名&gt;，否则遍历所有版本号的安装路径，按顺序取第一个匹配到的可执行文件。</p>
+<h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><p>确定与版本号对应的可执行文件路径 path 之后，执行以下命令：<br>exec -a program “$path” “param1” “param2” ……</p>
+<p>（注：即执行 “$path” “param1” “param2”，并使用 program 作为程序名，程序名即 shell 中的 $0，python 中的 sys.argv0）<br>例如执行 python -V，确定 pyenv 版本为 2.7.17，对应可执行文件为 ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python，则执行命令为：<br>exec -a python ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python -V<br>以上就是 pyenv 执行命令的基本原理了。</p>
+<h1 id="pyenv常用指令"><a href="#pyenv常用指令" class="headerlink" title="pyenv常用指令"></a>pyenv常用指令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建新的环境,位于 ~/.pyenv/versions/</span></span><br><span class="line">$ pyenv virtualenv 2.7.1 env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到新的环境</span></span><br><span class="line">$ pyenv activate env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退回到系统环境</span></span><br><span class="line">$ pyenv deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除新创建的环境</span></span><br><span class="line">$ <span class="built_in">rm</span> -rf ~/.pyenv/versions/env271/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前 pyenv 可检测到的所有版本，处于激活状态的版本前以 * 标示。</span></span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">* 3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line">  3.5.1/envs/flask_py351</span><br><span class="line">  3.5.1/envs/pelican</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前处于激活状态的版本，括号中内容表示这个版本是由哪条途径激活的（global、local、shell）</span></span><br><span class="line">$ pyenv version</span><br><span class="line">3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python-build（一个插件） 安装一个 Python 版本，到 $PYENV_ROOT/versions 路径下。</span></span><br><span class="line">$ pyenv install -v 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">$ pyenv uninstall 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为所有已安装的可执行文件 （如：~/.pyenv/versions/*/bin/*） 创建 shims，</span></span><br><span class="line"><span class="comment"># 因此，每当你增删了 Python 版本或带有可执行文件的包（如 pip）以后，都应该执行一次本命令</span></span><br><span class="line">$ pyenv <span class="built_in">rehash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置全局的 Python 版本，通过将版本号写入 ~/.pyenv/version 文件的方式。</span></span><br><span class="line">$ pyenv global 3.4.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向程序的本地版本，通过将版本号写入当前目录下的 .python-version 文件的方式。</span></span><br><span class="line"><span class="comment"># 通过这种方式设置的 Python 版本优先级较 global 高。pyenv 会从当前目录开始向上逐级查找 .python-version 文件，直到根目录为止。</span></span><br><span class="line"><span class="comment">#若找不到，就用 global 版本。</span></span><br><span class="line">$ pyenv <span class="built_in">local</span> 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向 shell 的 Python 版本，通过设置当前 shell 的 PYENV_VERSION 环境变量的方式。</span></span><br><span class="line"><span class="comment"># 这个版本的优先级比 local 和 global 都要高。--unset 参数可以用于取消当前 shell 设定的版本。</span></span><br><span class="line">$ pyenv shell pypy-2.2.1</span><br><span class="line">$ pyenv shell --<span class="built_in">unset</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://github.com/pyenv/pyenv">1. pyenv-官方文档</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1593478">2. pyenv神器原理分析</a></p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ripple--The News Real Time Heat Analysis Platform</title>
     <url>/2022/03/20/Ripple-The-News-Real-Time-Heat-Analysis-Platform/</url>
     <content><![CDATA[<p>Ripple 该平台实现对当前新闻网舆论热点事件的实时可视化分析，主要在<a href="https://www.bilibili.com/video/BV1mK411T7WY?p=1">B站:新闻网大数据实时分析可视化系统</a>这一项目基础进行进一步改造，使用框架组件包括：Hadoop、Zookeeper、Flume、Kafka、Hive、HBase、Cloudera HUE、Spark、Echart等。</p>
@@ -1331,6 +1386,16 @@
       </tags>
   </entry>
   <entry>
+    <title>Scrapy Image Download</title>
+    <url>/2022/05/07/Scrapy-Image-Download/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Scrapy 503 status error solution</title>
+    <url>/2022/06/01/Scrapy-503-status-error-solution/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Scrapy——DebuggingSpiders</title>
     <url>/2022/04/28/Scrapy-Debug/</url>
     <content><![CDATA[<p>在使用scrapy的时候，由于不能像平常一样对代码进行调试，花费了大量的时间在scrapy运行的等待上，每次溯源去寻找问题都非常麻烦。后来发现scrapy也有属于自己的调试方法，也用此文来记录学习一下scrapy的调试知识。</p>
@@ -1381,119 +1446,6 @@
       <tags>
         <tag>scrapy</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Scrapy 503 status error solution</title>
-    <url>/2022/06/01/Scrapy-503-status-error-solution/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Scrapy Image Download</title>
-    <url>/2022/05/07/Scrapy-Image-Download/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Scrapy: Manage Multiple Pipelines</title>
-    <url>/2022/05/10/Scrapy-Manage-Multiple-Pipelines/</url>
-    <content><![CDATA[<p>It’s a common situation that managing multiple pipelines are required  when we try to develop some scrapy projects and decide the order of the pipelines. </p>
-<p>What’s worse, there may be not only one spider in the porject, and each  spider own different requirements to the project pipelines. And there is no doubt that <strong>effective management of pipelines can greatly improve our efficiency</strong> which is also the purpose of this article.</p>
-<center>
-    <img src="/2022/05/10/Scrapy-Manage-Multiple-Pipelines/logo.png" , width="80%">
-</center>
-<span id="more"></span>
-
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>To be more specific, I would love to share a software developing program situation appeared in my program developing process.</p>
-<p>When I tried to develop a scrapy project to crawl some data on the imdb website, which not only included the titles and release time, rating and other text data, but also contained the images data like movie posters, I found the a single item contains both.</p>
-<p>To solve this problem, of course, we can try to create different spiders which can crawl text data while the other can crawl image data. However, basing on our observation, this data can be crawled by only one spider if we can assemble a functional pipeline module.  Comparing to the first solution, this approach has several advantages:</p>
-<ul>
-<li>High Efficiency</li>
-<li>Code Modularization</li>
-<li>Easy to Debug</li>
-</ul>
-<h2 id="Understand-Pipeline-Module"><a href="#Understand-Pipeline-Module" class="headerlink" title="Understand Pipeline Module"></a>Understand Pipeline Module</h2><p>According to <a href="https://docs.scrapy.org/en/latest/topics/item-pipeline.html">scrapy document</a>, the pipeline is briefly descriped as: </p>
-<blockquote>
-<p>Item has been scraped by a spider, it is sent to the Item Pipeline which processes it through several components that are executed sequentially.</p>
-</blockquote>
-<p>As mentioned above, pipeline is designed to process the item data from spiders. And to achieve the designated function, we can try to assemble a number of pipelines in a specific order which is the key to  make a pipeline module to implement complex functions.</p>
-<p>As the following code shows, the “custom_setting” decided each pipelines’ order for item data.  In this way, we can make full use of the data contained in item.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># For example</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MovieSpider</span>(scrapy.Spider):</span><br><span class="line">    name = <span class="string">&quot;list&quot;</span></span><br><span class="line">    allowed_domains = [<span class="string">&quot;imdb.com&quot;</span>]</span><br><span class="line">    start_urls = [<span class="string">&quot;https://www.imdb.com/title/tt4788734/&quot;</span>]</span><br><span class="line"></span><br><span class="line">    custom_settings = &#123;</span><br><span class="line">        <span class="string">&quot;ITEM_PIPELINES&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.InitSettingPipeline&quot;</span>: <span class="number">100</span>,</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.BannerPipeline&quot;</span>: <span class="number">200</span>,</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.ImagePipeline&quot;</span>: <span class="number">400</span>,</span><br><span class="line">            <span class="string">&#x27;imdbSpider.pipelines.ProcessImagePipeline&#x27;</span>: <span class="number">500</span>,</span><br><span class="line">            <span class="string">&#x27;imdbSpider.pipelines.UploadPipeline&#x27;</span>: <span class="number">600</span>,</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.ListPipeline&quot;</span>: <span class="number">700</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="Crawl-Requirements"><a href="#Crawl-Requirements" class="headerlink" title="Crawl Requirements"></a>Crawl Requirements</h2><p>Firstly, let me to show you the project requirement  as following.</p>
-<p>Target crawk website: <a href="https://www.imdb.com/title/tt1877830">imd: The Batman</a></p>
-<center>
-        <img src="/2022/05/10/Scrapy-Manage-Multiple-Pipelines/imdb-the-batman.jpg" , width="80%">
-</center>
-
-<p>Target crawl text info:</p>
-<ul>
-<li><p>Text: title, rating, description</p>
-</li>
-<li><p>Image: image</p>
-</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://docs.scrapy.org/en/latest/intro/overview.html">1. Scrapy at a glance</a></p>
-]]></content>
-      <categories>
-        <category>Big Data</category>
-      </categories>
-      <tags>
-        <tag>scrapy</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Pyenv</title>
-    <url>/2022/04/02/Pyenv/</url>
-    <content><![CDATA[<p>在python编程的过程中，经常需要在2.x 与  3.x 中进行切换，2和3两个版本间差异巨大，需要进行管理。</p>
-<p>pyenv是一个forked自ruby社区的简单、低调、遵循UNIX哲学的Python环境管理工具, 它可以轻松切换全局解释器版本, 同时结合vitualenv插件可以方便的管理对应的包源.</p>
-<p>pyenv和virtualenv。前者用于管理不同的Python版本，后者用 于管理不同的工作环境，能够极好得解决我们工作学习中遇到的python版本环境控制问题。</p>
-<span id="more"></span>
-
-<h1 id="Pyenv简介"><a href="#Pyenv简介" class="headerlink" title="Pyenv简介"></a>Pyenv简介</h1><p>如前言所言，pyenv允许用户在不同版本的python中切换。pyenv基于rbenv进行开发，由ruby语言进行编程，为python而准备的。</p>
-<h2 id="Pyenv-用处"><a href="#Pyenv-用处" class="headerlink" title="Pyenv 用处"></a>Pyenv 用处</h2><ol>
-<li>允许用户更改全局python的版本</li>
-<li>为每个python版本都提供支持</li>
-<li>允许使用环境变量重写python版本</li>
-<li>有助于使用 tox 跨 Python 版本进行测试</li>
-</ol>
-<h2 id="Pyenv-不允许"><a href="#Pyenv-不允许" class="headerlink" title="Pyenv 不允许"></a>Pyenv 不允许</h2><ol>
-<li>pyenv是由shell 脚本编写的，不存在python的引导问题。</li>
-<li>需要将把pyenv安装目录载入到环境中。</li>
-<li>pyenv无法管理虚拟环境，但是可以利用 virtualenv或者 pyenv-virtualenv实现。</li>
-</ol>
-<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>pyenv 就是使用了中间层的原理来实现的的，即 shims&#x2F;垫片。</p>
-<h2 id="初始化-pyenv"><a href="#初始化-pyenv" class="headerlink" title="初始化 pyenv"></a>初始化 pyenv</h2><p>安装 pyenv 后，需要在当前 shell 的配置文件（bash 为 ~&#x2F;.bashrc，zsh 为 ~&#x2F;.zshrc 等等）中增加相应命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/data/sammyshen/.pyenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv init -)</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv virtualenv-init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>这几个命令在每次登陆 shell 时，会更改 PATH 环境变量，将 pyenv 的路径加入到 PATH 环境变量前面。</p>
-<h2 id="shims-x2F-垫片的简化基本原理"><a href="#shims-x2F-垫片的简化基本原理" class="headerlink" title="shims&#x2F;垫片的简化基本原理"></a>shims&#x2F;垫片的简化基本原理</h2><p>Linux 执行命令时，是依次遍历 PATH 环境变量的每个路径，查找所执行的命令。当在某个目录下找到第一个匹配时即停止遍历，所以 PATH 环境变量中，前面的路径比后面的路径具有更高的优先级。</p>
-<p>pyenv 在 <del>&#x2F;.pyenv&#x2F;shims 目录下创建了各种 python 相关命令的垫片（</del>&#x2F;.bashrc 中加入的命令调用 pyenv-rehash 生成的，pyenv install 命令也会调用 pyenv-rehash 进行更新）</p>
-<center>
-        <img src="/2022/04/02/Pyenv/shim.jpg">
-</center>
-
-<p>从脚本内容可以看出，当我们执行某个命令 program “param1” “param2” ……时，实际执行的是 pyenv exec “program” “param1” “param2” ……。</p>
-<p>例如执行 python -V，实际执行的是 pyenv exec python -V。</p>
-<h2 id="确定版本号"><a href="#确定版本号" class="headerlink" title="确定版本号"></a>确定版本号</h2><p>在 pyenv-exec 命令中，首先会调用 pyenv-version-name 确定 python 版本或虚拟环境版本，具体查找规则为：</p>
-<center>
-        <img src="/2022/04/02/Pyenv/Pyenv 确定版本号.jpg" width="80%">
-</center>
-
-<h2 id="确定与版本号对应的可执行文件"><a href="#确定与版本号对应的可执行文件" class="headerlink" title="确定与版本号对应的可执行文件"></a>确定与版本号对应的可执行文件</h2><p>在 pyenv-exec 命令中，会再调用 pyenv-which 确定可执行文件 program 的路径。如果前面 pyenv-version-name 确定了 python 版本或虚拟环境版本，则使用 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;bin&#x2F;&lt;程序名&gt; 或 &lt;pyenv 安装路径&gt;&#x2F;versions&#x2F;&lt;版本号&gt;&#x2F;env&#x2F;&lt;虚拟环境名&gt;&#x2F;bin&#x2F;&lt;程序名&gt;，否则遍历所有版本号的安装路径，按顺序取第一个匹配到的可执行文件。</p>
-<h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><p>确定与版本号对应的可执行文件路径 path 之后，执行以下命令：<br>exec -a program “$path” “param1” “param2” ……</p>
-<p>（注：即执行 “$path” “param1” “param2”，并使用 program 作为程序名，程序名即 shell 中的 $0，python 中的 sys.argv0）<br>例如执行 python -V，确定 pyenv 版本为 2.7.17，对应可执行文件为 ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python，则执行命令为：<br>exec -a python ~&#x2F;.pyenv&#x2F;versions&#x2F;2.7.17&#x2F;bin&#x2F;python -V<br>以上就是 pyenv 执行命令的基本原理了。</p>
-<h1 id="pyenv常用指令"><a href="#pyenv常用指令" class="headerlink" title="pyenv常用指令"></a>pyenv常用指令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建新的环境,位于 ~/.pyenv/versions/</span></span><br><span class="line">$ pyenv virtualenv 2.7.1 env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到新的环境</span></span><br><span class="line">$ pyenv activate env271</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退回到系统环境</span></span><br><span class="line">$ pyenv deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除新创建的环境</span></span><br><span class="line">$ <span class="built_in">rm</span> -rf ~/.pyenv/versions/env271/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前 pyenv 可检测到的所有版本，处于激活状态的版本前以 * 标示。</span></span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">* 3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line">  3.5.1/envs/flask_py351</span><br><span class="line">  3.5.1/envs/pelican</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前处于激活状态的版本，括号中内容表示这个版本是由哪条途径激活的（global、local、shell）</span></span><br><span class="line">$ pyenv version</span><br><span class="line">3.5.1 (<span class="built_in">set</span> by /root/.pyenv/version)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python-build（一个插件） 安装一个 Python 版本，到 $PYENV_ROOT/versions 路径下。</span></span><br><span class="line">$ pyenv install -v 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">$ pyenv uninstall 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为所有已安装的可执行文件 （如：~/.pyenv/versions/*/bin/*） 创建 shims，</span></span><br><span class="line"><span class="comment"># 因此，每当你增删了 Python 版本或带有可执行文件的包（如 pip）以后，都应该执行一次本命令</span></span><br><span class="line">$ pyenv <span class="built_in">rehash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置全局的 Python 版本，通过将版本号写入 ~/.pyenv/version 文件的方式。</span></span><br><span class="line">$ pyenv global 3.4.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向程序的本地版本，通过将版本号写入当前目录下的 .python-version 文件的方式。</span></span><br><span class="line"><span class="comment"># 通过这种方式设置的 Python 版本优先级较 global 高。pyenv 会从当前目录开始向上逐级查找 .python-version 文件，直到根目录为止。</span></span><br><span class="line"><span class="comment">#若找不到，就用 global 版本。</span></span><br><span class="line">$ pyenv <span class="built_in">local</span> 2.7.3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置面向 shell 的 Python 版本，通过设置当前 shell 的 PYENV_VERSION 环境变量的方式。</span></span><br><span class="line"><span class="comment"># 这个版本的优先级比 local 和 global 都要高。--unset 参数可以用于取消当前 shell 设定的版本。</span></span><br><span class="line">$ pyenv shell pypy-2.2.1</span><br><span class="line">$ pyenv shell --<span class="built_in">unset</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://github.com/pyenv/pyenv">1. pyenv-官方文档</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1593478">2. pyenv神器原理分析</a></p>
-]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mysql WorkBench</title>
-    <url>/2022/05/24/Mysql-WorkBench/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Scrapy Introduction</title>
@@ -1588,6 +1540,54 @@
 <li><a href="https://segmentfault.com/a/1190000013178839">Scrapy框架简介</a></li>
 <li><a href="https://scrapy-chs.readthedocs.io/zh_CN/0.24/intro/overview.html">Scrapy官方文档</a></li>
 </ol>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>scrapy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Scrapy: Manage Multiple Pipelines</title>
+    <url>/2022/05/10/Scrapy-Manage-Multiple-Pipelines/</url>
+    <content><![CDATA[<p>It’s a common situation that managing multiple pipelines are required  when we try to develop some scrapy projects and decide the order of the pipelines. </p>
+<p>What’s worse, there may be not only one spider in the porject, and each  spider own different requirements to the project pipelines. And there is no doubt that <strong>effective management of pipelines can greatly improve our efficiency</strong> which is also the purpose of this article.</p>
+<center>
+    <img src="/2022/05/10/Scrapy-Manage-Multiple-Pipelines/logo.png" , width="80%">
+</center>
+<span id="more"></span>
+
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>To be more specific, I would love to share a software developing program situation appeared in my program developing process.</p>
+<p>When I tried to develop a scrapy project to crawl some data on the imdb website, which not only included the titles and release time, rating and other text data, but also contained the images data like movie posters, I found the a single item contains both.</p>
+<p>To solve this problem, of course, we can try to create different spiders which can crawl text data while the other can crawl image data. However, basing on our observation, this data can be crawled by only one spider if we can assemble a functional pipeline module.  Comparing to the first solution, this approach has several advantages:</p>
+<ul>
+<li>High Efficiency</li>
+<li>Code Modularization</li>
+<li>Easy to Debug</li>
+</ul>
+<h2 id="Understand-Pipeline-Module"><a href="#Understand-Pipeline-Module" class="headerlink" title="Understand Pipeline Module"></a>Understand Pipeline Module</h2><p>According to <a href="https://docs.scrapy.org/en/latest/topics/item-pipeline.html">scrapy document</a>, the pipeline is briefly descriped as: </p>
+<blockquote>
+<p>Item has been scraped by a spider, it is sent to the Item Pipeline which processes it through several components that are executed sequentially.</p>
+</blockquote>
+<p>As mentioned above, pipeline is designed to process the item data from spiders. And to achieve the designated function, we can try to assemble a number of pipelines in a specific order which is the key to  make a pipeline module to implement complex functions.</p>
+<p>As the following code shows, the “custom_setting” decided each pipelines’ order for item data.  In this way, we can make full use of the data contained in item.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># For example</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MovieSpider</span>(scrapy.Spider):</span><br><span class="line">    name = <span class="string">&quot;list&quot;</span></span><br><span class="line">    allowed_domains = [<span class="string">&quot;imdb.com&quot;</span>]</span><br><span class="line">    start_urls = [<span class="string">&quot;https://www.imdb.com/title/tt4788734/&quot;</span>]</span><br><span class="line"></span><br><span class="line">    custom_settings = &#123;</span><br><span class="line">        <span class="string">&quot;ITEM_PIPELINES&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.InitSettingPipeline&quot;</span>: <span class="number">100</span>,</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.BannerPipeline&quot;</span>: <span class="number">200</span>,</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.ImagePipeline&quot;</span>: <span class="number">400</span>,</span><br><span class="line">            <span class="string">&#x27;imdbSpider.pipelines.ProcessImagePipeline&#x27;</span>: <span class="number">500</span>,</span><br><span class="line">            <span class="string">&#x27;imdbSpider.pipelines.UploadPipeline&#x27;</span>: <span class="number">600</span>,</span><br><span class="line">            <span class="string">&quot;imdbSpider.pipelines.ListPipeline&quot;</span>: <span class="number">700</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="Crawl-Requirements"><a href="#Crawl-Requirements" class="headerlink" title="Crawl Requirements"></a>Crawl Requirements</h2><p>Firstly, let me to show you the project requirement  as following.</p>
+<p>Target crawk website: <a href="https://www.imdb.com/title/tt1877830">imd: The Batman</a></p>
+<center>
+        <img src="/2022/05/10/Scrapy-Manage-Multiple-Pipelines/imdb-the-batman.jpg" , width="80%">
+</center>
+
+<p>Target crawl text info:</p>
+<ul>
+<li><p>Text: title, rating, description</p>
+</li>
+<li><p>Image: image</p>
+</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://docs.scrapy.org/en/latest/intro/overview.html">1. Scrapy at a glance</a></p>
 ]]></content>
       <categories>
         <category>Big Data</category>
@@ -1797,6 +1797,70 @@
       </tags>
   </entry>
   <entry>
+    <title>crontab</title>
+    <url>/2022/05/02/crontab/</url>
+    <content><![CDATA[<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令，可以实现某一任务在指定的时间运行。</p>
+<span id="more"></span>
+
+<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令。</p>
+<h1 id="crontab配置文件"><a href="#crontab配置文件" class="headerlink" title="crontab配置文件"></a>crontab配置文件</h1><p>在centos系统中，通过调用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看配置指令</span></span><br><span class="line">cat /etc/crontab</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">能够看到如下解释</span></span><br><span class="line">SHELL=/bin/bash</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">MAILTO=root</span><br><span class="line">HOME=/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">For details see man 4 crontabs</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example of job definition:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.---------------- minute (0 - 59)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| .------------- hour (0 - 23)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | |</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">* * * * * user-name <span class="built_in">command</span> to be executed</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="crontab文件含义"><a href="#crontab文件含义" class="headerlink" title="crontab文件含义"></a>crontab文件含义</h1><p>前四行是用来配置crond任务运行的环境变量</p>
+<ol>
+<li><p>第一行SHELL变量指定了系统要使用哪个shell，这里是bash；</p>
+</li>
+<li><p>第二行PATH变量指定了系统执行命令的路径；</p>
+</li>
+<li><p>第三行MAILTO变量指定了crond的任务执行信息将通过电子邮件发送给root用户，如果MAILTO变量的值为空，则表示不发送任务执行信息给用户；</p>
+</li>
+<li><p>第四行的HOME变量指定了在执行命令或者脚本时使用的主目录。</p>
+</li>
+</ol>
+<center>
+    <img src="/2022/05/02/crontab/crontab.png" , width="80%">
+</center>
+
+<p>在以上各个字段中，还可以使用以下特殊字符：</p>
+<p>“*“代表所有的取值范围内的数字，如月份字段为*，则表示1到12个月；</p>
+<p>“&#x2F;“代表每一定时间间隔的意思，如分钟字段为*&#x2F;10，表示每10分钟执行1次。</p>
+<p>“-“代表从某个区间范围，是闭区间。如“2-5”表示“2,3,4,5”，小时字段中0-23&#x2F;2表示在0~23点范围内每2个小时执行一次。</p>
+<p>“,”分散的数字（不一定连续），如1,2,3,4,7,9。</p>
+<p>注：由于各个地方每周第一天不一样，因此Sunday&#x3D;0（第一天）或Sunday&#x3D;7（最后1天）。</p>
+<h1 id="crontab命令详解"><a href="#crontab命令详解" class="headerlink" title="crontab命令详解"></a>crontab命令详解</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab [-u user] file</span><br><span class="line">crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-u user：用于设定某个用户的crontab服务；</li>
+<li>file: file为命令文件名，表示将file作为crontab的任务列表文件并载入crontab；</li>
+<li>-e：编辑某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
+<li>-l：显示某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
+<li>-r：从&#x2F;var&#x2F;spool&#x2F;cron目录中删除某个用户的crontab文件。</li>
+<li>-i：在删除用户的crontab文件时给确认提示。</li>
+</ul>
+<h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ol>
+<li><p>crontab有2种编辑方式：直接编辑&#x2F;etc&#x2F;crontab文件与<br>crontab –e，其中&#x2F;etc&#x2F;crontab里的计划任务是系统中的计划任务，而用户的计划任务需要通过crontab –e来编辑；</p>
+</li>
+<li><p>每次编辑完某个用户的cron设置后，cron自动在&#x2F;var&#x2F;spool&#x2F;cron下生成一个与此用户同名的文件，此用户的cron信息都记录在这个文件中，这个文件是不可以直接编辑的，只可以用crontab -e 来编辑。</p>
+</li>
+<li><p>crontab中的command尽量使用绝对路径，否则会经常因为路径错误导致任务无法执行。</p>
+</li>
+<li><p>新创建的cron job不会马上执行，至少要等2分钟才能执行，可从起cron来立即执行。</p>
+</li>
+<li><p>%在crontab文件中表示“换行”，因此假如脚本或命令含有%,需要使用%来进行转义。</p>
+</li>
+</ol>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
+<li><a href="https://www.linuxprobe.com/how-to-crontab.html">crontab用法与实例</a></li>
+<li><a href="https://man7.org/linux/man-pages/man5/crontab.5.html">crontab(5) — Linux manual page</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Basic</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>imdb-scrapy</title>
     <url>/2022/04/22/imdb-scrapy/</url>
     <content><![CDATA[<p>在有了一定的scrapy基础之后，便可以尝试将scrapy的知识应用起来，做一些小项目。本文将介绍一个基于scrapy的imdb数据爬取项目，其主要功能有以下三点：</p>
@@ -1934,70 +1998,6 @@
       </categories>
       <tags>
         <tag>Log4j</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>crontab</title>
-    <url>/2022/05/02/crontab/</url>
-    <content><![CDATA[<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令，可以实现某一任务在指定的时间运行。</p>
-<span id="more"></span>
-
-<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令。</p>
-<h1 id="crontab配置文件"><a href="#crontab配置文件" class="headerlink" title="crontab配置文件"></a>crontab配置文件</h1><p>在centos系统中，通过调用</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看配置指令</span></span><br><span class="line">cat /etc/crontab</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">能够看到如下解释</span></span><br><span class="line">SHELL=/bin/bash</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">MAILTO=root</span><br><span class="line">HOME=/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">For details see man 4 crontabs</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example of job definition:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.---------------- minute (0 - 59)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| .------------- hour (0 - 23)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | |</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">* * * * * user-name <span class="built_in">command</span> to be executed</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="crontab文件含义"><a href="#crontab文件含义" class="headerlink" title="crontab文件含义"></a>crontab文件含义</h1><p>前四行是用来配置crond任务运行的环境变量</p>
-<ol>
-<li><p>第一行SHELL变量指定了系统要使用哪个shell，这里是bash；</p>
-</li>
-<li><p>第二行PATH变量指定了系统执行命令的路径；</p>
-</li>
-<li><p>第三行MAILTO变量指定了crond的任务执行信息将通过电子邮件发送给root用户，如果MAILTO变量的值为空，则表示不发送任务执行信息给用户；</p>
-</li>
-<li><p>第四行的HOME变量指定了在执行命令或者脚本时使用的主目录。</p>
-</li>
-</ol>
-<center>
-    <img src="/2022/05/02/crontab/crontab.png" , width="80%">
-</center>
-
-<p>在以上各个字段中，还可以使用以下特殊字符：</p>
-<p>“*“代表所有的取值范围内的数字，如月份字段为*，则表示1到12个月；</p>
-<p>“&#x2F;“代表每一定时间间隔的意思，如分钟字段为*&#x2F;10，表示每10分钟执行1次。</p>
-<p>“-“代表从某个区间范围，是闭区间。如“2-5”表示“2,3,4,5”，小时字段中0-23&#x2F;2表示在0~23点范围内每2个小时执行一次。</p>
-<p>“,”分散的数字（不一定连续），如1,2,3,4,7,9。</p>
-<p>注：由于各个地方每周第一天不一样，因此Sunday&#x3D;0（第一天）或Sunday&#x3D;7（最后1天）。</p>
-<h1 id="crontab命令详解"><a href="#crontab命令详解" class="headerlink" title="crontab命令详解"></a>crontab命令详解</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab [-u user] file</span><br><span class="line">crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>-u user：用于设定某个用户的crontab服务；</li>
-<li>file: file为命令文件名，表示将file作为crontab的任务列表文件并载入crontab；</li>
-<li>-e：编辑某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
-<li>-l：显示某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
-<li>-r：从&#x2F;var&#x2F;spool&#x2F;cron目录中删除某个用户的crontab文件。</li>
-<li>-i：在删除用户的crontab文件时给确认提示。</li>
-</ul>
-<h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ol>
-<li><p>crontab有2种编辑方式：直接编辑&#x2F;etc&#x2F;crontab文件与<br>crontab –e，其中&#x2F;etc&#x2F;crontab里的计划任务是系统中的计划任务，而用户的计划任务需要通过crontab –e来编辑；</p>
-</li>
-<li><p>每次编辑完某个用户的cron设置后，cron自动在&#x2F;var&#x2F;spool&#x2F;cron下生成一个与此用户同名的文件，此用户的cron信息都记录在这个文件中，这个文件是不可以直接编辑的，只可以用crontab -e 来编辑。</p>
-</li>
-<li><p>crontab中的command尽量使用绝对路径，否则会经常因为路径错误导致任务无法执行。</p>
-</li>
-<li><p>新创建的cron job不会马上执行，至少要等2分钟才能执行，可从起cron来立即执行。</p>
-</li>
-<li><p>%在crontab文件中表示“换行”，因此假如脚本或命令含有%,需要使用%来进行转义。</p>
-</li>
-</ol>
-<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
-<li><a href="https://www.linuxprobe.com/how-to-crontab.html">crontab用法与实例</a></li>
-<li><a href="https://man7.org/linux/man-pages/man5/crontab.5.html">crontab(5) — Linux manual page</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Basic</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
