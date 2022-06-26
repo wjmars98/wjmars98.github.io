@@ -10,7 +10,7 @@ In this article, I explored how to establish the fingerprint of each image by co
 image dhash code and text hash code.
 
 <center>
-	<img src='Image-Fingerprint/image_fingerprint_logo.jpg' width="80%">
+	<img src='Image_Fingerprint/image_fingerprint_logo.jpg' width="80%">
 </center>
 
 <!--more-->
