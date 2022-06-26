@@ -719,7 +719,7 @@
     <content><![CDATA[<p>When I tried to build a database for images, a parameter was required to designed for the identification of each image. </p>
 <p>In this article, I explored how to establish the fingerprint of each image by combining its<br>image dhash code and text hash code.</p>
 <center>
-    <img src="/2022/06/07/Image%20Fingerprint/image_fingerprint_logo.jpg">
+    <img src="/2022/06/07/Image%20Fingerprint/image_fingerprint_logo.jpg" width="80%">
 </center>
 
 <span id="more"></span>
@@ -730,7 +730,8 @@
 <li>dHash (image feature)</li>
 <li>hexdigest (image format name feature)</li>
 </ol>
-<h1 id="dHash-Method"><a href="#dHash-Method" class="headerlink" title="dHash Method"></a>dHash Method</h1><p>In common case, there are three image hash methods(aHash, pHash and dHash) in mython.</p>
+<h1 id="dHash-Method"><a href="#dHash-Method" class="headerlink" title="dHash Method"></a>dHash Method</h1><p>In common case, there are three image hash methods(aHash, pHash and dHash) in mython. I chose the dhash method to generate<br>the image hash code.</p>
+<p>Dhash, also known as  Difference Hash, is a quick algorithm to compare in images visually. Comparing to ahash and phash,<br>this method is far more accurate and quick. That’s the most important reason for me to choose this image hash method.</p>
 ]]></content>
       <tags>
         <tag>Basic</tag>
@@ -1426,11 +1427,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Scrapy Image Download</title>
-    <url>/2022/05/07/Scrapy-Image-Download/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Scrapy: Manage Multiple Pipelines</title>
     <url>/2022/05/10/Scrapy-Manage-Multiple-Pipelines/</url>
     <content><![CDATA[<p>It’s a common situation that managing multiple pipelines are required  when we try to develop some scrapy projects and decide the order of the pipelines. </p>
@@ -1477,6 +1473,11 @@
       <tags>
         <tag>scrapy</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Scrapy Image Download</title>
+    <url>/2022/05/07/Scrapy-Image-Download/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Scrapy Introduction</title>
@@ -1689,6 +1690,70 @@
       </tags>
   </entry>
   <entry>
+    <title>crontab</title>
+    <url>/2022/05/02/crontab/</url>
+    <content><![CDATA[<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令，可以实现某一任务在指定的时间运行。</p>
+<span id="more"></span>
+
+<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令。</p>
+<h1 id="crontab配置文件"><a href="#crontab配置文件" class="headerlink" title="crontab配置文件"></a>crontab配置文件</h1><p>在centos系统中，通过调用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看配置指令</span></span><br><span class="line">cat /etc/crontab</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">能够看到如下解释</span></span><br><span class="line">SHELL=/bin/bash</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">MAILTO=root</span><br><span class="line">HOME=/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">For details see man 4 crontabs</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example of job definition:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.---------------- minute (0 - 59)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| .------------- hour (0 - 23)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | |</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">* * * * * user-name <span class="built_in">command</span> to be executed</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="crontab文件含义"><a href="#crontab文件含义" class="headerlink" title="crontab文件含义"></a>crontab文件含义</h1><p>前四行是用来配置crond任务运行的环境变量</p>
+<ol>
+<li><p>第一行SHELL变量指定了系统要使用哪个shell，这里是bash；</p>
+</li>
+<li><p>第二行PATH变量指定了系统执行命令的路径；</p>
+</li>
+<li><p>第三行MAILTO变量指定了crond的任务执行信息将通过电子邮件发送给root用户，如果MAILTO变量的值为空，则表示不发送任务执行信息给用户；</p>
+</li>
+<li><p>第四行的HOME变量指定了在执行命令或者脚本时使用的主目录。</p>
+</li>
+</ol>
+<center>
+    <img src="/2022/05/02/crontab/crontab.png" , width="80%">
+</center>
+
+<p>在以上各个字段中，还可以使用以下特殊字符：</p>
+<p>“*“代表所有的取值范围内的数字，如月份字段为*，则表示1到12个月；</p>
+<p>“&#x2F;“代表每一定时间间隔的意思，如分钟字段为*&#x2F;10，表示每10分钟执行1次。</p>
+<p>“-“代表从某个区间范围，是闭区间。如“2-5”表示“2,3,4,5”，小时字段中0-23&#x2F;2表示在0~23点范围内每2个小时执行一次。</p>
+<p>“,”分散的数字（不一定连续），如1,2,3,4,7,9。</p>
+<p>注：由于各个地方每周第一天不一样，因此Sunday&#x3D;0（第一天）或Sunday&#x3D;7（最后1天）。</p>
+<h1 id="crontab命令详解"><a href="#crontab命令详解" class="headerlink" title="crontab命令详解"></a>crontab命令详解</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab [-u user] file</span><br><span class="line">crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-u user：用于设定某个用户的crontab服务；</li>
+<li>file: file为命令文件名，表示将file作为crontab的任务列表文件并载入crontab；</li>
+<li>-e：编辑某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
+<li>-l：显示某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
+<li>-r：从&#x2F;var&#x2F;spool&#x2F;cron目录中删除某个用户的crontab文件。</li>
+<li>-i：在删除用户的crontab文件时给确认提示。</li>
+</ul>
+<h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ol>
+<li><p>crontab有2种编辑方式：直接编辑&#x2F;etc&#x2F;crontab文件与<br>crontab –e，其中&#x2F;etc&#x2F;crontab里的计划任务是系统中的计划任务，而用户的计划任务需要通过crontab –e来编辑；</p>
+</li>
+<li><p>每次编辑完某个用户的cron设置后，cron自动在&#x2F;var&#x2F;spool&#x2F;cron下生成一个与此用户同名的文件，此用户的cron信息都记录在这个文件中，这个文件是不可以直接编辑的，只可以用crontab -e 来编辑。</p>
+</li>
+<li><p>crontab中的command尽量使用绝对路径，否则会经常因为路径错误导致任务无法执行。</p>
+</li>
+<li><p>新创建的cron job不会马上执行，至少要等2分钟才能执行，可从起cron来立即执行。</p>
+</li>
+<li><p>%在crontab文件中表示“换行”，因此假如脚本或命令含有%,需要使用%来进行转义。</p>
+</li>
+</ol>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
+<li><a href="https://www.linuxprobe.com/how-to-crontab.html">crontab用法与实例</a></li>
+<li><a href="https://man7.org/linux/man-pages/man5/crontab.5.html">crontab(5) — Linux manual page</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Basic</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Zookeeper Basic</title>
     <url>/2022/04/10/Zookeeper-Basic/</url>
     <content><![CDATA[<p>ZooKeeper是一个分布式、开源的分布式应用协调服务。它公开了一组简单的原语，分布式应用程序可以在此基础上构建，以实现同步、配置维护、组和命名等更高级别的服务。它的设计是易于编程的，并使用了一个数据模型，其样式类似于熟悉的文件系统的目录树结构。它在Java中运行，并且有Java和C的绑定。</p>
@@ -1777,70 +1842,6 @@
       </categories>
       <tags>
         <tag>Zookeeper</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>crontab</title>
-    <url>/2022/05/02/crontab/</url>
-    <content><![CDATA[<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令，可以实现某一任务在指定的时间运行。</p>
-<span id="more"></span>
-
-<p>Linux下的任务调度分为两类：系统任务调度和用户任务调度。Linux系统任务是由 cron (crond) 这个系统服务来控制的，这个系统服务是默认启动的。用户自己设置的计划任务则使用crontab 命令。</p>
-<h1 id="crontab配置文件"><a href="#crontab配置文件" class="headerlink" title="crontab配置文件"></a>crontab配置文件</h1><p>在centos系统中，通过调用</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看配置指令</span></span><br><span class="line">cat /etc/crontab</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">能够看到如下解释</span></span><br><span class="line">SHELL=/bin/bash</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">MAILTO=root</span><br><span class="line">HOME=/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">For details see man 4 crontabs</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example of job definition:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.---------------- minute (0 - 59)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| .------------- hour (0 - 23)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">| | | | |</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">* * * * * user-name <span class="built_in">command</span> to be executed</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="crontab文件含义"><a href="#crontab文件含义" class="headerlink" title="crontab文件含义"></a>crontab文件含义</h1><p>前四行是用来配置crond任务运行的环境变量</p>
-<ol>
-<li><p>第一行SHELL变量指定了系统要使用哪个shell，这里是bash；</p>
-</li>
-<li><p>第二行PATH变量指定了系统执行命令的路径；</p>
-</li>
-<li><p>第三行MAILTO变量指定了crond的任务执行信息将通过电子邮件发送给root用户，如果MAILTO变量的值为空，则表示不发送任务执行信息给用户；</p>
-</li>
-<li><p>第四行的HOME变量指定了在执行命令或者脚本时使用的主目录。</p>
-</li>
-</ol>
-<center>
-    <img src="/2022/05/02/crontab/crontab.png" , width="80%">
-</center>
-
-<p>在以上各个字段中，还可以使用以下特殊字符：</p>
-<p>“*“代表所有的取值范围内的数字，如月份字段为*，则表示1到12个月；</p>
-<p>“&#x2F;“代表每一定时间间隔的意思，如分钟字段为*&#x2F;10，表示每10分钟执行1次。</p>
-<p>“-“代表从某个区间范围，是闭区间。如“2-5”表示“2,3,4,5”，小时字段中0-23&#x2F;2表示在0~23点范围内每2个小时执行一次。</p>
-<p>“,”分散的数字（不一定连续），如1,2,3,4,7,9。</p>
-<p>注：由于各个地方每周第一天不一样，因此Sunday&#x3D;0（第一天）或Sunday&#x3D;7（最后1天）。</p>
-<h1 id="crontab命令详解"><a href="#crontab命令详解" class="headerlink" title="crontab命令详解"></a>crontab命令详解</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab [-u user] file</span><br><span class="line">crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>-u user：用于设定某个用户的crontab服务；</li>
-<li>file: file为命令文件名，表示将file作为crontab的任务列表文件并载入crontab；</li>
-<li>-e：编辑某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
-<li>-l：显示某个用户的crontab文件内容，如不指定用户则表示当前用户；</li>
-<li>-r：从&#x2F;var&#x2F;spool&#x2F;cron目录中删除某个用户的crontab文件。</li>
-<li>-i：在删除用户的crontab文件时给确认提示。</li>
-</ul>
-<h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ol>
-<li><p>crontab有2种编辑方式：直接编辑&#x2F;etc&#x2F;crontab文件与<br>crontab –e，其中&#x2F;etc&#x2F;crontab里的计划任务是系统中的计划任务，而用户的计划任务需要通过crontab –e来编辑；</p>
-</li>
-<li><p>每次编辑完某个用户的cron设置后，cron自动在&#x2F;var&#x2F;spool&#x2F;cron下生成一个与此用户同名的文件，此用户的cron信息都记录在这个文件中，这个文件是不可以直接编辑的，只可以用crontab -e 来编辑。</p>
-</li>
-<li><p>crontab中的command尽量使用绝对路径，否则会经常因为路径错误导致任务无法执行。</p>
-</li>
-<li><p>新创建的cron job不会马上执行，至少要等2分钟才能执行，可从起cron来立即执行。</p>
-</li>
-<li><p>%在crontab文件中表示“换行”，因此假如脚本或命令含有%,需要使用%来进行转义。</p>
-</li>
-</ol>
-<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
-<li><a href="https://www.linuxprobe.com/how-to-crontab.html">crontab用法与实例</a></li>
-<li><a href="https://man7.org/linux/man-pages/man5/crontab.5.html">crontab(5) — Linux manual page</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Basic</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
